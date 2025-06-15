@@ -129,6 +129,6 @@ Deberías ver algo parecido a esto:
 Felicidades de nuevo, lograste escribir y ejecutar tu primer programa en python.
 Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje "¡Hola mundo!", por medio de la función `print`.
 
-En la siguiente lectura aprenderás más al respect.
+En la siguiente lectura aprenderás más al respecto.
 
 

@@ -1,14 +1,18 @@
-title: "Curso de Python"
+title: "Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud"
 remote_theme: just-the-docs/just-the-docs
-color_scheme: nil
 
+search_enabled: true
 heading_anchors: true
 
-# Optional: adds the outline on the right using jekyll-toc
+includes_head: _includes/head_custom.html
+
 toc: true
 toc_levels: 1..3
+toc_label: Contenido
+description: "Curso de Python desde cero, para aprender programación estadística enfocada a ciencias de la salud."
+
 aux_links:
   "GitHub Repo":
     - "https://github.com/chrisdewa/curso_python"
   "Libretas":
-    - "https://github.com/chrisdewa/curso_python/tree/main/libretas"       
+    - "https://github.com/chrisdewa/curso_python/tree/main/libretas"
