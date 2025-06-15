@@ -1,9 +1,12 @@
 ---
-title: Introducción
+title: "Tema 1: Generalidades"
 nav_order: 1
 ---
 
-# Generalidades 
+# Generalidades
+
+* TOC
+{:toc}
 
 ## Programación
 
