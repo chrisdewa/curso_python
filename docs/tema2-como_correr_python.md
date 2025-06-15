@@ -1,43 +1,45 @@
 ---
-title: "Tema 2: Cómo correr python"
+title: "Tema 2: Cómo correr Python"
 ---
 
-# Cómo correr python
+# Cómo correr Python
 
 __**Tabla de contenidos**__
 * TOC
 {:toc}
 
-Este tema explica las distintas formas en que se puede "correr" o ejecutar código en Python. Si nunca has programado antes, no te preocupes: aquí lo explicamos paso a paso, desde cómo escribir una línea de código hasta cómo ejecutar un programa completo.
+En este tema exploramos las distintas formas de ejecutar código Python, desde opciones simples en la nube hasta instalaciones avanzadas y flexibles en tu computadora.
 
 ## ¿Qué significa “correr” Python?
 
-"Correr" Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora haga lo que le pedimos: mostrar un mensaje, hacer un cálculo, leer un archivo, etc.
+“Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.
 
-Hay varias formas de hacerlo:
-
-* En la nube (sin instalar nada en tu computadora)
-* Localmente (instalando Python y programas relacionados)
-
----
+A diferencia de otros lenguajes de programación que son "compilados", python es un lenguaje "interpretado", esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado "intérprete" que lo leé y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.
 
 ## En la nube - Google Colab
 
-Google ofrece un servicio gratuito llamado [Google Colab](https://colab.research.google.com/) que te permite escribir y ejecutar código Python directamente desde tu navegador.
+[Google Colab](https://colab.research.google.com/) es un servicio gratuito que permite escribir y ejecutar código Python desde el navegador.
+Cuando lo usas, se te asigna una computadora virtual que ya tiene instalado todo lo necesario para trabajar, todo ocurre en la nube, sin que tu computadora necesite hacer nada más que conectarse a colab.
 
 ### Ventajas
 
-- No necesitas instalar nada.
-- Puedes guardar tus archivos en Google Drive.
-- Incluye muchas bibliotecas útiles ya instaladas (como pandas, numpy, matplotlib, etc).
-- Es gratis (aunque con límites razonables).
+- No requiere instalación.
+- Funciona desde cualquier sistema operativo (Windows, Mac, Linux, Chromebook).
+- Se integra con Google Drive.
+- Incluye bibliotecas como `numpy`, `pandas`, `matplotlib`.
+
+### Desventajas
+
+- Depende de conexión a internet.
+- Puede ser más lento que trabajar localmente.
+- Tiene límites en uso prolongado (desconexión por inactividad).
 
 ### Cómo usarlo
 
-1. Abre el enlace: https://colab.research.google.com/
+1. Accede a https://colab.research.google.com/
 2. Inicia sesión con tu cuenta de Google.
-3. Crea un nuevo archivo seleccionando “Nuevo cuaderno”.
-4. En la celda que aparece, escribe código como:
+3. Selecciona “Nuevo notebook”.
+4. Escribe código como:
 
    ```python
    print("Hola mundo")
@@ -47,195 +49,174 @@ Google ofrece un servicio gratuito llamado [Google Colab](https://colab.research
 
 ---
 
-## Local - En tu propia computadora
+## Local - En tu computadora
 
-Instalar Python localmente te da mayor control, velocidad y privacidad. Hay varias formas de hacerlo.
-
----
-
-### Opción clásica: Instalador oficial de Python
-
-1. Ve a la página [https://www.python.org/downloads/](https://www.python.org/downloads/)
-2. Descarga el instalador para tu sistema operativo (Windows, macOS o Linux).
-3. En Windows, **asegúrate de marcar la opción "Add Python to PATH"** antes de instalar.
-4. Termina la instalación.
-
-Para comprobar que funciona, abre la terminal (o PowerShell en Windows) y escribe:
-
-```bash
-python
-```
-
-Deberías ver algo como:
-
-```
-Python 3.12.0 (default, Oct  5 2024, ...)
->>> 
-```
-
-Ahí puedes escribir instrucciones:
-
-```python
-print("Hola desde Python instalado")
-```
-
-Para salir, escribe:
-
-```python
-exit()
-```
+Instalar Python localmente da más control y velocidad. Es la mejor opción si deseas trabajar sin conexión o construir proyectos complejos.
 
 ---
 
-### Opción moderna y recomendada: Astral UV
+### Opción 1: Instalador oficial de Python
 
-[Astral UV](https://docs.astral.sh/uv/) es una herramienta nueva que facilita mucho el uso de Python. Permite instalar y manejar proyectos con rapidez, seguridad y sin complicaciones.
+La forma más directa de instalar Python es desde [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-#### ¿Qué hace `uv`?
+#### Pasos:
 
-- Instala entornos virtuales automáticamente.
-- Administra dependencias (paquetes de Python).
-- Aísla cada proyecto, evitando conflictos entre bibliotecas.
+1. Descarga el instalador para tu sistema operativo.
+2. En Windows: **activa la opción “Add Python to PATH”**.
+3. Completa la instalación.
 
-#### Cómo instalar `uv`
+#### ¿Qué se puede hacer?
 
-##### En macOS o Linux:
+Una vez instalado, puedes:
 
-Abre una terminal y escribe:
+- Ejecutar Python desde terminal:
+
+  ```bash
+  python
+  ```
+
+- Crear entornos virtuales:
+
+  ```bash
+  python -m venv .venv
+  ```
+
+- Instalar herramientas como JupyterLab:
+
+  ```bash
+  .venv\Scripts\activate      # en Windows
+  source .venv/bin/activate     # en Linux/Mac
+  pip install jupyterlab
+  jupyter lab
+  ```
+
+Este método es flexible y profesional, pero requiere cuidado al manejar versiones y entornos si trabajas en varios proyectos. Para un novato puede ser complejo y es dificil cambiar entre versiones de python.
+
+---
+
+### Opción 2: Astral UV
+
+[Astral UV](https://docs.astral.sh/uv/) es una herramienta moderna para gestionar proyectos Python de forma segura y reproducible.
+Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
+
+#### Instalación
+
+Siempre consulta la página oficial de [instalación](https://docs.astral.sh/uv/getting-started/installation/).
+
+En Linux/Mac:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-##### En Windows (PowerShell):
-
-Abre PowerShell como administrador y escribe:
+En Windows (PowerShell):
 
 ```powershell
 irm https://astral.sh/uv/install.ps1 | iex
 ```
 
-Una vez instalado, el comando `uv` ya estará disponible.
-
----
-
-### Crear un proyecto con `uv`
-
-Supongamos que quieres empezar un proyecto de Python para aprender. Haz lo siguiente:
+#### Crear un proyecto
 
 ```bash
-mkdir mi_proyecto
-cd mi_proyecto
+uv init nombre_del_proyecto
 ```
 
-Ahora inicializa un entorno con:
+Agregar dependencias (librerías y paquetes necesarios).
 
 ```bash
-uv venv
+uv add matplotlib pandas numpy jupuyterlab
 ```
 
-Esto creará una carpeta `.venv` con un entorno de Python aislado, y lo activará automáticamente si estás en una terminal compatible.
-
----
-
-### Crear un archivo `pyproject.toml`
-
-Este archivo indica qué paquetes necesitas para tu proyecto. Crea un archivo con ese nombre (`pyproject.toml`) y escribe algo así dentro:
-
-```toml
-[project]
-name = "mi_proyecto"
-dependencies = [
-  "jupyterlab",
-  "numpy",
-  "pandas"
-]
-```
-
-Esto le dice a `uv` que debe instalar tres paquetes: jupyterlab (para usar notebooks), numpy (para matemáticas) y pandas (para datos).
-
-Ahora instala todo con:
+Después corre:
 
 ```bash
-uv pip install -r pyproject.toml
-```
-
-O, alternativamente, uno por uno:
-
-```bash
-uv pip install jupyterlab
+uv run jupyter lab
 ```
 
 ---
 
-### Cómo usar JupyterLab
+### Opción 3: Anaconda
 
-[JupyterLab](https://jupyter.org/) es un entorno gráfico que corre en el navegador y permite escribir código en celdas, ver resultados, insertar notas, gráficos y más. Es ideal para aprender.
+[Anaconda](https://www.anaconda.com/) es una distribución completa para ciencia de datos, análisis numérico y machine learning.
 
-Después de instalarlo, lo ejecutas así:
+#### Ventajas
 
-```bash
-jupyter lab
-```
+- Incluye Jupyter, Spyder, pandas, numpy, matplotlib, etc.
+- Tiene su propio gestor de entornos: `conda`.
+- Funciona bien para usuarios sin conocimientos técnicos que quieren instalar todo de una vez.
 
-Se abrirá una ventana del navegador con una interfaz gráfica. Ahí puedes crear un “notebook” nuevo y comenzar a escribir código.
+#### Desventajas
 
-Ejemplo:
+- Es muy pesada (>3 GB).
+- Su entorno `base` puede volverse difícil de mantener si no se usan entornos específicos.
+- No es estrictamente necesario si ya sabes usar `pip` o `uv`.
 
-```python
-mensaje = "Hola desde Jupyter"
-print(mensaje)
-```
+#### ¿Para quién es útil?
+
+- Personas que trabajen en ciencia de datos, biología computacional, finanzas, investigación.
+- Quienes quieran evitar instalar paquetes uno a uno.
+- Docentes que busquen entornos estandarizados para talleres.
 
 ---
 
-### Alternativas: entornos virtuales clásicos
+## Comparación entre opciones
 
-Si no usas `uv`, puedes usar el método tradicional de Python:
+| Método             | Requiere instalación | Facilidad de uso | Ideal para...                          |
+|--------------------|----------------------|------------------|----------------------------------------|
+| Google Colab       | No                   | Muy alta         | Primer contacto, clases, pruebas       |
+| Instalador oficial | Sí                   | Media            | Uso general, proyectos variados        |
+| UV                 | Sí                   | Alta             | Desarrollo reproducible, proyectos     |
+| Anaconda           | Sí                   | Alta             | Ciencia de datos, talleres, investigación |
 
-```bash
-python -m venv .venv
-source .venv/bin/activate     # macOS o Linux
-.venv\Scripts\activate      # Windows
-```
+---
 
-Luego instala paquetes con `pip`:
+## JupyterLab
+
+[JupyterLab](https://jupyter.org/) es una interfaz web que permite ejecutar código Python en bloques (celdas), visualizar resultados, escribir notas y generar gráficos.
+
+Ideal para:
+
+- Aprender paso a paso.
+- Crear cuadernos de ejercicios.
+- Analizar datos.
+
+Se instala con:
 
 ```bash
 pip install jupyterlab
 ```
 
-Y sigue el mismo proceso para usar Jupyter.
+O bien en `uv` o `conda`.
+
+Para ejecutarlo:
+
+```bash
+jupyter lab
+```
 
 ---
 
-### Otra opción: Anaconda
+## Editores de texto recomendados
 
-[Anaconda](https://www.anaconda.com/) es una distribución grande de Python que ya incluye Jupyter, pandas, numpy, scipy y muchas herramientas útiles. Es muy usada en ciencia de datos.
+Puedes escribir código Python en cualquier editor, pero algunos tienen ventajas:
 
-Ventajas:
-
-- Fácil de instalar.
-- Muy completo.
-- Incluye su propia aplicación gráfica: Anaconda Navigator.
-
-Desventajas:
-
-- Muy pesado (varios GB).
-- Puede ser confuso si usas también el Python oficial.
+- **VS Code**: muy potente, con extensiones para Python y Jupyter.
+- **JupyterLab**: permite combinar código, gráficos y texto.
 
 ---
 
 ## ¿Qué es un script de Python?
 
-Un *script* es un archivo con extensión `.py` que contiene instrucciones. Puedes crear uno en cualquier editor de texto, por ejemplo:
+Un archivo `.py` es un script: una secuencia de instrucciones.
+
+Ejemplo:
 
 ```python
-# archivo llamado hola.py
+# archivo hola.py
 print("Hola mundo")
 ```
 
-Para correrlo, escribe:
+Se ejecuta con:
 
 ```bash
 python hola.py
@@ -243,43 +224,14 @@ python hola.py
 
 ---
 
-## ¿Qué editor de texto usar?
+## Recomendaciones
 
-Puedes usar desde el Bloc de Notas hasta editores más completos como:
-
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Thonny](https://thonny.org/) (muy recomendado para principiantes)
-- [Sublime Text](https://www.sublimetext.com/)
-- [JupyterLab](https://jupyter.org/)
-
----
-
-## ¿Qué hacer si me pierdo?
-
-Si no entiendes algo, no pasa nada. Lo más importante es:
-
-1. Instalar Python (recomendado: usar `uv`)
-2. Crear un entorno con `uv venv`
-3. Instalar `jupyterlab`
-4. Ejecutar `jupyter lab`
-5. Empezar a escribir código
-
-Puedes volver a esta guía siempre que necesites revisar los pasos.
-
----
-
-## Resumen
-
-| Forma de correr Python | Requiere instalación | Ideal para...                        |
-|------------------------|----------------------|--------------------------------------|
-| Google Colab           | No                   | Principiantes, clases, experimentos  |
-| Instalador oficial     | Sí                   | Uso básico o general                 |
-| Astral UV              | Sí                   | Proyectos serios, recomendada        |
-| Anaconda               | Sí                   | Ciencia de datos, principiantes      |
-| JupyterLab             | Depende              | Análisis interactivo, enseñanza      |
+- Si solo quieres probar Python → usa **Google Colab**.
+- Si quieres trabajar offline con control → usa **Instalador oficial + venv o uv**.
+- Si tu enfoque es ciencia de datos → **Anaconda o uv con JupyterLab**.
 
 ---
 
 ## Próximos pasos
 
-Ahora que sabes cómo correr Python, en el siguiente tema aprenderás a escribir tus primeros programas, usar variables, hacer operaciones y tomar decisiones en tu código.
+Ya puedes ejecutar código Python. En el siguiente tema aprenderás a escribir tus primeros programas, trabajar con variables y hacer operaciones básicas.
