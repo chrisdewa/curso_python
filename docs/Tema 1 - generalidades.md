@@ -65,6 +65,7 @@ Como comentamos, python es un lenguaje que está orientado a objetos. Todo es un
 En python existen algunos tipos básicos.
 
 ###### Valores individuales
+
 |tipo|ejemplo|función|
 |----|-------|-------|
 |int|3|Números enteros, pueden ser positivos, negativos y cero.|
