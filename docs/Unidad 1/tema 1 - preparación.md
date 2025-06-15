@@ -1,6 +1,9 @@
 ---
 title: "Tema 1: Preparación inicial"
+parent: "Unidad 1: Aspectos Básicos"
+nav_order: 1
 ---
+
 
 # Tema 1. Preparación inicial
 

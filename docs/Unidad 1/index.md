@@ -1,4 +1,10 @@
-# Unidad 1: Generalidades
+---
+title: "Unidad 1: Aspectos Básicos"
+nav_order: 1
+has_children: true
+---
+
+# Unidad 1: Aspectos Básicos
 
 ## Objetivo general de la unidad
 

@@ -1,3 +1,7 @@
+---
+title: Inicio
+nav_order: 0
+---
 
 # Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud
 
@@ -18,8 +22,6 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 - **Práctica guiada (libretas y ejercicios):** 200 horas
 
 ---
-
-## Temario por Unidades
 
 
 Todas las lecturas pueden consultarse tanto en [github](https://github.com/chrisdewa/curso_python/tree/main/docs) como en la [página](https://chrisdewa.github.io/curso_python). 
