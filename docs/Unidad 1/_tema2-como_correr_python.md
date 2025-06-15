@@ -1,5 +1,5 @@
 ---
-title: "Tema 2: Cómo correr Python"
+title: "Tema 2: Formas correr Python"
 ---
 
 # Cómo correr Python
@@ -10,11 +10,6 @@ __**Tabla de contenidos**__
 
 En este tema exploramos las distintas formas de ejecutar código Python, desde opciones simples en la nube hasta instalaciones avanzadas y flexibles en tu computadora.
 
-## ¿Qué significa “correr” Python?
-
-“Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.
-
-A diferencia de otros lenguajes de programación que son "compilados", python es un lenguaje "interpretado", esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado "intérprete" que lo leé y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.
 
 ## En la nube - Google Colab
 
@@ -96,44 +91,7 @@ Este método es flexible y profesional, pero requiere cuidado al manejar version
 
 ### Opción 2: Astral UV
 
-[Astral UV](https://docs.astral.sh/uv/) es una herramienta moderna para gestionar proyectos Python de forma segura y reproducible.
-Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
 
-#### Instalación
-
-Siempre consulta la página oficial de [instalación](https://docs.astral.sh/uv/getting-started/installation/).
-
-En Linux/Mac:
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-En Windows (PowerShell):
-
-```powershell
-irm https://astral.sh/uv/install.ps1 | iex
-```
-
-#### Crear un proyecto
-
-```bash
-uv init nombre_del_proyecto
-```
-
-Agregar dependencias (librerías y paquetes necesarios).
-
-```bash
-uv add matplotlib pandas numpy jupuyterlab
-```
-
-Después corre:
-
-```bash
-uv run jupyter lab
-```
-
----
 
 ### Opción 3: Anaconda
 
