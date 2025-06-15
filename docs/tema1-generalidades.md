@@ -265,5 +265,5 @@ Este ejemplo muestra cómo las clases `CelulaMuscular` y `Neurona` heredan de `C
 
 ## Siguientes pasos:
 Continúa con la [libreta 0](<https://github.com/chrisdewa/curso_python/blob/main/libretas/Tutorial%200%20-%20Hola%20Mundo.ipynb>), hola mundo.
-Continúa con el [Tema 2: Cómo correr python](tema2-como_correr_python).
+Continúa con el [Tema 2: Cómo correr python](tema2-como_correr_python.md).
 
