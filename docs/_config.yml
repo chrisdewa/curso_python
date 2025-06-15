@@ -2,7 +2,11 @@ title: "Curso de Python"
 remote_theme: just-the-docs/just-the-docs
 color_scheme: dark
 
-# Optional: adds the outline on the right
+heading_anchors: true
+
+# Optional: adds the outline on the right using jekyll-toc
+toc: true
+toc_levels: 1..3
 aux_links:
   "GitHub Repo":
     - "https://github.com/chrisdewa/curso_python"
