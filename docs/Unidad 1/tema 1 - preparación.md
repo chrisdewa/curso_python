@@ -31,9 +31,9 @@ Es la opción preferida por el momento ya que facilita mucho todo el flujo de tr
 
 
 {: .important-title }
-**Cómo ejecutar comandos**
+> Cómo ejecutar comandos
+>
 > 1. Escribe el comendo y sus argumentos.
-> 
 > 2. Da enter para ejecutar.
 
 
