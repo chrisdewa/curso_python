@@ -5,9 +5,6 @@ search_enabled: true
 heading_anchors: true
 
 includes_head: _includes/head_custom.html
-markdown: kramdown
-kramdown:
-  input: GFM
 
 toc: true
 toc_levels: 1..3
