@@ -6,7 +6,7 @@ nav_order: 3
 
 # Formas de trabajar con Python
 
-__**Tabla de contenidos**__
+**Tabla de contenidos**
 * TOC
 {:toc}
 

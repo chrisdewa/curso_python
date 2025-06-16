@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 # Generalidades
-__**Tabla de contenidos**__
+**Tabla de contenidos**
 * TOC
 {:toc}
 

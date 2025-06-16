@@ -29,10 +29,24 @@ A diferencia de otros lenguajes de programación que son "compilados", python es
 
 Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
 
+
+> [!INFO] **Cómo ejecutar comandos**
+>> 1. Escribe el comendo y sus argumentos.
+>> 2. Da enter para ejecutar.S
+
 ## Instalación y configuración báscia
 
+### 1. Abrir una terminal
 
-### 1. Instalación
+Todos los sistemas operativos tienen una aplicación llamada **Terminal**, que sirve para interactuar con el ordenador por medio de comandos.
+
+El primer paso es abrir la terminal. Cuando lo hagas, puedes intentar los siguientes comandos:
+
+- `ls` - Enlista los elementos presentes en la carpeta actual.
+- `cd` - **C**ambia el **d**irectorio a una nueva ubicación.
+- `mkdir` - Crea un nuevo directorio con el nombre especificado.
+
+### 2. Instalación
 
 Siempre consulta la página oficial de [instalación](https://docs.astral.sh/uv/getting-started/installation/).
 
@@ -50,7 +64,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe `uv -V` y da enter, aparecer un breve texto con la versión de uv instalada, por ejemplo `uv 0.6.14`. Si todo está bien, podemos avanzar.
 
-### 2. Crear un proyecto
+### 3. Crear un proyecto
 
 Para inicializar el proyecto del curso, hay que seguir estos pasos.
 
@@ -131,4 +145,12 @@ Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje 
 
 En la siguiente lectura aprenderás más al respecto.
 
+## Práctica personal
 
+1. Repite el proceso de abrir una nueva terminal, navegar hasta el directorio del curso y ejecutar la consola de python.
+2. Dentro de la consola de python ejecuta el comando `help`.
+3. Intenta ahora el comando `help(print)`
+4. Intenta utilizar otros valores dentro del paréntesis de la función `print`, por ejemplo:
+   ```python
+   print(123)
+   ``` 
