@@ -29,11 +29,13 @@ A diferencia de otros lenguajes de programación que son "compilados", python es
 
 Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
 
----
+
+{: .important-title }
 **Cómo ejecutar comandos**
 > 1. Escribe el comendo y sus argumentos.
-> 2. Da enter para ejecutar.|
----
+> 
+> 2. Da enter para ejecutar.
+
 
 ## Instalación y configuración báscia
 
@@ -45,7 +47,7 @@ El primer paso es abrir la terminal. Cuando lo hagas, puedes intentar los siguie
 
 - `ls` - Enlista los elementos presentes en la carpeta actual.
 - `cd` - **C**ambia el **d**irectorio a una nueva ubicación.
-- `mkdir` - Crea un nuevo directorio con el nombre especificado.
+- `mkdir` - Crea un nuevo directorio con el nombre especificado (**m**a**k**e **dir**).
 
 ### 2. Instalación
 
