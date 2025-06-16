@@ -77,9 +77,7 @@ Para inicializar el proyecto del curso, hay que seguir estos pasos.
 {: .info-title }
 > Ejemplo:
 > 
-> ```bash
-> cd Documentos/cursos/
-> ```
+> `cd Documentos/cursos/`
 > Este ejemplo asume que en la carpeta "Documentos" existe otra llamada "cursos".
 
 En este caso, se entiende que 
