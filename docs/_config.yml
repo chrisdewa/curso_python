@@ -9,8 +9,19 @@ includes_head: _includes/head_custom.html
 callouts:
   important:
     title: Important
+    color: purple
+  info:
+    title: Info
+    color: blue
+  tip:
+    title: Tip
+    color: green
+  warning:
+    title: Warning
     color: red
-
+  danger:
+    title: Danger
+    color: orange
 
 toc: true
 toc_levels: 1..3

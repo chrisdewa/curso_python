@@ -13,7 +13,7 @@ nav_order: 1
 {:toc}
 
 ## Objetivo del tema
-Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python.
+Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv. 
 
 ## ¿Qué significa “correr” Python?
 
@@ -73,16 +73,21 @@ Para inicializar el proyecto del curso, hay que seguir estos pasos.
 
 1. Navegar en la terminal hasta el lugar donde queramos tener el proyecto.
 
-Ejemplo:
 
-```bash
-cd Documents/cursos/
-```
+{: .info-title }
+> Ejemplo:
+> 
+> ```bash
+> cd Documentos/cursos/
+> ```
+> Este ejemplo asume que en la carpeta "Documentos" existe otra llamada "cursos".
+
+En este caso, se entiende que 
 
 El comando `cd` "Cambiar directorio" permite navegar el sistema de archivos. Para regreser un nivel usa `cd ..`. Para regresar a la carpeta principal, solo pon `cd`.
 Esto funciona tanto en Mac y linux como en Windows. 
 
-2. Inicializar el proyecto
+1. Inicializar el proyecto
 
 Ya que estamos en el lugar donde queremos tener nuestro proyecto, utiliza el siguiente comando.
 
