@@ -30,9 +30,10 @@ A diferencia de otros lenguajes de programación que son "compilados", python es
 Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
 
 
-> [!INFO] **Cómo ejecutar comandos**
->> 1. Escribe el comendo y sus argumentos.
->> 2. Da enter para ejecutar.S
+{ .important-title }
+> **Cómo ejecutar comandos**
+> 1. Escribe el comendo y sus argumentos.
+> 2. Da enter para ejecutar.S
 
 ## Instalación y configuración báscia
 
