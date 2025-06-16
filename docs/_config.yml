@@ -19,9 +19,6 @@ callouts:
   warning:
     title: Warning
     color: red
-  danger:
-    title: Danger
-    color: orange
 
 toc: true
 toc_levels: 1..3
