@@ -12,7 +12,7 @@ nav_order: 2
 
 ## Algoritmo
 
-{: tip-title }
+{: .tip-title }
 > ¿Qué es un algoritmo?
 >
 > De acuerdo a la Rae, se define como:

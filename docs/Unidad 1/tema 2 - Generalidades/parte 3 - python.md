@@ -1,10 +1,10 @@
 ---
-title: "Parte 2: Algorítmica"
+title: "Parte 2: Python"
 parent: "Tema 2: Generalidades"
-nav_order: 2
+nav_order: 3
 ---
 
-# Parte 2: Algorítmica
+# Parte 3: Python
 
 **Tabla de contenidos**
 * TOC

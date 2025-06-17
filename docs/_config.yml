@@ -20,6 +20,9 @@ callouts:
     title: Warning
     color: red
 
+mermaid:
+  version: "11.6.0"
+
 toc: true
 toc_levels: 1..3
 toc_label: Contenido
