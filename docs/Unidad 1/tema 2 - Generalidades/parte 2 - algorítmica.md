@@ -60,7 +60,7 @@ flowchart TD
   A[Reunir ingredientes y utensilios] --> B[Lavar limones]
 
   B --> C[Iniciar preparación de limones]
-  C --> D1[Tomar primer limón]
+  C --> D1[Tomar limones desde el primero hasta el último]
 
   D1 --> D2[Tomar cuchillo]
   D2 --> D3[Cortar por la mitad]
