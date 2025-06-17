@@ -44,7 +44,7 @@ flowchart LR
 
 ## Uso
 
-{. important-title}
+{: .important-title}
 > Información crítica
 > 
 > En programación, es fundamental comprender el problema a resolver tal que pueda fragmentarse en unidades elementales que puedan ser transformados a código y ejecutados por la computadora.
