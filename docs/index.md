@@ -27,5 +27,3 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 Todas las lecturas pueden consultarse tanto en [github](https://github.com/chrisdewa/curso_python/tree/main/docs) como en la [página](https://chrisdewa.github.io/curso_python). 
 
 Si estás en la página del curso, las lecturas pueden consultarse en la barra lateral.
-
-
