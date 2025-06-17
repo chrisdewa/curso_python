@@ -37,7 +37,7 @@ Es la opción preferida por el momento ya que facilita mucho todo el flujo de tr
 > 2. Da enter para ejecutar.
 
 
-## Instalación y configuración báscia
+## Instalación y configuración básica
 
 ### 1. Abrir una terminal
 
@@ -48,6 +48,9 @@ El primer paso es abrir la terminal. Cuando lo hagas, puedes intentar los siguie
 - `ls` - Enlista los elementos presentes en la carpeta actual.
 - `cd` - **C**ambia el **d**irectorio a una nueva ubicación.
 - `mkdir` - Crea un nuevo directorio con el nombre especificado (**m**a**k**e **dir**).
+
+{: .tip }
+> Existen muchos comandos diferentes, revisa la documentación de tu sistema para concer cuáles tienes disponibles.
 
 ### 2. Instalación
 
@@ -82,9 +85,7 @@ Para inicializar el proyecto del curso, hay que seguir estos pasos.
 > ```
 > Este ejemplo asume que en la carpeta "Documentos" existe otra llamada "cursos".
 
-En este caso, se entiende que 
-
-El comando `cd` "Cambiar directorio" permite navegar el sistema de archivos. Para regreser un nivel usa `cd ..`. Para regresar a la carpeta principal, solo pon `cd`.
+El comando `cd` "Cambiar directorio" permite navegar el sistema de archivos. Para regresar un nivel usa `cd ..`. Para regresar a la carpeta principal, solo pon `cd`.
 Esto funciona tanto en Mac y linux como en Windows. 
 
 1. Inicializar el proyecto
@@ -97,10 +98,10 @@ uv init curso_python
 
 3. Agregar dependencias (librerías y paquetes necesarios).
 
-Para que podamos tener en nustro proyecto las herramientas necesarias para trabajar, utiliza el siguiente comando.
+Para que podamos tener en nuestro proyecto las herramientas necesarias para trabajar, utiliza el siguiente comando.
 
 ```bash
-uv add jupuyterlab seaborn pandas scipy statsmodels
+uv add jupyterlab seaborn pandas scipy statsmodels
 ```
 
 Esto instalará en nuestro proyecto lo siguiente
