@@ -1,0 +1,3 @@
+#!/bin/bash
+./.venv/bin/jupyter-book build docs_raw
+rsync -av --delete docs_raw/_build/html/ docs/
