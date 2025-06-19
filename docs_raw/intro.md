@@ -10,6 +10,15 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 
 ---
 
+:::{admonition} ¿Qué aprenderás?
+:class: tip
+- Conceptos fundamentales de programación.
+- Aplicaciones estadísticas con Python.
+- Uso de JupyterLab y bibliotecas científicas.
+:::
+
+---
+
 ## Duración y Distribución Horaria
 
 **Duración total:** 300 horas  

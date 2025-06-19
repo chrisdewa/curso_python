@@ -2,3 +2,4 @@
 ./.venv/bin/jupyter-book build docs_raw
 rsync -av --delete docs_raw/_build/html/ docs/
 touch docs/.nojekyll
+rm -rf docs_raw/_build

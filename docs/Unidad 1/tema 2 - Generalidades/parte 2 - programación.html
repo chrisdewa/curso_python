@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 2: Generalidades &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Parte 2: Programación &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -57,11 +57,19 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 2 - Generalidades/index';</script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 2 - Generalidades/parte 2 - programación';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Parte 1: Algorítmica" href="parte%201%20-%20algor%C3%ADtmica.html" />
-    <link rel="prev" title="Tema 1. Preparación inicial" href="../tema%201%20-%20preparaci%C3%B3n.html" />
+    <link rel="next" title="Parte 3: Python" href="parte%203%20-%20python.html" />
+    <link rel="prev" title="Parte 1: Algorítmica" href="parte%201%20-%20algor%C3%ADtmica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,9 +190,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../tema%201%20-%20preparaci%C3%B3n.html">Tema 1. Preparación inicial</a></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Tema 2: Generalidades</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Tema 2: Generalidades</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="parte%201%20-%20algor%C3%ADtmica.html">Parte 1: Algorítmica</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parte%202%20-%20programaci%C3%B3n.html">Parte 2: Programación</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Parte 2: Programación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parte%203%20-%20python.html">Parte 3: Python</a></li>
 </ul>
 </details></li>
@@ -262,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 2 - Generalidades/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 2 - Generalidades/parte 2 - programación.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +300,7 @@
       
       
       
-      <li><a href="../../_sources/Unidad 1/tema 2 - Generalidades/index.md" target="_blank"
+      <li><a href="../../_sources/Unidad 1/tema 2 - Generalidades/parte 2 - programación.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -376,7 +384,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 2: Generalidades</h1>
+    <h1>Parte 2: Programación</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -386,7 +394,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-aprendizaje">Objetivo de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flujo-general-de-la-programacion">Flujo general de la programación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pesudocodigo">Pesudocódigo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-demostrativo">Caso demostrativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
             </nav>
         </div>
@@ -398,14 +409,94 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-2-generalidades">
-<h1>Tema 2: Generalidades<a class="headerlink" href="#tema-2-generalidades" title="Link to this heading">#</a></h1>
-<section id="objetivo-de-aprendizaje">
-<h2>Objetivo de aprendizaje<a class="headerlink" href="#objetivo-de-aprendizaje" title="Link to this heading">#</a></h2>
-<p>El alumno conocerá qué es la programación, cómo fragmentar problemas en unidades esenciales, y cómo python ayuda a resolver estos problemas.</p>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="parte-2-programacion">
+<h1>Parte 2: Programación<a class="headerlink" href="#parte-2-programacion" title="Link to this heading">#</a></h1>
+<div class="important admonition">
+<p class="admonition-title">Concepto clave</p>
+<p>Programar es <strong>dar instrucciones precisas y ordenadas a una computadora</strong> para resolver un problema o automatizar una tarea.</p>
 </div>
+<p>Programar no es solo escribir código. Antes de escribir cualquier línea, es necesario entender <strong>qué se quiere resolver</strong> y cómo se podría resolver.</p>
+<section id="flujo-general-de-la-programacion">
+<h2>Flujo general de la programación<a class="headerlink" href="#flujo-general-de-la-programacion" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TD
+  A[&quot;Problema o necesidad&quot;] --&gt; B[&quot;Idea de solución&quot;]
+  B --&gt; C[&quot;Algoritmo&quot;]
+  C --&gt; D[&quot;Código&quot;]
+  D --&gt; E[&quot;Ejecución del programa&quot;]
+  E --&gt; F[&quot;Resultado útil&quot;]
+    </pre><div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si quieres calcular el promedio de calificaciones de tus estudiantes, necesitas:</p>
+<ul class="simple">
+<li><p>Recibir los datos (números)</p></li>
+<li><p>Sumar y dividir</p></li>
+<li><p>Mostrar el resultado</p></li>
+</ul>
+</div>
+<p>Eso se convierte en un <strong>programa</strong> al escribirlo en un lenguaje que la computadora entienda, como Python.</p>
+</section>
+<section id="pesudocodigo">
+<h2>Pesudocódigo<a class="headerlink" href="#pesudocodigo" title="Link to this heading">#</a></h2>
+<p>Antes de escribir código real, es común planear la lógica utilizando <strong>pseudocódigo</strong>: una forma de describir un algoritmo paso a paso usando lenguaje natural estructurado, sin seguir la sintaxis estricta de un lenguaje de programación.</p>
+<p>El pseudocódigo:</p>
+<ul class="simple">
+<li><p>Es legible por humanos</p></li>
+<li><p>No se ejecuta en computadora</p></li>
+<li><p>Permite enfocarse en la lógica antes de preocuparse por detalles técnicos</p></li>
+</ul>
+<p>Su escritura es libre y puede estar en español o cualquier idioma que se desee.</p>
+<div class="error admonition">
+<p class="admonition-title">Concepto crítico</p>
+<p>El pseudocódigo debe ser claro, conciso, fácil de leer y entender.</p>
+<p><strong>Si el pseudocódigo es difícil de leer o entender, debe reescribirse.</strong></p>
+</div>
+<p>Revisa el ejemplo en el caso demostrativo.</p>
+</section>
+<section id="caso-demostrativo">
+<h2>Caso demostrativo<a class="headerlink" href="#caso-demostrativo" title="Link to this heading">#</a></h2>
+<p>Un alumno del doctorado en ciencias de la salud realiza un estudio de secuenciación masiva que produce un compendio de 300 diferentes archivos de excel con datos sobre las variantes genéticas analizadas por cada paciente.
+Problema, debe unir todos los archivos en una sola base de datos.
+Al comenzar a trabajar el alumno tarda una hora en procesar los primeros 30 archivos y calcula que le tomará 10 horas terminar de procesarlos.</p>
+<p><strong>Flujograma:</strong></p>
+<pre  class="mermaid">
+        flowchart LR
+  A[Por cada archivo] --&gt; B[Extraer datos]
+  B --&gt; C[Copiar a base completa]
+    </pre><p><strong>Pseudocódigo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INICIAR</span>
+  <span class="n">OBTENER</span> <span class="n">lista</span> <span class="n">de</span> <span class="n">archivos</span> <span class="n">Excel</span> <span class="n">en</span> <span class="n">la</span> <span class="n">carpeta</span>
+  <span class="n">PARA</span> <span class="n">CADA</span> <span class="n">archivo</span> <span class="n">EN</span> <span class="n">la</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="n">LEER</span> <span class="n">archivo</span>
+    <span class="n">UNIR</span> <span class="n">los</span> <span class="n">datos</span> <span class="n">en</span> <span class="n">una</span> <span class="n">sola</span> <span class="n">base</span>
+  <span class="n">FIN</span>
+  <span class="n">GUARDAR</span> <span class="n">base</span> <span class="n">completa</span> <span class="n">en</span> <span class="n">un</span> <span class="n">nuevo</span> <span class="n">archivo</span> <span class="n">Excel</span>
+<span class="n">TERMINAR</span>
+</pre></div>
+</div>
+<p><strong>Programa implementado:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># librería para datos tabulados</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span> <span class="c1"># librería para encontrar y manejar archivos </span>
+
+<span class="c1"># Obtener todos los archivos .xlsx en la carpeta actual</span>
+<span class="n">archivos</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Leer y combinar todos los archivos</span>
+<span class="n">df_completo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span> <span class="c1"># concat junta cada archivo en una sola tabla</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">archivo_origen</span><span class="o">=</span><span class="n">archivo</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">archivo</span> <span class="ow">in</span> <span class="n">archivos</span>
+<span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Guardar el resultado en un solo archivo</span>
+<span class="n">df_completo</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;base_completa.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># escribe la nueva tabla a un archivo de excel</span>
+</pre></div>
+</div>
+<p>El alumno tomó 30min para diseñar el programa con prueba y error y el programa se ejecutó en menos de 1 minuto.</p>
+</section>
+<section id="practica-personal">
+<h2>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
+<p>Escribe el pseudocódigo para preparar el sandwich de cacahuate del tema anterior.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -439,20 +530,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../tema%201%20-%20preparaci%C3%B3n.html"
+       href="parte%201%20-%20algor%C3%ADtmica.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tema 1. Preparación inicial</p>
+        <p class="prev-next-title">Parte 1: Algorítmica</p>
       </div>
     </a>
     <a class="right-next"
-       href="parte%201%20-%20algor%C3%ADtmica.html"
+       href="parte%203%20-%20python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Parte 1: Algorítmica</p>
+        <p class="prev-next-title">Parte 3: Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -472,7 +563,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-aprendizaje">Objetivo de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flujo-general-de-la-programacion">Flujo general de la programación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pesudocodigo">Pesudocódigo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-demostrativo">Caso demostrativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
   </nav></div>
 
