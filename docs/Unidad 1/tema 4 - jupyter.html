@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 1: Preparación inicial &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Jupyter &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 1 - preparación';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 4 - jupyter';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tema 2: Generalidades" href="tema%202%20-%20Generalidades/index.html" />
-    <link rel="prev" title="Unidad 1: Aspectos Básicos" href="index.html" />
+    <link rel="prev" title="Tema 3: ¿Dónde y cómo ejecutar Python?" href="tema%203%20-%20opciones%20de%20trabajo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +180,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%201%20-%20algor%C3%ADtmica.html">Parte 1: Algorítmica</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%202%20-%20programaci%C3%B3n.html">Parte 2: Programación</a></li>
@@ -189,7 +188,7 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%203%20-%20opciones%20de%20trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema%204%20-%20jupyter.html">Jupyter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Jupyter</a></li>
 </ul>
 </details></li>
 </ul>
@@ -263,7 +262,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 1 - preparación.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 4 - jupyter.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +292,7 @@
       
       
       
-      <li><a href="../_sources/Unidad 1/tema 1 - preparación.md" target="_blank"
+      <li><a href="../_sources/Unidad 1/tema 4 - jupyter.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 1: Preparación inicial</h1>
+    <h1>Jupyter</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,17 +386,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-del-tema">Objetivo del tema</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-significa-correr-python">¿Qué significa “correr” Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-uv-y-por-que-usarlo">¿Qué es <code class="docutils literal notranslate"><span class="pre">uv</span></code> y por qué usarlo?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-y-configuracion-basica">Instalación y configuración básica</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abrir-una-terminal">1. Abrir una terminal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">2. Instalación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-proyecto">3. Crear un proyecto</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrar-a-la-consola-python-y-ejecutar-un-comando-de-prueba">Entrar a la consola (<code class="docutils literal notranslate"><span class="pre">python</span></code>) y ejecutar un comando de prueba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecuta-tu-primer-codigo-en-python">Ejecuta tu primer código en python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter">¿Qué es Jupyter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-entre-jupyter-notebook-y-jupyterlab">Diferencias entre Jupyter Notebook y JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-celdas">Tipos de celdas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ejecutar-codigo">Cómo ejecutar código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-jupyterlab">Cómo abrir JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">Buenas prácticas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
             </nav>
@@ -410,141 +404,104 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-1-preparacion-inicial">
-<h1>Tema 1: Preparación inicial<a class="headerlink" href="#tema-1-preparacion-inicial" title="Link to this heading">#</a></h1>
-<section id="objetivo-del-tema">
-<h2>Objetivo del tema<a class="headerlink" href="#objetivo-del-tema" title="Link to this heading">#</a></h2>
-<p>Instalar Python utilizando <code class="docutils literal notranslate"><span class="pre">uv</span></code>, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv.</p>
-</section>
-<section id="que-significa-correr-python">
-<span id="correr-python-target"></span><h2>¿Qué significa “correr” Python?<a class="headerlink" href="#que-significa-correr-python" title="Link to this heading">#</a></h2>
-<p>“Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.</p>
-<p>A diferencia de otros lenguajes de programación que son “compilados”, python es un lenguaje “interpretado”, esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado “intérprete” que lo leé y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.</p>
-</section>
-<section id="que-es-uv-y-por-que-usarlo">
-<h2>¿Qué es <code class="docutils literal notranslate"><span class="pre">uv</span></code> y por qué usarlo?<a class="headerlink" href="#que-es-uv-y-por-que-usarlo" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://docs.astral.sh/uv/">Astral UV</a> es una herramienta moderna para gestionar proyectos Python de forma segura y reproducible.</p>
-<p>Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.</p>
-<div class="important admonition">
-<p class="admonition-title">Cómo ejecutar comandos</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter">
+<h1>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h1>
+<p>Jupyter es una plataforma interactiva ampliamente utilizada en ciencia de datos, programación y educación. Permite combinar código ejecutable, texto enriquecido (Markdown), visualizaciones, ecuaciones matemáticas y otros elementos en un mismo documento: la libreta o <em>notebook</em>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Ya realizamos la instalación de JupyterLab usando <code class="docutils literal notranslate"><span class="pre">uv</span></code> en el <a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html"><span class="std std-doc">tema 1</span></a>. Si no lo hiciste en ese momento, puedes hacerlo ahora de la siguiente forma:</p>
 <ol class="arabic simple">
-<li><p>Escribe el comendo y sus argumentos.</p></li>
-<li><p>Da enter para ejecutar.</p></li>
+<li><p>Abre tu terminal y navega usando <code class="docutils literal notranslate"><span class="pre">cd</span></code> al directorio del curso.</p></li>
+<li><p>Ejecuta este comando: <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">jupyterlab</span> <span class="pre">seaborn</span> <span class="pre">pandas</span> <span class="pre">scipy</span> <span class="pre">statsmodels</span></code></p></li>
 </ol>
+<p>Este comando instala las principales dependencias que requieres para este curso.</p>
+</div>
+<section id="que-es-jupyter">
+<h2>¿Qué es Jupyter?<a class="headerlink" href="#que-es-jupyter" title="Link to this heading">#</a></h2>
+<p>El nombre “Jupyter” proviene de <strong>Julia</strong>, <strong>Python</strong> y <strong>R</strong>, aunque actualmente soporta muchos más lenguajes. Las libretas Jupyter son documentos <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> que pueden abrirse y ejecutarse en una interfaz web.</p>
+<p>Su principal ventaja es que permite <strong>ver el resultado del código justo debajo de la celda que lo ejecuta</strong>, facilitando la exploración y documentación simultánea.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Consulta la <a class="reference external" href="https://jupyter.org">documentación oficial de Jupyter</a> para más información.</p>
+</div>
+<p>En jupyter escribimos código en “libretas” cada libreta permite escribir código, texto, fórmulas matemáticas, etcétera. Se guardan en archivos con extensión <code class="docutils literal notranslate"><span class="pre">ipynb</span></code>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Para saber más</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/">JupyterLab</a></p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Project Jupyter</a></p></li>
+<li><p><a class="reference external" href="https://cienciadedatos.net/documentos/py08_jupyter.html">Guía básica de Jupyter en español (Ciencia de Datos)</a></p></li>
+</ul>
 </div>
 </section>
-<section id="instalacion-y-configuracion-basica">
-<h2>Instalación y configuración básica<a class="headerlink" href="#instalacion-y-configuracion-basica" title="Link to this heading">#</a></h2>
-<section id="abrir-una-terminal">
-<h3>1. Abrir una terminal<a class="headerlink" href="#abrir-una-terminal" title="Link to this heading">#</a></h3>
-<p>Todos los sistemas operativos tienen una aplicación llamada <strong>Terminal</strong>, que sirve para interactuar con el ordenador por medio de comandos.</p>
-<p>El primer paso es abrir la terminal. Cuando lo hagas, puedes intentar los siguientes comandos:</p>
+<section id="diferencias-entre-jupyter-notebook-y-jupyterlab">
+<h2>Diferencias entre Jupyter Notebook y JupyterLab<a class="headerlink" href="#diferencias-entre-jupyter-notebook-y-jupyterlab" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> - Enlista los elementos presentes en la carpeta actual.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> - <strong>C</strong>ambia el <strong>d</strong>irectorio a una nueva ubicación.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code> - Crea un nuevo directorio con el nombre especificado (<strong>m</strong>a<strong>k</strong>e <strong>dir</strong>).</p></li>
+<li><p><strong>Jupyter Notebook</strong> es la interfaz clásica.</p></li>
+<li><p><strong>JupyterLab</strong> es una interfaz moderna, flexible y más potente.</p></li>
+</ul>
+<p>Ambas permiten usar notebooks, pero <strong>JupyterLab</strong> agrega soporte para pestañas, explorador de archivos, consolas, y más.</p>
+<div class="error admonition">
+<p class="admonition-title">Concepto crítico</p>
+<p>A partir de este punto, en todo el libro, cuando se hable de “libretas”, nos referiremos libretas jupyter.</p>
+</div>
+</section>
+<section id="tipos-de-celdas">
+<h2>Tipos de celdas<a class="headerlink" href="#tipos-de-celdas" title="Link to this heading">#</a></h2>
+<p>En una libreta, hay principalmente dos tipos de celdas:</p>
+<ul class="simple">
+<li><p><strong>Celda de código</strong>: permite escribir y ejecutar código en Python u otro lenguaje.</p></li>
+<li><p><strong>Celda de texto (Markdown)</strong>: permite escribir texto con formato, listas, ecuaciones LaTeX, encabezados, enlaces, imágenes, etc.</p></li>
+</ul>
+<p>Puedes cambiar el tipo de celda desde el menú desplegable que aparece en la barra superior de la interfaz.</p>
+</section>
+<section id="como-ejecutar-codigo">
+<h2>Cómo ejecutar código<a class="headerlink" href="#como-ejecutar-codigo" title="Link to this heading">#</a></h2>
+<p>Para correr una celda:</p>
+<ul class="simple">
+<li><p>Haz clic dentro de ella y presiona <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p></li>
+<li><p>También puedes usar el botón ▶️ en la barra de herramientas.</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Existen muchos comandos diferentes, revisa la documentación de tu sistema para concer cuáles tienes disponibles.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> ejecuta la celda y pasa a la siguiente, creando una nueva celda en caso necesario.
+<code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code> solo ejecuta la celda sin moverte de lugar ni crear nuevas celdas.</p>
+</div>
+<p>Cada vez que ejecutas una celda, su número de ejecución se actualiza (<code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, etc.). El kernel (núcleo de ejecución) mantiene el estado entre celdas, lo que permite ejecutar el código en cualquier orden, aunque se recomienda hacerlo de forma secuencial.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Piensa en el “kernel” como el intérprete específico de la libreta que estás usando.
+Si abres una nueva libreta, las variables de una no se pasan a otra porque cada una tiene su propio intérprete.</p>
+<p>Conocer qué es el kernel es necesario porque hay muchas veces que interactuar con él es la vía para solucionar muchos problemas, tan sencillo como reiniciarlo o apagarlo.</p>
+<p>Existen diferentes tipos de kernel, nosotros solo usaremos el kernel de python en este curso, pero existen kernels de los principales lenguajes de programación estadística como <code class="docutils literal notranslate"><span class="pre">julia</span></code> y <code class="docutils literal notranslate"><span class="pre">R</span></code>, así como muchos otros tipos de lenguajes de programación.</p>
 </div>
 </section>
-<section id="instalacion">
-<h3>2. Instalación<a class="headerlink" href="#instalacion" title="Link to this heading">#</a></h3>
-<p>Siempre consulta la página oficial de <a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">instalación</a>.</p>
-<p>En Linux/Mac:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<section id="como-abrir-jupyterlab">
+<h2>Cómo abrir JupyterLab<a class="headerlink" href="#como-abrir-jupyterlab" title="Link to this heading">#</a></h2>
+<p>Desde la terminal, dentro del proyecto, es decir, la carpeta del curso, lánzalo con <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
-<p>En Windows (PowerShell):</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="n">-c</span> <span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
-</pre></div>
-</div>
-<p>Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">-V</span></code> y da enter, aparecer un breve texto con la versión de uv instalada, por ejemplo <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">0.6.14</span></code>. Si todo está bien, podemos avanzar.</p>
-</section>
-<section id="crear-un-proyecto">
-<h3>3. Crear un proyecto<a class="headerlink" href="#crear-un-proyecto" title="Link to this heading">#</a></h3>
-<p>Para inicializar el proyecto del curso, hay que seguir estos pasos.</p>
-<ol class="arabic simple">
-<li><p>Navegar en la terminal hasta el lugar donde queramos tener el proyecto.</p></li>
-</ol>
-<div class="info admonition">
-<p class="admonition-title">Ejemplo</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Documentos/cursos/
-</pre></div>
-</div>
-<p>Este ejemplo asume que en la carpeta “Documentos” existe otra llamada “cursos”.</p>
-</div>
-<p>El comando <code class="docutils literal notranslate"><span class="pre">cd</span></code> “Cambiar directorio” permite navegar el sistema de archivos. Para regresar un nivel usa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>. Para regresar a la carpeta principal, solo pon <code class="docutils literal notranslate"><span class="pre">cd</span></code>.
-Esto funciona tanto en Mac y linux como en Windows.</p>
-<ol class="arabic simple">
-<li><p>Inicializar el proyecto</p></li>
-</ol>
-<p>Ya que estamos en el lugar donde queremos tener nuestro proyecto, utiliza el siguiente comando.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init<span class="w"> </span>curso_python
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li><p>Agregar dependencias (librerías y paquetes necesarios).</p></li>
-</ol>
-<p>Para que podamos tener en nuestro proyecto las herramientas necesarias para trabajar, utiliza el siguiente comando.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>jupyterlab<span class="w"> </span>seaborn<span class="w"> </span>pandas<span class="w"> </span>scipy<span class="w"> </span>statsmodels
-</pre></div>
-</div>
-<p>Esto instalará en nuestro proyecto lo siguiente</p>
+<p>Esto abrirá la interfaz de JupyterLab en tu navegador. Ahí podrás:</p>
 <ul class="simple">
-<li><p>jupyter lab: es una herramienta para escribir y ejecutar python, especialmente pensada para análisis de datos.</p></li>
-<li><p>seaborn: es una librería para visualización de datos, permite hacer muchos tipos de gráficos.</p></li>
-<li><p>pandas: permite la manipulación y análisis de datos tabulados, es como el excel de python.</p></li>
-<li><p>scipy: es una librería para análisis estadísticos generales, por ejemplo, t de student, pruebas de normalidad, etc.</p></li>
-<li><p>statsmodels: es una librería para modelado estadístico, útil para distintos tipos de análisis como regresiones.</p></li>
+<li><p>Crear nuevos notebooks</p></li>
+<li><p>Abrir archivos <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> ya existentes</p></li>
+<li><p>Editar scripts <code class="docutils literal notranslate"><span class="pre">.py</span></code>, archivos de texto, CSV, y más</p></li>
 </ul>
-<p>Ahora que está todo instalado, podremos comenzar a trabajar.</p>
 </section>
-</section>
-<section id="entrar-a-la-consola-python-y-ejecutar-un-comando-de-prueba">
-<span id="terminal-target"></span><h2>Entrar a la consola (<code class="docutils literal notranslate"><span class="pre">python</span></code>) y ejecutar un comando de prueba<a class="headerlink" href="#entrar-a-la-consola-python-y-ejecutar-un-comando-de-prueba" title="Link to this heading">#</a></h2>
-<p>Sin salir de la consola, ejecuta el siguiente comando:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python
-</pre></div>
-</div>
-<p>Inmediatamente deberías ver algo parecido a esto en tu terminal, aunque puede variar de acuerdo a la versión de python disponible en el momento.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.13.1</span> <span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">14</span> <span class="mi">2025</span><span class="p">,</span> <span class="mi">22</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span><span class="p">)</span> <span class="p">[</span><span class="n">Clang</span> <span class="mf">19.1.6</span> <span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span> 
-
-</pre></div>
-</div>
-<p>Esto quiere decir que ya te encuentras dentro del intérprete de python, y podras comenzar a escribir código directamente.</p>
-<p><strong>¡FELICIDADES!</strong></p>
-</section>
-<section id="ejecuta-tu-primer-codigo-en-python">
-<h2>Ejecuta tu primer código en python<a class="headerlink" href="#ejecuta-tu-primer-codigo-en-python" title="Link to this heading">#</a></h2>
-<p>Dentro del intérprete de python escribe lo siguiente:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola mundo!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Deberías ver algo parecido a esto:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>print<span class="o">(</span><span class="s2">&quot;¡Hola mundo!&quot;</span><span class="o">)</span>
-¡Hola<span class="w"> </span>mundo!
-</pre></div>
-</div>
-<p>Felicidades de nuevo, lograste escribir y ejecutar tu primer programa en python.
-Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje “¡Hola mundo!”, por medio de la función <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
-<p>En la siguiente lectura aprenderás más al respecto.</p>
+<section id="buenas-practicas">
+<h2>Buenas prácticas<a class="headerlink" href="#buenas-practicas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ejecuta siempre tus notebooks de arriba hacia abajo para evitar errores por variables no definidas.</p></li>
+<li><p>Usa celdas Markdown para documentar tus procesos y facilitar su lectura.</p></li>
+<li><p>Guarda frecuentemente (<code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code>).</p></li>
+<li><p>Si el kernel se congela, puedes reiniciarlo desde el menú <code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span></code>.</p></li>
+</ul>
 </section>
 <section id="practica-personal">
 <h2>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Repite el proceso de abrir una nueva terminal, navegar hasta el directorio del curso y ejecutar la consola de python.</p></li>
-<li><p>Dentro de la consola de python ejecuta el comando <code class="docutils literal notranslate"><span class="pre">help</span></code>.</p></li>
-<li><p>Intenta ahora el comando <code class="docutils literal notranslate"><span class="pre">help(print)</span></code></p></li>
-<li><p>Intenta utilizar otros valores dentro del paréntesis de la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, por ejemplo:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-</pre></div>
-</div>
-</li>
-</ol>
+<p>Entra en jupyter lab y explora la interfaz, crea una nueva libreta con el botón [+] y selecciona el kernel de python.
+Escribe cualquiera de los ejemplos de python que hemos puesto hasta ahora como <code class="docutils literal notranslate"><span class="pre">print('hola</span> <span class="pre">mundo')</span></code></p>
 </section>
 </section>
 
@@ -579,22 +536,13 @@ Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="tema%203%20-%20opciones%20de%20trabajo.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Unidad 1: Aspectos Básicos</p>
+        <p class="prev-next-title">Tema 3: ¿Dónde y cómo ejecutar Python?</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="tema%202%20-%20Generalidades/index.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tema 2: Generalidades</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -612,17 +560,12 @@ Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-del-tema">Objetivo del tema</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-significa-correr-python">¿Qué significa “correr” Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-uv-y-por-que-usarlo">¿Qué es <code class="docutils literal notranslate"><span class="pre">uv</span></code> y por qué usarlo?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-y-configuracion-basica">Instalación y configuración básica</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abrir-una-terminal">1. Abrir una terminal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">2. Instalación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-proyecto">3. Crear un proyecto</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrar-a-la-consola-python-y-ejecutar-un-comando-de-prueba">Entrar a la consola (<code class="docutils literal notranslate"><span class="pre">python</span></code>) y ejecutar un comando de prueba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecuta-tu-primer-codigo-en-python">Ejecuta tu primer código en python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter">¿Qué es Jupyter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-entre-jupyter-notebook-y-jupyterlab">Diferencias entre Jupyter Notebook y JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-celdas">Tipos de celdas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ejecutar-codigo">Cómo ejecutar código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-jupyterlab">Cómo abrir JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">Buenas prácticas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
   </nav></div>
