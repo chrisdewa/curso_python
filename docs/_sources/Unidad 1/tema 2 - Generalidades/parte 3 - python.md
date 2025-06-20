@@ -1,49 +1,38 @@
 ---
-title: "Parte 2: Python"
+title: "Parte 3: Python"
 parent: "Tema 2: Generalidades"
 nav_order: 3
 ---
 
 # Parte 3: Python
 
+## ¿Qué es Python?
 
-Python es un lenguaje de programación de propósito general, es decir, se puede hacer casi cualquier cosa con él, desde páginas web hasta análisis de datos.
+Python es un lenguaje de programación de propósito general, creado en 1991 por Guido van Rossum. Es uno de los lenguajes más utilizados actualmente por su claridad, versatilidad y la enorme cantidad de bibliotecas disponibles.
 
-## Paradigmas
+Se usa en múltiples áreas: ciencia de datos, automatización, desarrollo web, inteligencia artificial, análisis estadístico y muchas más.
 
-Python es multiparadigma, eso quiere decir que hay varias formas de programar, algunas se utilizan más fuertemente que otras.
+## Características principales
 
-### Orientado a Objetos
+- **Legible**: Su sintaxis es clara y cercana al lenguaje natural.
+- **Interpretado**: El código se ejecuta línea por línea.
+- **Tipado dinámico**: No es necesario declarar tipos de variables.
+- **Multiplataforma**: Corre en Windows, macOS y Linux.
 
-En Python, todo es un objeto. Los objetos tienen ciertos *atributos* (características) y ciertos *métodos* (acciones que pueden realizar).
+## Sintaxis básica
 
-Por ejemplo, un objeto humano podría tener un atributo como `nombre` y un método como `saludar`.
+:::{admonition} ¡Atención!
+:class: tip
 
-Los objetos permiten abstraer lógica y compartimentar información, facilitando la reutilización y organización del código mediante clases e instancias.
+La siguiente sección pude verse muy técnica, pero su función es para consulta rápida más tarde en el curso.
+Sobre todo recuerda las tablas de tipos y de operadores.
 
-### Funcional
+El objetivo de esta lección **no es que memorices nada de eso por ahora**.
 
-En la programación funcional, el código se estructura en funciones puras, es decir, funciones que reciben entradas y producen salidas sin modificar variables externas (sin efectos secundarios).
-
-Python permite este paradigma mediante funciones de orden superior (`map`, `filter`, `reduce`), funciones `lambda` y el uso de estructuras inmutables como `tuple` y `frozenset`.
-
-La programación funcional promueve la legibilidad, el uso de expresiones en lugar de instrucciones y puede facilitar la concurrencia al evitar efectos secundarios.
-
-### Imperativo
-
-Este paradigma se basa en instrucciones secuenciales que modifican el estado del programa. Es la forma más común de programar, donde se detallan los pasos necesarios para lograr un resultado.
-
-En Python, escribir un bucle `for` o usar condicionales `if` son ejemplos de programación imperativa.
-
-### Procedimental
-
-Es un caso particular de la programación imperativa donde el código se organiza en funciones o procedimientos. Cada función realiza una tarea específica y el flujo del programa se gestiona mediante llamadas a estas funciones.
-
-En Python, este estilo es muy común, especialmente en scripts pequeños o código estructurado sin clases.
-
-## Conceptos básicos de Python
+:::
 
 ### Variables
+
 Para asignar un valor a una variable se utiliza el símbolo `=`.
 
 Por ejemplo:
@@ -108,28 +97,42 @@ print('Beta es la letra griega número:', diccionario['beta'])
 ```
 El resultado será: `Beta es la letra griega número: 2`.
 
-### Operadores (ordenados por prioridad)
+(operadores-target)=
+### Operadores 
 
-| Prioridad | Operación                | Sintaxis               | Descripción |
-|-----------|--------------------------|------------------------|-------------|
-| 1         | Llamadas, indexación, slicing | `f(x)`, `x[i]`, `x[i:j]` | Agrupación, acceso a elementos, rebanado |
-| 2         | Exponenciación           | `a ** b`               | Eleva `a` a la potencia `b` |
-| 3         | Signo positivo/negativo, inversión de bits | `+a`, `-a`, `~a` | Unarios: positivo, negativo, NOT bit a bit |
-| 4         | Multiplicación, división, módulo, división entera | `*`, `/`, `%`, `//` | Operaciones aritméticas |
-| 5         | Suma y resta             | `+`, `-`               | Aritmética básica |
-| 6         | Shift bit a bit          | `<<`, `>>`             | Desplazamiento de bits a izquierda/derecha |
-| 7         | AND bit a bit            | `&`                    | Operación AND a nivel de bits |
-| 8         | XOR bit a bit            | `^`                    | Operación OR exclusivo a nivel de bits |
-| 9         | OR bit a bit             | `|`                    | Operación OR a nivel de bits |
-| 10        | Comparaciones            | `<`, `<=`, `>`, `>=`, `==`, `!=`, `is`, `is not`, `in`, `not in` | Evaluaciones lógicas y de pertenencia |
-| 11        | NOT lógico               | `not x`                | Negación lógica |
-| 12        | AND lógico               | `x and y`              | Conjunción lógica |
-| 13        | OR lógico                | `x or y`               | Disyunción lógica |
-| 14        | Asignación               | `=`, `+=`, `-=`, `*=`, `/=`, etc. | Asignación y operadores compuestos |
-| 15        | Eliminación              | `del x`, `del x[i]`    | Elimina una variable o elemento |
-| 16        | Expresiones lambda       | `lambda x: x + 1`      | Funciones anónimas |
+Los operadores en Python se aplican con una prioridad determinada (de mayor a menor):
 
-> ⚠️ *Los paréntesis `()` siempre tienen la máxima prioridad y permiten alterar el orden de evaluación.*
+| Nivel | Operador(es)         | Descripción                               | Ejemplo                   |
+|-------|----------------------|-------------------------------------------|---------------------------|
+| 1     | `()`                 | Agrupación con paréntesis                 | `(a + b) * c`             |
+| 2     | `**`                 | Exponenciación                            | `2 ** 3` → `8`            |
+| 3     | `+`, `-` (unarios)   | Positivo y negativo                       | `-x`, `+y`                |
+| 4     | `~`                  | Negación bit a bit                        | `~x`                      |
+| 5     | `*`, `/`, `//`, `%`  | Multiplicación, división, división entera, módulo | `5 * 2`, `7 % 3`  |
+| 6     | `+`, `-`             | Suma y resta                              | `4 + 3`                   |
+| 7     | `<<`, `>>`           | Desplazamiento de bits                    | `x << 1`, `y >> 2`        |
+| 8     | `&`                  | AND bit a bit                             | `x & y`                   |
+| 9     | `^`                  | XOR bit a bit                             | `x ^ y`                   |
+| 10    | `\|`                  | OR bit a bit                             | `x \| y`                  |
+| 11    | `<`, `<=`, `>`, `>=` | Comparaciones relacionales                | `a < b`, `x >= 2`         |
+| 12    | `==`, `!=`           | Igualdad y desigualdad                    | `x != y`                  |
+| 13    | `not`                | Negación lógica                           | `not True` → `False`      |
+| 14    | `and`                | Conjunción lógica                         | `x and y`                 |
+| 15    | `or`                 | Disyunción lógica                         | `x or y`                  |
+| 16    | `in`, `not in`       | Pertenencia                               | `'a' in 'casa'`           |
+| 17    | `is`, `is not`       | Identidad de objetos                      | `x is None`               |
+| 18    | `=`, `+=`, `-=`, etc.| Asignación                                | `x += 1`                  |
+
+> ⚠️ En bibliotecas como **pandas** o **polars**, para combinar condiciones se deben usar los operadores bit a bit:
+> - `&` en lugar de `and`
+> - `|` en lugar de `or`
+> - `~` en lugar de `not`
+>
+> Y siempre debes usar paréntesis:
+>
+> ```python
+> df[(df["edad"] > 18) & (df["sexo"] == "F")]
+> ```
 
 ### Funciones
 Las funciones encapsulan secciones de código reutilizable. Se utilizan para ejecutar tareas que pueden repetirse varias veces.
@@ -171,92 +174,85 @@ Python incluye una gran cantidad de funciones disponibles de forma nativa. Algun
 | `isinstance`| `isinstance(3.14, float)`        | Verifica tipo. |
 | `range`     | `list(range(1, 4))`              | Secuencia de enteros. |
 
-### Clases
-Las clases son tipos definidos por el programador.
 
-Una clase es la plantilla que Python utiliza para construir objetos.
+#### Comentarios
 
-Los objetos tienen atributos (datos) y métodos (funciones). Para acceder a ellos se usa el operador `.`:
+:::{admonition} Concepto crítico
+:class: error
 
-```python
-humano.saludar()
-```
+Documentar el código es una actividad fundamental del programador.
 
-Aquí hay un objeto llamado `humano` que tiene un método llamado `saludar`.
+Esto significa explicar qué hace nuestro código.
 
-#### Atributos
+Cuando escribimos el código casi siempre es fácil seguir su lógica y puede que nos parezca intuitivo, pero 3 meses después quizá no entendamos nada de lo que habíamos hecho.
 
-Los atributos son valores asociados a un objeto:
+Para ello lo ideal es que el código sea legible, con nombres descriptivos para las variables.
 
-```python
-humano.nombre
->>> 'Christian'
-```
+Pero otra herramienta son los comentarios, que aprenderás en esta sección.
 
-#### Métodos
+:::
 
-Los métodos son funciones dentro del objeto:
+En python un comentario es un fragmento de texto en el código pero no se ejecuta ni cambia la lógica.
+
+Ejemplo:
 
 ```python
-humano.saludar()
->>> 'Hola! mi nombre es Christian!'
+
+mi_variable = 'Mi valor' # esta variable es un string
+
+print(mi_variable)
+# imprimirá "Mi valor", pero sin comillas.
+
 ```
 
-#### Definición de una clase
+Si ejecutas este código en la terminal, verás que el texto después del símbolo `#` no se ejecuta y puede estar incluso en la misma línea que el código.
+
+:::{admonition} Para ejecutar en terminal
+:class: info
+
+Pasos:
+1. Abre una terminal
+2. navega a la carpeta del curso que creaste
+    - ejemplo: `cd Documents/curso_python`
+3. utiliza uv para entrar en el interprete de python `uv run python`
+
+Consulta la sección [correspondiente](terminal-target) en el tema 1.
+
+:::
+
+## Ejemplo simple
 
 ```python
-class Humano:
-    def __init__(self, nombre):
-        self.nombre = nombre  # Atributo
+x = 10
+y = 3
 
-    def saludar(self):       # Método
-        return f'Hola! mi nombre es {self.nombre}'
+suma = x + y
+es_mayor = suma > 10
+
+print("La suma es:", suma)
+print("¿Es mayor que 10?", es_mayor)
 ```
 
-#### Herencia
+---
 
-Una clase puede heredar atributos y métodos de otra clase:
+## Práctica personal
+
+Vamos a escribir código funcional, calcularemos el índice de masa corporal de un paciente.
 
 ```python
-class Celula:
-    def __init__(self, energia):
-        self.energia = energia
+nombre = "CPJ"    # solo las iniciales
+edad = 32         # edad en años
+sexo = 'Femenino' # sexo del paciente
+peso = 65         # peso en kg
+talla = 1.72      # talla en metros
 
-    def metabolizar(self, cantidad):
-        if self.energia >= cantidad:
-            self.energia -= cantidad
-            print(f"La célula ha metabolizado. Energía restante: {self.energia}")
-        else:
-            print("No hay suficiente energía.")
+# escribe ahora la variable de imc
+# imc = ...
 
-class CelulaMuscular(Celula):
-    def contraerse(self):
-        if self.energia > 5:
-            self.energia -= 5
-            print("La célula muscular se ha contraído.")
-        else:
-            print("No hay suficiente energía para contraerse.")
-
-class Neurona(Celula):
-    def transmitir_impulso(self):
-        if self.energia > 3:
-            self.energia -= 3
-            print("La neurona ha transmitido un impulso nervioso.")
-        else:
-            print("No hay suficiente energía para transmitir el impulso.")
-
-# Ejemplo de uso
-miocito = CelulaMuscular(energia=20)
-neurona = Neurona(energia=15)
-
-miocito.metabolizar(5)
-miocito.contraerse()
-
-neurona.metabolizar(2)
-neurona.transmitir_impulso()
+print(imc) # debe imprimir 21.971335857220122
 ```
 
-Este ejemplo muestra cómo las clases `CelulaMuscular` y `Neurona` heredan de `Celula`, reutilizando el método `metabolizar` y agregando comportamientos propios.
-
-## Siguientes pasos:
-Continúa con la [libreta 0](https://github.com/chrisdewa/curso_python/blob/main/libretas/Tutorial%200%20-%20Hola%20Mundo.ipynb), hola mundo.
+:::{tip}
+1. La fórmula de IMC es: $\frac{peso}{talla^2}$
+2. Revisa la tabla de [operadores](#operadores-target) busca el operador de división y exponenciación.
+:::

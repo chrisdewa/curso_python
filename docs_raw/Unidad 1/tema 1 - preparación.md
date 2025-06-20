@@ -109,6 +109,7 @@ Esto instalará en nuestro proyecto lo siguiente
 
 Ahora que está todo instalado, podremos comenzar a trabajar.
 
+(terminal-target)=
 ## Entrar a la consola (`python`) y ejecutar un comando de prueba
 
 Sin salir de la consola, ejecuta el siguiente comando:

@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 2 - Generalidades/parte 3 - python';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -386,14 +388,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmas">Paradigmas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orientado-a-objetos">Orientado a Objetos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcional">Funcional</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imperativo">Imperativo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimental">Procedimental</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos-de-python">Conceptos básicos de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-python">¿Qué es Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-principales">Características principales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos">Tipos</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a><ul class="nav section-nav flex-column">
@@ -406,21 +403,16 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-ordenados-por-prioridad">Operadores (ordenados por prioridad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores">Operadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-nativas-built-in">Funciones nativas (built-in)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-de-una-clase">Definición de una clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#herencia">Herencia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios">Comentarios</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siguientes-pasos">Siguientes pasos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-simple">Ejemplo simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
             </nav>
         </div>
@@ -434,35 +426,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parte-3-python">
 <h1>Parte 3: Python<a class="headerlink" href="#parte-3-python" title="Link to this heading">#</a></h1>
-<p>Python es un lenguaje de programación de propósito general, es decir, se puede hacer casi cualquier cosa con él, desde páginas web hasta análisis de datos.</p>
-<section id="paradigmas">
-<h2>Paradigmas<a class="headerlink" href="#paradigmas" title="Link to this heading">#</a></h2>
-<p>Python es multiparadigma, eso quiere decir que hay varias formas de programar, algunas se utilizan más fuertemente que otras.</p>
-<section id="orientado-a-objetos">
-<h3>Orientado a Objetos<a class="headerlink" href="#orientado-a-objetos" title="Link to this heading">#</a></h3>
-<p>En Python, todo es un objeto. Los objetos tienen ciertos <em>atributos</em> (características) y ciertos <em>métodos</em> (acciones que pueden realizar).</p>
-<p>Por ejemplo, un objeto humano podría tener un atributo como <code class="docutils literal notranslate"><span class="pre">nombre</span></code> y un método como <code class="docutils literal notranslate"><span class="pre">saludar</span></code>.</p>
-<p>Los objetos permiten abstraer lógica y compartimentar información, facilitando la reutilización y organización del código mediante clases e instancias.</p>
+<section id="que-es-python">
+<h2>¿Qué es Python?<a class="headerlink" href="#que-es-python" title="Link to this heading">#</a></h2>
+<p>Python es un lenguaje de programación de propósito general, creado en 1991 por Guido van Rossum. Es uno de los lenguajes más utilizados actualmente por su claridad, versatilidad y la enorme cantidad de bibliotecas disponibles.</p>
+<p>Se usa en múltiples áreas: ciencia de datos, automatización, desarrollo web, inteligencia artificial, análisis estadístico y muchas más.</p>
 </section>
-<section id="funcional">
-<h3>Funcional<a class="headerlink" href="#funcional" title="Link to this heading">#</a></h3>
-<p>En la programación funcional, el código se estructura en funciones puras, es decir, funciones que reciben entradas y producen salidas sin modificar variables externas (sin efectos secundarios).</p>
-<p>Python permite este paradigma mediante funciones de orden superior (<code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">reduce</span></code>), funciones <code class="docutils literal notranslate"><span class="pre">lambda</span></code> y el uso de estructuras inmutables como <code class="docutils literal notranslate"><span class="pre">tuple</span></code> y <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>.</p>
-<p>La programación funcional promueve la legibilidad, el uso de expresiones en lugar de instrucciones y puede facilitar la concurrencia al evitar efectos secundarios.</p>
+<section id="caracteristicas-principales">
+<h2>Características principales<a class="headerlink" href="#caracteristicas-principales" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Legible</strong>: Su sintaxis es clara y cercana al lenguaje natural.</p></li>
+<li><p><strong>Interpretado</strong>: El código se ejecuta línea por línea.</p></li>
+<li><p><strong>Tipado dinámico</strong>: No es necesario declarar tipos de variables.</p></li>
+<li><p><strong>Multiplataforma</strong>: Corre en Windows, macOS y Linux.</p></li>
+</ul>
 </section>
-<section id="imperativo">
-<h3>Imperativo<a class="headerlink" href="#imperativo" title="Link to this heading">#</a></h3>
-<p>Este paradigma se basa en instrucciones secuenciales que modifican el estado del programa. Es la forma más común de programar, donde se detallan los pasos necesarios para lograr un resultado.</p>
-<p>En Python, escribir un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> o usar condicionales <code class="docutils literal notranslate"><span class="pre">if</span></code> son ejemplos de programación imperativa.</p>
-</section>
-<section id="procedimental">
-<h3>Procedimental<a class="headerlink" href="#procedimental" title="Link to this heading">#</a></h3>
-<p>Es un caso particular de la programación imperativa donde el código se organiza en funciones o procedimientos. Cada función realiza una tarea específica y el flujo del programa se gestiona mediante llamadas a estas funciones.</p>
-<p>En Python, este estilo es muy común, especialmente en scripts pequeños o código estructurado sin clases.</p>
-</section>
-</section>
-<section id="conceptos-basicos-de-python">
-<h2>Conceptos básicos de Python<a class="headerlink" href="#conceptos-basicos-de-python" title="Link to this heading">#</a></h2>
+<section id="sintaxis-basica">
+<h2>Sintaxis básica<a class="headerlink" href="#sintaxis-basica" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">¡Atención!</p>
+<p>La siguiente sección pude verse muy técnica, pero su función es para consulta rápida más tarde en el curso.
+Sobre todo recuerda las tablas de tipos y de operadores.</p>
+<p>El objetivo de esta lección <strong>no es que memorices nada de eso por ahora</strong>.</p>
+</div>
 <section id="variables">
 <h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
 <p>Para asignar un valor a una variable se utiliza el símbolo <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
@@ -568,102 +553,122 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="operadores-ordenados-por-prioridad">
-<h3>Operadores (ordenados por prioridad)<a class="headerlink" href="#operadores-ordenados-por-prioridad" title="Link to this heading">#</a></h3>
+<section id="operadores">
+<span id="operadores-target"></span><h3>Operadores<a class="headerlink" href="#operadores" title="Link to this heading">#</a></h3>
+<p>Los operadores en Python se aplican con una prioridad determinada (de mayor a menor):</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Prioridad</p></th>
-<th class="head"><p>Operación</p></th>
-<th class="head"><p>Sintaxis</p></th>
+<tr class="row-odd"><th class="head"><p>Nivel</p></th>
+<th class="head"><p>Operador(es)</p></th>
 <th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p>Llamadas, indexación, slicing</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">f(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">x[i]</span></code>, <code class="docutils literal notranslate"><span class="pre">x[i:j]</span></code></p></td>
-<td><p>Agrupación, acceso a elementos, rebanado</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Agrupación con paréntesis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">*</span> <span class="pre">c</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
 <td><p>Exponenciación</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">b</span></code></p></td>
-<td><p>Eleva <code class="docutils literal notranslate"><span class="pre">a</span></code> a la potencia <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span></code> → <code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
-<td><p>Signo positivo/negativo, inversión de bits</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">+a</span></code>, <code class="docutils literal notranslate"><span class="pre">-a</span></code>, <code class="docutils literal notranslate"><span class="pre">~a</span></code></p></td>
-<td><p>Unarios: positivo, negativo, NOT bit a bit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> (unarios)</p></td>
+<td><p>Positivo y negativo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code>, <code class="docutils literal notranslate"><span class="pre">+y</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>4</p></td>
-<td><p>Multiplicación, división, módulo, división entera</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
-<td><p>Operaciones aritméticas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Negación bit a bit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~x</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
-<td><p>Suma y resta</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td><p>Aritmética básica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Multiplicación, división, división entera, módulo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">%</span> <span class="pre">3</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
-<td><p>Shift bit a bit</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
-<td><p>Desplazamiento de bits a izquierda/derecha</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Suma y resta</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
-<td><p>AND bit a bit</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
-<td><p>Operación AND a nivel de bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Desplazamiento de bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&gt;&gt;</span> <span class="pre">2</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>8</p></td>
-<td><p>XOR bit a bit</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
-<td><p>Operación OR exclusivo a nivel de bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p>AND bit a bit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>9</p></td>
-<td><p>OR bit a bit</p></td>
-<td><p>`</p></td>
-<td><p>`</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>XOR bit a bit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>10</p></td>
-<td><p>Comparaciones</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
-<td><p>Evaluaciones lógicas y de pertenencia</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>OR bit a bit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>11</p></td>
-<td><p>NOT lógico</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
-<td><p>Negación lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>Comparaciones relacionales</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">2</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>12</p></td>
-<td><p>AND lógico</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
-<td><p>Conjunción lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>Igualdad y desigualdad</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>13</p></td>
-<td><p>OR lógico</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
-<td><p>Disyunción lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td><p>Negación lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>14</p></td>
-<td><p>Asignación</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, etc.</p></td>
-<td><p>Asignación y operadores compuestos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+<td><p>Conjunción lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>15</p></td>
-<td><p>Eliminación</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">x[i]</span></code></p></td>
-<td><p>Elimina una variable o elemento</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td><p>Disyunción lógica</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>16</p></td>
-<td><p>Expresiones lambda</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
-<td><p>Funciones anónimas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
+<td><p>Pertenencia</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">in</span> <span class="pre">'casa'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code></p></td>
+<td><p>Identidad de objetos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, etc.</p></td>
+<td><p>Asignación</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <blockquote>
-<div><p>⚠️ <em>Los paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code> siempre tienen la máxima prioridad y permiten alterar el orden de evaluación.</em></p>
+<div><p>⚠️ En bibliotecas como <strong>pandas</strong> o <strong>polars</strong>, para combinar condiciones se deben usar los operadores bit a bit:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+</ul>
+<p>Y siempre debes usar paréntesis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;edad&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sexo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
 </div></blockquote>
 </section>
 <section id="funciones">
@@ -759,91 +764,80 @@ document.write(`
 </table>
 </div>
 </section>
-</section>
-<section id="clases">
-<h3>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h3>
-<p>Las clases son tipos definidos por el programador.</p>
-<p>Una clase es la plantilla que Python utiliza para construir objetos.</p>
-<p>Los objetos tienen atributos (datos) y métodos (funciones). Para acceder a ellos se usa el operador <code class="docutils literal notranslate"><span class="pre">.</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">humano</span><span class="o">.</span><span class="n">saludar</span><span class="p">()</span>
+<section id="comentarios">
+<h4>Comentarios<a class="headerlink" href="#comentarios" title="Link to this heading">#</a></h4>
+<div class="error admonition">
+<p class="admonition-title">Concepto crítico</p>
+<p>Documentar el código es una actividad fundamental del programador.</p>
+<p>Esto significa explicar qué hace nuestro código.</p>
+<p>Cuando escribimos el código casi siempre es fácil seguir su lógica y puede que nos parezca intuitivo, pero 3 meses después quizá no entendamos nada de lo que habíamos hecho.</p>
+<p>Para ello lo ideal es que el código sea legible, con nombres descriptivos para las variables.</p>
+<p>Pero otra herramienta son los comentarios, que aprenderás en esta sección.</p>
+</div>
+<p>En python un comentario es un fragmento de texto en el código pero no se ejecuta ni cambia la lógica.</p>
+<p>Ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">mi_variable</span> <span class="o">=</span> <span class="s1">&#39;Mi valor&#39;</span> <span class="c1"># esta variable es un string</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mi_variable</span><span class="p">)</span>
+<span class="c1"># imprimirá &quot;Mi valor&quot;, pero sin comillas.</span>
+
 </pre></div>
 </div>
-<p>Aquí hay un objeto llamado <code class="docutils literal notranslate"><span class="pre">humano</span></code> que tiene un método llamado <code class="docutils literal notranslate"><span class="pre">saludar</span></code>.</p>
-<section id="atributos">
-<h4>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h4>
-<p>Los atributos son valores asociados a un objeto:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">humano</span><span class="o">.</span><span class="n">nombre</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Christian&#39;</span>
+<p>Si ejecutas este código en la terminal, verás que el texto después del símbolo <code class="docutils literal notranslate"><span class="pre">#</span></code> no se ejecuta y puede estar incluso en la misma línea que el código.</p>
+<div class="info admonition">
+<p class="admonition-title">Para ejecutar en terminal</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Abre una terminal</p></li>
+<li><p>navega a la carpeta del curso que creaste</p>
+<ul class="simple">
+<li><p>ejemplo: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Documents/curso_python</span></code></p></li>
+</ul>
+</li>
+<li><p>utiliza uv para entrar en el interprete de python <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span> <span class="pre">python</span></code></p></li>
+</ol>
+<p>Consulta la sección <a class="reference internal" href="../tema%201%20-%20preparaci%C3%B3n.html#terminal-target"><span class="std std-ref">correspondiente</span></a> en el tema 1.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="ejemplo-simple">
+<h2>Ejemplo simple<a class="headerlink" href="#ejemplo-simple" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">suma</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">es_mayor</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">&gt;</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La suma es:&quot;</span><span class="p">,</span> <span class="n">suma</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Es mayor que 10?&quot;</span><span class="p">,</span> <span class="n">es_mayor</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="metodos">
-<h4>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h4>
-<p>Los métodos son funciones dentro del objeto:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">humano</span><span class="o">.</span><span class="n">saludar</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Hola! mi nombre es Christian!&#39;</span>
+<hr class="docutils" />
+<section id="practica-personal">
+<h2>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
+<p>Vamos a escribir código funcional, calcularemos el índice de masa corporal de un paciente.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;CPJ&quot;</span>    <span class="c1"># solo las iniciales</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">32</span>         <span class="c1"># edad en años</span>
+<span class="n">sexo</span> <span class="o">=</span> <span class="s1">&#39;Femenino&#39;</span> <span class="c1"># sexo del paciente</span>
+<span class="n">peso</span> <span class="o">=</span> <span class="mi">65</span>         <span class="c1"># peso en kg</span>
+<span class="n">talla</span> <span class="o">=</span> <span class="mf">1.72</span>      <span class="c1"># talla en metros</span>
+
+<span class="c1"># escribe ahora la variable de imc</span>
+<span class="c1"># imc = ...</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">imc</span><span class="p">)</span> <span class="c1"># debe imprimir 21.971335857220122</span>
 </pre></div>
 </div>
-</section>
-<section id="definicion-de-una-clase">
-<h4>Definición de una clase<a class="headerlink" href="#definicion-de-una-clase" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Humano</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>  <span class="c1"># Atributo</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>       <span class="c1"># Método</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Hola! mi nombre es </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s1">&#39;</span>
-</pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ol class="arabic simple">
+<li><p>La fórmula de IMC es: <span class="math notranslate nohighlight">\(\frac{peso}{talla^2}\)</span></p></li>
+<li><p>Revisa la tabla de <a class="reference internal" href="#operadores-target">operadores</a> busca el operador de división y exponenciación.</p></li>
+</ol>
 </div>
-</section>
-<section id="herencia">
-<h4>Herencia<a class="headerlink" href="#herencia" title="Link to this heading">#</a></h4>
-<p>Una clase puede heredar atributos y métodos de otra clase:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Celula</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energia</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">=</span> <span class="n">energia</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">metabolizar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">&gt;=</span> <span class="n">cantidad</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">-=</span> <span class="n">cantidad</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La célula ha metabolizado. Energía restante: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">energia</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No hay suficiente energía.&quot;</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">CelulaMuscular</span><span class="p">(</span><span class="n">Celula</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">contraerse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">-=</span> <span class="mi">5</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La célula muscular se ha contraído.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No hay suficiente energía para contraerse.&quot;</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Neurona</span><span class="p">(</span><span class="n">Celula</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">transmitir_impulso</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">energia</span> <span class="o">-=</span> <span class="mi">3</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La neurona ha transmitido un impulso nervioso.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No hay suficiente energía para transmitir el impulso.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Ejemplo de uso</span>
-<span class="n">miocito</span> <span class="o">=</span> <span class="n">CelulaMuscular</span><span class="p">(</span><span class="n">energia</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">neurona</span> <span class="o">=</span> <span class="n">Neurona</span><span class="p">(</span><span class="n">energia</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-
-<span class="n">miocito</span><span class="o">.</span><span class="n">metabolizar</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">miocito</span><span class="o">.</span><span class="n">contraerse</span><span class="p">()</span>
-
-<span class="n">neurona</span><span class="o">.</span><span class="n">metabolizar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">neurona</span><span class="o">.</span><span class="n">transmitir_impulso</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Este ejemplo muestra cómo las clases <code class="docutils literal notranslate"><span class="pre">CelulaMuscular</span></code> y <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> heredan de <code class="docutils literal notranslate"><span class="pre">Celula</span></code>, reutilizando el método <code class="docutils literal notranslate"><span class="pre">metabolizar</span></code> y agregando comportamientos propios.</p>
-</section>
-</section>
-</section>
-<section id="siguientes-pasos">
-<h2>Siguientes pasos:<a class="headerlink" href="#siguientes-pasos" title="Link to this heading">#</a></h2>
-<p>Continúa con la <a class="reference external" href="https://github.com/chrisdewa/curso_python/blob/main/libretas/Tutorial%200%20-%20Hola%20Mundo.ipynb">libreta 0</a>, hola mundo.</p>
 </section>
 </section>
 
@@ -911,14 +905,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmas">Paradigmas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orientado-a-objetos">Orientado a Objetos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcional">Funcional</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imperativo">Imperativo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimental">Procedimental</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos-de-python">Conceptos básicos de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-python">¿Qué es Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-principales">Características principales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos">Tipos</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a><ul class="nav section-nav flex-column">
@@ -931,21 +920,16 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-ordenados-por-prioridad">Operadores (ordenados por prioridad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores">Operadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-nativas-built-in">Funciones nativas (built-in)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-de-una-clase">Definición de una clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#herencia">Herencia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios">Comentarios</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siguientes-pasos">Siguientes pasos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-simple">Ejemplo simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Práctica personal</a></li>
 </ul>
   </nav></div>
 
