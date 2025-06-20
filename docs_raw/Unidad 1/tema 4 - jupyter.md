@@ -3,7 +3,7 @@ parent: "Unidad 1: Aspectos Básicos"
 nav_order: 4
 ---
 
-# Jupyter
+# Tema 4: Jupyter
 
 Jupyter es una plataforma interactiva ampliamente utilizada en ciencia de datos, programación y educación. Permite combinar código ejecutable, texto enriquecido (Markdown), visualizaciones, ecuaciones matemáticas y otros elementos en un mismo documento: la libreta o *notebook*.
 
@@ -28,7 +28,7 @@ Consulta la [documentación oficial de Jupyter](https://jupyter.org) para más i
 :::
 
 
-:::{admonite} Nota
+:::{admonition} Nota
 ¿Sabías que en 2021 la revista nature nombró el proyecto [jupyter](https://www.nature.com/articles/d41586-021-00075-2) como uno de los 10 herramientas informáticas más influyentes en la transformación de la ciencia?
 :::
 

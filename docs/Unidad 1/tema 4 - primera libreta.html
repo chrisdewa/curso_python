@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unidad 1: Aspectos Básicos &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Primera libreta Jupyter &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -59,11 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 4 - primera libreta';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tema 1: Preparación inicial" href="tema%201%20-%20preparaci%C3%B3n.html" />
-    <link rel="prev" title="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud" href="../intro.html" />
+    <link rel="prev" title="Tema 4: Jupyter" href="tema%204%20-%20jupyter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,7 +181,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%201%20-%20algor%C3%ADtmica.html">Parte 1: Algorítmica</a></li>
@@ -192,7 +191,7 @@
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%203%20-%20opciones%20de%20trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%204%20-%20jupyter.html">Tema 4: Jupyter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema%204%20-%20primera%20libreta.html">Primera libreta Jupyter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Primera libreta Jupyter</a></li>
 </ul>
 </details></li>
 </ul>
@@ -266,7 +265,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 4 - primera libreta.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +295,7 @@
       
       
       
-      <li><a href="../_sources/Unidad 1/index.md" target="_blank"
+      <li><a href="../_sources/Unidad 1/tema 4 - primera libreta.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +305,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -380,7 +379,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unidad 1: Aspectos Básicos</h1>
+    <h1>Primera libreta Jupyter</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,7 +389,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general-de-la-unidad">Objetivo general de la unidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usar-esta-libreta">Cómo usar esta libreta.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-celda-de-codigo">Primera celda de código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-grafico">Ejemplo de gráfico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-tabla-de-datos">Ejemplo de tabla de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Practica personal</a></li>
 </ul>
             </nav>
         </div>
@@ -402,14 +405,144 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unidad-1-aspectos-basicos">
-<h1>Unidad 1: Aspectos Básicos<a class="headerlink" href="#unidad-1-aspectos-basicos" title="Link to this heading">#</a></h1>
-<section id="objetivo-general-de-la-unidad">
-<h2>Objetivo general de la unidad<a class="headerlink" href="#objetivo-general-de-la-unidad" title="Link to this heading">#</a></h2>
-<p>Al finalizar esta unidad, la persona participante comprenderá los fundamentos generales de la programación, conocerá el lenguaje Python y su utilidad en salud, sabrá cómo preparar su entorno de trabajo y podrá ejecutar código en diferentes plataformas.</p>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="primera-libreta-jupyter">
+<h1>Primera libreta Jupyter<a class="headerlink" href="#primera-libreta-jupyter" title="Link to this heading">#</a></h1>
+<p>Te doy la bienvenida a tu primera libreta jupyter.</p>
+<p>Este texto, lo estás leyendo en una celda tipo <code class="docutils literal notranslate"><span class="pre">markdown</span></code>, el cuál es una forma de escribir texto sin dar formato de forma inmediata, sino que poniendo <strong>marcas</strong> que permiten al editor saber el estilo final que deberá tener la sección.</p>
+<p>Hay cosas que puede hacer <code class="docutils literal notranslate"><span class="pre">markdown</span></code> como por ejemplo:</p>
+<p>Fórmulas matemáticas:
+$<span class="math notranslate nohighlight">\(
+s = \frac{\sum{(x_i-\bar{x})^2}}{n-1}
+\)</span>$</p>
+<p>Tablas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ítem</p></th>
+<th class="head"><p>precio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Manzana</p></td>
+<td><p>$49/kg</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pera</p></td>
+<td><p>$54/kg</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>Bloques de código con color:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Y muchas cosas más.</p>
+<section id="como-usar-esta-libreta">
+<h2>Cómo usar esta libreta.<a class="headerlink" href="#como-usar-esta-libreta" title="Link to this heading">#</a></h2>
+<p>Si estás en la página del curso, hasta arriba, verás un ícono de descarga, selecciónalo y elige la opción <code class="docutils literal notranslate"><span class="pre">ipynb</span></code>.
+Posteriormente, mueve el archivo a tu carpeta del curso. Deberías poderla visualizar dentro de <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> para que puedas manipularla.</p>
+<p><strong>TIP</strong> DA DOBLE CLICK EN ESTA CELDA PARA VER CÓMO SE ESCRIBE EL MARKDOWN</p>
+</section>
+<section id="primera-celda-de-codigo">
+<h2>Primera celda de código<a class="headerlink" href="#primera-celda-de-codigo" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># esta es una celda de código</span>
+<span class="c1"># Aquí puedes escribir tu código Python</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola, mundo!&quot;</span><span class="p">)</span>
+<span class="c1"># Ejecuta esta celda y verás tu código en acción.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>¡Hola, mundo!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-grafico">
+<h2>Ejemplo de gráfico<a class="headerlink" href="#ejemplo-de-grafico" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Gráfico de ejemplo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Eje X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Eje Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9a9ef7fc55d982789912ccb6dc0d35f551306e239aa2e021f11d658f65bf3016.png" src="../_images/9a9ef7fc55d982789912ccb6dc0d35f551306e239aa2e021f11d658f65bf3016.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-de-tabla-de-datos">
+<h2>Ejemplo de tabla de datos<a class="headerlink" href="#ejemplo-de-tabla-de-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Columna1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s1">&#39;Columna2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="c1"># df quiere decir DataFrame</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Columna1</th>
+      <th>Columna2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="practica-personal">
+<h2>Practica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
+<p>Juega con esta libreta, intenta ejecutar código, escribir markdown, etcétera.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -443,22 +576,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="tema%204%20-%20jupyter.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</p>
+        <p class="prev-next-title">Tema 4: Jupyter</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="tema%201%20-%20preparaci%C3%B3n.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tema 1: Preparación inicial</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -476,7 +600,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general-de-la-unidad">Objetivo general de la unidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usar-esta-libreta">Cómo usar esta libreta.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-celda-de-codigo">Primera celda de código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-grafico">Ejemplo de gráfico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-tabla-de-datos">Ejemplo de tabla de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">Practica personal</a></li>
 </ul>
   </nav></div>
 
