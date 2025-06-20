@@ -14,9 +14,11 @@ En este curso usaremos Python en forma local, asistidos por la herramienta `uv`,
 
 ---
 
-## 1. Opciones para ejecutar Python
+## Opciones para ejecutar Python
 
-### Opción 1: En la nube - Google Colab
+### En la nube
+
+#### Google Colab
 
 [Google Colab](https://colab.research.google.com/) es un servicio gratuito que permite escribir y ejecutar código Python desde el navegador.
 
@@ -53,9 +55,8 @@ Existen otras plataformas en la nube similares, como Replit, Kaggle Notebooks o 
 
 ---
 
-## 2. Opciones para instalar Python en tu computadora
 
-### Opción 2: Instalador oficial de Python
+### Instalador oficial de Python
 
 Puedes descargarlo desde: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
@@ -92,13 +93,13 @@ Es una forma muy flexible y profesional, aunque puede requerir mayor familiarida
 
 ---
 
-### Opción 3: Astral UV
+### Astral UV
 
 Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el [tema 1](<tema 1 - preparación.md>). Es la opción recomendada para este curso.
 
 ---
 
-### Opción 4: Anaconda
+### Anaconda
 
 [Anaconda](https://www.anaconda.com/) es una distribución muy completa para ciencia de datos, análisis numérico y machine learning.
 
@@ -120,7 +121,7 @@ Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el 
 
 ---
 
-### Opción 5: WinPython (solo en Windows)
+### WinPython (solo en Windows)
 
 [WinPython](https://winpython.github.io/) es una distribución ligera y portátil para Windows.
 
@@ -142,7 +143,7 @@ Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el 
 
 ---
 
-## 3. ¿Cómo escribir y ejecutar código Python?
+## ¿Cómo escribir y ejecutar código Python?
 
 ### Archivos `.py`
 
@@ -193,7 +194,7 @@ También puede usarse dentro de entornos `uv` o `conda`.
 
 ---
 
-## 4. Editores de texto recomendados
+## Editores de texto recomendados
 
 Aunque puedes escribir código en cualquier editor, algunos ofrecen ayudas especiales:
 
@@ -205,7 +206,7 @@ Aunque puedes escribir código en cualquier editor, algunos ofrecen ayudas espec
 
 ---
 
-## 5. ¿Qué es un script de Python?
+## ¿Qué es un script de Python?
 
 Un **script** es un archivo `.py` que contiene una serie de instrucciones que Python ejecuta de arriba hacia abajo.
 
@@ -230,22 +231,7 @@ uv run hola.py
 
 ---
 
-## 6. Recomendaciones finales
-
-| Objetivo                       | Opción recomendada                     |
-|-------------------------------|----------------------------------------|
-| Probar Python rápidamente     | Google Colab                           |
-| Trabajar offline              | Python oficial + `uv`                  |
-| Ciencia de datos o ML         | Anaconda o `uv` + JupyterLab           |
-| Sistema restringido (sin admin) | WinPython                             |
-| Proyecto profesional flexible | `uv` con editor como VS Code           |
-
----
-
 ## Próximos pasos
 
-Ya puedes ejecutar código Python. En el siguiente tema aprenderás a escribir tus primeros programas, declarar variables y hacer operaciones básicas.
+Las opciones recomendadas para seguir este curso, ya que utilizaremos libretas, es `uv` para manejar python y librerías y `jupyter lab` escribir y ejecutar el código. En el siguiente tema veremos cómo instalar jupyter, abrirlo y comenzar a trabajar.
 
-$$
-\bar{x} = \frac{\sum{x_i}}{n}
-$$
