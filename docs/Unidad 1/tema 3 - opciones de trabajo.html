@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Formas de trabajar con Python &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Tema 3: ¿Dónde y cómo ejecutar Python? &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -59,7 +59,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 3 - opciones para trabajar';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 1/tema 3 - opciones de trabajo';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Parte 3: Python" href="tema%202%20-%20Generalidades/parte%203%20-%20python.html" />
@@ -182,14 +182,14 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html">Tema 1. Preparación inicial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%201%20-%20algor%C3%ADtmica.html">Parte 1: Algorítmica</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%202%20-%20programaci%C3%B3n.html">Parte 2: Programación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tema%202%20-%20Generalidades/parte%203%20-%20python.html">Parte 3: Python</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Formas de trabajar con Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
 </ul>
 </details></li>
 </ul>
@@ -263,7 +263,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 3 - opciones para trabajar.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 1/tema 3 - opciones de trabajo.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +293,7 @@
       
       
       
-      <li><a href="../_sources/Unidad 1/tema 3 - opciones para trabajar.md" target="_blank"
+      <li><a href="../_sources/Unidad 1/tema 3 - opciones de trabajo.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Formas de trabajar con Python</h1>
+    <h1>Tema 3: ¿Dónde y cómo ejecutar Python?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,32 +387,44 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-la-nube-google-colab">En la nube - Google Colab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usarlo">Cómo usarlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-para-ejecutar-python">1. Opciones para ejecutar Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-en-la-nube-google-colab">Opción 1: En la nube - Google Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usarlo">Cómo usarlo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-en-tu-computadora">Local - En tu computadora</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-instalador-oficial-de-python">Opción 1: Instalador oficial de Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos">Pasos:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-puede-hacer">¿Qué se puede hacer?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-astral-uv">Opción 2: Astral UV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-3-anaconda">Opción 3: Anaconda</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-para-instalar-python-en-tu-computadora">2. Opciones para instalar Python en tu computadora</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-instalador-oficial-de-python">Opción 2: Instalador oficial de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-basicos">Pasos básicos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-puedes-hacer-despues">¿Qué puedes hacer después?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-3-astral-uv">Opción 3: Astral UV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-4-anaconda">Opción 4: Anaconda</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ventajas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Desventajas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#para-quien-es-util">¿Para quién es útil?</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-5-winpython-solo-en-windows">Opción 5: WinPython (solo en Windows)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Desventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">¿Para quién es útil?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-opciones">Comparación entre opciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto-recomendados">Editores de texto recomendados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-script-de-python">¿Qué es un script de Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recomendaciones">Recomendaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-escribir-y-ejecutar-codigo-python">3. ¿Cómo escribir y ejecutar código Python?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-py">Archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto-recomendados">4. Editores de texto recomendados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-script-de-python">5. ¿Qué es un script de Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recomendaciones-finales">6. Recomendaciones finales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proximos-pasos">Próximos pasos</a></li>
 </ul>
             </nav>
@@ -425,32 +437,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="formas-de-trabajar-con-python">
-<h1>Formas de trabajar con Python<a class="headerlink" href="#formas-de-trabajar-con-python" title="Link to this heading">#</a></h1>
-<p>En este tema exploramos las distintas formas de ejecutar código Python, desde opciones simples en la nube hasta instalaciones avanzadas y flexibles en tu computadora.</p>
-<section id="en-la-nube-google-colab">
-<h2>En la nube - Google Colab<a class="headerlink" href="#en-la-nube-google-colab" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> es un servicio gratuito que permite escribir y ejecutar código Python desde el navegador.
-Cuando lo usas, se te asigna una computadora virtual que ya tiene instalado todo lo necesario para trabajar, todo ocurre en la nube, sin que tu computadora necesite hacer nada más que conectarse a colab.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-3-donde-y-como-ejecutar-python">
+<h1>Tema 3: ¿Dónde y cómo ejecutar Python?<a class="headerlink" href="#tema-3-donde-y-como-ejecutar-python" title="Link to this heading">#</a></h1>
+<p>En este tema exploramos las distintas formas de <strong>trabajar con código Python</strong>, desde opciones sencillas en la nube hasta entornos locales más avanzados y flexibles.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En este curso usaremos Python en forma local, asistidos por la herramienta <code class="docutils literal notranslate"><span class="pre">uv</span></code>, como se explicó en el <a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html"><span class="std std-doc">tema 1</span></a>. El objetivo de esta lección es que conozcas otras formas de correr Python.</p>
+</div>
+<hr class="docutils" />
+<section id="opciones-para-ejecutar-python">
+<h2>1. Opciones para ejecutar Python<a class="headerlink" href="#opciones-para-ejecutar-python" title="Link to this heading">#</a></h2>
+<section id="opcion-1-en-la-nube-google-colab">
+<h3>Opción 1: En la nube - Google Colab<a class="headerlink" href="#opcion-1-en-la-nube-google-colab" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> es un servicio gratuito que permite escribir y ejecutar código Python desde el navegador.</p>
+<p>Cuando lo usas, se te asigna una computadora virtual que ya tiene instalado todo lo necesario para trabajar. No necesitas instalar nada, y puedes guardar tu trabajo en Google Drive.</p>
 <section id="ventajas">
-<h3>Ventajas<a class="headerlink" href="#ventajas" title="Link to this heading">#</a></h3>
+<h4>Ventajas<a class="headerlink" href="#ventajas" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>No requiere instalación.</p></li>
-<li><p>Funciona desde cualquier sistema operativo (Windows, Mac, Linux, Chromebook).</p></li>
+<li><p>Funciona desde cualquier sistema operativo.</p></li>
 <li><p>Se integra con Google Drive.</p></li>
-<li><p>Incluye bibliotecas como <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+<li><p>Incluye bibliotecas comunes (<code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, etc.).</p></li>
+<li><p>Ideal para aprender o hacer pruebas rápidas.</p></li>
 </ul>
 </section>
 <section id="desventajas">
-<h3>Desventajas<a class="headerlink" href="#desventajas" title="Link to this heading">#</a></h3>
+<h4>Desventajas<a class="headerlink" href="#desventajas" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>Depende de conexión a internet.</p></li>
-<li><p>Puede ser más lento que trabajar localmente.</p></li>
-<li><p>Tiene límites en uso prolongado (desconexión por inactividad).</p></li>
+<li><p>Requiere conexión a internet.</p></li>
+<li><p>Se desconecta por inactividad.</p></li>
+<li><p>Los archivos cargados (bases de datos, etc.) se borran al cerrar la sesión (aunque el código sí se guarda).</p></li>
 </ul>
 </section>
 <section id="como-usarlo">
-<h3>Cómo usarlo<a class="headerlink" href="#como-usarlo" title="Link to this heading">#</a></h3>
+<h4>Cómo usarlo<a class="headerlink" href="#como-usarlo" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>Accede a <a class="reference external" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p></li>
 <li><p>Inicia sesión con tu cuenta de Google.</p></li>
@@ -462,29 +482,31 @@ Cuando lo usas, se te asigna una computadora virtual que ya tiene instalado todo
 </li>
 <li><p>Haz clic en el botón ▶ para ejecutarlo.</p></li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Existen otras plataformas en la nube similares, como Replit, Kaggle Notebooks o Deepnote. Puedes explorarlas por tu cuenta si lo deseas.</p>
+</div>
+</section>
 </section>
 </section>
 <hr class="docutils" />
-<section id="local-en-tu-computadora">
-<h2>Local - En tu computadora<a class="headerlink" href="#local-en-tu-computadora" title="Link to this heading">#</a></h2>
-<p>Instalar Python localmente da más control y velocidad. Es la mejor opción si deseas trabajar sin conexión o construir proyectos complejos.</p>
-<hr class="docutils" />
-<section id="opcion-1-instalador-oficial-de-python">
-<h3>Opción 1: Instalador oficial de Python<a class="headerlink" href="#opcion-1-instalador-oficial-de-python" title="Link to this heading">#</a></h3>
-<p>La forma más directa de instalar Python es desde <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
-<section id="pasos">
-<h4>Pasos:<a class="headerlink" href="#pasos" title="Link to this heading">#</a></h4>
+<section id="opciones-para-instalar-python-en-tu-computadora">
+<h2>2. Opciones para instalar Python en tu computadora<a class="headerlink" href="#opciones-para-instalar-python-en-tu-computadora" title="Link to this heading">#</a></h2>
+<section id="opcion-2-instalador-oficial-de-python">
+<h3>Opción 2: Instalador oficial de Python<a class="headerlink" href="#opcion-2-instalador-oficial-de-python" title="Link to this heading">#</a></h3>
+<p>Puedes descargarlo desde: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<section id="pasos-basicos">
+<h4>Pasos básicos<a class="headerlink" href="#pasos-basicos" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p>Descarga el instalador para tu sistema operativo.</p></li>
-<li><p>En Windows: <strong>activa la opción “Add Python to PATH”</strong>.</p></li>
+<li><p>Descarga el instalador adecuado para tu sistema operativo.</p></li>
+<li><p>En Windows: <strong>marca la opción “Add Python to PATH”</strong>.</p></li>
 <li><p>Completa la instalación.</p></li>
 </ol>
 </section>
-<section id="que-se-puede-hacer">
-<h4>¿Qué se puede hacer?<a class="headerlink" href="#que-se-puede-hacer" title="Link to this heading">#</a></h4>
-<p>Una vez instalado, puedes:</p>
+<section id="que-puedes-hacer-despues">
+<h4>¿Qué puedes hacer después?<a class="headerlink" href="#que-puedes-hacer-despues" title="Link to this heading">#</a></h4>
 <ul>
-<li><p>Ejecutar Python desde terminal:</p>
+<li><p>Ejecutar Python desde la terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
 </pre></div>
 </div>
@@ -503,111 +525,140 @@ jupyter<span class="w"> </span>lab
 </div>
 </li>
 </ul>
-<p>Este método es flexible y profesional, pero requiere cuidado al manejar versiones y entornos si trabajas en varios proyectos. Para un novato puede ser complejo y es dificil cambiar entre versiones de python.</p>
+<p>Es una forma muy flexible y profesional, aunque puede requerir mayor familiaridad con la línea de comandos.</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="opcion-2-astral-uv">
-<h3>Opción 2: Astral UV<a class="headerlink" href="#opcion-2-astral-uv" title="Link to this heading">#</a></h3>
+<section id="opcion-3-astral-uv">
+<h3>Opción 3: Astral UV<a class="headerlink" href="#opcion-3-astral-uv" title="Link to this heading">#</a></h3>
+<p>Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el <a class="reference internal" href="tema%201%20-%20preparaci%C3%B3n.html"><span class="std std-doc">tema 1</span></a>. Es la opción recomendada para este curso.</p>
 </section>
-<section id="opcion-3-anaconda">
-<h3>Opción 3: Anaconda<a class="headerlink" href="#opcion-3-anaconda" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://www.anaconda.com/">Anaconda</a> es una distribución completa para ciencia de datos, análisis numérico y machine learning.</p>
+<hr class="docutils" />
+<section id="opcion-4-anaconda">
+<h3>Opción 4: Anaconda<a class="headerlink" href="#opcion-4-anaconda" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.anaconda.com/">Anaconda</a> es una distribución muy completa para ciencia de datos, análisis numérico y machine learning.</p>
 <section id="id1">
 <h4>Ventajas<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Incluye Jupyter, Spyder, pandas, numpy, matplotlib, etc.</p></li>
-<li><p>Tiene su propio gestor de entornos: <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p></li>
-<li><p>Funciona bien para usuarios sin conocimientos técnicos que quieren instalar todo de una vez.</p></li>
+<li><p>Tiene su propio gestor de entornos (<code class="docutils literal notranslate"><span class="pre">conda</span></code>).</p></li>
+<li><p>Ideal para quien desea instalar todo de una vez.</p></li>
 </ul>
 </section>
 <section id="id2">
 <h4>Desventajas<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>Es muy pesada (&gt;3 GB).</p></li>
-<li><p>Su entorno <code class="docutils literal notranslate"><span class="pre">base</span></code> puede volverse difícil de mantener si no se usan entornos específicos.</p></li>
-<li><p>No es estrictamente necesario si ya sabes usar <code class="docutils literal notranslate"><span class="pre">pip</span></code> o <code class="docutils literal notranslate"><span class="pre">uv</span></code>.</p></li>
+<li><p>Es pesada (&gt;3 GB).</p></li>
+<li><p>Si no se usan entornos virtuales, puede volverse difícil de mantener.</p></li>
 </ul>
 </section>
 <section id="para-quien-es-util">
 <h4>¿Para quién es útil?<a class="headerlink" href="#para-quien-es-util" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>Personas que trabajen en ciencia de datos, biología computacional, finanzas, investigación.</p></li>
-<li><p>Quienes quieran evitar instalar paquetes uno a uno.</p></li>
-<li><p>Docentes que busquen entornos estandarizados para talleres.</p></li>
+<li><p>Personas en ciencia de datos, biología computacional, investigación, etc.</p></li>
+<li><p>Usuarios que prefieren evitar instalaciones manuales.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="opcion-5-winpython-solo-en-windows">
+<h3>Opción 5: WinPython (solo en Windows)<a class="headerlink" href="#opcion-5-winpython-solo-en-windows" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://winpython.github.io/">WinPython</a> es una distribución ligera y portátil para Windows.</p>
+<section id="id3">
+<h4>Ventajas<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>No requiere instalación (se descomprime y se usa).</p></li>
+<li><p>Incluye <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, entre otros.</p></li>
+<li><p>Ideal si no tienes permisos para instalar programas.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Desventajas<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>No está pensada para múltiples proyectos con versiones distintas.</p></li>
+<li><p>Puede ser menos flexible que <code class="docutils literal notranslate"><span class="pre">uv</span></code> o <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>¿Para quién es útil?<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Estudiantes y profesionales que usan siempre las mismas herramientas.</p></li>
+<li><p>Usuarios en sistemas restringidos.</p></li>
 </ul>
 </section>
 </section>
 </section>
 <hr class="docutils" />
-<section id="comparacion-entre-opciones">
-<h2>Comparación entre opciones<a class="headerlink" href="#comparacion-entre-opciones" title="Link to this heading">#</a></h2>
+<section id="como-escribir-y-ejecutar-codigo-python">
+<h2>3. ¿Cómo escribir y ejecutar código Python?<a class="headerlink" href="#como-escribir-y-ejecutar-codigo-python" title="Link to this heading">#</a></h2>
+<section id="archivos-py">
+<h3>Archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code><a class="headerlink" href="#archivos-py" title="Link to this heading">#</a></h3>
+<p>Puedes escribir código en cualquier editor de texto, por ejemplo <code class="docutils literal notranslate"><span class="pre">notepad</span></code>, <code class="docutils literal notranslate"><span class="pre">gedit</span></code>, <code class="docutils literal notranslate"><span class="pre">textedit</span></code>, etc.</p>
+<p>Pasos:</p>
+<ol class="arabic">
+<li><p>Escribe código como:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Guárdalo como <code class="docutils literal notranslate"><span class="pre">script.py</span></code>.</p></li>
+<li><p>Abre la terminal y ejecuta:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>script.py
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Esto enviará tu código al <strong>intérprete de Python</strong>, que es el que realmente lo ejecuta.</p>
+</section>
+<hr class="docutils" />
+<section id="jupyterlab">
+<h3>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://jupyter.org/">JupyterLab</a> es una interfaz web para escribir y ejecutar código en bloques llamados <strong>celdas</strong>. Permite agregar gráficos, notas y resultados en un mismo documento.</p>
+<p>Ideal para:</p>
+<ul class="simple">
+<li><p>Aprender paso a paso.</p></li>
+<li><p>Crear libretas de ejercicios o informes con gráficos y texto.</p></li>
+<li><p>Analizar datos con <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+</ul>
+<p>Se instala con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+</pre></div>
+</div>
+<p>Y se ejecuta con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>También puede usarse dentro de entornos <code class="docutils literal notranslate"><span class="pre">uv</span></code> o <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="editores-de-texto-recomendados">
+<h2>4. Editores de texto recomendados<a class="headerlink" href="#editores-de-texto-recomendados" title="Link to this heading">#</a></h2>
+<p>Aunque puedes escribir código en cualquier editor, algunos ofrecen ayudas especiales:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Método</p></th>
-<th class="head"><p>Requiere instalación</p></th>
-<th class="head"><p>Facilidad de uso</p></th>
-<th class="head"><p>Ideal para…</p></th>
+<tr class="row-odd"><th class="head"><p>Editor</p></th>
+<th class="head"><p>Características destacadas</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Google Colab</p></td>
-<td><p>No</p></td>
-<td><p>Muy alta</p></td>
-<td><p>Primer contacto, clases, pruebas</p></td>
+<tr class="row-even"><td><p><strong>VS Code</strong></p></td>
+<td><p>Resaltado de sintaxis, autocompletado, integración con Python y Jupyter</p></td>
 </tr>
-<tr class="row-odd"><td><p>Instalador oficial</p></td>
-<td><p>Sí</p></td>
-<td><p>Media</p></td>
-<td><p>Uso general, proyectos variados</p></td>
+<tr class="row-odd"><td><p><strong>JupyterLab</strong></p></td>
+<td><p>Permite mezclar código y texto, ideal para aprendizaje y ciencia de datos</p></td>
 </tr>
-<tr class="row-even"><td><p>UV</p></td>
-<td><p>Sí</p></td>
-<td><p>Alta</p></td>
-<td><p>Desarrollo reproducible, proyectos</p></td>
-</tr>
-<tr class="row-odd"><td><p>Anaconda</p></td>
-<td><p>Sí</p></td>
-<td><p>Alta</p></td>
-<td><p>Ciencia de datos, talleres, investigación</p></td>
+<tr class="row-even"><td><p><strong>PyCharm</strong></p></td>
+<td><p>Excelente para proyectos grandes, con herramientas avanzadas</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
 <hr class="docutils" />
-<section id="jupyterlab">
-<h2>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://jupyter.org/">JupyterLab</a> es una interfaz web que permite ejecutar código Python en bloques (celdas), visualizar resultados, escribir notas y generar gráficos.</p>
-<p>Ideal para:</p>
-<ul class="simple">
-<li><p>Aprender paso a paso.</p></li>
-<li><p>Crear cuadernos de ejercicios.</p></li>
-<li><p>Analizar datos.</p></li>
-</ul>
-<p>Se instala con:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
-</pre></div>
-</div>
-<p>O bien en <code class="docutils literal notranslate"><span class="pre">uv</span></code> o <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
-<p>Para ejecutarlo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="editores-de-texto-recomendados">
-<h2>Editores de texto recomendados<a class="headerlink" href="#editores-de-texto-recomendados" title="Link to this heading">#</a></h2>
-<p>Puedes escribir código Python en cualquier editor, pero algunos tienen ventajas:</p>
-<ul class="simple">
-<li><p><strong>VS Code</strong>: muy potente, con extensiones para Python y Jupyter.</p></li>
-<li><p><strong>JupyterLab</strong>: permite combinar código, gráficos y texto.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
 <section id="que-es-un-script-de-python">
-<h2>¿Qué es un script de Python?<a class="headerlink" href="#que-es-un-script-de-python" title="Link to this heading">#</a></h2>
-<p>Un archivo <code class="docutils literal notranslate"><span class="pre">.py</span></code> es un script: una secuencia de instrucciones.</p>
+<h2>5. ¿Qué es un script de Python?<a class="headerlink" href="#que-es-un-script-de-python" title="Link to this heading">#</a></h2>
+<p>Un <strong>script</strong> es un archivo <code class="docutils literal notranslate"><span class="pre">.py</span></code> que contiene una serie de instrucciones que Python ejecuta de arriba hacia abajo.</p>
 <p>Ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># archivo hola.py</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">)</span>
@@ -617,20 +668,44 @@ jupyter<span class="w"> </span>lab
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>hola.py
 </pre></div>
 </div>
+<p>Si estás usando <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>hola.py
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
-<section id="recomendaciones">
-<h2>Recomendaciones<a class="headerlink" href="#recomendaciones" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Si solo quieres probar Python → usa <strong>Google Colab</strong>.</p></li>
-<li><p>Si quieres trabajar offline con control → usa <strong>Instalador oficial + venv o uv</strong>.</p></li>
-<li><p>Si tu enfoque es ciencia de datos → <strong>Anaconda o uv con JupyterLab</strong>.</p></li>
-</ul>
+<section id="recomendaciones-finales">
+<h2>6. Recomendaciones finales<a class="headerlink" href="#recomendaciones-finales" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Objetivo</p></th>
+<th class="head"><p>Opción recomendada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Probar Python rápidamente</p></td>
+<td><p>Google Colab</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trabajar offline</p></td>
+<td><p>Python oficial + <code class="docutils literal notranslate"><span class="pre">uv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ciencia de datos o ML</p></td>
+<td><p>Anaconda o <code class="docutils literal notranslate"><span class="pre">uv</span></code> + JupyterLab</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sistema restringido (sin admin)</p></td>
+<td><p>WinPython</p></td>
+</tr>
+<tr class="row-even"><td><p>Proyecto profesional flexible</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uv</span></code> con editor como VS Code</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <hr class="docutils" />
 <section id="proximos-pasos">
 <h2>Próximos pasos<a class="headerlink" href="#proximos-pasos" title="Link to this heading">#</a></h2>
-<p>Ya puedes ejecutar código Python. En el siguiente tema aprenderás a escribir tus primeros programas, trabajar con variables y hacer operaciones básicas.</p>
+<p>Ya puedes ejecutar código Python. En el siguiente tema aprenderás a escribir tus primeros programas, declarar variables y hacer operaciones básicas.</p>
 <div class="math notranslate nohighlight">
 \[
 \bar{x} = \frac{\sum{x_i}}{n}
@@ -693,32 +768,44 @@ jupyter<span class="w"> </span>lab
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-la-nube-google-colab">En la nube - Google Colab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usarlo">Cómo usarlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-para-ejecutar-python">1. Opciones para ejecutar Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-en-la-nube-google-colab">Opción 1: En la nube - Google Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-usarlo">Cómo usarlo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-en-tu-computadora">Local - En tu computadora</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-instalador-oficial-de-python">Opción 1: Instalador oficial de Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos">Pasos:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-puede-hacer">¿Qué se puede hacer?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-astral-uv">Opción 2: Astral UV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-3-anaconda">Opción 3: Anaconda</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-para-instalar-python-en-tu-computadora">2. Opciones para instalar Python en tu computadora</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-instalador-oficial-de-python">Opción 2: Instalador oficial de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-basicos">Pasos básicos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-puedes-hacer-despues">¿Qué puedes hacer después?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-3-astral-uv">Opción 3: Astral UV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-4-anaconda">Opción 4: Anaconda</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ventajas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Desventajas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#para-quien-es-util">¿Para quién es útil?</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-5-winpython-solo-en-windows">Opción 5: WinPython (solo en Windows)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Desventajas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">¿Para quién es útil?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-opciones">Comparación entre opciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto-recomendados">Editores de texto recomendados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-script-de-python">¿Qué es un script de Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recomendaciones">Recomendaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-escribir-y-ejecutar-codigo-python">3. ¿Cómo escribir y ejecutar código Python?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-py">Archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto-recomendados">4. Editores de texto recomendados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-script-de-python">5. ¿Qué es un script de Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recomendaciones-finales">6. Recomendaciones finales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proximos-pasos">Próximos pasos</a></li>
 </ul>
   </nav></div>

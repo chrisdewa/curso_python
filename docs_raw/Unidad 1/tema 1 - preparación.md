@@ -5,11 +5,12 @@ nav_order: 1
 ---
 
 
-# Tema 1. Preparación inicial
+# Tema 1: Preparación inicial
 
 ## Objetivo del tema
 Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv. 
 
+(correr-python-target)=
 ## ¿Qué significa “correr” Python?
 
 “Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.
