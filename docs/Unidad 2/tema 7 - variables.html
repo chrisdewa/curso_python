@@ -465,11 +465,36 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tema-7-variables">
 <h1>Tema 7: Variables<a class="headerlink" href="#tema-7-variables" title="Link to this heading">#</a></h1>
 <p>En esta libreta aprenderás qué son las variables, cómo asignarles valores, y cómo manipularlas y trabajar con ellas. Entenderás la diferencia entre una <strong>variable</strong> y un <strong>valor</strong>, y comenzarás a explorar cómo Python maneja internamente estos conceptos a través de los <strong>objetos</strong>.</p>
+<p>Primero comencemos a utilizar las celdas de código como una calculadora.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta es una celda de código</span>
+<span class="c1"># Podemos escribir comentarios poniendo el signo de gato &quot;#&quot;</span>
+<span class="c1"># Ejecútala con ctrl + enter o el botón de &quot;play&quot;.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Suma</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Multiplicación</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># División, observa que el resultado es un número decimal</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># División entera, el resultado es un entero</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Potencia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+10
+5.0
+5
+8
+</pre></div>
+</div>
+</div>
+</div>
 <section id="que-es-una-variable">
 <h2>¿Qué es una variable?<a class="headerlink" href="#que-es-una-variable" title="Link to this heading">#</a></h2>
 <p>Ten en claro lo siguiente:</p>
-<div class="error admonition">
-<p class="admonition-title">Concepto Clave</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
 <ul class="simple">
 <li><p><strong>Valor:</strong> Es el dato en sí. Puede ser un número como <code class="docutils literal notranslate"><span class="pre">5</span></code>, un texto como <code class="docutils literal notranslate"><span class="pre">&quot;hola&quot;</span></code>, o algo más complejo.</p></li>
 <li><p><strong>Variable:</strong> Es un <em>nombre</em> que se asocia a un valor. Las variables nos permiten guardar información y referirnos a ella más adelante.</p></li>
@@ -505,11 +530,7 @@ document.write(`
 <p>Ahora vamos a practicar con algunas asignaciones y operaciones con variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta es una celda de código</span>
-<span class="c1"># Podemos escribir comentarios poniendo el signo de gato &quot;#&quot;</span>
-<span class="c1"># Ejecútala con ctrl + enter o el botón de &quot;play&quot;.</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># esta es una variable, su nombre es &quot;x&quot;, su valor es &quot;3&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># esta es una variable, su nombre es &quot;x&quot;, su valor es &quot;3&quot;.</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>

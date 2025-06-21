@@ -113,6 +113,3 @@ Esto abrirá la interfaz de JupyterLab en tu navegador. Ahí podrás:
 
 Entra en jupyter lab y explora la interfaz, crea una nueva libreta con el botón \[+\] y selecciona el kernel de python.
 Escribe cualquiera de los ejemplos de python que hemos puesto hasta ahora como `print('hola mundo')`.
-
-Continúa en la [libreta 1](<libreta 1 - primera libreta.ipynb>).
-
