@@ -43,5 +43,7 @@ html:
   use_issues_button: true
 
 sphinx:
+  config:
+    language: es
   extra_extensions:
     - sphinxcontrib.mermaid
