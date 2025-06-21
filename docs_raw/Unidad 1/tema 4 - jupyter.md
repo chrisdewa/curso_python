@@ -7,8 +7,7 @@ nav_order: 4
 
 Jupyter es una plataforma interactiva ampliamente utilizada en ciencia de datos, programación y educación. Permite combinar código ejecutable, texto enriquecido (Markdown), visualizaciones, ecuaciones matemáticas y otros elementos en un mismo documento: la libreta o *notebook*.
 
-:::{admonition} Nota
-:class: note
+:::{note}
 Ya realizamos la instalación de JupyterLab usando `uv` en el [tema 1](<tema 1 - preparación.md>). Si no lo hiciste en ese momento, puedes hacerlo ahora de la siguiente forma:
 
 1. Abre tu terminal y navega usando `cd` al directorio del curso.
@@ -28,7 +27,7 @@ Consulta la [documentación oficial de Jupyter](https://jupyter.org) para más i
 :::
 
 
-:::{admonition} Nota
+:::{note}
 ¿Sabías que en 2021 la revista nature nombró el proyecto [jupyter](https://www.nature.com/articles/d41586-021-00075-2) como uno de los 10 herramientas informáticas más influyentes en la transformación de la ciencia?
 :::
 
@@ -50,8 +49,7 @@ En jupyter escribimos código en "libretas" cada libreta permite escribir códig
 
 Ambas permiten usar notebooks, pero **JupyterLab** agrega soporte para pestañas, explorador de archivos, consolas, y más.
 
-:::{admonition} Concepto crítico
-:class: error
+:::{important}
 A partir de este punto, en todo el libro, cuando se hable de "libretas", nos referiremos libretas jupyter. 
 :::
 
