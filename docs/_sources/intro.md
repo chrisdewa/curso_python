@@ -31,6 +31,7 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 
 |Requisito|Explicación|
 |---------|-----------|
+|Dominio intermedio del inglés|A pesar de que todo el curso y las libretas están en inglés, python, sus librerías y prácticamente toda la documentación, está en inglés. Se recomienda un nivel mínimo B1 para un curso satisfactorio.|
 |Tener conocimientos básicos de análisis estadísitcos y metodología de la investigación|Sin este requisito el alumno no podrá adquierir los conocimientos y competencias en forma satisfactoria|
 |Tener una computadora personal con sistema operativo Mac, Windows o Linux.|El curso contempla la instalación de software especializado, el alumno no podrá realizar las actividades sin no puede instalarlo.|
 |Pŕactica diaria|Python es un lenguaje de programación, como cualquier otro lenguaje, debe practicarse diariamente para lograr su aprendizaje, de lo contrario los conocimientos no se consolidarán|

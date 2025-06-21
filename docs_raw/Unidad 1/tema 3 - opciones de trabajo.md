@@ -53,6 +53,13 @@ Cuando lo usas, se te asigna una computadora virtual que ya tiene instalado todo
 Existen otras plataformas en la nube similares, como Replit, Kaggle Notebooks o Deepnote. Puedes explorarlas por tu cuenta si lo deseas.
 :::
 
+:::{admonition} Importante
+:class: warning
+En las libretas del curso verás este símbolo: <i class="fas fa-rocket"></i> en la barra de navegación, úsalo para abrir la libreta en Google Colab.
+
+Aunque se **sugiere que uses el botón de descarga y corras la libreta en forma local** con el botón <i class="fas fa-download"></i> en la barra de navegación.
+
+:::
 ---
 
 
