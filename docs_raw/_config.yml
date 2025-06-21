@@ -22,8 +22,9 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/chrisdewa/curso_python  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  path_to_book: docs_raw  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
+  provider: github  # The provider of the repository, e.g., 'github', 'gitlab', etc.
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
