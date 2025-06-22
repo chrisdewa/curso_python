@@ -20,3 +20,9 @@ chapters:
   - file: Unidad 2/index
     sections:
       - file: Unidad 2/tema 7 - variables
+      - file: Unidad 2/tema 8 - tipos de datos
+  - file: Otras lecciones/index
+    sections:
+      - file: Otras lecciones/Python intermedio/index
+        sections:
+          - file: Otras lecciones/Python intermedio/comprensiones

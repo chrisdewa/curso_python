@@ -1,5 +1,4 @@
 ---
-title: "Tema 2: Generalidades"
 parent: "Unidad 1: Aspectos Básicos"
 nav_order: 2
 has_children: true
