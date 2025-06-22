@@ -7,11 +7,25 @@ nav_order: 1
 
 Las comprensiones (`comprehensions`) son expresiones declarativas que permiten construir colecciones de forma concisa y legible. Usan la semántica de expresión de Python para crear listas, diccionarios, sets o generadores, sin necesidad de escribir bucles explícitos.
 
+Es decir, en lugar de esto:
+```python
+new_list = []
+for item in my_list:
+    item += 10
+    new_list.append(item)
+```
+Usando comprensiones, se transforma en:
+```python
+new_list = [item+10 for item in my_list]
+```
+
+
 Se consideran una herramienta idiomática y deben usarse cuando mejoran la expresividad del código, sin comprometer su legibilidad.
+
 
 ---
 
-## List Comprehensions
+## Comprensión de listas
 
 La forma más común. Genera una lista a partir de un iterable aplicando una transformación opcional y un filtro.
 
@@ -25,15 +39,9 @@ También puede incluir condicionales:
 [x for x in range(10) if x % 2 == 0]  # pares
 ```
 
-Incluso condicional ternario dentro de la expresión:
-
-```python
-["par" if x % 2 == 0 else "impar" for x in range(5)]
-```
-
 ---
 
-## Dict Comprehensions
+## Comprensión de diccionarios
 
 Permite construir diccionarios usando la misma lógica declarativa.
 
@@ -51,36 +59,31 @@ pares = [("a", 1), ("b", 2), ("c", 3)]
 También es útil para invertir diccionarios:
 
 ```python
-d = {"uno": 1, "dos": 2}
-{v: k for k, v in d.items()}
+d = {"uno": 1, "dos": 2, "tres": 3, "cuatro": 4}
+{v: k for k, v in d.items() if v%2 == 0} # solo pares
 ```
 
 ---
 
-## Set Comprehensions
+## Generadores
 
-Genera un `set` eliminando automáticamente duplicados.
+En lugar de crear una colección en memoria, genera un iterador perezoso (lazy) que produce elementos a demanda.
 
-```python
-{letra for letra in "abracadabra"}  # {'a', 'b', 'c', 'd', 'r'}
-```
-
-Sintaxis idéntica a la de listas, pero con llaves `{}`.
-
----
-
-## Generator Expressions
-
-En lugar de crear una colección en memoria, genera un iterador perezoso (lazy) que produce elementos on-demand.
+:::{note}
+A diferencia de las listas y las tuplas que tienen todos sus valores cargados en la memoria, los generadores solo tienen en la memoria el valor que se extrae en el momento. Se obtienen los valores deseados a demanda del programa.
 
 ```python
 (x ** 2 for x in range(10))
 ```
 
+:::{warning}
+Nota que al usar paréntesis no se genera una tupla sino un generador
+:::
+
 Combinado con funciones agregadas:
 
 ```python
-sum(x for x in range(1000) if x % 5 == 0)
+sum(x for x in range(1000) if x % 5 == 0) # solo suma los múltiplos de 5
 ```
 
 Esto es más eficiente en memoria para flujos de datos grandes.

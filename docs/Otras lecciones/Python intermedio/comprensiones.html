@@ -196,7 +196,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Unidad%202/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Unidad%202/tema%207%20-%20variables.html">Tema 7: Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Unidad%202/tema%208%20-%20tipos%20de%20datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Unidad%202/tema%208%20-%20tipos%20de%20datos.html">Tema 8: Tipos de datos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Otras lecciones</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -418,10 +418,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">List Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-comprehensions">Dict Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-comprehensions">Set Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expressions">Generator Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprension-de-listas">Comprensión de listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprension-de-diccionarios">Comprensión de diccionarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generadores">Generadores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-de-estilo-y-rendimiento">Consideraciones de estilo y rendimiento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-idiomaticos">Ejemplos idiomáticos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraer-claves-por-condicion">Extraer claves por condición:</a></li>
@@ -444,10 +443,21 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="comprensiones-en-python">
 <h1>Comprensiones en Python<a class="headerlink" href="#comprensiones-en-python" title="Link to this heading">#</a></h1>
 <p>Las comprensiones (<code class="docutils literal notranslate"><span class="pre">comprehensions</span></code>) son expresiones declarativas que permiten construir colecciones de forma concisa y legible. Usan la semántica de expresión de Python para crear listas, diccionarios, sets o generadores, sin necesidad de escribir bucles explícitos.</p>
+<p>Es decir, en lugar de esto:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Usando comprensiones, se transforma en:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">+</span><span class="mi">10</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Se consideran una herramienta idiomática y deben usarse cuando mejoran la expresividad del código, sin comprometer su legibilidad.</p>
 <hr class="docutils" />
-<section id="list-comprehensions">
-<h2>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Link to this heading">#</a></h2>
+<section id="comprension-de-listas">
+<h2>Comprensión de listas<a class="headerlink" href="#comprension-de-listas" title="Link to this heading">#</a></h2>
 <p>La forma más común. Genera una lista a partir de un iterable aplicando una transformación opcional y un filtro.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># [0, 2, 4, 6, 8]</span>
 </pre></div>
@@ -456,14 +466,10 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># pares</span>
 </pre></div>
 </div>
-<p>Incluso condicional ternario dentro de la expresión:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;par&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;impar&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-</pre></div>
-</div>
 </section>
 <hr class="docutils" />
-<section id="dict-comprehensions">
-<h2>Dict Comprehensions<a class="headerlink" href="#dict-comprehensions" title="Link to this heading">#</a></h2>
+<section id="comprension-de-diccionarios">
+<h2>Comprensión de diccionarios<a class="headerlink" href="#comprension-de-diccionarios" title="Link to this heading">#</a></h2>
 <p>Permite construir diccionarios usando la misma lógica declarativa.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>  <span class="c1"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span>
 </pre></div>
@@ -474,29 +480,28 @@ document.write(`
 </pre></div>
 </div>
 <p>También es útil para invertir diccionarios:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;uno&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dos&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;uno&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dos&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;tres&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span> <span class="c1"># solo pares</span>
 </pre></div>
 </div>
 </section>
 <hr class="docutils" />
-<section id="set-comprehensions">
-<h2>Set Comprehensions<a class="headerlink" href="#set-comprehensions" title="Link to this heading">#</a></h2>
-<p>Genera un <code class="docutils literal notranslate"><span class="pre">set</span></code> eliminando automáticamente duplicados.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">letra</span> <span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="s2">&quot;abracadabra&quot;</span><span class="p">}</span>  <span class="c1"># {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;r&#39;}</span>
-</pre></div>
-</div>
-<p>Sintaxis idéntica a la de listas, pero con llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-</section>
-<hr class="docutils" />
-<section id="generator-expressions">
-<h2>Generator Expressions<a class="headerlink" href="#generator-expressions" title="Link to this heading">#</a></h2>
-<p>En lugar de crear una colección en memoria, genera un iterador perezoso (lazy) que produce elementos on-demand.</p>
+<section id="generadores">
+<h2>Generadores<a class="headerlink" href="#generadores" title="Link to this heading">#</a></h2>
+<p>En lugar de crear una colección en memoria, genera un iterador perezoso (lazy) que produce elementos a demanda.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A diferencia de las listas y las tuplas que tienen todos sus valores cargados en la memoria, los generadores solo tienen en la memoria el valor que se extrae en el momento. Se obtienen los valores deseados a demanda del programa.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Nota que al usar paréntesis no se genera una tupla sino un generador</p>
+</div>
+</div>
 <p>Combinado con funciones agregadas:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># solo suma los múltiplos de 5</span>
 </pre></div>
 </div>
 <p>Esto es más eficiente en memoria para flujos de datos grandes.</p>
@@ -598,10 +603,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">List Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-comprehensions">Dict Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-comprehensions">Set Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expressions">Generator Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprension-de-listas">Comprensión de listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprension-de-diccionarios">Comprensión de diccionarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generadores">Generadores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-de-estilo-y-rendimiento">Consideraciones de estilo y rendimiento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-idiomaticos">Ejemplos idiomáticos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraer-claves-por-condicion">Extraer claves por condición:</a></li>

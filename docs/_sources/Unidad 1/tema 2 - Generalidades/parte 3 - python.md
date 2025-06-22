@@ -51,6 +51,7 @@ Como comentamos, Python está orientado a objetos. Todo es un objeto y cada obje
 ##### Tipos básicos
 En Python existen algunos tipos básicos:
 
+(tema2-tipos-target)=
 ###### Valores individuales
 
 | Tipo      | Ejemplo        | Función |
