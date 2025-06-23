@@ -447,6 +447,10 @@ document.write(`
 <section id="objetivo-del-tema">
 <h2>Objetivo del tema<a class="headerlink" href="#objetivo-del-tema" title="Link to this heading">#</a></h2>
 <p>Instalar Python utilizando <code class="docutils literal notranslate"><span class="pre">uv</span></code>, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En todo el curso, se sugiere que el alumno realice todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.</p>
+</div>
 </section>
 <section id="que-significa-correr-python">
 <span id="correr-python-target"></span><h2>¿Qué significa “correr” Python?<a class="headerlink" href="#que-significa-correr-python" title="Link to this heading">#</a></h2>
@@ -492,7 +496,7 @@ document.write(`
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="n">-c</span> <span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
 </pre></div>
 </div>
-<p>Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">-V</span></code> y da enter, aparecer un breve texto con la versión de uv instalada, por ejemplo <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">0.6.14</span></code>. Si todo está bien, podemos avanzar.</p>
+<p>Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">-V</span></code> y da enter, debería aparecer un breve texto con la versión de uv instalada, por ejemplo <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">0.6.14</span></code>. Si todo está bien, podemos avanzar.</p>
 </section>
 <section id="crear-un-proyecto">
 <h3>3. Crear un proyecto<a class="headerlink" href="#crear-un-proyecto" title="Link to this heading">#</a></h3>
@@ -509,7 +513,7 @@ document.write(`
 </div>
 <p>El comando <code class="docutils literal notranslate"><span class="pre">cd</span></code> «Cambiar directorio» permite navegar el sistema de archivos. Para regresar un nivel usa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>. Para regresar a la carpeta principal, solo pon <code class="docutils literal notranslate"><span class="pre">cd</span></code>.
 Esto funciona tanto en Mac y linux como en Windows.</p>
-<ol class="arabic simple">
+<ol class="arabic simple" start="2">
 <li><p>Inicializar el proyecto</p></li>
 </ol>
 <p>Ya que estamos en el lugar donde queremos tener nuestro proyecto, utiliza el siguiente comando.</p>
@@ -564,19 +568,29 @@ Esto funciona tanto en Mac y linux como en Windows.</p>
 <p>Felicidades de nuevo, lograste escribir y ejecutar tu primer programa en python.
 Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje «¡Hola mundo!», por medio de la función <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
 <p>En la siguiente lectura aprenderás más al respecto.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para salir del intérprete debes escribir <code class="docutils literal notranslate"><span class="pre">exit()</span></code>. Con paréntesis, esto le dice al intérprete que ha llegado al final del programa.</p>
+</div>
 </section>
 <section id="practica-personal">
 <h2>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Repite el proceso de abrir una nueva terminal, navegar hasta el directorio del curso y ejecutar la consola de python.</p></li>
 <li><p>Dentro de la consola de python ejecuta el comando <code class="docutils literal notranslate"><span class="pre">help</span></code>.</p></li>
-<li><p>Intenta ahora el comando <code class="docutils literal notranslate"><span class="pre">help(print)</span></code></p></li>
+<li><p>Escribe <code class="docutils literal notranslate"><span class="pre">print</span></code>. Al hacerlo, estás pidiéndole a «help» que te diga cómo utilizar <code class="docutils literal notranslate"><span class="pre">print</span></code>. Puedes hacer lo mismo con otros objetos en python. Puedes utilizar enter para desplazarte por el texto de ayuda.</p></li>
+<li><p>Sal de <code class="docutils literal notranslate"><span class="pre">help</span></code> escribiendo «q», «exit» o «quit».</p></li>
+<li><p>Ahora utiliza <code class="docutils literal notranslate"><span class="pre">help(print)</span></code>. Verás el mismo efecto, pero esta vez no te quedarás dentro de <code class="docutils literal notranslate"><span class="pre">help</span></code>, regresarás directo al intérprete.</p></li>
 <li><p>Intenta utilizar otros valores dentro del paréntesis de la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, por ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 </ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Cuando hayas terminado puedes cerrar la terminal, recibierás una advertencia antes de hacerlo.</p>
+</div>
 </section>
 </section>
 

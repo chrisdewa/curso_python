@@ -10,6 +10,10 @@ nav_order: 1
 ## Objetivo del tema
 Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv. 
 
+:::{note}
+En todo el curso, se sugiere que el alumno realice todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
+:::
+
 (correr-python-target)=
 ## ¿Qué significa “correr” Python?
 
@@ -64,7 +68,7 @@ En Windows (PowerShell):
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe `uv -V` y da enter, aparecer un breve texto con la versión de uv instalada, por ejemplo `uv 0.6.14`. Si todo está bien, podemos avanzar.
+Una vez que termine de instalarse, cierra la terminal y abre una nueva, escribe `uv -V` y da enter, debería aparecer un breve texto con la versión de uv instalada, por ejemplo `uv 0.6.14`. Si todo está bien, podemos avanzar.
 
 ### 3. Crear un proyecto
 
@@ -84,7 +88,7 @@ Este ejemplo asume que en la carpeta "Documentos" existe otra llamada "cursos".
 El comando `cd` "Cambiar directorio" permite navegar el sistema de archivos. Para regresar un nivel usa `cd ..`. Para regresar a la carpeta principal, solo pon `cd`.
 Esto funciona tanto en Mac y linux como en Windows. 
 
-1. Inicializar el proyecto
+2. Inicializar el proyecto
 
 Ya que estamos en el lugar donde queremos tener nuestro proyecto, utiliza el siguiente comando.
 
@@ -151,12 +155,21 @@ Lo que acabas de hacer es decirle a python que escriba en la consola el mensaje 
 
 En la siguiente lectura aprenderás más al respecto.
 
+:::{important}
+Para salir del intérprete debes escribir `exit()`. Con paréntesis, esto le dice al intérprete que ha llegado al final del programa.
+:::
+
 ## Práctica personal
 
 1. Repite el proceso de abrir una nueva terminal, navegar hasta el directorio del curso y ejecutar la consola de python.
 2. Dentro de la consola de python ejecuta el comando `help`.
-3. Intenta ahora el comando `help(print)`
-4. Intenta utilizar otros valores dentro del paréntesis de la función `print`, por ejemplo:
+3. Escribe `print`. Al hacerlo, estás pidiéndole a "help" que te diga cómo utilizar `print`. Puedes hacer lo mismo con otros objetos en python. Puedes utilizar enter para desplazarte por el texto de ayuda.
+4. Sal de `help` escribiendo "q", "exit" o "quit".
+5. Ahora utiliza `help(print)`. Verás el mismo efecto, pero esta vez no te quedarás dentro de `help`, regresarás directo al intérprete.
+6. Intenta utilizar otros valores dentro del paréntesis de la función `print`, por ejemplo:
    ```python
    print(123)
-   ``` 
+   ```
+:::{important}
+Cuando hayas terminado puedes cerrar la terminal, recibierás una advertencia antes de hacerlo.
+:::
