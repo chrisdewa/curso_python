@@ -5,6 +5,8 @@ title: "Curso-Taller de Python para Análisis Estadístico en Ciencias de la Sal
 author: Christian Alejandro Delaflor Wagner
 logo: logo.png
 
+copyright: "2025"
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -41,6 +43,11 @@ html:
   use_repository_button: true
   use_edit_page_button: true
   use_issues_button: true
+  #theme: sphinx_book_theme
+  extra_footer: |
+    <p>
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+    </p>
 
 sphinx:
   config:

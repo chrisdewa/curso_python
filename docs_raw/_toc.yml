@@ -10,9 +10,9 @@ chapters:
       - file: Unidad 1/tema 1 - preparación
       - file: Unidad 1/tema 2 - Generalidades/index
         sections:
-          - file: Unidad 1/tema 2 - Generalidades/parte 1 - algorítmica
-          - file: Unidad 1/tema 2 - Generalidades/parte 2 - programación
-          - file: Unidad 1/tema 2 - Generalidades/parte 3 - python
+          - file: Unidad 1/tema 2 - Generalidades/2.1 - algorítmica
+          - file: Unidad 1/tema 2 - Generalidades/2.2 - programación
+          - file: Unidad 1/tema 2 - Generalidades/2.3 - python
       - file: Unidad 1/tema 3 - opciones de trabajo
       - file: Unidad 1/tema 4 - jupyter
       - file: Unidad 1/tema 5 - primera libreta
