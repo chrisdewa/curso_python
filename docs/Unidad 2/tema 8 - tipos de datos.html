@@ -467,23 +467,23 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rebanadas-slicing">Rebanadas (Slicing)</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad">Mutabilidad</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas-tuple">Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad">Mutabilidad</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-set">Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas-tuple">Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-set">Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
@@ -842,8 +842,9 @@ Es decir, va de <code class="docutils literal notranslate"><span class="pre">ini
 Lo usaremos más adelante en el curso para manipular arreglos de datos, esto funciona para obtener por ejemplo, un conjunto de columnas, en bases de datos, o para seleccionar grupos de sujetos.</p>
 </div>
 </section>
+</section>
 <section id="mutabilidad">
-<h5>Mutabilidad<a class="headerlink" href="#mutabilidad" title="Link to this heading">#</a></h5>
+<h4>Mutabilidad<a class="headerlink" href="#mutabilidad" title="Link to this heading">#</a></h4>
 <p>Como se comentó al principio de la lección, en python existen algunos tipos mutables y otros inmutables, las listas son efectivamente mutables, como verás en la siguiente celda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -868,9 +869,9 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1702220704128
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2380766017024
 [&#39;h&#39;, &#39;z&#39;, &#39;a&#39;]
-1702220704128
+2380766017024
 140722963280936
 6
 140722963280968
@@ -881,7 +882,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </section>
 </section>
 <section id="tuplas-tuple">
-<h4>Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)<a class="headerlink" href="#tuplas-tuple" title="Link to this heading">#</a></h4>
+<h3>Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)<a class="headerlink" href="#tuplas-tuple" title="Link to this heading">#</a></h3>
 <p>Las tuplas son prácticamente idénticas a las listas, pero con una diferencia importante, <strong>son inmutables</strong>, eso quiere decir que las tuplas luego de ser inicializadas no pueden ser modificadas, no se pueden agregar o quitar elementos, ni siquiera reordenarlas.</p>
 <p>Para inicializar una tupla, simplemente engloba a los valores en paréntesis.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -895,7 +896,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 <p>Los tipos <code class="docutils literal notranslate"><span class="pre">Hashable</span></code>, implementan un método <code class="docutils literal notranslate"><span class="pre">__hash__()</span></code> que devuelve un valor único para este objeto, el hash es como un identificador que solo existe para esa configuración del objeto.</p>
 </div>
 <section id="ejercicio">
-<h5>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h5>
+<h4>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h4>
 <p>intenta ver que puedes hacer con las tuplas, usa los mismos métodos que has usado con las listas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -908,7 +909,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </section>
 </section>
 <section id="conjuntos-set">
-<h4>Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)<a class="headerlink" href="#conjuntos-set" title="Link to this heading">#</a></h4>
+<h3>Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)<a class="headerlink" href="#conjuntos-set" title="Link to this heading">#</a></h3>
 <p>Los conjuntos, o sets, son colecciones <strong>NO ORDENADAS</strong> de valores <strong>UNICOS</strong>. Esto quiere decir que dentro de un set solo existe una sola versión de cada objeto, si más versiones quieren ser incorporadas, serán ignoradas.</p>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
@@ -943,16 +944,16 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Pedro&#39;}
-{&#39;María&#39;, &#39;Juan&#39;}
+{&#39;Juan&#39;, &#39;María&#39;}
 {&#39;Ana&#39;, &#39;Luis&#39;}
-{&#39;María&#39;, &#39;Pedro&#39;, &#39;Juan&#39;, &#39;Ana&#39;, &#39;Luis&#39;}
-{&#39;María&#39;, &#39;Ana&#39;, &#39;Juan&#39;, &#39;Luis&#39;}
+{&#39;Ana&#39;, &#39;Pedro&#39;, &#39;María&#39;, &#39;Luis&#39;, &#39;Juan&#39;}
+{&#39;Ana&#39;, &#39;María&#39;, &#39;Luis&#39;, &#39;Juan&#39;}
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id1">
-<h5>Ejercicio<a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<h4>Ejercicio<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <p>Crea un conjunto con tus amigos y otro con tus colegas y realiza operaciones con ellos, como las que has visto con los conjuntos anteriores</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,7 +965,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </section>
 </section>
 <section id="diccionarios-dict">
-<h4>Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)<a class="headerlink" href="#diccionarios-dict" title="Link to this heading">#</a></h4>
+<h3>Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)<a class="headerlink" href="#diccionarios-dict" title="Link to this heading">#</a></h3>
 <p>Los diccionarios son uno de los tipos más importantes y relevantes en el contexto del análisis de datos. Están formados por dos partes, las <strong>llaves</strong> (keys, en inglés) y los <strong>valores</strong>.</p>
 <p>Las llaves deben ser valores <code class="docutils literal notranslate"><span class="pre">hashable</span></code>, como <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, etcétera, ya que solo puede existir una misma llave con ese valor específico, de hecho, las llaves, como colección, son parecidas al <code class="docutils literal notranslate"><span class="pre">set</span></code>, en donde solo existe una versión del mismo valor.</p>
 <p>Los valores no tienen restricción y puede ser cualquier objeto en python, incluyendo colecciones.</p>
@@ -989,7 +990,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 <p>Los conjuntos <code class="docutils literal notranslate"><span class="pre">set</span></code> también utilizan las llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>, al igual que los diccionarios, pero no te confundas, el formato <code class="docutils literal notranslate"><span class="pre">{llave:valor}</span></code> es para <code class="docutils literal notranslate"><span class="pre">dict</span></code> y el formato <code class="docutils literal notranslate"><span class="pre">{valor1,</span> <span class="pre">valor2}</span></code> es para los sets.</p>
 </div>
 <section id="acceder-a-los-valores-dentro-del-diccionario">
-<h5>Acceder a los valores dentro del diccionario<a class="headerlink" href="#acceder-a-los-valores-dentro-del-diccionario" title="Link to this heading">#</a></h5>
+<h4>Acceder a los valores dentro del diccionario<a class="headerlink" href="#acceder-a-los-valores-dentro-del-diccionario" title="Link to this heading">#</a></h4>
 <p>Supongamos que trabajamos con el ejemplo anterior, el diccionario <code class="docutils literal notranslate"><span class="pre">sujeto</span></code>, que corresponde a la información de un paciente.
 Se utilizan los mismos corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> pero en lugar del índice del objeto, vamos a poner el la llave del valor al que queremos acceder, por ejemplo, si quisieramos saber qué edad tiene el paciente:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -1006,7 +1007,7 @@ Se utilizan los mismos corchetes <code class="docutils literal notranslate"><spa
 <p>Como ves, el primer juego de corchetes es para la llave, pero el segundo es para la lista. Es decir que en este ejemplo, <code class="docutils literal notranslate"><span class="pre">sujeto['comorbilidades']</span></code> es lo mismo que si tuvieramos directamente la lista<code class="docutils literal notranslate"><span class="pre">['DM2',</span> <span class="pre">'HAS']</span></code>.</p>
 </section>
 <section id="agregar-o-cambiar-valores-en-el-diccionario">
-<h5>agregar o cambiar valores en el diccionario<a class="headerlink" href="#agregar-o-cambiar-valores-en-el-diccionario" title="Link to this heading">#</a></h5>
+<h4>agregar o cambiar valores en el diccionario<a class="headerlink" href="#agregar-o-cambiar-valores-en-el-diccionario" title="Link to this heading">#</a></h4>
 <p>Similar a las listas, se hace por medio de corchetes con la llave con la que queremos interactuar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># agregar un año a la edad del paciente</span>
 <span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;comorbilidades&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;TDAH&#39;</span><span class="p">)</span> <span class="c1"># agregar una comorbilidad</span>
@@ -1016,7 +1017,7 @@ Se utilizan los mismos corchetes <code class="docutils literal notranslate"><spa
 <p>Para quitar un par de llave y valor del diccionario, se utiliza la palabra clave <code class="docutils literal notranslate"><span class="pre">del</span></code>, de esta forma: <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">sujeto['peso']</span></code>, esto quitaría la llave y el valor de <code class="docutils literal notranslate"><span class="pre">&quot;peso&quot;</span></code> del diccionario.</p>
 </section>
 <section id="id2">
-<h5>Ejercicios<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<h4>Ejercicios<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sujeto</span> <span class="o">=</span> <span class="p">{</span>
@@ -1044,7 +1045,6 @@ Se utilizan los mismos corchetes <code class="docutils literal notranslate"><spa
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 </section>
@@ -1131,23 +1131,23 @@ Se utilizan los mismos corchetes <code class="docutils literal notranslate"><spa
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rebanadas-slicing">Rebanadas (Slicing)</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad">Mutabilidad</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas-tuple">Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad">Mutabilidad</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-set">Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas-tuple">Tuplas (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-set">Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
