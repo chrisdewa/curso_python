@@ -479,7 +479,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
@@ -866,12 +868,12 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1614498408704
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2677040194240
 [&#39;h&#39;, &#39;z&#39;, &#39;a&#39;]
-1614498408704
-140725573186600
+2677040194240
+140722963280936
 6
-140725573186632
+140722963280968
 </pre></div>
 </div>
 </div>
@@ -943,8 +945,8 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Pedro&#39;}
 {&#39;María&#39;, &#39;Juan&#39;}
 {&#39;Luis&#39;, &#39;Ana&#39;}
-{&#39;María&#39;, &#39;Luis&#39;, &#39;Pedro&#39;, &#39;Ana&#39;, &#39;Juan&#39;}
-{&#39;Juan&#39;, &#39;Ana&#39;, &#39;Luis&#39;, &#39;María&#39;}
+{&#39;Juan&#39;, &#39;María&#39;, &#39;Pedro&#39;, &#39;Luis&#39;, &#39;Ana&#39;}
+{&#39;Ana&#39;, &#39;Juan&#39;, &#39;María&#39;, &#39;Luis&#39;}
 </pre></div>
 </div>
 </div>
@@ -971,23 +973,67 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </pre></div>
 </div>
 <p>El siguiente es un diccionario válido, con él verás la relevancia de los diccionarios.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">paciente_1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;Christian&#39;</span><span class="p">,</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sujeto</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;ALP&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
-    <span class="s1">&#39;hijos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="c1"># 2</span>
-    <span class="s1">&#39;casado&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;mascotas&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># no tengo</span>
-    <span class="p">(</span><span class="s1">&#39;Alma mater&#39;</span><span class="p">,</span> <span class="s1">&#39;año de egreso&#39;</span><span class="p">):</span> <span class="p">(</span><span class="s1">&#39;UNAM&#39;</span><span class="p">,</span> <span class="mi">2013</span><span class="p">),</span> <span class="c1"># las tuplas pueden ser llaves.</span>
+    <span class="s1">&#39;enfermo&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;peso&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+    <span class="s1">&#39;talla&#39;</span><span class="p">:</span> <span class="mf">1.73</span><span class="p">,</span>
+    <span class="s1">&#39;comorbilidades&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DM2&#39;</span><span class="p">,</span> <span class="s1">&#39;HAS&#39;</span><span class="p">]</span>
 <span class="p">}</span>
 
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Los conjuntos <code class="docutils literal notranslate"><span class="pre">set</span></code> también utilizan las llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>, al igual que los diccionarios, pero no te confundas, el formato <code class="docutils literal notranslate"><span class="pre">{llave:valor}</span></code> es para <code class="docutils literal notranslate"><span class="pre">dict</span></code> y el formato <code class="docutils literal notranslate"><span class="pre">{valor1,</span> <span class="pre">valor2}</span></code> es para los sets.</p>
+</div>
+<section id="acceder-a-los-valores-dentro-del-diccionario">
+<h5>Acceder a los valores dentro del diccionario<a class="headerlink" href="#acceder-a-los-valores-dentro-del-diccionario" title="Link to this heading">#</a></h5>
+<p>Supongamos que trabajamos con el ejemplo anterior, el diccionario <code class="docutils literal notranslate"><span class="pre">sujeto</span></code>, que corresponde a la información de un paciente.
+Se utilizan los mismos corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> pero en lugar del índice del objeto, vamos a poner el la llave del valor al que queremos acceder, por ejemplo, si quisieramos saber qué edad tiene el paciente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">edad</span> <span class="o">=</span> <span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<p>Como se accede al objeto asociado con la llave en cuestión, es posible interactuar diréctamente por ejemplo, si queremos acceder a la lista de comorbilidades y obtener el primer valor (DM2), el código sería:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">primera_comorbilidad</span> <span class="o">=</span> <span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;comorbilidades&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># DM2</span>
+</pre></div>
+</div>
+<p>Como ves, el primer juego de corchetes es para la llave, pero el segundo es para la lista. Es decir que en este ejemplo, <code class="docutils literal notranslate"><span class="pre">sujeto['comorbilidades']</span></code> es lo mismo que si tuvieramos directamente la lista<code class="docutils literal notranslate"><span class="pre">['DM2',</span> <span class="pre">'HAS']</span></code>.</p>
+</section>
+<section id="agregar-o-cambiar-valores-en-el-diccionario">
+<h5>agregar o cambiar valores en el diccionario<a class="headerlink" href="#agregar-o-cambiar-valores-en-el-diccionario" title="Link to this heading">#</a></h5>
+<p>Similar a las listas, se hace por medio de corchetes con la llave con la que queremos interactuar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># agregar un año a la edad del paciente</span>
+<span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;comorbilidades&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;TDAH&#39;</span><span class="p">)</span> <span class="c1"># agregar una comorbilidad</span>
+<span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;hace ejercicio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># agregar una nueva llave y valor</span>
+</pre></div>
+</div>
+<p>Para quitar un par de llave y valor del diccionario, se utiliza la palabra clave <code class="docutils literal notranslate"><span class="pre">del</span></code>, de esta forma: <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">sujeto['peso']</span></code>, esto quitaría la llave y el valor de <code class="docutils literal notranslate"><span class="pre">&quot;peso&quot;</span></code> del diccionario.</p>
+</section>
 <section id="id2">
-<h5>Ejercicio<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
-<p>Crea un diccionario de un sujeto de estudio y que contenga llaves y valores para datos que sean de tu interés.</p>
+<h5>Ejercicios<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tu código aquí</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sujeto</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;ALP&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
+    <span class="s1">&#39;enfermo&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;peso&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+    <span class="s1">&#39;talla&#39;</span><span class="p">:</span> <span class="mf">1.73</span><span class="p">,</span>
+    <span class="s1">&#39;comorbilidades&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DM2&#39;</span><span class="p">,</span> <span class="s1">&#39;HAS&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># 1. imprme el nombre del sujeto</span>
+<span class="c1"># 2. imprime la última comorbilidad del sujeto</span>
+<span class="c1"># 3. añade una nueva comorbilidad al sujeto</span>
+<span class="c1"># 4. agrega una nueva clave al sujeto llamada &quot;tratamiento&quot; y asigna un valor</span>
+<span class="c1"># 5. suprime la clave &quot;enfermo&quot; del sujeto</span>
+<span class="c1"># 6. agrega una variable de &quot;imc&quot; al sujeto y calcula el IMC usando la fórmula: peso / talla ^ 2</span>
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1137,9 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-dict">Diccionarios (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-valores-dentro-del-diccionario">Acceder a los valores dentro del diccionario</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-o-cambiar-valores-en-el-diccionario">agregar o cambiar valores en el diccionario</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
