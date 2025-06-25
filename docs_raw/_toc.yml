@@ -21,6 +21,7 @@ chapters:
     sections:
       - file: Unidad 2/tema 7 - variables
       - file: Unidad 2/tema 8 - tipos de datos
+      - file: Unidad 2/tema 9 - operaciones lógicas
   - file: Otras lecciones/index
     sections:
       - file: Otras lecciones/Python intermedio/index
