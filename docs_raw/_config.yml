@@ -31,9 +31,6 @@ repository:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: true
-  use_repository_button: true
 
 launch_buttons:
   colab_url: https://colab.research.google.com
@@ -41,6 +38,7 @@ launch_buttons:
   thebe: false  # set to true if you want in-page code execution too
 
 html:
+  favicon: logo.ico
   use_repository_button: true
   use_edit_page_button: true
   use_issues_button: true
