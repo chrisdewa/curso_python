@@ -454,13 +454,23 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y Atributos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-para-valores-individuales">Tipos para valores individuales</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-1">Actividad 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enteros-int">Enteros (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flotantes-float">Flotantes (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos-bool">Booleanos (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-texto-str">Cadenas de texto (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-nulo-nonetype">Tipo Nulo (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colecciones">Colecciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-list">Listas (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-obtener-los-valores-dentro-de-la-lista">Cómo obtener los valores dentro de la lista</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -517,25 +527,36 @@ Los atributos no se ejecutan, no tienen paréntesis al final.</p>
 </section>
 <section id="tipos-para-valores-individuales">
 <h2>Tipos para valores individuales<a class="headerlink" href="#tipos-para-valores-individuales" title="Link to this heading">#</a></h2>
-<section id="int">
-<h3>Int<a class="headerlink" href="#int" title="Link to this heading">#</a></h3>
+<p>Estos tipos representan datos individuales y pueden usarse de múltiples formas.
+Todos estos valores se adaptan muy bien para el uso de calculadora que estamos trabajando en esta unidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los tipos básicos de valores individuales, como <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code> y <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> son todos inmutables.
+Es decir, aunque podemos cambiar la variable reasignándola, no podemos mutar el valor, toma el siguiente ejemplo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 2</span>
+</pre></div>
+</div>
+<p>En este ejemplo, <code class="docutils literal notranslate"><span class="pre">x</span></code> inicia con el valor <code class="docutils literal notranslate"><span class="pre">int</span></code> 1 y luego se usa el operador <code class="docutils literal notranslate"><span class="pre">+=</span></code> que es equivalente a <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>.
+Es decir, x aumenta una unidad, pero el número «1» no cambia, es inmutable.</p>
+</div>
+<section id="enteros-int">
+<h3>Enteros (<code class="docutils literal notranslate"><span class="pre">int</span></code>)<a class="headerlink" href="#enteros-int" title="Link to this heading">#</a></h3>
 <p>Los tipos <code class="docutils literal notranslate"><span class="pre">int</span></code> son números enteros, pueden ser positivos o negativos.
 Se codifican con el número en cuestión.
 En ciencias de la salud pueden representar tamaños de muestra, número de años cumplidos, etcétera.</p>
 </section>
-<section id="float">
-<h3>Float<a class="headerlink" href="#float" title="Link to this heading">#</a></h3>
+<section id="flotantes-float">
+<h3>Flotantes (<code class="docutils literal notranslate"><span class="pre">float</span></code>)<a class="headerlink" href="#flotantes-float" title="Link to this heading">#</a></h3>
 <p>Los tipos <code class="docutils literal notranslate"><span class="pre">float</span></code> son números con punto decimal, incluyen también aquellos que su decimal es cero. Por ejemplo el número <code class="docutils literal notranslate"><span class="pre">3.0</span></code> es tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>, no <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-</section>
-<section id="actividad-1">
-<h3>Actividad 1<a class="headerlink" href="#actividad-1" title="Link to this heading">#</a></h3>
 <p>Los <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">float</span></code> pueden pueden usarse en operaciones matemáticas de todo tipo incluso entre ellas.
 En la siguiente celda agrega variables tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> que sean relevantes en tu campo e intenta realizar operaciones matemáticas relevantes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># por ejemplo</span>
 <span class="n">presión_sistólica</span> <span class="o">=</span> <span class="mi">134</span> <span class="c1"># int</span>
-<span class="n">presión_diastólica</span> <span class="o">=</span> <span class="mi">72</span> <span class="c1"># int</span>
+<span class="n">presión_diastólica</span> <span class="o">=</span> <span class="mi">71</span> <span class="c1"># int</span>
 <span class="n">tensión_arterial_media</span> <span class="o">=</span> <span class="p">(</span><span class="n">presión_sistólica</span> <span class="o">+</span> <span class="n">presión_diastólica</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="c1"># float</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tensión_arterial_media</span><span class="p">)</span>
 
@@ -544,15 +565,14 @@ En la siguiente celda agrega variables tipo <code class="docutils literal notran
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92.66666666666667
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92.0
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="booleanos">
-<h2>Booleanos<a class="headerlink" href="#booleanos" title="Link to this heading">#</a></h2>
+<section id="booleanos-bool">
+<h3>Booleanos (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)<a class="headerlink" href="#booleanos-bool" title="Link to this heading">#</a></h3>
 <p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son valores que pueden tomar un valor «cierto» o «falso», <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -574,8 +594,9 @@ Esto puede ser algo confuso pero no tienes que preocuparte por ello en este mome
 </div>
 </div>
 </div>
-<section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
+</section>
+<section id="cadenas-de-texto-str">
+<h3>Cadenas de texto (<code class="docutils literal notranslate"><span class="pre">str</span></code>)<a class="headerlink" href="#cadenas-de-texto-str" title="Link to this heading">#</a></h3>
 <p>Los strings, de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> son cadenas de texto, son cualquier texto libre, puede usarse para datos como el nombre del paciente, el identificador de una variante genética, etcétera.</p>
 <p>Los <code class="docutils literal notranslate"><span class="pre">str</span></code> reaccionan diferente a las operaciones matemáticas y no todas están implementadas.</p>
 <p>Para codificar un <code class="docutils literal notranslate"><span class="pre">str</span></code>, es necesario englobar todo el texto en comillas, pueden ser simples <code class="docutils literal notranslate"><span class="pre">'</span></code> o dobles <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> y es posible escribirlos en múltiples líneas, pero se requiere poner tres comillas en lugar de una.</p>
@@ -590,13 +611,6 @@ Esto puede ser algo confuso pero no tienes que preocuparte por ello en este mome
 <p class="admonition-title">Advertencia</p>
 <p>Siempre revisa que cada par de comillas que se abre también se cierre.
 Si dejas unas comillas sin cerrar, python marcará un error.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,6 +631,194 @@ ChristianDelaflor
 </div>
 </div>
 </div>
+</section>
+<section id="tipo-nulo-nonetype">
+<h3>Tipo Nulo (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)<a class="headerlink" href="#tipo-nulo-nonetype" title="Link to this heading">#</a></h3>
+<p>El tipo nulo o <code class="docutils literal notranslate"><span class="pre">None</span></code> es un valor único que representa la ausencia de un valor.
+Sus usos varían, como cuando se pretende obtener el primer objeto que cumpla alguna característica dentro de una lista pero ningun valor cumple con los parámetros.</p>
+</section>
+</section>
+<section id="colecciones">
+<h2>Colecciones<a class="headerlink" href="#colecciones" title="Link to this heading">#</a></h2>
+<p>Las colecciones son tipos que contienen a otros objetos.</p>
+<p>A diferencia de los tipos básicos, que son inmutables, la mayoría de las colecciones sí pueden ser mutables, es decir, el objeto puede cambiar sin necesidad de reasignar la variable.</p>
+<p>Las colecciones mutables son <code class="docutils literal notranslate"><span class="pre">list</span></code> (listas), <code class="docutils literal notranslate"><span class="pre">set</span></code> (conjuntos) y <code class="docutils literal notranslate"><span class="pre">dict</span></code> (diccionarios).</p>
+<p>Las colecciones inmutables, por otro lado, son <code class="docutils literal notranslate"><span class="pre">tuple</span></code> (tuplas) y <code class="docutils literal notranslate"><span class="pre">FrozenSet</span></code> (aunque este último no lo cubriremos en el curso).</p>
+<section id="listas-list">
+<h3>Listas (<code class="docutils literal notranslate"><span class="pre">list</span></code>)<a class="headerlink" href="#listas-list" title="Link to this heading">#</a></h3>
+<p>Este es uno de los principales tipos en python, y los más importantes a aprender en el contexto del análisis de datos.</p>
+<p>Las listas contienen objetos de cualquier tipo y pueden ordenarse, agregar o quitar objetos, etcétera.</p>
+<p>Para crear una lista, es necesario utilizar corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Dentro de los corchetes se ponen los valores que se deseen para inicializar la lista, o pueden agregarse más tarde. Analiza el siguiente ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">pares</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>En el ejemplo comenzamos con dos listas, la primera, <code class="docutils literal notranslate"><span class="pre">nums</span></code> contiene los números del 1 al 10, la segunda lista <code class="docutils literal notranslate"><span class="pre">pares</span></code>, inicia vacía. Después tenemos un código que podría parecer algo raro pero es fácil de entender. Primero hay un bucle (no te preocupes, lo veremos luego), que va tomando cada valor de la lista, del primero al último, en orden, (<strong>porque las listas son ORDENADAS</strong>) y va comprobando si el número es o no par. Para comprobar si es par, utiliza el operador «módulo» (<code class="docutils literal notranslate"><span class="pre">%</span></code>), que funciona como una división pero regresa el remanente en lugar del resultado, por lo tanto, si un número es divisible entre 2, no tendrá remanente y ser|á par. Luego, si el número es par, entonces lo anexa (<code class="docutils literal notranslate"><span class="pre">append</span></code>) a la lista de «pares».</p>
+<p>Como no hemos cubierto los bucles, el ejemplo puede parecer raro, pero puedes jugar con él, en las celdas de código en esta libreta.</p>
+<p>Los principales métodos de las listas son:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Función</p></th>
+<th class="head"><p>Ejemplo</p></th>
+<th class="head"><p>Explicación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">append</span></code></p></td>
+<td><p>Agrega un elemento al final de la lista.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pacientes.append(&quot;María&quot;)</span></code></p></td>
+<td><p>Agrega «María» al final de la lista</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">insert</span></code></p></td>
+<td><p>Inserta un elemento en una posición específica.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pacientes.insert(1,</span> <span class="pre">&quot;José&quot;)</span></code></p></td>
+<td><p>Agrega «José» en la posición 1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">remove</span></code></p></td>
+<td><p>Elimina la primera aparición de un elemento por su valor.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pacientes.remove(&quot;Ana&quot;)</span></code></p></td>
+<td><p>Remueve la primera «Ana» de la lista</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pop</span></code></p></td>
+<td><p>Elimina y devuelve un elemento (por defecto el último).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ultimo</span> <span class="pre">=</span> <span class="pre">pacientes.pop()</span></code></p></td>
+<td><p>Remueve el último elemento de la lista y lo devuelve para asignarlo a la variable</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sort</span></code></p></td>
+<td><p>Ordena la lista en orden ascendente (modifica la lista original).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">temperaturas.sort()</span></code></p></td>
+<td><p>Ordena la lista de menor a mayor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reverse</span></code></p></td>
+<td><p>Invierte el orden actual de la lista.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">temperaturas.reverse()</span></code></p></td>
+<td><p>Invierte el orden de la lista</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="como-obtener-los-valores-dentro-de-la-lista">
+<h4>Cómo obtener los valores dentro de la lista<a class="headerlink" href="#como-obtener-los-valores-dentro-de-la-lista" title="Link to this heading">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>El concepto de indexación y de slicing aplica a las listas y las tuplas, pero también es crítico cuando veamos arreglos de datos, que se utilizan en el análisis estadístico.</p>
+</div>
+<section id="indexacion">
+<h5>Indexación<a class="headerlink" href="#indexacion" title="Link to this heading">#</a></h5>
+<p>En python la posición de los valores en una colección se marca desde el número cero. Es decir, el primer elemento está en la posición cero, el segundo en la uno, y así suscecivamente.
+Para acceder al elemento en la posición <code class="docutils literal notranslate"><span class="pre">n</span></code>, lo que hacemos es utilizar corchetes después de la lista, como si ejecutaramos una función, pero con corchetes en lugar de paréntesis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># accede al elemento 10 de la lista. </span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;manzana&#39;</span><span class="p">,</span> <span class="s1">&#39;pera&#39;</span><span class="p">,</span> <span class="s1">&#39;naranja&#39;</span><span class="p">]</span> <span class="c1"># lista de frutas</span>
+<span class="c1"># ejercicio</span>
+<span class="c1"># obten el str &quot;pera&quot; de la lista frutas</span>
+<span class="n">pera</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># tu código aquí</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pera</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ellipsis
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si una lista no tiene el número de elementos suficientes, python arrojará un error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">frutas</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los índices también sirven para alterar las listas, por ejemplo, supongamos que queremos cambiar «pera» por «kiwi» en nuestra lista, lo hacemos así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;kiwi&#39;</span> <span class="c1"># cambiamos la fruta en la posición 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;manzana&#39;, &#39;kiwi&#39;, &#39;naranja&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slicing">
+<h5>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h5>
+<p>Además de acceder a un solo valor con su posición, también podemos obtener una <strong>sublista</strong> usando lo que se llama <em>slicing</em>, que significa “rebanar”.</p>
+<p>La sintaxis general es:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="p">[</span><span class="n">inicio</span><span class="p">:</span><span class="n">fin</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Esto devuelve una nueva lista que <strong>incluye</strong> el elemento en la posición <code class="docutils literal notranslate"><span class="pre">inicio</span></code>, pero <strong>excluye</strong> el de la posición <code class="docutils literal notranslate"><span class="pre">fin</span></code>.<br />
+Es decir, va de <code class="docutils literal notranslate"><span class="pre">inicio</span></code> hasta <code class="docutils literal notranslate"><span class="pre">fin</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># [20, 30, 40]</span>
+</pre></div>
+</div>
+<p>Puedes omitir el inicio o el final si deseas ir desde el principio o hasta el final:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># [10, 20, 30]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>   <span class="c1"># [40, 50, 60]</span>
+</pre></div>
+</div>
+<p>También puedes usar un tercer número para indicar el <strong>paso</strong> o la <strong>frecuencia</strong> con la que se seleccionan los elementos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># [10, 30, 50] (cada dos)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># [20, 40, 60] (pares)</span>
+</pre></div>
+</div>
+<p>Finalmente, puedes usar slicing con pasos negativos para <strong>invertir</strong> la lista:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># [60, 50, 40, 30, 20, 10]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El slicing <strong>no modifica</strong> la lista original, solo devuelve una nueva lista con los valores seleccionados.</p>
+</div>
+</section>
+<section id="ejercicios">
+<h5>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h5>
+<p>Supón la siguiente lista:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letras</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Extrae una sublista con <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code>.</p></li>
+<li><p>Extrae las primeras tres letras.</p></li>
+<li><p>Extrae todas menos las dos últimas.</p></li>
+<li><p>Extrae los elementos en las posiciones impares.</p></li>
+<li><p>Imprime la lista al revés.</p></li>
+</ol>
+<p>Ejecuta tu código en la siguiente celda de código.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 </section>
 </section>
@@ -689,13 +891,23 @@ ChristianDelaflor
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y Atributos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-para-valores-individuales">Tipos para valores individuales</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-1">Actividad 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enteros-int">Enteros (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flotantes-float">Flotantes (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos-bool">Booleanos (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-texto-str">Cadenas de texto (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-nulo-nonetype">Tipo Nulo (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colecciones">Colecciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-list">Listas (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-obtener-los-valores-dentro-de-la-lista">Cómo obtener los valores dentro de la lista</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
