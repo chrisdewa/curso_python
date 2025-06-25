@@ -184,9 +184,9 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Unidad%201/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.1%20-%20algor%C3%ADtmica.html">Tema 2, Parte 1: Algorítmica</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.2%20-%20programaci%C3%B3n.html">Tema 2, Parte 2: Programación</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html">Tema 2, Parte 3: Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.1%20-%20algor%C3%ADtmica.html">Tema 2.1: Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.2%20-%20programaci%C3%B3n.html">Tema 2.2: Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html">Tema 2.3: Python</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%203%20-%20opciones%20de%20trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
@@ -427,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -443,6 +445,26 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-objeto">¿Qué es un objeto?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-para-valores-individuales">Tipos para valores individuales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-1">Actividad 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -455,6 +477,148 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tema-8-tipos-de-datos">
 <h1>Tema 8: Tipos de datos<a class="headerlink" href="#tema-8-tipos-de-datos" title="Link to this heading">#</a></h1>
 <p>Como se revisión en la <a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html#tema2-tipos-target"><span class="std std-ref">lección 3</span></a> y en las lecciones anterior, todos los valores en python son objetos que tienen un cierto tipo.</p>
+<section id="que-es-un-objeto">
+<h2>¿Qué es un objeto?<a class="headerlink" href="#que-es-un-objeto" title="Link to this heading">#</a></h2>
+<p>Los objetos, en cualquier lenguaje de programacion son abstracciones de lógica y valores. Aunque, para comenzar a trabajar con python, no es necesario tener un entendimiento muy profundo del paradigma de <code class="docutils literal notranslate"><span class="pre">Programación</span> <span class="pre">Orientada</span> <span class="pre">a</span> <span class="pre">Objetos</span></code> (OOP, por sus siglas en inglés), para profundizar el dominio le lenguaje, es un concepto fundamental.</p>
+<p>En este curso no nos enfocaremos en OOP, pero hay algunos conceptos necesarios que debemos conocer y trataremos en esta libreta.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Piensa en cada objeto como un pequeño artefacto o robot, las cosas que el artefacto puede <strong>hacer</strong>, son los <code class="docutils literal notranslate"><span class="pre">métodos</span></code>. Las cosas que <strong>tiene</strong> o sus <strong>características</strong> son sus atributos.</p>
+</div>
+</section>
+<section id="tipos-basicos">
+<h2>Tipos básicos<a class="headerlink" href="#tipos-basicos" title="Link to this heading">#</a></h2>
+<p>Cada objeto tiene un tipo.
+Por ejemplo, los <code class="docutils literal notranslate"><span class="pre">tenis</span></code> son un tipo de <code class="docutils literal notranslate"><span class="pre">calzado</span></code>, y a su vez, el calzado es un tipo de <code class="docutils literal notranslate"><span class="pre">ropa</span></code>.
+Así en python, por ejemplo, cada valor posible tiene un tipo. Por ejemplo, el valor <code class="docutils literal notranslate"><span class="pre">True</span></code>, es de tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code>, es decir, booleano, puede ser Verdadero (<code class="docutils literal notranslate"><span class="pre">True</span></code>) o Falso (<code class="docutils literal notranslate"><span class="pre">False</span></code>), pero a su vez, bool es un tipo de <code class="docutils literal notranslate"><span class="pre">int</span></code> o número entero. Es decir que en algunos contextos ``True<code class="docutils literal notranslate"><span class="pre">es</span> <span class="pre">equivalente</span> <span class="pre">a</span></code>1`.</p>
+<p>En python existen algunos tipos básicos que pueden consultarse en la sección correspondiente del <a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html#tema2-tipos-target"><span class="std std-ref">tema 2.3</span></a>.
+En las siguientes celdas iremos revisando cada uno de los tipos básicos, su utilidad y ejemplos de cómo y para qué utilizarlos.</p>
+</section>
+<section id="metodos-y-atributos">
+<h2>Métodos y Atributos<a class="headerlink" href="#metodos-y-atributos" title="Link to this heading">#</a></h2>
+<p>Dependiendo del tipo los objetos pueden tener <code class="docutils literal notranslate"><span class="pre">atributos</span></code> y <code class="docutils literal notranslate"><span class="pre">métodos</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los <strong>Métodos</strong> son funciones asociadas a cada objeto. Piensa en funciones que actúan con el objeto para hacer algo.
+Por ejmplo:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mi_lista.sort()</span></code>
+El método <code class="docutils literal notranslate"><span class="pre">sort</span></code>, asociado a una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, ordena la lista en cuestión.
+Todos los métodos se ejecutan, con paréntesis, como <code class="docutils literal notranslate"><span class="pre">sort()</span></code>.</p>
+</div></blockquote>
+<p>Los <strong>Atributos</strong> son variables asociadas al objeto en cuestión, piensa en ellas como características.
+Por ejemplo:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">datos.columns</span></code>
+El artibuto <code class="docutils literal notranslate"><span class="pre">columns</span></code>, asociado a un <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, devuelve una lista de las columnas en el arreglo de datos.
+Los atributos no se ejecutan, no tienen paréntesis al final.</p>
+</div></blockquote>
+</div>
+</section>
+<section id="tipos-para-valores-individuales">
+<h2>Tipos para valores individuales<a class="headerlink" href="#tipos-para-valores-individuales" title="Link to this heading">#</a></h2>
+<section id="int">
+<h3>Int<a class="headerlink" href="#int" title="Link to this heading">#</a></h3>
+<p>Los tipos <code class="docutils literal notranslate"><span class="pre">int</span></code> son números enteros, pueden ser positivos o negativos.
+Se codifican con el número en cuestión.
+En ciencias de la salud pueden representar tamaños de muestra, número de años cumplidos, etcétera.</p>
+</section>
+<section id="float">
+<h3>Float<a class="headerlink" href="#float" title="Link to this heading">#</a></h3>
+<p>Los tipos <code class="docutils literal notranslate"><span class="pre">float</span></code> son números con punto decimal, incluyen también aquellos que su decimal es cero. Por ejemplo el número <code class="docutils literal notranslate"><span class="pre">3.0</span></code> es tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>, no <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+</section>
+<section id="actividad-1">
+<h3>Actividad 1<a class="headerlink" href="#actividad-1" title="Link to this heading">#</a></h3>
+<p>Los <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">float</span></code> pueden pueden usarse en operaciones matemáticas de todo tipo incluso entre ellas.
+En la siguiente celda agrega variables tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> que sean relevantes en tu campo e intenta realizar operaciones matemáticas relevantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># por ejemplo</span>
+<span class="n">presión_sistólica</span> <span class="o">=</span> <span class="mi">134</span> <span class="c1"># int</span>
+<span class="n">presión_diastólica</span> <span class="o">=</span> <span class="mi">72</span> <span class="c1"># int</span>
+<span class="n">tensión_arterial_media</span> <span class="o">=</span> <span class="p">(</span><span class="n">presión_sistólica</span> <span class="o">+</span> <span class="n">presión_diastólica</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="c1"># float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tensión_arterial_media</span><span class="p">)</span>
+
+<span class="c1"># pon aqui tus datos y realiza operaciones con ellas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92.66666666666667
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="booleanos">
+<h2>Booleanos<a class="headerlink" href="#booleanos" title="Link to this heading">#</a></h2>
+<p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son valores que pueden tomar un valor «cierto» o «falso», <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son en realidad desendientes de los <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code> (Falso) y <code class="docutils literal notranslate"><span class="pre">1</span></code> (Cierto), así, <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">+</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">2</span></code>.
+Esto puede ser algo confuso pero no tienes que preocuparte por ello en este momento.</p>
+</div>
+<p>Lo más habitual es generar valores por medio de pruebas lógicas que veremos en otra lección, pero te dejo un ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">imc</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">obeso</span> <span class="o">=</span> <span class="n">imc</span> <span class="o">&gt;=</span> <span class="mi">30</span> <span class="c1"># mayor o igual a 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obeso</span><span class="p">)</span> <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Puedes probar este ejemplo en la celda siguiente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejemplo</span>
+<span class="n">enfermo</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># sí está enfermo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
+<p>Los strings, de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> son cadenas de texto, son cualquier texto libre, puede usarse para datos como el nombre del paciente, el identificador de una variante genética, etcétera.</p>
+<p>Los <code class="docutils literal notranslate"><span class="pre">str</span></code> reaccionan diferente a las operaciones matemáticas y no todas están implementadas.</p>
+<p>Para codificar un <code class="docutils literal notranslate"><span class="pre">str</span></code>, es necesario englobar todo el texto en comillas, pueden ser simples <code class="docutils literal notranslate"><span class="pre">'</span></code> o dobles <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> y es posible escribirlos en múltiples líneas, pero se requiere poner tres comillas en lugar de una.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">una_línea</span> <span class="o">=</span> <span class="s2">&quot;Este str es de una sola línea&quot;</span>
+<span class="n">multiples_líneas</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Este texto tiene múltiples</span>
+
+<span class="s2">lineas de texto.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Siempre revisa que cada par de comillas que se abre también se cierre.
+Si dejas unas comillas sin cerrar, python marcará un error.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejemplos:</span>
+<span class="n">nombre</span> <span class="o">=</span> <span class="s1">&#39;Christian&#39;</span>
+<span class="n">apellido</span> <span class="o">=</span> <span class="s1">&#39;Delaflor&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>        <span class="c1"># multiplicación</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre</span> <span class="o">+</span> <span class="n">apellido</span><span class="p">)</span> <span class="c1"># suma</span>
+
+<span class="c1"># practica aquí con otras cadenas de texto y operaciones</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChristianChristianChristian
+ChristianDelaflor
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -511,6 +675,33 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-objeto">¿Qué es un objeto?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-basicos">Tipos básicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-para-valores-individuales">Tipos para valores individuales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-1">Actividad 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
