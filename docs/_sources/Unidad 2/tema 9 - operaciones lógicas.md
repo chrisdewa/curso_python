@@ -16,8 +16,8 @@ En un flujograma simboliza una encrucijada:
 ```{mermaid}
 flowchart TD
     A[Comprar objeto] --> B{¿Suficiente Dinero?}
-    B -- |Verdadero| --> C[Comprar]
-    B -- |Falso| --> D[Buscar otra opción]
+    B -- Verdadero --> C[Comprar]
+    B -- Falso --> D[Buscar otra opción]
 	D --> E[Siguiente Opción] --> B
 ```
 

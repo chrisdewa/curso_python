@@ -465,8 +465,8 @@ document.write(`
 <pre  class="mermaid">
         flowchart TD
     A[Comprar objeto] --&gt; B{¿Suficiente Dinero?}
-    B -- |Verdadero| --&gt; C[Comprar]
-    B -- |Falso| --&gt; D[Buscar otra opción]
+    B -- Verdadero --&gt; C[Comprar]
+    B -- Falso --&gt; D[Buscar otra opción]
 	D --&gt; E[Siguiente Opción] --&gt; B
     </pre></section>
 <section id="operadores-logicos">
