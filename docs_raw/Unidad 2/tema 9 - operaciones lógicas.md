@@ -3,7 +3,7 @@ parent: "Unidad 2: Python como calculadora"
 nav_order: 3
 ---
 
-# Tema 9: Operaciones Lógicas
+# Tema 9: Operaciones lógicas
 
 En este tema aprenderás a utilizar operadores lógicos en Python para construir expresiones que devuelven valores booleanos, lo cual es fundamental para el control del flujo en programas.
 
@@ -88,12 +88,12 @@ Evalúa mentalmente el resultado de las siguientes expresiones:
 2. `False or not (True and False)`
 3. `not True or False and True`
 
-## En resumen
-
+:::{admonition} Recuerda
+:class: tip
 - Las operaciones lógicas devuelven `True` o `False`.
 - Se usan `and`, `or` y `not`.
 - Son útiles en condiciones y control de flujo.
-
+:::
 
 ## Comparaciones
 
@@ -121,12 +121,6 @@ Esto es equivalente a escribir:
 5 < x and x < 20
 ```
 
-## En resumen
-
-- Las operaciones lógicas devuelven `True` o `False`.
-- Se usan `and`, `or` y `not`.
-- Son útiles en condiciones y control de flujo.
-
 ## Ejercicio de comparaciones
 
 Abre una sesión en el intérprete de python o corre este código en alguna libreta de jupyter.
@@ -137,6 +131,7 @@ Completa las siguientes expresiones para que devuelvan el valor booleano indicad
 4 ___ 4     # False
 "gato" ___ "perro"   # True
 10 ___ 2 * 5         # False
-edad = 18  edad ___ 18          # True
+edad = 18  
+edad ___ 18          # True
 3 < 5 ___ 7          # True
 ```

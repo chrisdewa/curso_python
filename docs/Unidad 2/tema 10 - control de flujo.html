@@ -58,12 +58,20 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 2/tema 10 - control de flujo';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Otras lecciones" href="../Otras%20lecciones/index.html" />
-    <link rel="prev" title="Tema 9: Operaciones Lógicas" href="tema%209%20-%20operaciones%20l%C3%B3gicas.html" />
+    <link rel="prev" title="Tema 9: Operaciones lógicas" href="tema%209%20-%20operaciones%20l%C3%B3gicas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -199,7 +207,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 2: Python como calculadora</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tema%207%20-%20variables.html">Tema 7: Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%208%20-%20tipos%20de%20datos.html">Tema 8: Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema%209%20-%20operaciones%20l%C3%B3gicas.html">Tema 9: Operaciones Lógicas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%209%20-%20operaciones%20l%C3%B3gicas.html">Tema 9: Operaciones lógicas</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 10: Control de flujo</a></li>
 </ul>
 </details></li>
@@ -753,6 +761,27 @@ Una condición hace que un bloque de código solo se ejecute cuando se cumple un
 </section>
 <section id="ejemplo-practico">
 <h3>Ejemplo práctico<a class="headerlink" href="#ejemplo-practico" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Toma la lista que definimos previamente  <code class="docutils literal notranslate"><span class="pre">lista_de_pacientes</span></code>.</p></li>
+<li><p>Itera por ella para tomar cada paciente utilizando un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p></li>
+<li><p>Imprime el ID del paciente para seguir la pista de cada caso.</p></li>
+<li><p>Utiliza condicionales <code class="docutils literal notranslate"><span class="pre">if</span></code> con <code class="docutils literal notranslate"><span class="pre">elif</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code> para crear el siguiente flujo:</p>
+<pre  class="mermaid">
+        flowchart TD
+    A[Por cada paciente] --&gt; B[Calcular IMC]
+    B --&gt; C{IMC &lt; 20} -- Si --&gt; D[Imprimir Peso bajo]
+    C -- No --&gt; E{20 &lt;= IMC &lt; 27 } -- Sí --&gt; F[Imprimir Peso normal]
+    E -- No --&gt; G[27 &lt;= IMC &lt; 30] -- Sí --&gt; H[Imprimir Sobrepeso]
+    G -- No --&gt; I[Imprimir Obeso]
+    </pre></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -793,7 +822,7 @@ Una condición hace que un bloque de código solo se ejecute cuando se cumple un
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 9: Operaciones Lógicas</p>
+        <p class="prev-next-title">Tema 9: Operaciones lógicas</p>
       </div>
     </a>
     <a class="right-next"
