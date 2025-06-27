@@ -774,7 +774,7 @@ Una condición hace que un bloque de código solo se ejecute cuando se cumple un
     A[Por cada paciente] --&gt; B[Calcular IMC]
     B --&gt; C{IMC &lt; 20} -- Si --&gt; D[Imprimir Peso bajo]
     C -- No --&gt; E{20 &lt;= IMC &lt; 27 } -- Sí --&gt; F[Imprimir Peso normal]
-    E -- No --&gt; G[27 &lt;= IMC &lt; 30] -- Sí --&gt; H[Imprimir Sobrepeso]
+    E -- No --&gt; G{27 &lt;= IMC &lt; 30} -- Sí --&gt; H[Imprimir Sobrepeso]
     G -- No --&gt; I[Imprimir Obeso]
     </pre></li>
 </ol>
