@@ -552,6 +552,7 @@ Si intentas un bucle <code class="docutils literal notranslate"><span class="pre
 <li><p>El nombre de la variable a la que se asignará cada elemento dentro del bucle. En el ejemplo, <code class="docutils literal notranslate"><span class="pre">elemento</span></code>.</p></li>
 <li><p>La palabra clave <code class="docutils literal notranslate"><span class="pre">in</span></code>, da paso al iterable.</p></li>
 <li><p>El objeto <code class="docutils literal notranslate"><span class="pre">iterable</span></code> por el que <em>iterará</em> el bucle.</p></li>
+<li><p>Dos puntos <code class="docutils literal notranslate"><span class="pre">:</span></code> esto es fundamental porque le dice a python que lo que sigue es el cuerpo del bucle.</p></li>
 </ol>
 <p>Si falta cualquiera de estas partes python marcará un error de sintaxis.</p>
 </section>
@@ -748,7 +749,7 @@ El paciente no tiene obesidad.
 Una condición hace que un bloque de código solo se ejecute cuando se cumple un criterio dado.</p>
 <section id="sintaxis-basica">
 <h3>Sintaxis básica<a class="headerlink" href="#sintaxis-basica" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condición</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condición</span><span class="p">:</span> <span class="c1"># también hay dos puntos al final de cada encabezado</span>
     <span class="c1"># código en caso de que se cumpla la condición</span>
 <span class="k">elif</span> <span class="n">condición_2</span><span class="p">:</span> 
     <span class="c1"># solo se ejecuta si no se cumplió la condición 1</span>

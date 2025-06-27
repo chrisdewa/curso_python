@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unidad 3: Programación lineal &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Tema 11: Funciones &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 3/index';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 3/tema 11 - funciones';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Tema 10: Control de flujo" href="tema%2010%20-%20control%20de%20flujo.html" />
-    <link rel="prev" title="Tema 9: Operaciones lógicas" href="../Unidad%202/tema%209%20-%20operaciones%20l%C3%B3gicas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -126,6 +126,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +183,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Unidad%201/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -202,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Unidad%202/tema%209%20-%20operaciones%20l%C3%B3gicas.html">Tema 9: Operaciones lógicas</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unidad 3: Programación lineal</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Unidad 3: Programación lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="tema%2010%20-%20control%20de%20flujo.html">Tema 10: Control de flujo</a></li>
 </ul>
 </details></li>
@@ -259,6 +261,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/Unidad 3/tema 11 - funciones.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -284,7 +317,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Unidad 3/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Unidad 3/tema 11 - funciones.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 3/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 3/tema 11 - funciones.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +364,7 @@
       
       
       
-      <li><a href="../_sources/Unidad 3/index.md" target="_blank"
+      <li><a href="../_sources/Unidad 3/tema 11 - funciones.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +374,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -402,7 +435,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -413,11 +448,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unidad 3: Programación lineal</h1>
+    <h1>Tema 11: Funciones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumentos">Argumentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#posicionales">Posicionales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -427,17 +476,95 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unidad-3-programacion-lineal">
-<h1>Unidad 3: Programación lineal<a class="headerlink" href="#unidad-3-programacion-lineal" title="Link to this heading">#</a></h1>
-<p>En esta unidad aprenderemos a escribir programas más complejos en Python, utilizando mecanismos de control de flujo, condicionales, funciones y algunas librerías básicas para resolver problemas sencillos y analizar datos simples.</p>
-<p>En la unidad anterior usamos Python principalmente como una calculadora. Ahora daremos un paso adelante: podremos escribir instrucciones que se ejecutan paso a paso para alcanzar objetivos más elaborados.</p>
-<p>Hablamos de programación lineal porque nuestro código se ejecuta en orden, línea por línea, siguiendo la lógica que definamos. Este es el estilo principal que usaremos tanto en scripts como en libretas interactivas.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-11-funciones">
+<h1>Tema 11: Funciones<a class="headerlink" href="#tema-11-funciones" title="Link to this heading">#</a></h1>
+<p>El concepto de función es heredado de las matemáticas, representan una operación y en su sentido más puro es un bloque de código que toma una serie de entradas <code class="docutils literal notranslate"><span class="pre">inputs</span></code> y genera una <code class="docutils literal notranslate"><span class="pre">salida</span></code>.</p>
+<p>En programación las funciones nos ayudan a escribir menos código, hacer que el código sea más legible y esté mejor organizado y simplifican nuestras operaciones pero su principal función es clave, son <strong>BLOQUES DE CÓDIGO REUTILIZABLES</strong>.</p>
+<p>Retomemos el ejemplo de la lección anterior con el índice de masa corporal, en el <a class="reference internal" href="#tema%2010%20-%20control%20de%20flujo.md"><span class="xref myst">tema 10</span></a> calculamos el índice de masa corporal, pero como lo vimos en los bucles, había que escribir la operación una y otra vez cuando queríamos obtener el valor.</p>
+<p>Esta es la fórmula:</p>
+<p><span class="math notranslate nohighlight">\(IMC = \frac{peso}{talla^2}\)</span></p>
+<p>Una función matemática se vería así:</p>
+<p><span class="math notranslate nohighlight">\(IMC(peso; talla) = \frac{peso}{talla^2}\)</span></p>
+<p>Es decir, la función <code class="docutils literal notranslate"><span class="pre">IMC</span></code> toma dos parámetros, <code class="docutils literal notranslate"><span class="pre">peso</span></code> y <code class="docutils literal notranslate"><span class="pre">talla</span></code> y regresa el resultado de dividir el peso por el cuadrado de la talla.</p>
+<p>En python, podemos crear una función a partir de ello y se vería así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_imc</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">talla</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">peso</span> <span class="o">/</span> <span class="n">talla</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Esta función puede ser utilizada múltiples veces de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">paciente</span> <span class="ow">in</span> <span class="n">lista_de_pacientes</span><span class="p">:</span>
+    <span class="n">imc</span> <span class="o">=</span> <span class="n">calcular_imc</span><span class="p">(</span><span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;peso&#39;</span><span class="p">],</span> <span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;talla&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Paciente&#39;</span><span class="p">,</span> <span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">],</span> <span class="s1">&#39;Tiene imc de&#39;</span><span class="p">,</span> <span class="n">imc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Desglosemos qué está pasando.</p>
+<section id="sintaxis">
+<h2>Sintaxis<a class="headerlink" href="#sintaxis" title="Link to this heading">#</a></h2>
+<p>En python definimos una función de la siguiente forma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>El encabezado comienza siempre con la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p></li>
+<li><p>La siguiente palabra es el nombre que recibirá la función.</p></li>
+<li><p>Luego se abren paréntesis.</p></li>
+<li><p>Dentro de los paréntesis puede ir lo sigueinte:</p>
+<ul class="simple">
+<li><p>Nada: <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
+<li><p>Argumentos posicionales (positional arguments o más comumente <code class="docutils literal notranslate"><span class="pre">args</span></code>).</p></li>
+<li><p>Argumentos de palabra clave (Key word arguments, o más comunmente <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> o <code class="docutils literal notranslate"><span class="pre">kws</span></code>).</p></li>
+<li><p>Cualquier combinación de estos, pero siempre van primero los posicionales y luego los <code class="docutils literal notranslate"><span class="pre">kws</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Dos puntos <code class="docutils literal notranslate"><span class="pre">:</span></code> para marcar el comienzo del cuerpo de la función.</p></li>
+<li><p>Cuerpo de la función en el siguiente nivel de sangría.</p></li>
+</ol>
+<section id="argumentos">
+<h3>Argumentos<a class="headerlink" href="#argumentos" title="Link to this heading">#</a></h3>
+<p>Uno de los principales poderes de las funciones es aceptar argumentos para realizar su trabajo.
+Veamos el ejemplo más sencillo, una función matemática:</p>
+<p><span class="math notranslate nohighlight">\(f\relax(x) = x^2\)</span></p>
+<p>En python esta función se ve así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Esta función toma un solo argumento, <code class="docutils literal notranslate"><span class="pre">x</span></code> y devuelve su valor elevado al cuadrado con la palabra clave <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Un script es un archivo de texto que contiene código Python diseñado para realizar una tarea específica: desde automatizar procesos hasta realizar análisis estadísticos. Aunque pueden ser muy potentes, su enfoque está limitado al problema para el cual fueron creados.</p>
+<p>Si una función no tiene explícitamente la palabra <code class="docutils literal notranslate"><span class="pre">return</span></code> en realidad regresa un tipo nulo <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>.
+Es decir, que las siguientes dos funciones son equivalentes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+
+<span class="c1"># y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">saludar2</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
 </div>
+<p>Como se comentó previamente, existen básicamente dos tipos de argumentos, los posicionales y los de palabra clave, veamos cómo funcionan. Para las siguientes dos secciones usaremos el ejemplo de la siguiente función.</p>
+<section id="posicionales">
+<h4>Posicionales<a class="headerlink" href="#posicionales" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>builtin_function_or_method
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -470,30 +597,33 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../Unidad%202/tema%209%20-%20operaciones%20l%C3%B3gicas.html"
-       title="página anterior">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 9: Operaciones lógicas</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="tema%2010%20-%20control%20de%20flujo.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Tema 10: Control de flujo</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumentos">Argumentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#posicionales">Posicionales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
