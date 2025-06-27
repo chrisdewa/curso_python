@@ -25,6 +25,7 @@ chapters:
   - file: Unidad 3/index
     sections:
       - file: Unidad 3/tema 10 - control de flujo
+      - file: Unidad 3/tema 11 - funciones
   - file: Otras lecciones/index
     sections:
       - file: Otras lecciones/Python intermedio/index
