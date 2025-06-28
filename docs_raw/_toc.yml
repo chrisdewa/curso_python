@@ -26,6 +26,7 @@ chapters:
     sections:
       - file: Unidad 3/tema 10 - control de flujo
       - file: Unidad 3/tema 11 - funciones
+      - file: Unidad 3/tema 12 - librerías
   - file: Otras lecciones/index
     sections:
       - file: Otras lecciones/Python intermedio/index
