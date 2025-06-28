@@ -116,7 +116,7 @@ En el segundo ejemplo no importamos solamente el objeto mean de la librería sta
 
 En el tercer ejemplo hacemos lo mismo, pero en lugar de solo un objeto, importamos dos diferentes objetos de la misma librería.
 
-En el tercer ejemplo hacemos un cambio en el nombre del objeto, eso es a veces necesario para evitar conflictos con nuestro código, quizá tenemos una variable ya con el nombre sqrt o cos y necesitamos que el objeto importado tenga otro nombre distinto.
+En el cuarto ejemplo hacemos un cambio en el nombre del objeto, eso es a veces necesario para evitar conflictos con nuestro código, quizá tenemos una variable ya con el nombre sqrt o cos y necesitamos que el objeto importado tenga otro nombre distinto.
 
 ## Librerías externas
 
