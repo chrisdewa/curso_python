@@ -58,6 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 3/tema 12 - librerías';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
@@ -403,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -419,6 +423,31 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-libreria">Qué es una librería</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-integradas-modulos">Librerías integradas (módulos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-utiles-para-analisis-de-datos-en-python">Módulos útiles para análisis de datos en Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar">Importar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-externas">Librerías externas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-con-pip">Instalación con <code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-con-uv">Instalación con <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -430,6 +459,201 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tema-11-librerias">
 <h1>Tema 11: Librerías<a class="headerlink" href="#tema-11-librerias" title="Link to this heading">#</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>El fondo de este tema es simple:</p>
+<p><strong>NO REINVENTES EL HILO NEGRO</strong></p>
+</div>
+<p>Una bella realidad de la programación, es que casi todos los problemas abstractos que podemos encontrar ya han sido enfrentados por otros programadores y es común que cuando un problema es común, la solución ya se haya encontrado. Así, en lugar de tener que resolver el problema por nuestra propia cuenta, podemos echar mano de código que ya otras personas escribieron.</p>
+<p>Tomemos por ejemplo el último ejercicio de la lección pasada, una función para la media.</p>
+<p>Primero, resolvamos nosotros el problema, el cálculo de la media es así:</p>
+<p><span class="math notranslate nohighlight">\(\bar{x} = \frac{\sum{xi}}{n}\)</span></p>
+<p>Escrito en español: «Sumar cada número en x y dividir el total sobre el número de datos».</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">media</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span> <span class="c1"># ir sumando cada número al total</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># ir sumando uno por cada número</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">n</span> <span class="c1"># devuelve la media</span>
+
+<span class="n">mis_datos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">105</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">media</span><span class="p">(</span><span class="n">mis_datos</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Esto funciona correctamente pero en realidad no hace falta escribir tanto código. Python ya nos ofrece dos funciones <code class="docutils literal notranslate"><span class="pre">built-in</span></code>, es decir «de fábrica», que pueden hacer mucho del trabajo: <code class="docutils literal notranslate"><span class="pre">len</span></code> y <code class="docutils literal notranslate"><span class="pre">sum</span></code>. Recuerda que puedes consultar algunas otras funciones integradas en la <a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html#builtins-target"><span class="std std-ref">lección 2.3</span></a></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code> recibe una colección y devuelve su tamaño.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum</span></code> devuelve la suma de los elementos de un iterable (funciona con numéricos).</p></li>
+</ul>
+<p>Así podemos reescribir la función:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">media</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="n">mis_datos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">105</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">media</span><span class="p">(</span><span class="n">mis_datos</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Y así nos evitamos tener que escribir código más complejo.</p>
+<p>Sin embargo, ni aún así es necesario que calculemos la función de la media, porque, como es un problema común, podemos buscar la solución en una <strong>librería</strong>.</p>
+<section id="que-es-una-libreria">
+<h2>Qué es una librería<a class="headerlink" href="#que-es-una-libreria" title="Link to this heading">#</a></h2>
+<p>Una librería es un conjunto de funciones, clases y otros objetos que un programador ha puesto a disposición de otros programadores en un paquete con un nombre específico. Python tiene muchos «módulos» integrados que podemos importar sin necesidad de instalar nada más.</p>
+<p>Para resolver el problema de la media, con Python puro, sin instalar nada más, podemos hacer lo siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean</span>
+
+<span class="n">mis_datos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">105</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">mis_datos</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>De esta forma, resolvemos nuestro problema sin necesidad de hacer los cálculos manualmente.</p>
+<section id="ejercicio">
+<h3>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Abre una consola de Python, ya sea una libreta o en la terminal.</p></li>
+<li><p>Importa la función de la media como en el ejemplo <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">statistics</span> <span class="pre">import</span> <span class="pre">mean</span></code>.</p></li>
+<li><p>Utiliza <code class="docutils literal notranslate"><span class="pre">help(mean)</span></code> para aprender sobre cómo funciona.</p></li>
+</ol>
+</section>
+</section>
+<section id="librerias-integradas-modulos">
+<span id="modulos-target"></span><h2>Librerías integradas (módulos)<a class="headerlink" href="#librerias-integradas-modulos" title="Link to this heading">#</a></h2>
+<p>Los módulos son las librerías que Python tiene instaladas de fábrica y que no requerimos hacer nada para tenerlas disponibles, solo importarlas.</p>
+<p>Puedes consultar la lista completa de los módulos integrados <a class="reference external" href="https://docs.python.org/3/py-modindex.html">aquí</a>.</p>
+<section id="modulos-utiles-para-analisis-de-datos-en-python">
+<h3>Módulos útiles para análisis de datos en Python<a class="headerlink" href="#modulos-utiles-para-analisis-de-datos-en-python" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Módulo</p></th>
+<th class="head"><p>Descripción breve</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
+<td><p>Funciones matemáticas básicas como <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">statistics</span></code></p></td>
+<td><p>Cálculo de media, mediana, varianza, desviación estándar, moda, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fractions</span></code></p></td>
+<td><p>Manejo de fracciones exactas con <code class="docutils literal notranslate"><span class="pre">Fraction</span></code>, útil para evitar errores numéricos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p></td>
+<td><p>Aritmética decimal con alta precisión, útil en finanzas y cálculos sensibles.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">random</span></code></p></td>
+<td><p>Generación de números aleatorios, muestreo, permutaciones, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">itertools</span></code></p></td>
+<td><p>Herramientas para combinaciones, permutaciones y manejo eficiente de iteradores.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">collections</span></code></p></td>
+<td><p>Estructuras especializadas como <code class="docutils literal notranslate"><span class="pre">Counter</span></code>, <code class="docutils literal notranslate"><span class="pre">deque</span></code>, <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code>, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
+<td><p>Manipulación de fechas, horas y diferencias temporales.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+<td><p>Lectura y escritura de archivos CSV.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+<td><p>Lectura y escritura de archivos en formato JSON.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="importar">
+<h2>Importar<a class="headerlink" href="#importar" title="Link to this heading">#</a></h2>
+<p>Para importar una librería necesitamos primero tenerla instalada o elegir un módulo de Python como los que acabamos de revisar.</p>
+<section id="sintaxis">
+<h3>Sintaxis<a class="headerlink" href="#sintaxis" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean</span>        
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">repeat</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>                 
+    <span class="n">sqrt</span> <span class="k">as</span> <span class="n">raiz</span><span class="p">,</span>
+    <span class="n">cos</span> <span class="k">as</span> <span class="n">coseno</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="librerias-externas">
+<h2>Librerías externas<a class="headerlink" href="#librerias-externas" title="Link to this heading">#</a></h2>
+<p>También es posible instalar librerías que no vienen con Python. Estas librerías <strong>externas</strong> han sido desarrolladas por la comunidad para extender las capacidades del lenguaje, especialmente en áreas como ciencia de datos, estadística avanzada, gráficos y machine learning.</p>
+<p>Estas librerías no se pueden usar directamente a menos que primero se instalen. Puedes hacerlo con <code class="docutils literal notranslate"><span class="pre">pip</span></code> o con <code class="docutils literal notranslate"><span class="pre">uv</span></code>, que es la herramienta oficial que usamos en este curso.</p>
+<section id="instalacion-con-pip">
+<h3>Instalación con <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#instalacion-con-pip" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nombre_de_la_libreria
+</pre></div>
+</div>
+<p>Por ejemplo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>scipy
+</pre></div>
+</div>
+</section>
+<section id="instalacion-con-uv">
+<h3>Instalación con <code class="docutils literal notranslate"><span class="pre">uv</span></code><a class="headerlink" href="#instalacion-con-uv" title="Link to this heading">#</a></h3>
+<p>En este curso usamos <code class="docutils literal notranslate"><span class="pre">uv</span></code> como la herramienta oficial para gestionar dependencias. Es una alternativa rápida y moderna a <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>Para instalar una librería externa con <code class="docutils literal notranslate"><span class="pre">uv</span></code>, usa el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>nombre_de_la_libreria
+</pre></div>
+</div>
+<p>Por ejemplo, para instalar <code class="docutils literal notranslate"><span class="pre">scipy</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>scipy
+</pre></div>
+</div>
+<p>Esto actualizará automáticamente tu archivo <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> y descargará el paquete de forma optimizada.</p>
+<p>Algunas de las librerías más comunes para análisis de datos incluyen:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Librería</p></th>
+<th class="head"><p>Enlace a la documentación oficial</p></th>
+<th class="head"><p>¿Para qué sirve?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code></p></td>
+<td><p><a class="reference external" href="https://scipy.org/">scipy.org</a></p></td>
+<td><p>Herramientas científicas avanzadas: álgebra lineal, optimización, integrales, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p></td>
+<td><p><a class="reference external" href="https://www.statsmodels.org/stable/index.html">statsmodels.org</a></p></td>
+<td><p>Modelado estadístico clásico: regresiones, ANOVA, series temporales, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+<td><p><a class="reference external" href="https://matplotlib.org/">matplotlib.org</a></p></td>
+<td><p>Generación de gráficos básicos y personalizables en 2D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p></td>
+<td><p><a class="reference external" href="https://seaborn.pydata.org/">seaborn.pydata.org</a></p></td>
+<td><p>Gráficos estadísticos de alto nivel y con diseño atractivo, basado en matplotlib.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></td>
+<td><p><a class="reference external" href="https://numpy.org/">numpy.org</a></p></td>
+<td><p>Manejo eficiente de arreglos numéricos y operaciones vectorizadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sympy</span></code></p></td>
+<td><p><a class="reference external" href="https://www.sympy.org/en/index.html">sympy.org</a></p></td>
+<td><p>Matemática simbólica, como resolver ecuaciones o derivar de forma simbólica.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="ejercicio-personal">
+<h2>Ejercicio personal<a class="headerlink" href="#ejercicio-personal" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Visita cada una de las páginas oficiales de las librerías listadas arriba.</p></li>
+<li><p>Elige al menos dos que te llamen la atención.</p></li>
+<li><p>Explora su documentación: busca una función, ejemplo o gráfico que te parezca útil.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -468,6 +692,38 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-libreria">Qué es una librería</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-integradas-modulos">Librerías integradas (módulos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-utiles-para-analisis-de-datos-en-python">Módulos útiles para análisis de datos en Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar">Importar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-externas">Librerías externas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-con-pip">Instalación con <code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-con-uv">Instalación con <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
