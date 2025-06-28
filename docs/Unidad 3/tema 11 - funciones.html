@@ -460,10 +460,19 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumentos">Argumentos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#posicionales">Posicionales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros">Parámetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-posicionales">Parámetros posicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kws">Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kwargs">Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-por-defecto">Valores por defecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-como-objetos">Funciones como objetos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-anidadas">Funciones anidadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
@@ -503,26 +512,32 @@ document.write(`
 <h2>Sintaxis<a class="headerlink" href="#sintaxis" title="Link to this heading">#</a></h2>
 <p>En python definimos una función de la siguiente forma:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función suma los argumentos a y b y devuelve el resultado&quot;</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
 <li><p>El encabezado comienza siempre con la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p></li>
+<li><p>Inmediatamente después del encabezado de la función, se puede poner un string (<code class="docutils literal notranslate"><span class="pre">str</span></code>) cuya función es explicar qué hace y cómo se usa la función, se le llama <strong>Docstring</strong>.</p></li>
 <li><p>La siguiente palabra es el nombre que recibirá la función.</p></li>
 <li><p>Luego se abren paréntesis.</p></li>
 <li><p>Dentro de los paréntesis puede ir lo sigueinte:</p>
 <ul class="simple">
 <li><p>Nada: <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
-<li><p>Argumentos posicionales (positional arguments o más comumente <code class="docutils literal notranslate"><span class="pre">args</span></code>).</p></li>
-<li><p>Argumentos de palabra clave (Key word arguments, o más comunmente <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> o <code class="docutils literal notranslate"><span class="pre">kws</span></code>).</p></li>
+<li><p>Parámetros posicionales (positional arguments o más comumente <code class="docutils literal notranslate"><span class="pre">args</span></code>).</p></li>
+<li><p>Parámetros de palabra clave (Key word arguments, o más comunmente <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> o <code class="docutils literal notranslate"><span class="pre">kws</span></code>).</p></li>
 <li><p>Cualquier combinación de estos, pero siempre van primero los posicionales y luego los <code class="docutils literal notranslate"><span class="pre">kws</span></code>.</p></li>
 </ul>
 </li>
 <li><p>Dos puntos <code class="docutils literal notranslate"><span class="pre">:</span></code> para marcar el comienzo del cuerpo de la función.</p></li>
 <li><p>Cuerpo de la función en el siguiente nivel de sangría.</p></li>
 </ol>
-<section id="argumentos">
-<h3>Argumentos<a class="headerlink" href="#argumentos" title="Link to this heading">#</a></h3>
+<section id="parametros">
+<h3>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los <strong>parámetros</strong> son los argumentos</p>
+</div>
 <p>Uno de los principales poderes de las funciones es aceptar argumentos para realizar su trabajo.
 Veamos el ejemplo más sencillo, una función matemática:</p>
 <p><span class="math notranslate nohighlight">\(f\relax(x) = x^2\)</span></p>
@@ -549,21 +564,222 @@ Es decir, que las siguientes dos funciones son equivalentes:</p>
 </div>
 </div>
 <p>Como se comentó previamente, existen básicamente dos tipos de argumentos, los posicionales y los de palabra clave, veamos cómo funcionan. Para las siguientes dos secciones usaremos el ejemplo de la siguiente función.</p>
-<section id="posicionales">
-<h4>Posicionales<a class="headerlink" href="#posicionales" title="Link to this heading">#</a></h4>
+<section id="parametros-posicionales">
+<h4>Parámetros posicionales<a class="headerlink" href="#parametros-posicionales" title="Link to this heading">#</a></h4>
+<p>Los parámetros posicionales se pasan a la función en el orden definido en la función.
+Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Podríamos utlizar la función de cualquiera de las siguientes formas:</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>    
+<span class="n">mas_grande</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>    
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="c1"># intercambiados</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>builtin_function_or_method
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+x=6, y=7
+x=7, y=6
+x=6, y=7
 </pre></div>
 </div>
 </div>
 </div>
+<p>En los primeros dos usos de la función, pasamos los argumentos en forma posicional, en el tercero lo hicimos en forma de palabras clave <code class="docutils literal notranslate"><span class="pre">kws</span></code>, esto último lo veremos en la siguiente sección.</p>
+<p>Esto es porque la función no nos ha limitado en cómo utilizarla, es decir, podemos ejecutarla como queramos, pero nota que cuando usamos la función con argumentos posicionales, el orden en que pasamos los argumentos cambia como responde la función.</p>
+<p>Aunque la variable, fuera de la función, se llame como alguno de los parámetros, dentro de la función los valores asociados a las variables se asignan al nombre del parámetro de la función. Observa el segundo ejemplo, <code class="docutils literal notranslate"><span class="pre">mas_grande(y,</span> <span class="pre">x)</span></code> aunque las variables se llamen <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code>, dentro de la función se transforman, porque el valor de la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, se asigna al parámetro <code class="docutils literal notranslate"><span class="pre">y</span></code> y viceversa.</p>
+<p>Es posible hacer que los argumentos de una función sean obligatoriamente posicionales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande_pos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+
+<span class="ne">TypeError</span>: mas_grande_pos() got some positional-only arguments passed as keyword arguments: &#39;y&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como ves en este ejemplo, el error ocurre porque ambos parámetros, <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code> son obligatoriamente posicionales, es la diagonal <code class="docutils literal notranslate"><span class="pre">/</span></code> en el encabezado de la función lo que señaliza a los argumentos posicionales obligatorios.
+Es posible tener casos mixtos, por ejemplo, en la siguiente función:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="c1"># la / está ahora a la mitad</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># También funciona</span>
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+x=7, y=6
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># También funciona</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+
+<span class="ne">TypeError</span>: mas_grande_pos_2() got some positional-only arguments passed as keyword arguments: &#39;x&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio-personal">
+<h5>Ejercicio personal<a class="headerlink" href="#ejercicio-personal" title="Link to this heading">#</a></h5>
+<p>¿Por qué falló la última ejecución?</p>
 </section>
+</section>
+<section id="parametros-de-palabra-clave-kws">
+<h4>Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code><a class="headerlink" href="#parametros-de-palabra-clave-kws" title="Link to this heading">#</a></h4>
+<p>Los parámetros de «palabra clave», en adelante <code class="docutils literal notranslate"><span class="pre">ksw</span></code>, se utilizan en la función de forma explícita con el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code> y el nombre del parámetro.</p>
+<p>Tomemos el siguiente ejemplo</p>
+</section>
+</section>
+<section id="parametros-de-palabra-clave-kwargs">
+<h3>Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>)<a class="headerlink" href="#parametros-de-palabra-clave-kwargs" title="Link to this heading">#</a></h3>
+<p>Los argumentos de palabra clave permiten especificar a qué parámetro corresponde cada valor usando <code class="docutils literal notranslate"><span class="pre">nombre=valor</span></code>. Son útiles cuando hay muchos parámetros o cuando queremos cambiar solo uno sin importar el orden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">saludo</span><span class="o">=</span><span class="s2">&quot;Hola&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">saludo</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">saludar</span><span class="p">(</span><span class="s2">&quot;Chris&quot;</span><span class="p">)</span>
+<span class="n">saludar</span><span class="p">(</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span> <span class="n">saludo</span><span class="o">=</span><span class="s2">&quot;Buenos días&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los parámetros de palabra clave pueden tener valores por defecto, lo que permite omitirlos al llamar la función.</p>
+</div>
+</section>
+<section id="valores-por-defecto">
+<h3>Valores por defecto<a class="headerlink" href="#valores-por-defecto" title="Link to this heading">#</a></h3>
+<p>Al definir una función, podemos asignar valores por defecto a los parámetros. Estos se usan si no se pasan argumentos al llamar la función:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">potencia</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponente</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponente</span>
+
+<span class="n">potencia</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># 9</span>
+<span class="n">potencia</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 27</span>
+</pre></div>
+</div>
+</section>
+<section id="funciones-como-objetos">
+<h3>Funciones como objetos<a class="headerlink" href="#funciones-como-objetos" title="Link to this heading">#</a></h3>
+<p>En Python, las funciones son objetos. Se pueden asignar a variables, pasar como argumentos o devolver desde otras funciones:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuadrado</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">cuadrado</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># 25</span>
+</pre></div>
+</div>
+</section>
+<section id="funciones-anidadas">
+<h3>Funciones anidadas<a class="headerlink" href="#funciones-anidadas" title="Link to this heading">#</a></h3>
+<p>Podemos definir funciones dentro de otras. Sirven para encapsular lógica auxiliar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">operacion_compleja</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">paso_intermedio</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">paso_intermedio</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">operacion_compleja</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># 7</span>
+</pre></div>
+</div>
+</section>
+<section id="ejercicios">
+<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Escribe una función que calcule el área de un triángulo con base y altura.</p></li>
+<li><p>Escribe una función que imprima los nombres en una lista de pacientes usando una función anidada.</p></li>
+<li><p>Escribe una función que indique si una persona tiene obesidad a partir de su peso y talla.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">area_triangulo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altura</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">area_triangulo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">imprimir_pacientes</span><span class="p">(</span><span class="n">pacientes</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">imprimir</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Paciente: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pacientes</span><span class="p">:</span>
+        <span class="n">imprimir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">imprimir_pacientes</span><span class="p">([</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Luis&quot;</span><span class="p">,</span> <span class="s2">&quot;José&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Paciente: Ana
+Paciente: Luis
+Paciente: José
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tiene_obesidad</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">talla</span><span class="p">):</span>
+    <span class="n">imc</span> <span class="o">=</span> <span class="n">peso</span> <span class="o">/</span> <span class="n">talla</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">imc</span> <span class="o">&gt;=</span> <span class="mi">30</span>
+
+<span class="n">tiene_obesidad</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -633,10 +849,19 @@ Es decir, que las siguientes dos funciones son equivalentes:</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumentos">Argumentos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#posicionales">Posicionales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros">Parámetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-posicionales">Parámetros posicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kws">Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kwargs">Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-por-defecto">Valores por defecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-como-objetos">Funciones como objetos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-anidadas">Funciones anidadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
 </li>
 </ul>
