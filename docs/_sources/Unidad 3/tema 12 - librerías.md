@@ -108,6 +108,15 @@ from math import (
     cos as coseno
 )
 ```
+En el primer ejemplo tenemos la forma más básica. La palabra clave import realiza la importanción de la librería random.
+Todas las funciones, clases y demás objetos disponibles de esa librería se accederán desde la variable random.
+Por ejemplo random.randint(0, 100) que devuelve un número aleatorio entre 0 y 100.
+
+En el segundo ejemplo no importamos solamente el objeto mean de la librería statistics, no importamos todo como en el ejemplo anterior.
+
+En el tercer ejemplo hacemos lo mismo, pero en lugar de solo un objeto, importamos dos diferentes objetos de la misma librería.
+
+En el tercer ejemplo hacemos un cambio en el nombre del objeto, eso es a veces necesario para evitar conflictos con nuestro código, quizá tenemos una variable ya con el nombre sqrt o cos y necesitamos que el objeto importado tenga otro nombre distinto.
 
 ## Librerías externas
 
