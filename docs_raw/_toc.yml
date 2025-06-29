@@ -27,8 +27,10 @@ chapters:
       - file: Unidad 3/tema 10 - control de flujo
       - file: Unidad 3/tema 11 - funciones
       - file: Unidad 3/tema 12 - librerías
+      - file: Unidad 3/tema 13 - calculadora
   - file: Otras lecciones/index
     sections:
       - file: Otras lecciones/Python intermedio/index
         sections:
           - file: Otras lecciones/Python intermedio/comprensiones
+      - file: Otras lecciones/f-strings

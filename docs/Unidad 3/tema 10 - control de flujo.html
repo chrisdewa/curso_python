@@ -213,7 +213,8 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 3: Programación lineal</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 10: Control de flujo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%2011%20-%20funciones.html">Tema 11: Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema%2012%20-%20librer%C3%ADas.html">Tema 12 Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%2012%20-%20librer%C3%ADas.html">Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%2013%20-%20calculadora.html">Tema 13: Calculadora</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Otras%20lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -221,6 +222,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l3"><a class="reference internal" href="../Otras%20lecciones/Python%20intermedio/comprensiones.html">Comprensiones en Python</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../Otras%20lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
 </ul>
 </details></li>
 </ul>
@@ -484,6 +486,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales">Condicionales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-practico">Ejemplo práctico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expresiones-ternarias">Expresiones ternarias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Sintaxis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -789,6 +795,32 @@ Una condición hace que un bloque de código solo se ejecute cuando se cumple un
 </div>
 </div>
 </section>
+<section id="expresiones-ternarias">
+<span id="expresion-ternaria-target"></span><h3>Expresiones ternarias<a class="headerlink" href="#expresiones-ternarias" title="Link to this heading">#</a></h3>
+<p>Las expresiones ternarias se ejecutan en una sola línea y permiten condicionar una expresión a una operación lógica.
+Su uso debe limitarse a expresiones sencillas para no perder legibilidad</p>
+<section id="id4">
+<h4>Sintaxis<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">condicion</span> <span class="o">=</span> <span class="s2">&quot;Valor cuando expresión es cierta&quot;</span> <span class="k">if</span> <span class="n">dato</span> <span class="o">&gt;</span> <span class="n">cantidad</span> <span class="k">else</span> <span class="s2">&quot;valor cuando expresión es falsa&quot;</span>
+</pre></div>
+</div>
+<p>Ve el siguiente ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imc</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="n">obeso</span> <span class="o">=</span> <span class="s2">&quot;Sí&quot;</span> <span class="k">if</span> <span class="n">imc</span> <span class="o">&gt;=</span> <span class="mi">30</span> <span class="k">else</span> <span class="s2">&quot;No&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿El paciente es obeso?&quot;</span><span class="p">,</span> <span class="n">obeso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>¿El paciente es obeso? Sí
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 </section>
 
@@ -874,6 +906,10 @@ Una condición hace que un bloque de código solo se ejecute cuando se cumple un
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales">Condicionales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-practico">Ejemplo práctico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expresiones-ternarias">Expresiones ternarias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Sintaxis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

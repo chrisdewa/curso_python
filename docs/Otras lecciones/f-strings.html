@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Otras lecciones &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>f-string: Dar formato al texto &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -58,12 +58,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Otras lecciones/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Otras lecciones/f-strings';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Python Intermedio" href="Python%20intermedio/index.html" />
-    <link rel="prev" title="Tema 13: Calculadora" href="../Unidad%203/tema%2013%20-%20calculadora.html" />
+    <link rel="prev" title="Comprensiones en Python" href="Python%20intermedio/comprensiones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -209,12 +208,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../Unidad%203/tema%2013%20-%20calculadora.html">Tema 13: Calculadora</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Otras lecciones</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Otras lecciones</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="Python%20intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="Python%20intermedio/comprensiones.html">Comprensiones en Python</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="f-strings.html">f-string: Dar formato al texto</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">f-string: Dar formato al texto</a></li>
 </ul>
 </details></li>
 </ul>
@@ -288,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Otras lecciones/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Otras lecciones/f-strings.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +304,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FOtras lecciones/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FOtras lecciones/f-strings.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +334,7 @@
       
       
       
-      <li><a href="../_sources/Otras lecciones/index.md" target="_blank"
+      <li><a href="../_sources/Otras lecciones/f-strings.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -417,11 +418,32 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Otras lecciones</h1>
+    <h1>f-string: Dar formato al texto</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-f-string">¿Qué es una f-string?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion-oficial">Documentación oficial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-expresiones">f-strings con expresiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-formatos-numericos">f-strings con formatos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-redondear-decimales">Ejemplo: Redondear decimales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-porcentajes">Ejemplo: Porcentajes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-alineacion-y-relleno">f-strings con alineación y relleno</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-multilinea">f-strings multilínea</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -431,11 +453,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="otras-lecciones">
-<h1>Otras lecciones<a class="headerlink" href="#otras-lecciones" title="Link to this heading">#</a></h1>
-<p>Esta carpeta contiene conocimiento que no es necesario para completar el curso, es un complemento de los demás temas.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="f-string-dar-formato-al-texto">
+<span id="tema-f-string-target"></span><h1>f-string: Dar formato al texto<a class="headerlink" href="#f-string-dar-formato-al-texto" title="Link to this heading">#</a></h1>
+<p>En programación es muy frecuente tener que elaborar reportes o mensajes que incluyan valores que vamos obteniendo durante la ejecución de nuestro código. Una de las formas más sencillas y modernas de construir cadenas de texto (<code class="docutils literal notranslate"><span class="pre">str</span></code>) con variables o expresiones es usando <strong>f-strings</strong>.</p>
+<section id="que-es-una-f-string">
+<h2>¿Qué es una f-string?<a class="headerlink" href="#que-es-una-f-string" title="Link to this heading">#</a></h2>
+<p>Las <strong>f-strings</strong> (abreviatura de <em>formatted strings</em>) fueron introducidas en Python 3.6. Se trata de una forma rápida y legible de insertar valores directamente dentro de una cadena de texto, utilizando una sintaxis clara y eficiente.</p>
+<section id="sintaxis-basica">
+<h3>Sintaxis básica<a class="headerlink" href="#sintaxis-basica" title="Link to this heading">#</a></h3>
+<p>Solo necesitas anteponer una <code class="docutils literal notranslate"><span class="pre">f</span></code> o <code class="docutils literal notranslate"><span class="pre">F</span></code> a una cadena entre comillas, y luego encerrar las variables o expresiones entre llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code> dentro de la cadena.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">mensaje</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> tiene </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+</pre></div>
 </div>
+<p><strong>Salida:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ana</span> <span class="n">tiene</span> <span class="mi">30</span> <span class="n">años</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="documentacion-oficial">
+<h2>Documentación oficial<a class="headerlink" href="#documentacion-oficial" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Por favor revisa la <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">documentación oficial</a> para todos los tipos de formato posibles y cómo utilizarlos.
+Esta es una herramienta muy útil y poderosa, pero puede ser confusa al principio.</p>
+</div>
+</section>
+<section id="ventajas">
+<h2>Ventajas<a class="headerlink" href="#ventajas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Es más legible y eficiente</p></li>
+<li><p>Permite incluir expresiones directamente dentro de las llaves.</p></li>
+</ul>
+</section>
+<section id="f-strings-con-expresiones">
+<h2>f-strings con expresiones<a class="headerlink" href="#f-strings-con-expresiones" title="Link to this heading">#</a></h2>
+<p>No solo puedes insertar variables, también puedes escribir expresiones completas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La suma de </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> es </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Salida:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">suma</span> <span class="n">de</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span> <span class="n">es</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="f-strings-con-formatos-numericos">
+<h2>f-strings con formatos numéricos<a class="headerlink" href="#f-strings-con-formatos-numericos" title="Link to this heading">#</a></h2>
+<p>También puedes controlar cómo se muestra un número: número de decimales, porcentaje, notación científica, etc.</p>
+<section id="ejemplo-redondear-decimales">
+<h3>Ejemplo: Redondear decimales<a class="headerlink" href="#ejemplo-redondear-decimales" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159265</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El valor de pi es aproximadamente </span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Salida:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">valor</span> <span class="n">de</span> <span class="n">pi</span> <span class="n">es</span> <span class="n">aproximadamente</span> <span class="mf">3.14</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-porcentajes">
+<h3>Ejemplo: Porcentajes<a class="headerlink" href="#ejemplo-porcentajes" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aprobados</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aprobaron el </span><span class="si">{</span><span class="n">aprobados</span><span class="o">/</span><span class="n">total</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2"> del grupo.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Salida:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Aprobaron</span> <span class="n">el</span> <span class="mf">90.0</span><span class="o">%</span> <span class="k">del</span> <span class="n">grupo</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="f-strings-con-alineacion-y-relleno">
+<h2>f-strings con alineación y relleno<a class="headerlink" href="#f-strings-con-alineacion-y-relleno" title="Link to this heading">#</a></h2>
+<p>Puedes ajustar el texto para que tenga una longitud fija, se alinee a la izquierda, derecha o al centro, o incluso rellenar con otros caracteres.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">producto</span> <span class="o">=</span> <span class="s2">&quot;Manzana&quot;</span>
+<span class="n">precio</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">producto</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> $</span><span class="si">{</span><span class="n">precio</span><span class="si">:</span><span class="s2">&gt;6.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Salida:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Manzana   $  7.50
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="f-strings-multilinea">
+<h2>f-strings multilínea<a class="headerlink" href="#f-strings-multilinea" title="Link to this heading">#</a></h2>
+<p>Puedes usar f-strings también en cadenas de varias líneas, útil para reportes más largos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Carlos&quot;</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">profesion</span> <span class="o">=</span> <span class="s2">&quot;Ingeniero&quot;</span>
+
+<span class="n">reporte</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Nombre: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span>
+<span class="s2">Edad: </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span>
+<span class="s2">Profesión: </span><span class="si">{</span><span class="n">profesion</span><span class="si">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reporte</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -469,22 +594,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Unidad%203/tema%2013%20-%20calculadora.html"
+       href="Python%20intermedio/comprensiones.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 13: Calculadora</p>
+        <p class="prev-next-title">Comprensiones en Python</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="Python%20intermedio/index.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Python Intermedio</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -492,6 +608,34 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-f-string">¿Qué es una f-string?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-basica">Sintaxis básica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion-oficial">Documentación oficial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-expresiones">f-strings con expresiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-formatos-numericos">f-strings con formatos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-redondear-decimales">Ejemplo: Redondear decimales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-porcentajes">Ejemplo: Porcentajes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-con-alineacion-y-relleno">f-strings con alineación y relleno</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings-multilinea">f-strings multilínea</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

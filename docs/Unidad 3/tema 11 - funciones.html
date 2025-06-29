@@ -64,7 +64,7 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Tema 12 Librerías" href="tema%2012%20-%20librer%C3%ADas.html" />
+    <link rel="next" title="Tema 12: Librerías" href="tema%2012%20-%20librer%C3%ADas.html" />
     <link rel="prev" title="Tema 10: Control de flujo" href="tema%2010%20-%20control%20de%20flujo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -207,7 +207,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 3: Programación lineal</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tema%2010%20-%20control%20de%20flujo.html">Tema 10: Control de flujo</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 11: Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema%2012%20-%20librer%C3%ADas.html">Tema 12 Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%2012%20-%20librer%C3%ADas.html">Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema%2013%20-%20calculadora.html">Tema 13: Calculadora</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Otras%20lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -215,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../Otras%20lecciones/Python%20intermedio/comprensiones.html">Comprensiones en Python</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../Otras%20lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
 </ul>
 </details></li>
 </ul>
@@ -610,10 +612,16 @@ x=6, y=7
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">str</span></code> está formateado con <code class="docutils literal notranslate"><span class="pre">f-string</span></code>, revisa el <a class="reference internal" href="../Otras%20lecciones/f-strings.html#tema-f-string-target"><span class="std std-ref">tema correspondiente</span></a> para ver cómo funciona.</p>
+</div>
+<div class="docutils">
 <p>En los primeros dos usos de la función, pasamos los argumentos en forma posicional, en el tercero lo hicimos en forma de palabras clave <code class="docutils literal notranslate"><span class="pre">kws</span></code>, esto último lo veremos en la siguiente sección.</p>
 <p>Esto es porque la función no nos ha limitado en cómo utilizarla, es decir, podemos ejecutarla como queramos, pero nota que cuando usamos la función con argumentos posicionales, el orden en que pasamos los argumentos cambia como responde la función.</p>
 <p>Aunque la variable, fuera de la función, se llame como alguno de los parámetros, dentro de la función los valores asociados a las variables se asignan al nombre del parámetro de la función. Observa el segundo ejemplo, <code class="docutils literal notranslate"><span class="pre">mas_grande(y,</span> <span class="pre">x)</span></code> aunque las variables se llamen <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code>, dentro de la función se transforman, porque el valor de la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, se asigna al parámetro <code class="docutils literal notranslate"><span class="pre">y</span></code> y viceversa.</p>
 <p>Es posible hacer que los argumentos de una función sean obligatoriamente posicionales.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande_pos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
@@ -915,7 +923,7 @@ None
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Tema 12 Librerías</p>
+        <p class="prev-next-title">Tema 12: Librerías</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
