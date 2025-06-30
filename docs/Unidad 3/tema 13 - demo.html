@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 13: Calculadora &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+    <title>Tema 13: Demostración con datos simulados &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
   
   
   
@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 3/tema 13 - calculadora';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 3/tema 13 - demo';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
@@ -206,7 +206,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tema%2010%20-%20control%20de%20flujo.html">Tema 10: Control de flujo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%2011%20-%20funciones.html">Tema 11: Funciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema%2012%20-%20librer%C3%ADas.html">Tema 12: Librerías</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 13: Calculadora</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 13: Demostración con datos simulados</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Unidad%204/index.html">Unidad 4: Análisis exploratorio</a></li>
@@ -272,7 +272,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/Unidad 3/tema 13 - calculadora.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/Unidad 3/tema 13 - demo.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Unidad 3/tema 13 - calculadora.ipynb" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Unidad 3/tema 13 - demo.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +337,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 3/tema 13 - calculadora.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 3/tema 13 - demo.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@
       
       
       
-      <li><a href="../_sources/Unidad 3/tema 13 - calculadora.ipynb" target="_blank"
+      <li><a href="../_sources/Unidad 3/tema 13 - demo.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -438,9 +438,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -451,19 +449,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 13: Calculadora</h1>
+    <h1>Tema 13: Demostración con datos simulados</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenido </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos">Los datos</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -473,17 +463,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-13-calculadora">
-<h1>Tema 13: Calculadora<a class="headerlink" href="#tema-13-calculadora" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-13-demostracion-con-datos-simulados">
+<h1>Tema 13: Demostración con datos simulados<a class="headerlink" href="#tema-13-demostracion-con-datos-simulados" title="Link to this heading">#</a></h1>
 <p>Tenemos ahora todos los bloques necesarios para comenzar a analizar datos y verás que tienes en tus manos una calculadora ultrapoderosa.</p>
-<div class="error admonition">
+<div class="warning admonition">
 <p class="admonition-title">Antes de comenzar</p>
 <p>Para que esta libreta funcione debes tener instaladas las librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.
-En el tema 1, durante la preparación del espacio local estaba contemplado, pero si no lo has hecho, revisa <a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html#correr-python-target"><span class="std std-ref">el tema</span></a>. El comando específico con <code class="docutils literal notranslate"><span class="pre">uv</span></code> es: <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">scipy</span></code>.</p>
+En el tema 1, durante la preparación del espacio local estaba contemplado, pero si no lo has hecho, revisa <a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html#correr-python-target"><span class="std std-ref">el tema 1</span></a>. El comando específico con <code class="docutils literal notranslate"><span class="pre">uv</span></code> es: <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">scipy</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si ejecutas la libreta en la nube de <code class="docutils literal notranslate"><span class="pre">colab</span></code>, no es necesario instalar estas librerías porque el entorno de ejecución ya las tiene disponibles.</p>
 </div>
-<section id="los-datos">
-<h2>Los datos<a class="headerlink" href="#los-datos" title="Link to this heading">#</a></h2>
+</div>
+<div class="docutils">
+<h2 class="rubric" id="los-datos">Los datos</h2>
 <p>Simularemos una serie de datos.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pacientes</span> <span class="o">=</span> <span class="p">{</span>
@@ -570,7 +565,6 @@ Resultado de shapiro wilk: Normal con p=0.608918875551153
 <p>Ambas variables son normales, segun la prueba.</p>
 <p>Esta libreta es un breve ejemplo de cómo podemos utilizar python, en forma lineal para resolver problemas estadísticos con una muestra de pacientes. En la siguiente unidad veremos aspectos específicos y dirigidos del análisis estadístico.</p>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -626,21 +620,6 @@ Resultado de shapiro wilk: Normal con p=0.608918875551153
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos">Los datos</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
