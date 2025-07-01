@@ -26,6 +26,10 @@ Por favor utiliza `uv` para instalar los siguientes recursos:
 uv add pandas openpyxl seaborn matplotlib seaborn
 ```
 
+:::{note}
+Estas librerías ya están disponibles directametne en `colab`, si corres las libretas en la nube, no es necesario instalarlas.
+:::
+
 :::
 
 
