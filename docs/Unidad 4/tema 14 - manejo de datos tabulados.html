@@ -1,0 +1,1539 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tema 14: Manejo de datos tabulados &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad 4/tema 14 - manejo de datos tabulados';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Otras lecciones" href="../Otras%20lecciones/index.html" />
+    <link rel="prev" title="Unidad 4: Análisis exploratorio" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Unidad%201/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.1%20-%20algor%C3%ADtmica.html">Tema 2.1: Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.2%20-%20programaci%C3%B3n.html">Tema 2.2: Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unidad%201/tema%202%20-%20Generalidades/2.3%20-%20python.html">Tema 2.3: Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%203%20-%20opciones%20de%20trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%204%20-%20jupyter.html">Tema 4: Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%205%20-%20primera%20libreta.html">Tema 5: Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%201/tema%206%20-%20conclusi%C3%B3n.html">Tema 6: Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Unidad%202/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%202/tema%207%20-%20variables.html">Tema 7: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%202/tema%208%20-%20tipos%20de%20datos.html">Tema 8: Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%202/tema%209%20-%20operaciones%20l%C3%B3gicas.html">Tema 9: Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Unidad%203/index.html">Unidad 3: Programación lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%203/tema%2010%20-%20control%20de%20flujo.html">Tema 10: Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%203/tema%2011%20-%20funciones.html">Tema 11: Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%203/tema%2012%20-%20librer%C3%ADas.html">Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Unidad%203/tema%2013%20-%20demo.html">Tema 13: Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 4: Análisis exploratorio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 14: Manejo de datos tabulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Otras%20lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Otras%20lecciones/Python%20intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Otras%20lecciones/Python%20intermedio/comprensiones.html">Comprensiones en Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../Otras%20lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/Unidad 4/tema 14 - manejo de datos tabulados.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Unidad 4/tema 14 - manejo de datos tabulados.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FUnidad 4/tema 14 - manejo de datos tabulados.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Unidad 4/tema 14 - manejo de datos tabulados.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tema 14: Manejo de datos tabulados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-y-polars">Pandas y Polars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-pandas-y-polars">Comparación entre Pandas y Polars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-de-pandas">Demostración de pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-de-datos-a-pandas">Importación de datos a pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-ordenados-tidy-data">Datos ordenados (Tidy Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-importa-el-orden">¿Por qué importa el orden?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-del-formato-ordenado-tidy">Reglas del formato ordenado (tidy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-ven-los-datos-ordenados">¿Cómo se ven los datos ordenados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-como-se-ven-los-datos-desordenados">¿Y cómo se ven los datos desordenados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-hace-para-ordenar-los-datos">¿Qué se hace para “ordenar” los datos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-academica">Referencia académica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-los-datos-ordenados">Importancia de los datos ordenados</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-14-manejo-de-datos-tabulados">
+<h1>Tema 14: Manejo de datos tabulados<a class="headerlink" href="#tema-14-manejo-de-datos-tabulados" title="Link to this heading">#</a></h1>
+<p>Nos referimos a datos tabulados a aquellos que están ordenados en filas y colummas, de la siguiente manera:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>índice</p></th>
+<th class="head"><p>Nombre</p></th>
+<th class="head"><p>Edad</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Carlos</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Fernando</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>Elizabeth</p></td>
+<td><p>43</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta forma de organizar los datos permite trabajar con ellos en forma muy sencilla y es el estándar para el análisis estadístico.</p>
+<p>Estos datos pueden guardarse de muchas formas, algunos ejemplos que son los más utilizados con los siguientes:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>formato</p></th>
+<th class="head"><p>uso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SQL</p></td>
+<td><p>Las bases de datos SQL son bases relacionales, donde existen múltiples bases tabulares interrelacionadas con llaves. Se usan en datos complejos y es el estándar en muchos sistemas informáticos. Para consultarlos se usa el lenguaje <code class="docutils literal notranslate"><span class="pre">SQL</span></code> o <code class="docutils literal notranslate"><span class="pre">Structured</span> <span class="pre">Query</span> <span class="pre">Language</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSV</p></td>
+<td><p>Un archivo <code class="docutils literal notranslate"><span class="pre">csv</span></code> es un archivo de texto donde cada columna se separa con un caracter, generalmente la coma «,», de ahí el nombre «Comma Separated Values». Este tipo de archivo contiene una sola tabla de datos y es un estándar para compartir datos. Cualquier hoja de excel puede ser convertida a CSV y la gran mayoría de los programas estadísticos permiten trabajar con este formato.</p></td>
+</tr>
+<tr class="row-even"><td><p>xlsx</p></td>
+<td><p>Este es el formato propietario de MS Excel, y puede guardar múltiples hojas, cada una de las cuales puede tener una o más tablas ordenadas.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En esta libreta aprenderemos cómo trabar en python con datos tabulados y veremos brevemente cómo importar los datos desde <code class="docutils literal notranslate"><span class="pre">csv</span></code> o <code class="docutils literal notranslate"><span class="pre">xlsx</span></code>.</p>
+<section id="pandas-y-polars">
+<h2>Pandas y Polars<a class="headerlink" href="#pandas-y-polars" title="Link to this heading">#</a></h2>
+<p>En python existe un módulo de la distribución estándar llamado <code class="docutils literal notranslate"><span class="pre">csv</span></code> que permite trabajar con datos tabulados en ese formato, pero es limitado para el análisis estadístico, por lo que en general, utilizaremos librerías especializadas para el análisis de datos.</p>
+<p>En python, existen dos de estas librerías que son el estándar de la industria:</p>
+<section id="comparacion-entre-pandas-y-polars">
+<h3>Comparación entre Pandas y Polars<a class="headerlink" href="#comparacion-entre-pandas-y-polars" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Característica</p></th>
+<th class="head"><p><strong>Pandas</strong></p></th>
+<th class="head"><p><strong>Polars</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Lenguaje base</p></td>
+<td><p>Python (con partes en Cython)</p></td>
+<td><p>Rust (con interfaz Python)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modelo de ejecución</p></td>
+<td><p>Eager (se ejecuta línea por línea)</p></td>
+<td><p>Lazy o eager (permite optimización automática si se usa el modo lazy)</p></td>
+</tr>
+<tr class="row-even"><td><p>Velocidad</p></td>
+<td><p>Muy bueno, aunque puede volverse lento con grandes volúmenes de datos</p></td>
+<td><p>Extremadamente rápido, especialmente con datos grandes o en modo lazy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Consumo de memoria</p></td>
+<td><p>Alto en comparación</p></td>
+<td><p>Más eficiente en memoria</p></td>
+</tr>
+<tr class="row-even"><td><p>Sintaxis</p></td>
+<td><p>Muy estable, ampliamente documentada y conocida</p></td>
+<td><p>Inspirada en pandas, pero con diferencias en el uso de expresiones y pipes (`</p></td>
+</tr>
+<tr class="row-odd"><td><p>Soporte de datos</p></td>
+<td><p>Muy amplio: CSV, Excel, SQL, JSON, Parquet, etc.</p></td>
+<td><p>Amplio, pero más enfocado a formatos modernos (CSV, Parquet, Arrow)</p></td>
+</tr>
+<tr class="row-even"><td><p>Paralelización</p></td>
+<td><p>No por defecto (usa un solo núcleo)</p></td>
+<td><p>Sí, corre operaciones en paralelo por defecto</p></td>
+</tr>
+<tr class="row-odd"><td><p>Manejo de fechas y tiempos</p></td>
+<td><p>Maduro y muy completo</p></td>
+<td><p>Limitado pero en constante mejora</p></td>
+</tr>
+<tr class="row-even"><td><p>Popularidad</p></td>
+<td><p>Altísima, es el estándar en ciencia de datos</p></td>
+<td><p>Creciendo rápidamente, adoptado por usuarios que requieren alto rendimiento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Casos de uso ideales</p></td>
+<td><p>Análisis exploratorio, notebooks, tareas pequeñas a medianas</p></td>
+<td><p>Procesamiento eficiente de grandes volúmenes de datos, pipelines optimizados</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>La regla básica es, para datos muy grandes, cuando el equipo no permita tener toda la información en la memoria, por ejemplo, datasets mayores a 4Gb, se sugiere directamente utilizar <code class="docutils literal notranslate"><span class="pre">polars</span></code>. Para los demás casos <code class="docutils literal notranslate"><span class="pre">pandas</span></code> es adecuado, aunque también puede utilizarse <code class="docutils literal notranslate"><span class="pre">polars</span></code>.</p>
+</div>
+<p>Este curso se basa en el uso de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> es entonces una librería de python para el manejo de datos tabulados. Veamos un ejemplo de su uso, para ello, tomaremos los datos simulados del <a class="reference internal" href="../Unidad%203/tema%2013%20-%20demo.html#datos-tema13-target"><span class="std std-ref">tema 13</span></a>.</p>
+</section>
+<section id="demostracion-de-pandas">
+<h3>Demostración de pandas<a class="headerlink" href="#demostracion-de-pandas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pacientes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ids&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s1">&#39;peso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">69.6</span><span class="p">,</span> <span class="mf">62.7</span><span class="p">,</span> <span class="mf">74.2</span><span class="p">,</span> <span class="mf">66.7</span><span class="p">,</span> <span class="mf">62.6</span><span class="p">,</span> <span class="mf">67.4</span><span class="p">,</span> <span class="mf">69.2</span><span class="p">,</span> <span class="mf">71.2</span><span class="p">,</span> <span class="mf">66.8</span><span class="p">,</span> <span class="mf">69.7</span><span class="p">,</span> <span class="mf">68.9</span><span class="p">,</span>
+        <span class="mf">69.5</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">,</span> <span class="mf">77.7</span><span class="p">,</span> <span class="mf">64.6</span><span class="p">,</span> <span class="mf">76.4</span><span class="p">,</span> <span class="mf">64.1</span><span class="p">,</span> <span class="mf">68.3</span><span class="p">,</span> <span class="mf">68.4</span><span class="p">,</span> <span class="mf">65.3</span><span class="p">,</span> <span class="mf">69.4</span><span class="p">,</span> <span class="mf">61.6</span><span class="p">,</span>
+        <span class="mf">75.4</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">82.1</span><span class="p">,</span> <span class="mf">73.3</span><span class="p">,</span> <span class="mf">70.8</span><span class="p">,</span> <span class="mf">69.5</span><span class="p">,</span> <span class="mf">83.9</span><span class="p">,</span> <span class="mf">73.9</span><span class="p">],</span>
+    <span class="s1">&#39;talla&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.78</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.53</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">,</span> <span class="mf">1.73</span><span class="p">,</span>
+        <span class="mf">1.51</span><span class="p">,</span> <span class="mf">1.7</span> <span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.7</span> <span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.64</span><span class="p">,</span> <span class="mf">1.59</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.64</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">,</span>
+        <span class="mf">1.67</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">,</span> <span class="mf">1.72</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mf">1.57</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El arreglo de datos <code class="docutils literal notranslate"><span class="pre">pacientes</span></code> es un diccionario donde cada llave corresponde a una columna y cada ítem de las listas correspondientes son los datos correspondientes a un paciente.
+Esto sin embargo, cognitivamente, es difícil de procesar, aquí entra en juego <code class="docutils literal notranslate"><span class="pre">pandas</span></code> observa como transforma los datos a una tabla útil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pacientes</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ids</th>
+      <th>peso</th>
+      <th>talla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>69.6</td>
+      <td>1.78</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>62.7</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>74.2</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>66.7</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>62.6</td>
+      <td>1.73</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>67.4</td>
+      <td>1.65</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>69.2</td>
+      <td>1.53</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>71.2</td>
+      <td>1.61</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>66.8</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>69.7</td>
+      <td>1.61</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>68.9</td>
+      <td>1.73</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>69.5</td>
+      <td>1.51</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>72.5</td>
+      <td>1.70</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>77.7</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>64.6</td>
+      <td>1.70</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>76.4</td>
+      <td>1.65</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>64.1</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>68.3</td>
+      <td>1.59</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>68.4</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>65.3</td>
+      <td>1.71</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>69.4</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>61.6</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>75.4</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>63.6</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>82.1</td>
+      <td>1.72</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>73.3</td>
+      <td>1.61</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>70.8</td>
+      <td>1.69</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>69.5</td>
+      <td>1.57</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>83.9</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>73.9</td>
+      <td>1.68</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Observa que lo primero que hay que hacer es importar <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y como convención siempre que importa con la abreviatura <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<p>Nombramos a la variable «<code class="docutils literal notranslate"><span class="pre">df</span></code>» como «data frame» o arreglo de datos. La abreviatura <code class="docutils literal notranslate"><span class="pre">df</span></code> también es estándar en esta librería y en <code class="docutils literal notranslate"><span class="pre">polars</span></code> cuando el modo es «eager».
+También observa que ahora no estamos utilizando <code class="docutils literal notranslate"><span class="pre">print(df)</span></code>, la razón es la sigueinte:</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>La última expresión en una celda de código en una libreta se muestra en la consola como si se usara <code class="docutils literal notranslate"><span class="pre">print</span></code> pero con formato adicional.
+observa la diferencia en el formato al utilizar <code class="docutils literal notranslate"><span class="pre">print(df)</span></code> en la siguiente celda.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ids  peso  talla
+0     1  69.6   1.78
+1     2  62.7   1.62
+2     3  74.2   1.68
+3     4  66.7   1.62
+4     5  62.6   1.73
+5     6  67.4   1.65
+6     7  69.2   1.53
+7     8  71.2   1.61
+8     9  66.8   1.62
+9    10  69.7   1.61
+10   11  68.9   1.73
+11   12  69.5   1.51
+12   13  72.5   1.70
+13   14  77.7   1.68
+14   15  64.6   1.70
+15   16  76.4   1.65
+16   17  64.1   1.64
+17   18  68.3   1.59
+18   19  68.4   1.68
+19   20  65.3   1.71
+20   21  69.4   1.64
+21   22  61.6   1.67
+22   23  75.4   1.67
+23   24  63.6   1.67
+24   25  82.1   1.72
+25   26  73.3   1.61
+26   27  70.8   1.69
+27   28  69.5   1.57
+28   29  83.9   1.67
+29   30  73.9   1.68
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora que tenemos el arreglo de datos (<code class="docutils literal notranslate"><span class="pre">df</span></code>) podemos hacer muchas cosas diréctamente con la variable. Por ejemplo, obtener descriptivos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ids</th>
+      <th>peso</th>
+      <th>talla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>30.000000</td>
+      <td>30.000000</td>
+      <td>30.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>15.500000</td>
+      <td>69.976667</td>
+      <td>1.654333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.803408</td>
+      <td>5.455189</td>
+      <td>0.059055</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>61.600000</td>
+      <td>1.510000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>8.250000</td>
+      <td>66.725000</td>
+      <td>1.620000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>15.500000</td>
+      <td>69.450000</td>
+      <td>1.670000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>22.750000</td>
+      <td>73.100000</td>
+      <td>1.687500</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>30.000000</td>
+      <td>83.900000</td>
+      <td>1.780000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Observa como con un solo método <code class="docutils literal notranslate"><span class="pre">describe()</span></code> podemos obtener mucha información valiosa sin tener que utilizar otro tipo de funciones para la media, la desviación estándar, la mediana, el primer y tercer cuartil, y el rango.</p>
+<p>Obtener a los valores de cada columna también es muy sencillo, la sintaxis es la misma que en un diccionario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;peso&#39;</span><span class="p">]</span>
+<span class="n">peso</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     69.6
+1     62.7
+2     74.2
+3     66.7
+4     62.6
+5     67.4
+6     69.2
+7     71.2
+8     66.8
+9     69.7
+10    68.9
+11    69.5
+12    72.5
+13    77.7
+14    64.6
+15    76.4
+16    64.1
+17    68.3
+18    68.4
+19    65.3
+20    69.4
+21    61.6
+22    75.4
+23    63.6
+24    82.1
+25    73.3
+26    70.8
+27    69.5
+28    83.9
+29    73.9
+Name: peso, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>También es muy sencillo agregar columnas calculadas, lo único que necesitamos hacer es escribir la operación que queremos realizar con los operadores correspondientes y las columnas en cuestión.</p>
+<p>Si hacemos <code class="docutils literal notranslate"><span class="pre">df['peso']</span> <span class="pre">*</span> <span class="pre">2</span></code> lo que <code class="docutils literal notranslate"><span class="pre">pandas</span></code> va a hacer es multiplicar cada celda en la columna de <code class="docutils literal notranslate"><span class="pre">peso</span></code> por <code class="docutils literal notranslate"><span class="pre">2</span></code>.
+Esto se debe a que las operaciones en pandas funcionan con base en matrices matemáticas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  50 \\
+  60 \\
+  70 \\
+\end{bmatrix}
+\times 2 =
+\begin{bmatrix}
+  100 \\
+  120 \\
+  140 \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>De esta forma, si queremos obtener el <code class="docutils literal notranslate"><span class="pre">imc</span></code> para cada paciente, matemáticamente lo expresaríamos así:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{IMC} = \frac{
+\begin{bmatrix}
+69.6 \\
+62.7 \\
+74.2 \\
+66.7 \\
+62.6 \\
+\end{bmatrix}
+}{
+\begin{bmatrix}
+1.78^2 \\
+1.62^2 \\
+1.68^2 \\
+1.62^2 \\
+1.73^2 \\
+\end{bmatrix}
+}
+=
+\begin{bmatrix}
+21.97 \\
+23.89 \\
+26.29 \\
+25.42 \\
+20.92 \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Finalmente en <code class="docutils literal notranslate"><span class="pre">polars</span></code> es tan fácil como lo puedes ver en la siguiente celda.</p>
+<p><span class="math notranslate nohighlight">\(\text{Columna de IMC} = \frac{Columna peso}{(Columna de talla)^2}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;imc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;peso&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;talla&#39;</span><span class="p">]</span> <span class="o">**</span><span class="mi">2</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># muestra solo las primeras 5 filas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ids</th>
+      <th>peso</th>
+      <th>talla</th>
+      <th>imc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>69.6</td>
+      <td>1.78</td>
+      <td>21.966923</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>62.7</td>
+      <td>1.62</td>
+      <td>23.891175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>74.2</td>
+      <td>1.68</td>
+      <td>26.289683</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>66.7</td>
+      <td>1.62</td>
+      <td>25.415333</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>62.6</td>
+      <td>1.73</td>
+      <td>20.916168</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="importacion-de-datos-a-pandas">
+<h3>Importación de datos a pandas<a class="headerlink" href="#importacion-de-datos-a-pandas" title="Link to this heading">#</a></h3>
+<p>Pandas también ofrece la capacidad de importar datos diréctamente desde <code class="docutils literal notranslate"><span class="pre">csv</span></code> y de <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> aunque para ello se requiere la librería <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Pandas puede importar muchos otros tipos de datos, incluso desde <strong>.sav</strong> de SPPS, pero requiere librerías adicionales</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para poder importar datos, se requiere forzosamente contar la ruta de acceso al archivo, que puede ser al ruta local al archivo o incluso la dirección web, ya que es posible importar datos desde internet.</p>
+<p>Por tanto, es importante tambien que <code class="docutils literal notranslate"><span class="pre">python</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code> puedan acceder al archivo en cuestión.</p>
+</div>
+<p>La forma más sencilla de trabajar, es poniendo el archivo en el mismo lugar que la libreta en <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> e importarla solo con su nombre de archivo. Supón el siguiente escenario:</p>
+<p><strong>Organización de la carpeta</strong>
+Si seguiste los pasos del <a class="reference internal" href="../Unidad%201/tema%201%20-%20preparaci%C3%B3n.html#correr-python-target"><span class="std std-ref">tema 1</span></a>, tu carpeta debe verse algo así:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Documentos/cursos/curso_python:
+<span class="w">    </span>pyproyect.toml
+<span class="w">    </span>README.md
+<span class="w">    </span>uv.lock
+<span class="w">    </span>main.py
+<span class="w">    </span>libreta.ipynb<span class="w"> </span><span class="c1"># supongamos que esta es tu libreta</span>
+<span class="w">    </span>base.csv<span class="w"> </span><span class="c1"># supongamos que esta es una base</span>
+<span class="w">    </span>base_2.xlsx<span class="w"> </span><span class="c1"># supongamos que esta es otra base</span>
+</pre></div>
+</div>
+<p>Importar los datos en tu libreta se vería algo así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;base.csv&#39;</span><span class="p">)</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;base_2.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Hoja 1&#39;</span><span class="p">)</span>
+<span class="n">df_1</span> <span class="c1"># en la celda va a mostrar el contenido del dataframe 1.</span>
+</pre></div>
+</div>
+<p>Observa que en excel se puede especificar el nombre de la hoja de trabajo que querramos.</p>
+<section id="ejercicio">
+<h4>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h4>
+<p>Intenta importar algunos datos que ya tengas en la siguiente celda:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importa y despliega tus datos aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="datos-ordenados-tidy-data">
+<h2>Datos ordenados (Tidy Data)<a class="headerlink" href="#datos-ordenados-tidy-data" title="Link to this heading">#</a></h2>
+<p>En el análisis de datos es <strong>fundamental que los datos estén bien organizados</strong>. Una forma especialmente útil de organizarlos se llama <strong>“formato ordenado”</strong>, o en inglés, <strong>“tidy data”</strong>.</p>
+<section id="por-que-importa-el-orden">
+<h3>¿Por qué importa el orden?<a class="headerlink" href="#por-que-importa-el-orden" title="Link to this heading">#</a></h3>
+<p>Imagina que quieres calcular el promedio de peso de varios pacientes, o hacer una gráfica para ver cómo cambian con el tiempo. Si los datos están organizados de manera inconsistente o caótica, tendrás que hacer muchos pasos extra antes de poder analizarlos. <strong>Un buen orden te ahorra trabajo, reduce errores y hace que el análisis sea más claro</strong>.</p>
+</section>
+<section id="reglas-del-formato-ordenado-tidy">
+<h3>Reglas del formato ordenado (tidy)<a class="headerlink" href="#reglas-del-formato-ordenado-tidy" title="Link to this heading">#</a></h3>
+<p>El formato ordenado sigue tres reglas muy simples:</p>
+<ol class="arabic simple">
+<li><p><strong>Cada variable es una columna</strong><br />
+Por ejemplo: «edad», «sexo» y «peso» son tres variables diferentes, así que cada una debe tener su propia columna.</p></li>
+<li><p><strong>Cada observación es una fila</strong><br />
+Por ejemplo: una persona, un experimento o un paciente debe estar contenido en una sola fila.</p></li>
+<li><p><strong>Cada tabla contiene un solo tipo de cosa</strong><br />
+Por ejemplo: si tienes datos de pacientes y de hospitales, cada tipo debe ir en una tabla distinta (una tabla de pacientes, otra de hospitales).</p></li>
+</ol>
+</section>
+<section id="como-se-ven-los-datos-ordenados">
+<h3>¿Cómo se ven los datos ordenados?<a class="headerlink" href="#como-se-ven-los-datos-ordenados" title="Link to this heading">#</a></h3>
+<p>Un ejemplo de datos ordenados sería:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>nombre</p></th>
+<th class="head"><p>año</p></th>
+<th class="head"><p>peso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ana</p></td>
+<td><p>2022</p></td>
+<td><p>55.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ana</p></td>
+<td><p>2023</p></td>
+<td><p>56.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Luis</p></td>
+<td><p>2022</p></td>
+<td><p>72.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Luis</p></td>
+<td><p>2023</p></td>
+<td><p>73.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En esta tabla:</p>
+<ul class="simple">
+<li><p>Cada <strong>variable</strong> es una columna: <code class="docutils literal notranslate"><span class="pre">nombre</span></code>, <code class="docutils literal notranslate"><span class="pre">año</span></code>, <code class="docutils literal notranslate"><span class="pre">peso</span></code>.</p></li>
+<li><p>Cada <strong>observación</strong> (medición de peso en cierto año) es una fila.</p></li>
+<li><p>Todos los datos son del mismo tipo: <strong>mediciones de peso por persona por año</strong>.</p></li>
+</ul>
+</section>
+<section id="y-como-se-ven-los-datos-desordenados">
+<h3>¿Y cómo se ven los datos desordenados?<a class="headerlink" href="#y-como-se-ven-los-datos-desordenados" title="Link to this heading">#</a></h3>
+<p>A veces, por comodidad o por cómo se recogen los datos, encontramos tablas como esta:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>nombre</p></th>
+<th class="head"><p>peso_2022</p></th>
+<th class="head"><p>peso_2023</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ana</p></td>
+<td><p>55.0</p></td>
+<td><p>56.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Luis</p></td>
+<td><p>72.5</p></td>
+<td><p>73.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En esta tabla:</p>
+<ul class="simple">
+<li><p>Las columnas <code class="docutils literal notranslate"><span class="pre">peso_2022</span></code> y <code class="docutils literal notranslate"><span class="pre">peso_2023</span></code> <strong>mezclan dos variables</strong>: el año y el peso.</p></li>
+<li><p>No hay una columna específica para el año.</p></li>
+<li><p>Esto hace más difícil filtrar, agrupar, calcular promedios por año o hacer gráficas.</p></li>
+</ul>
+</section>
+<section id="que-se-hace-para-ordenar-los-datos">
+<h3>¿Qué se hace para “ordenar” los datos?<a class="headerlink" href="#que-se-hace-para-ordenar-los-datos" title="Link to this heading">#</a></h3>
+<p>En programación, usamos herramientas que nos permiten <strong>transformar</strong> los datos al formato ordenado. Por ejemplo:</p>
+<ul class="simple">
+<li><p>En R se usan funciones como <code class="docutils literal notranslate"><span class="pre">pivot_longer()</span></code> o <code class="docutils literal notranslate"><span class="pre">separate()</span></code>.</p></li>
+<li><p>En Python, usamos <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y funciones como <code class="docutils literal notranslate"><span class="pre">melt()</span></code>.</p></li>
+</ul>
+<p>Estas funciones <strong>no cambian el contenido de los datos, solo la forma en que están organizados</strong>.</p>
+</section>
+<section id="ejercicio-personal">
+<h3>Ejercicio personal<a class="headerlink" href="#ejercicio-personal" title="Link to this heading">#</a></h3>
+<p>A partir de esta tabla:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>nombre</p></th>
+<th class="head"><p>2022</p></th>
+<th class="head"><p>2023</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ana</p></td>
+<td><p>55.0</p></td>
+<td><p>56.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Luis</p></td>
+<td><p>72.5</p></td>
+<td><p>73.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Las columnas con año son del peso de cada individuo</p>
+</div></blockquote>
+<p>Transforma los datos al siguiente formato:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>nombre</p></th>
+<th class="head"><p>año</p></th>
+<th class="head"><p>peso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ana</p></td>
+<td><p>2022</p></td>
+<td><p>55.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ana</p></td>
+<td><p>2023</p></td>
+<td><p>56.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Luis</p></td>
+<td><p>2022</p></td>
+<td><p>72.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Luis</p></td>
+<td><p>2023</p></td>
+<td><p>73.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Si ya estás usando Python y <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, puedes buscar cómo usar la función <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code> para lograrlo.</p>
+</div>
+</section>
+<section id="referencia-academica">
+<h3>Referencia académica<a class="headerlink" href="#referencia-academica" title="Link to this heading">#</a></h3>
+<p>El concepto de “tidy data” fue propuesto por Hadley Wickham, uno de los autores principales del ecosistema <strong>tidyverse</strong> en R. Aquí tienes la referencia original:</p>
+<blockquote>
+<div><p>Wickham, H. (2014). <em>Tidy Data</em>. Journal of Statistical Software, 59(10), 1–23. <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| nombre | peso_2022 | peso_2023 |</span>
+<span class="c1">#|--------|-----------|-----------|</span>
+<span class="c1">#| Ana    | 55.0      | 56.2      |</span>
+<span class="c1">#| Luis   | 72.5      | 73.0      |</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ana&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;2022&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">55.0</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">],</span>
+    <span class="s1">&#39;2023&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">56.2</span><span class="p">,</span> <span class="mf">73.0</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">df_long</span> <span class="o">=</span> <span class="n">df_ejercicio</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">],</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2022&#39;</span><span class="p">,</span><span class="s1">&#39;2023&#39;</span><span class="p">],</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Peso&#39;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">df_long</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="importancia-de-los-datos-ordenados">
+<h2>Importancia de los datos ordenados<a class="headerlink" href="#importancia-de-los-datos-ordenados" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Si los datos no están ordenados, si tienen diferentes tipos de datos, complicará mucho nuestro análisis.</p>
+<div class="error admonition">
+<p class="admonition-title">Concepto Crítico</p>
+<p>Hasta el 80% del tiempo dedicado al análisis de datos se otorga a la preparación de los mismo, no al análisis como tal.
+Mientras más ordenados y limpios estén los datos, tendrás más éxito.</p>
+</div>
+</div>
+<div class="docutils">
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Unidad 4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Unidad 4: Análisis exploratorio</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Otras%20lecciones/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Otras lecciones</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-y-polars">Pandas y Polars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-pandas-y-polars">Comparación entre Pandas y Polars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-de-pandas">Demostración de pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-de-datos-a-pandas">Importación de datos a pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-ordenados-tidy-data">Datos ordenados (Tidy Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-importa-el-orden">¿Por qué importa el orden?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-del-formato-ordenado-tidy">Reglas del formato ordenado (tidy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-ven-los-datos-ordenados">¿Cómo se ven los datos ordenados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-como-se-ven-los-datos-desordenados">¿Y cómo se ven los datos desordenados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-hace-para-ordenar-los-datos">¿Qué se hace para “ordenar” los datos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">Ejercicio personal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-academica">Referencia académica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-los-datos-ordenados">Importancia de los datos ordenados</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p> 
+  Todos los derechos reservados.
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fchrisdewa.github.io%2Fcurso_python&label=Vistas&icon=eye&color=%239ec5fe&message=&style=for-the-badge&tz=Mexico%2FGeneral">
+<p> 
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
