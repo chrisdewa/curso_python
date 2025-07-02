@@ -486,6 +486,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-los-datos-ordenados">Importancia de los datos ordenados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-trabajar-en-colab">Cómo trabajar en Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primer-paso-hacer-que-el-excel-este-disponible-en-colab">Primer paso: hacer que el excel esté disponible en colab.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segundo-paso-copiar-ruta-de-acceso">Segundo paso: copiar ruta de acceso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tercer-paso-cargar-los-datos">Tercer paso: cargar los datos</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1404,6 +1410,38 @@ Mientras más ordenados y limpios estén los datos, tendrás más éxito.</p>
 <div class="docutils">
 </div>
 </section>
+<section id="como-trabajar-en-colab">
+<h2>Cómo trabajar en Colab<a class="headerlink" href="#como-trabajar-en-colab" title="Link to this heading">#</a></h2>
+<section id="primer-paso-hacer-que-el-excel-este-disponible-en-colab">
+<h3>Primer paso: hacer que el excel esté disponible en colab.<a class="headerlink" href="#primer-paso-hacer-que-el-excel-este-disponible-en-colab" title="Link to this heading">#</a></h3>
+<p>En el menú vertical del lado izquierdo hay un ícono de «folder» al seleccionarlo se abrirán los archivos disponibles en nuestro código.</p>
+<p>Simplemente hay que arrastrar el excel a ese menú.</p>
+<p><img alt="tema14-image1.png" src="../_images/tema14-image1.png" /></p>
+</section>
+<section id="segundo-paso-copiar-ruta-de-acceso">
+<h3>Segundo paso: copiar ruta de acceso<a class="headerlink" href="#segundo-paso-copiar-ruta-de-acceso" title="Link to this heading">#</a></h3>
+<p>Una vez que la base esté disponible, hay que dar click derecho y copiar la ruta de acceso:</p>
+<p><img alt="tema14-image2.png" src="../_images/tema14-image2.png" /></p>
+</section>
+<section id="tercer-paso-cargar-los-datos">
+<h3>Tercer paso: cargar los datos<a class="headerlink" href="#tercer-paso-cargar-los-datos" title="Link to this heading">#</a></h3>
+<p>Para cargar los datos, hacemos una variable <code class="docutils literal notranslate"><span class="pre">ruta</span></code> que contenga la ruta de acceso que copiamos y usamos pandas para leer los datos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ruta</span> <span class="o">=</span> <span class="s1">&#39;/content/base_tut_1.xlsx&#39;</span>  <span class="c1"># Pega aquí la ruta de acceso </span>
+                                   <span class="c1"># asumiendo que así se llama nuestra base de datos</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">ruta</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">	</span>id<span class="w">	</span>edad<span class="w">	</span>sexo<span class="w">	</span>peso<span class="w">	</span>talla<span class="w">	</span>TAS<span class="w">	</span>TAD<span class="w">	</span>HAS<span class="w">	</span>DM2
+<span class="m">0</span><span class="w">	</span><span class="m">1</span><span class="w">	</span><span class="m">28</span>.0<span class="w">	</span>F<span class="w">	</span><span class="m">113</span>.5<span class="w">	</span><span class="m">1</span>.54<span class="w">	</span><span class="m">142</span>.0<span class="w">	</span><span class="m">79</span>.0<span class="w">	</span>NO<span class="w">	</span>SI
+<span class="m">1</span><span class="w">	</span><span class="m">2</span><span class="w">	</span><span class="m">46</span>.0<span class="w">	</span>M<span class="w">	</span><span class="m">122</span>.5<span class="w">	</span><span class="m">1</span>.76<span class="w">	</span><span class="m">117</span>.0<span class="w">	</span><span class="m">74</span>.0<span class="w">	</span>SI<span class="w">	</span>NO
+<span class="m">2</span><span class="w">	</span><span class="m">3</span><span class="w">	</span><span class="m">54</span>.0<span class="w">	</span>F<span class="w">	</span><span class="m">120</span>.0<span class="w">	</span><span class="m">1</span>.50<span class="w">	</span><span class="m">140</span>.0<span class="w">	</span><span class="m">70</span>.0<span class="w">	</span>SI<span class="w">	</span>SI
+<span class="m">3</span><span class="w">	</span><span class="m">4</span><span class="w">	</span><span class="m">38</span>.0<span class="w">	</span>F<span class="w">	</span><span class="m">102</span>.0<span class="w">	</span><span class="m">1</span>.60<span class="w">	</span><span class="m">110</span>.0<span class="w">	</span><span class="m">70</span>.0<span class="w">	</span>NO<span class="w">	</span>NO
+<span class="m">4</span><span class="w">	</span><span class="m">5</span><span class="w">	</span><span class="m">40</span>.0<span class="w">	</span>F<span class="w">	</span><span class="m">118</span>.0<span class="w">	</span><span class="m">1</span>.78<span class="w">	</span><span class="m">114</span>.0<span class="w">	</span><span class="m">80</span>.0<span class="w">	</span>NO<span class="w">	</span>SI
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1490,6 +1528,12 @@ Mientras más ordenados y limpios estén los datos, tendrás más éxito.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-los-datos-ordenados">Importancia de los datos ordenados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-trabajar-en-colab">Cómo trabajar en Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primer-paso-hacer-que-el-excel-este-disponible-en-colab">Primer paso: hacer que el excel esté disponible en colab.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segundo-paso-copiar-ruta-de-acceso">Segundo paso: copiar ruta de acceso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tercer-paso-cargar-los-datos">Tercer paso: cargar los datos</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
