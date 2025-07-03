@@ -31,6 +31,7 @@ chapters:
   - file: Unidad 4/index
     sections: 
       - file: Unidad 4/tema 14 - manejo de datos tabulados
+      - file: Unidad 4/tema 15 - palmer penguins
       
   - file: Otras lecciones/index
     sections:
