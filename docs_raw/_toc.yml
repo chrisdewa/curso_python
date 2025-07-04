@@ -28,11 +28,11 @@ chapters:
       - file: unidad-3/tema-11-funciones
       - file: unidad-3/tema-12-librerías
       - file: unidad-3/tema-13-demo
-  - file: Unidad 4/index
+  - file: unidad-4/index
     sections: 
-      - file: Unidad 4/tema 14 - manejo de datos tabulados
-      - file: Unidad 4/tema 15 - palmer penguins
-      - file: Unidad 4/tema 16 - descriptivos básicos
+      - file: unidad-4/tema-14-manejo-de-datos-tabulados
+      - file: unidad-4/tema-15-palmer-penguins
+      - file: unidad-4/tema-16-descriptivos-básicos
   - file: Recursos/index
     # sections:
   - file: otras-lecciones/index
