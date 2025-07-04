@@ -32,7 +32,9 @@ chapters:
     sections: 
       - file: Unidad 4/tema 14 - manejo de datos tabulados
       - file: Unidad 4/tema 15 - palmer penguins
-      
+      - file: Unidad 4/tema 16 - descriptivos básicos
+  - file: Recursos/index
+    # sections:
   - file: Otras lecciones/index
     sections:
       - file: Otras lecciones/Python intermedio/index
