@@ -5,18 +5,18 @@ format: jb-book
 root: intro
 
 chapters:
-  - file: Unidad 1/index
+  - file: unidad-1/index
     sections:
-      - file: Unidad 1/tema 1 - preparación
-      - file: Unidad 1/tema 2 - Generalidades/index
+      - file: unidad-1/tema-1-preparación
+      - file: unidad-1/tema-2-generalidades/index
         sections:
-          - file: Unidad 1/tema 2 - Generalidades/2.1 - algorítmica
-          - file: Unidad 1/tema 2 - Generalidades/2.2 - programación
-          - file: Unidad 1/tema 2 - Generalidades/2.3 - python
-      - file: Unidad 1/tema 3 - opciones de trabajo
-      - file: Unidad 1/tema 4 - jupyter
-      - file: Unidad 1/tema 5 - primera libreta
-      - file: Unidad 1/tema 6 - conclusión
+          - file: unidad-1/tema-2-generalidades/2.1-algorítmica
+          - file: unidad-1/tema-2-generalidades/2.2-programación
+          - file: unidad-1/tema-2-generalidades/2.3-python
+      - file: unidad-1/tema-3-opciones de trabajo
+      - file: unidad-1/tema-4-jupyter
+      - file: unidad-1/tema-5-primera-libreta
+      - file: unidad-1/tema-6-conclusión
   - file: Unidad 2/index
     sections:
       - file: Unidad 2/tema 7 - variables
@@ -35,9 +35,9 @@ chapters:
       - file: Unidad 4/tema 16 - descriptivos básicos
   - file: Recursos/index
     # sections:
-  - file: Otras lecciones/index
+  - file: otras-lecciones/index
     sections:
-      - file: Otras lecciones/Python intermedio/index
+      - file: otras-lecciones/python-intermedio/index
         sections:
-          - file: Otras lecciones/Python intermedio/comprensiones
-      - file: Otras lecciones/f-strings
+          - file: otras-lecciones/python-intermedio/comprensiones
+      - file: otras-lecciones/f-strings

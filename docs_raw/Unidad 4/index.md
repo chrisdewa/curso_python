@@ -3,7 +3,7 @@ nav_order: 1
 has_children: true
 ---
 
-# Unidad 4: Análisis exploratorio
+# Unidad 4: Aspectos básicos del análisis
 
 En esta unidad aprenderás cómo realizar análisis exploratorios en `python`.
 
