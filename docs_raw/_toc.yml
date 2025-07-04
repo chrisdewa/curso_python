@@ -13,21 +13,21 @@ chapters:
           - file: unidad-1/tema-2-generalidades/2.1-algorítmica
           - file: unidad-1/tema-2-generalidades/2.2-programación
           - file: unidad-1/tema-2-generalidades/2.3-python
-      - file: unidad-1/tema-3-opciones de trabajo
+      - file: unidad-1/tema-3-opciones-de-trabajo
       - file: unidad-1/tema-4-jupyter
       - file: unidad-1/tema-5-primera-libreta
       - file: unidad-1/tema-6-conclusión
-  - file: Unidad 2/index
+  - file: unidad-2/index
     sections:
-      - file: Unidad 2/tema 7 - variables
-      - file: Unidad 2/tema 8 - tipos de datos
-      - file: Unidad 2/tema 9 - operaciones lógicas
-  - file: Unidad 3/index
+      - file: unidad-2/tema-7-variables
+      - file: unidad-2/tema-8-tipos-de-datos
+      - file: unidad-2/tema-9-operaciones-lógicas
+  - file: unidad-3/index
     sections:
-      - file: Unidad 3/tema 10 - control de flujo
-      - file: Unidad 3/tema 11 - funciones
-      - file: Unidad 3/tema 12 - librerías
-      - file: Unidad 3/tema 13 - demo
+      - file: unidad-3/tema-10-control-de-flujo
+      - file: unidad-3/tema-11-funciones
+      - file: unidad-3/tema-12-librerías
+      - file: unidad-3/tema-13-demo
   - file: Unidad 4/index
     sections: 
       - file: Unidad 4/tema 14 - manejo de datos tabulados
