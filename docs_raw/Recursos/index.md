@@ -9,7 +9,7 @@ Si piensas que has encontrado un acordeón u otro recurso que necesita estar en 
 (acordeones-target)=
 ## Acordeones
 
-|tema o librería|Acordeon|Oficial|url|
+|Tema o Librería|Acordeon|Oficial|Liga|
 |---|---|--|---|
 |`pandas`|Data Wrangling. Uso general de `pandas` con datos tidy.| Sí | [liga](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)|
 |`matplotlib`|Uso general.| Sí | [liga](https://matplotlib.org/cheatsheets/_images/cheatsheets-1.png)|
@@ -18,5 +18,10 @@ Si piensas que has encontrado un acordeón u otro recurso que necesita estar en 
 |`matplotlib`|Consejos intermedios.| Sí | [liga](https://matplotlib.org/cheatsheets/_images/handout-intermediate.png)|
 |`matplotlib`|Trucos.| Sí | [liga](https://matplotlib.org/cheatsheets/_images/handout-tips.png)|
 
+## Guías
+
+|Tema o Librería|Guía|Oficial|Liga|
+|---|---|---|--|
+|`matplotlit`|Guía de inicio rápido|Sí|[liga](https://matplotlib.org/stable/users/explain/quick_start.html)|
 
 
