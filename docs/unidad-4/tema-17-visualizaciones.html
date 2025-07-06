@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tema 17: Visualizaciones &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-4/tema-17-visualizaciones';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Recursos" href="../Recursos/index.html" />
+    <link rel="prev" title="Tema 16: Descriptivos básicos" href="tema-16-descriptivos-b%C3%A1sicos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-1-preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/tema-2-generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.1-algor%C3%ADtmica.html">Tema 2.1: Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.2-programaci%C3%B3n.html">Tema 2.2: Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.3-python.html">Tema 2.3: Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-3-opciones-de-trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-4-jupyter.html">Tema 4: Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-5-primera-libreta.html">Tema 5: Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-6-conclusi%C3%B3n.html">Tema 6: Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-7-variables.html">Tema 7: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-8-tipos-de-datos.html">Tema 8: Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-9-operaciones-l%C3%B3gicas.html">Tema 9: Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">Unidad 3: Programación lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-10-control-de-flujo.html">Tema 10: Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-11-funciones.html">Tema 11: Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-12-librer%C3%ADas.html">Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-13-demo.html">Tema 13: Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 4: Aspectos básicos del análisis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tema-14-manejo-de-datos-tabulados.html">Tema 14: Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-15-palmer-penguins.html">Tema 15: Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-16-descriptivos-b%C3%A1sicos.html">Tema 16: Descriptivos básicos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 17: Visualizaciones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../otras-lecciones/python-intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../otras-lecciones/python-intermedio/comprensiones.html">Comprensiones en Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-4/tema-17-visualizaciones.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-4/tema-17-visualizaciones.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-4/tema-17-visualizaciones.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-4/tema-17-visualizaciones.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tema 17: Visualizaciones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-librerias">Cargar librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">Carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-con-matplotlib">Análisis con matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-con-seaborn">Análisis con seaborn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cuatro-principales">Las cuatro principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relplot">Relplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lmplot">LMplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catplot">Catplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#displot">Displot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-sobre-seaborn">Más sobre seaborn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-17-visualizaciones">
+<h1>Tema 17: Visualizaciones<a class="headerlink" href="#tema-17-visualizaciones" title="Link to this heading">#</a></h1>
+<p>El análisis visual de los datos es discutiblemente uno de los aspectos más importantes del proceso analítico. En python existen múltiples librerías para generar visualizaciones informativas y hermosas, en esta libreta aprenderás los aspectos básicos de cómo utilizar dos de ellas <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> y <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<p>Trabajaremos con los mismos datos que hemos estado analizando <strong>palmer penguins</strong>.</p>
+<section id="cargar-librerias">
+<h2>Cargar librerías<a class="headerlink" href="#cargar-librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="carga-de-datos">
+<h2>Carga de datos<a class="headerlink" href="#carga-de-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/raphaelvallat/pingouin/refs/heads/main/src/pingouin/datasets/penguins.csv&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>18.3</td>
+      <td>174.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.7</td>
+      <td>18.7</td>
+      <td>180.0</td>
+      <td>3600.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.9</td>
+      <td>19.2</td>
+      <td>189.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>18.1</td>
+      <td>185.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.8</td>
+      <td>17.2</td>
+      <td>180.0</td>
+      <td>3800.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="analisis-con-matplotlib">
+<h2>Análisis con matplotlib<a class="headerlink" href="#analisis-con-matplotlib" title="Link to this heading">#</a></h2>
+<p>Retomaremos la última figura del tema de <a class="reference internal" href="tema-16-descriptivos-b%C3%A1sicos.html"><span class="std std-doc">descriptivos básicos</span></a>. Pudimos usar pandas para separar por color las tres especies pero no sabíamos cuál era cual. Retomaremos esto con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Por favor revisa los <a class="reference internal" href="../Recursos/index.html#acordeones-target"><span class="std std-ref">acordeone</span></a> y la <a class="reference external" href="https://matplotlib.org/stable/index.html">documentación</a> de la librería.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>En particular revisa la guía de inicio rápido de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> que puedes encontrar aquí: <a class="reference external" href="https://matplotlib.org/stable/users/explain/quick_start.html">https://matplotlib.org/stable/users/explain/quick_start.html</a></p>
+</div>
+<p>Primero, volvamos a hacer la gráfica sin color.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="c1"># matplotlib también tiene una función para la gráfica de dispersión</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x716e6e843230&gt;
+</pre></div>
+</div>
+<img alt="../_images/12daf9da98fe311285870d57d1451ac657b5e69bff90f7d6152d7a8dc9a4a7de.png" src="../_images/12daf9da98fe311285870d57d1451ac657b5e69bff90f7d6152d7a8dc9a4a7de.png" />
+</div>
+</div>
+<p>Podemos ver nuevamente los conglomerados, vamos a colorearlos, pero primero veamos el algoritmo de cómo lo vamos a hacer.</p>
+<pre  class="mermaid">
+        flowchart TD;
+	A[Separar especies] --&gt;
+	B(Por cada una) --&gt; 
+	C[Generar dispersión] --&gt;
+	D[Dar color]
+    </pre><p>Sin embargo, primero entonces necesatamos saber cómo separar a las especies.</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">pandas</span></code> podemos generar un filtro de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columna</span><span class="p">]</span> <span class="o">==</span> <span class="n">valor</span>
+<span class="n">filtrados</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Probémoslo seleccionando a los Gentoo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">es_gentoo</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Gentoo&#39;</span>
+<span class="n">gentoo</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">es_gentoo</span><span class="p">]</span>
+<span class="n">gentoo</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>220</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.1</td>
+      <td>13.2</td>
+      <td>211.0</td>
+      <td>4500.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.0</td>
+      <td>16.3</td>
+      <td>230.0</td>
+      <td>5700.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>48.7</td>
+      <td>14.1</td>
+      <td>210.0</td>
+      <td>4450.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.0</td>
+      <td>15.2</td>
+      <td>218.0</td>
+      <td>5700.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>47.6</td>
+      <td>14.5</td>
+      <td>215.0</td>
+      <td>5400.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora veamos qué pasa si lo graficamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">gentoo</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">gentoo</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x716e6e676850&gt;
+</pre></div>
+</div>
+<img alt="../_images/55bac19fb70d74035573b2ec4e9bafdaf4c2081c30094569f62cb3c98246e033.png" src="../_images/55bac19fb70d74035573b2ec4e9bafdaf4c2081c30094569f62cb3c98246e033.png" />
+</div>
+</div>
+<p>Intenta buscar este patrón en el grafico de todas las especies.</p>
+<p>Ahora apliquemos esto en un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">especies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Adelie&#39;</span><span class="p">,</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">,</span> <span class="s1">&#39;Chinstrap&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">especie</span> <span class="ow">in</span> <span class="n">especies</span><span class="p">:</span>
+    <span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">especie</span>
+    <span class="n">datos_especie</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">datos_especie</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">datos_especie</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">especie</span><span class="p">,</span> <span class="c1"># paso clave</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># le dice a matplotlib que ponga la leyenda.</span>
+<span class="c1"># mira la magia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ae0e929a4d88c43552e7dc0e6618cd87ebafb9a0463b6b5b96c7d147897fe165.png" src="../_images/ae0e929a4d88c43552e7dc0e6618cd87ebafb9a0463b6b5b96c7d147897fe165.png" />
+</div>
+</div>
+<p>Como ves, a pesar de que generamos tres «gráficos» diferentes, uno por cada especie, en realidad todos se fueron a la misma figura.</p>
+</section>
+<section id="analisis-con-seaborn">
+<h2>Análisis con seaborn<a class="headerlink" href="#analisis-con-seaborn" title="Link to this heading">#</a></h2>
+<p>Ahora, solo para calentar motores, miremos como se ve esto con <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="c1"># todos los datos</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span> <span class="c1"># solo el nombre, no los datos</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span> <span class="c1"># igual</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span> <span class="c1"># columna para separar colores</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;bill_length_mm&#39;, ylabel=&#39;bill_depth_mm&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/245e2f50272f4e3910befdc2948a75e9214b1a3a3687d7852e9eb2ef5767b89a.png" src="../_images/245e2f50272f4e3910befdc2948a75e9214b1a3a3687d7852e9eb2ef5767b89a.png" />
+</div>
+</div>
+<p>Como ves <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> abrevia en una sola función de fácil uso, lo que hicimos con <code class="docutils literal notranslate"><span class="pre">plt</span></code>. Incluso mejor, porque agrega los rótulos de los ejes, cosa que nosotros no hicimos con <code class="docutils literal notranslate"><span class="pre">plt</span></code>.</p>
+<section id="las-cuatro-principales">
+<h3>Las cuatro principales<a class="headerlink" href="#las-cuatro-principales" title="Link to this heading">#</a></h3>
+<p>Seaborn ofrece tres funciones principales que concentran un enorme porcentaje de nuestras necesidades de visualización:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Documentación</p></th>
+<th class="head"><p>Uso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sns.relplot</span></code></p></td>
+<td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.relplot.html#seaborn.relplot">liga</a></p></td>
+<td><p>Analizar la relación entre variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code></p></td>
+<td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot">liga</a></p></td>
+<td><p>Visualizar modelos de regresión lineal (GLM)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sns.catplot</span></code></p></td>
+<td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.catplot.html#seaborn.catplot">liga</a></p></td>
+<td><p>Visualizar variables categóricas y su relación con cuantitativas</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></p></td>
+<td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.displot.html#seaborn.displot">liga</a></p></td>
+<td><p>Visualizar distribuciones</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A continuación veremos solo algunos ejemplos de cómo utilizarlas.</p>
+<p>Por favor revisa la documentación de cada una.</p>
+<section id="relplot">
+<h4>Relplot<a class="headerlink" href="#relplot" title="Link to this heading">#</a></h4>
+<p>Relplot ayuda a entender la relación entre varias variables. Es fenomenal para el análisis exploratorio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s1">&#39;island&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e6e6506e0&gt;
+</pre></div>
+</div>
+<img alt="../_images/7b872a7aa76c40a531f1b2ba68c4a5b1558ff7f5768f6c1d6e5876539fb492a2.png" src="../_images/7b872a7aa76c40a531f1b2ba68c4a5b1558ff7f5768f6c1d6e5876539fb492a2.png" />
+</div>
+</div>
+<p>Observa como con una sola función obtenemos un montón de información. Vemos que los Gentoo, son generalmente más grandes y con aletas más grandes. En las tres especies existe dimorfismo sexual, los machos son en general más grandes, pero la diferencia es menos dramática en los Adelie y los Chinstrap. Además, podemos ver que los gentoo solo viven en Biscoe, mientras que los chinstrap solo viven en Dream, sin embargo, los Adelie viven en las tres islas.</p>
+</section>
+<section id="lmplot">
+<h4>LMplot<a class="headerlink" href="#lmplot" title="Link to this heading">#</a></h4>
+<p>LMplot (linear model plot) ayuda a visualizar modelos regresivos.
+Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con base en la medición de su pico, sexo y especie.</p>
+<p><span class="math notranslate nohighlight">\(peso \sim pico + sexo + especie\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e6a7a7750&gt;
+</pre></div>
+</div>
+<img alt="../_images/1c175b2d326331539e460d3abc5246778b3b06a9736bc56b9f43f0af3d9967ce.png" src="../_images/1c175b2d326331539e460d3abc5246778b3b06a9736bc56b9f43f0af3d9967ce.png" />
+</div>
+</div>
+</section>
+<section id="catplot">
+<h4>Catplot<a class="headerlink" href="#catplot" title="Link to this heading">#</a></h4>
+<p>Catplot nos ayuda a visualizar variables individuales y categorías.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e6a6e8b90&gt;
+</pre></div>
+</div>
+<img alt="../_images/e35c01a869d4b1892f3e04790daa2934987999961e727347e003c063a991ef12.png" src="../_images/e35c01a869d4b1892f3e04790daa2934987999961e727347e003c063a991ef12.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;island&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e6a584550&gt;
+</pre></div>
+</div>
+<img alt="../_images/d28980fd921f5af80877cd975f1d7135151a5c34f47cecf019c6fbb2b9e6ea80.png" src="../_images/d28980fd921f5af80877cd975f1d7135151a5c34f47cecf019c6fbb2b9e6ea80.png" />
+</div>
+</div>
+</section>
+<section id="displot">
+<h4>Displot<a class="headerlink" href="#displot" title="Link to this heading">#</a></h4>
+<p>Displot nos ayuda a visualizar distribuciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e6a2aafd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/bdf3cd5acae3cdf934326d33b1b55f4ee94456ac00bc4dd8544757d92e859cce.png" src="../_images/bdf3cd5acae3cdf934326d33b1b55f4ee94456ac00bc4dd8544757d92e859cce.png" />
+</div>
+</div>
+<p>También funciona con distribuciones bivariadas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x716e69ba1a90&gt;
+</pre></div>
+</div>
+<img alt="../_images/86c3d2760e8657971797c617577b0ad1c7c3f0f514e6229c41bd55ee0c2a68ac.png" src="../_images/86c3d2760e8657971797c617577b0ad1c7c3f0f514e6229c41bd55ee0c2a68ac.png" />
+</div>
+</div>
+<p>Parece que los Adelíe tienen picos más cortos y anchos, mientras que los Gentoo tienen picos más angostos y largos, aunque los Chintrap se traslapa con las otras dos especies.</p>
+</section>
+<section id="mas-sobre-seaborn">
+<h4>Más sobre seaborn<a class="headerlink" href="#mas-sobre-seaborn" title="Link to this heading">#</a></h4>
+<p>Seaborn tiene mucho más que ofrecer, pronto veremos más usos pero vale la pena que conozcas y domines estas cuatro funciones.</p>
+</section>
+</section>
+</section>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Revisa la documentación de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. Particularmente su <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">galería</a> para que veas todo lo que puede hacer.</p></li>
+<li><p>Intenta generar nuevos gráficos para continuar analizando el dataset de palmer penguins.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tema-16-descriptivos-b%C3%A1sicos.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Tema 16: Descriptivos básicos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Recursos/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Recursos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-librerias">Cargar librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">Carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-con-matplotlib">Análisis con matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-con-seaborn">Análisis con seaborn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cuatro-principales">Las cuatro principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relplot">Relplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lmplot">LMplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catplot">Catplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#displot">Displot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-sobre-seaborn">Más sobre seaborn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p> 
+  Todos los derechos reservados.
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fchrisdewa.github.io%2Fcurso_python&label=Vistas&icon=eye&color=%239ec5fe&message=&style=for-the-badge&tz=Mexico%2FGeneral">
+<p> 
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
