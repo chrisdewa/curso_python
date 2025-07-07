@@ -1,0 +1,1594 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tema 18: Inferencia básica &#8212; Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-4/tema-18-inferencia-básica';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Recursos" href="../Recursos/index.html" />
+    <link rel="prev" title="Tema 17: Visualizaciones" href="tema-17-visualizaciones.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-1-preparaci%C3%B3n.html">Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/tema-2-generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.1-algor%C3%ADtmica.html">Tema 2.1: Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.2-programaci%C3%B3n.html">Tema 2.2: Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.3-python.html">Tema 2.3: Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-3-opciones-de-trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-4-jupyter.html">Tema 4: Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-5-primera-libreta.html">Tema 5: Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-6-conclusi%C3%B3n.html">Tema 6: Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-7-variables.html">Tema 7: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-8-tipos-de-datos.html">Tema 8: Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-9-operaciones-l%C3%B3gicas.html">Tema 9: Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">Unidad 3: Programación lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-10-control-de-flujo.html">Tema 10: Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-11-funciones.html">Tema 11: Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-12-librer%C3%ADas.html">Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-13-demo.html">Tema 13: Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 4: Aspectos básicos del análisis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tema-14-manejo-de-datos-tabulados.html">Tema 14: Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-15-palmer-penguins.html">Tema 15: Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-16-descriptivos-b%C3%A1sicos.html">Tema 16: Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-17-visualizaciones.html">Tema 17: Visualizaciones</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 18: Inferencia básica</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../otras-lecciones/python-intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../otras-lecciones/python-intermedio/comprensiones.html">Comprensiones en Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-4/tema-18-inferencia-básica.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-4/tema-18-inferencia-básica.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-4/tema-18-inferencia-básica.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-4/tema-18-inferencia-básica.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tema 18: Inferencia básica</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-datos">Cargar datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-bondad-de-ajuste">Pruebas de bondad de ajuste</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-distribucion">Visualización de distribución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapiro-wilk">Shapiro-Wilk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kolmogorov-smirnov">Kolmogórov-Smirnov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anderson-darling">Anderson Darling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-con-scipy">Resultados con Scipy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-asociacion-bivariadas">Pruebas de asociación bivariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-cuadrada">Chi cuadrada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exacta-de-fisher">Exacta de Fisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-ab">Pruebas AB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-de-student">T de Student</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u-de-mann-whitney">U de Mann Whitney</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion">Correlación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson">Pearson</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman">Spearman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kendall">Kendall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-18-inferencia-basica">
+<h1>Tema 18: Inferencia básica<a class="headerlink" href="#tema-18-inferencia-basica" title="Link to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para esta libreta utilizaremos la libería <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, que ya debería estar instalada en en entorno local, pero si no, puedes utilizar <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">scipy</span></code> en tu terminal. La librería ya está preinstalada en colab.</p>
+</div>
+<p>En esta librería continuaremos trabajando con la el dataset <strong>palmer penguins</strong> y realizaremos algunas de las pruebas inferenciales más comunes.</p>
+<p>Antes de iniciar, revisa la documentación de <code class="docutils literal notranslate"><span class="pre">scipy</span></code> <a class="reference external" href="https://scipy.org/">aquí</a></p>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;librerías cargadas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>librerías cargadas
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar a <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> importamos un «submódulo» de <code class="docutils literal notranslate"><span class="pre">scipy</span></code> que se llama <code class="docutils literal notranslate"><span class="pre">stats</span></code>.</p>
+</section>
+<section id="cargar-datos">
+<h2>Cargar datos<a class="headerlink" href="#cargar-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/raphaelvallat/pingouin/refs/heads/main/src/pingouin/datasets/penguins.csv&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>18.3</td>
+      <td>174.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.7</td>
+      <td>18.7</td>
+      <td>180.0</td>
+      <td>3600.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.9</td>
+      <td>19.2</td>
+      <td>189.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>18.1</td>
+      <td>185.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.8</td>
+      <td>17.2</td>
+      <td>180.0</td>
+      <td>3800.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="pruebas-de-bondad-de-ajuste">
+<h2>Pruebas de bondad de ajuste<a class="headerlink" href="#pruebas-de-bondad-de-ajuste" title="Link to this heading">#</a></h2>
+<p>Pese al gran <a class="reference external" href="https://stats.stackexchange.com/questions/2492/is-normality-testing-essentially-useless">debate</a> que existe en torno a este tipo de pruebas, son muy utilizadas así que veremos cómo hacerlas.</p>
+<p>Lo que se prueba es la hipótesis nula de que los datos provienen de una determinada distribución paramétrica, principalmente la normal.</p>
+<p>Veremos tres pruebas:</p>
+<ol class="arabic simple">
+<li><p>Shapiro-Wilk (SW)</p></li>
+<li><p>Kolmogórov-Smirnov (KS)</p></li>
+<li><p>Anderson-Darling (AD)</p></li>
+</ol>
+<p>Scipy implementa también otras, pero no las veremos en el curso.</p>
+<p>Seleccionaremos una variable específica (<code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>) para las pruebas y acompañaremos el análisis con un histograma con densidad.</p>
+<section id="visualizacion-de-distribucion">
+<h3>Visualización de distribución<a class="headerlink" href="#visualizacion-de-distribucion" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de peso&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribución de peso&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1d9c27090e0cb7f6b38786510470f556f92a35d5659ad08662fd4c42238ba0a9.png" src="../_images/1d9c27090e0cb7f6b38786510470f556f92a35d5659ad08662fd4c42238ba0a9.png" />
+</div>
+</div>
+<p>Podemos ver una distribución con asimetría positiva, probablemente porque tenemos tres subpoblaciones, podemos separar cada población, agregando una línea o dos más.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="c1"># solo para el color</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3c237fc9a59d6bd42ac0edf3ec362f2c677fd5d11a546d4d0280162af5600aa5.png" src="../_images/3c237fc9a59d6bd42ac0edf3ec362f2c677fd5d11a546d4d0280162af5600aa5.png" />
+</div>
+</div>
+<p>Separando las subpoblaciones podemos ver distribuciones aproximadamente normales.</p>
+</section>
+<section id="shapiro-wilk">
+<h3>Shapiro-Wilk<a class="headerlink" href="#shapiro-wilk" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># quitamos los pingüinos con datos faltantes</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=np.float64(0.9592111774906512), pvalue=np.float64(3.6790392409769466e-08))
+</pre></div>
+</div>
+</div>
+</div>
+<p>La prueba de shapiro para toda la población arroja una p menor a 0.05 que no permite rechazar la hipótesis de que los datos no son normales.
+Repitamos la prueba por cada subpoblación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">especie</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span> <span class="c1"># elejimos los valores únicos</span>
+    <span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">especie</span>
+    <span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">][</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">especie</span><span class="p">,</span> <span class="s1">&#39;n=&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">peso</span><span class="p">))</span> <span class="c1"># queremos también saber la n</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie n= 151
+ShapiroResult(statistic=np.float64(0.9807078507062779), pvalue=np.float64(0.03239702501304091))
+Chinstrap n= 68
+ShapiroResult(statistic=np.float64(0.984493761674102), pvalue=np.float64(0.5605082387697975))
+Gentoo n= 123
+ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.23361648888961845))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que solo en la subpoblación de pingüinos Adelie, la prueba de Shapiro indica normalidad.</p>
+<p>Probemos ahora el mismo procedimiento con la prueba de KS.</p>
+</section>
+<section id="kolmogorov-smirnov">
+<h3>Kolmogórov-Smirnov<a class="headerlink" href="#kolmogorov-smirnov" title="Link to this heading">#</a></h3>
+<p>En la prueba de KS probamos una hipótesis general, pero la prueba corrobora la bondad de ajuste a cualquier tipo de distribución que debemos especificar.</p>
+<p>Scipy contiene prácticamente todas las distribuciones paramétricas habituales, la normal está en <code class="docutils literal notranslate"><span class="pre">stats.norm</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">peso</span> <span class="o">-</span> <span class="n">peso</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">peso</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># estandarizamos</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span> 
+    <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="c1"># queremos probar la distribución normal</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=np.float64(0.10408424225215168), pvalue=np.float64(0.0011141206447900635), statistic_location=np.float64(-0.5009690301398295), statistic_sign=np.int8(1))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nuevamente tenemos un resultado no normal, separemos por especie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">especie</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span> <span class="c1"># elejimos los valores únicos</span>
+    <span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">especie</span>
+    <span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">][</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">peso</span> <span class="o">-</span> <span class="n">peso</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">peso</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># estandarizamos</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">especie</span><span class="p">,</span> <span class="s1">&#39;n=&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">peso</span><span class="p">))</span> <span class="c1"># queremos también saber la n</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie n= 151
+KstestResult(statistic=np.float64(0.07246097564635684), pvalue=np.float64(0.3876243471754205), statistic_location=np.float64(-0.3285507654029253), statistic_sign=np.int8(1))
+Chinstrap n= 68
+KstestResult(statistic=np.float64(0.09265913723429497), pvalue=np.float64(0.5714776097492497), statistic_location=np.float64(0.17409746844960372), statistic_sign=np.int8(1))
+Gentoo n= 123
+KstestResult(statistic=np.float64(0.0681309311837266), pvalue=np.float64(0.5934927015323732), statistic_location=np.float64(0.8410436105945132), statistic_sign=np.int8(-1))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta vez vemos que las tres subpoblaciones son normales.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En la prueba de KS debemos estandarizar para probar el resultado.
+Estandarizar significa convertir los valores de los datos a puntuaciones z.
+La fórmula de la puntuación z es:
+<span class="math notranslate nohighlight">\(z = \frac{x-\bar{x}}{s}\)</span>
+Donde <span class="math notranslate nohighlight">\(\bar{x}\)</span> es la media, <em>s</em> es la desviación estándar y <em>x</em> es el dato.</p>
+</div>
+<p>Veamos ahora la prueba de Anderson Darling:</p>
+</section>
+<section id="anderson-darling">
+<h3>Anderson Darling<a class="headerlink" href="#anderson-darling" title="Link to this heading">#</a></h3>
+<p>Es una prueba derivada de KS pero específicamente para la distribución normal.</p>
+<p>Probemos nuevamente para toda la muestra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">anderson</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AndersonResult(statistic=np.float64(4.543039287872375), critical_values=array([0.569, 0.649, 0.778, 0.908, 1.08 ]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]), fit_result=  params: FitParams(loc=np.float64(4201.754385964912), scale=np.float64(801.9545356980955))
+ success: True
+ message: &#39;`anderson` successfully fit the distribution to the data.&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La prueba nos dice que el estadístico es 4.54 y para una significancia del 5% (p &lt; 0.05) el punto de corte sería 0.778, por lo cual no podemos rechazar la hipótesis de que los datos no son normales.</p>
+<section id="ejercicio">
+<h4>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h4>
+<p>Ejecuta la prueba de AD para cada una de las subpoblaciones.</p>
+</section>
+</section>
+</section>
+<section id="resultados-con-scipy">
+<h2>Resultados con Scipy<a class="headerlink" href="#resultados-con-scipy" title="Link to this heading">#</a></h2>
+<p>La gran mayoría de las pruebas estadísticas con <code class="docutils literal notranslate"><span class="pre">scipy</span></code> devuelven un objeto que se llama <code class="docutils literal notranslate"><span class="pre">NamedTuple</span></code>. Estos objetos son muy fáciles de utilizar y nos ayudan a extraer los valores individuales de cada resultado. Para saber qué valores contine un resultado, es necesario ver su documentación. Pongamos de ejemplo la prueba de SW nuevamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor p:&#39;</span><span class="p">,</span> <span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Estadístico:&#39;</span><span class="p">,</span> <span class="n">resultado</span><span class="o">.</span><span class="n">statistic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor p: 3.6790392409769466e-08
+Estadístico: 0.9592111774906512
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esto nos ayuda a generar reportes automatizados de la siguiente manera. Seleccionaremos solo la población de Chinstrap.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chinstrap</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Chinstrap&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">chinstrap</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span> <span class="c1"># seleccionamos las numéricas</span>
+    <span class="n">datos</span> <span class="o">=</span> <span class="n">chinstrap</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="s2">&quot;sí es normal&quot;</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;no es normal&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;La variable &quot;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s1">&quot; </span><span class="si">{</span><span class="n">normal</span><span class="si">}</span><span class="s1">, p=</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La variable &quot;bill_length_mm&quot; sí es normal, p=0.1941
+La variable &quot;bill_depth_mm&quot; sí es normal, p=0.1418
+La variable &quot;flipper_length_mm&quot; sí es normal, p=0.8106
+La variable &quot;body_mass_g&quot; sí es normal, p=0.5605
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Ejercicio<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Replícalo para las demás especies.</p>
+</section>
+</section>
+<section id="pruebas-de-asociacion-bivariadas">
+<h2>Pruebas de asociación bivariadas<a class="headerlink" href="#pruebas-de-asociacion-bivariadas" title="Link to this heading">#</a></h2>
+<p>Veremos ahora cómo realizar pruebas de asociación, usaremos solo <span class="math notranslate nohighlight">\(X^2\)</span> y la exacta de fisher.</p>
+<section id="chi-cuadrada">
+<h3>Chi cuadrada<a class="headerlink" href="#chi-cuadrada" title="Link to this heading">#</a></h3>
+<p>Primero vamos cómo generar tablas cruzadas con <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, para ello, seleccionaremos dos variables, <code class="docutils literal notranslate"><span class="pre">species</span></code> y <code class="docutils literal notranslate"><span class="pre">island</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matriz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;island&#39;</span><span class="p">],</span>  <span class="c1"># filas</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="c1"># columnas</span>
+<span class="p">)</span>
+<span class="n">matriz</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>species</th>
+      <th>Adelie</th>
+      <th>Chinstrap</th>
+      <th>Gentoo</th>
+    </tr>
+    <tr>
+      <th>island</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biscoe</th>
+      <td>44</td>
+      <td>0</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>Dream</th>
+      <td>56</td>
+      <td>68</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Torgersen</th>
+      <td>52</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Esto nos genera una tabla con la cuenta de pingüinos que cumplen con cada valor de ambas variables. Vemos que los Adelie viven en las tres islas, mientras que los Chinstrap y Gentoo solo viven en Dream y Biscoe respectivamente.</p>
+<p>Guardamos además la tabla en la variable <code class="docutils literal notranslate"><span class="pre">matriz</span></code>.</p>
+<p>Ahora ejecutemos la <span class="math notranslate nohighlight">\(X^2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi2ContingencyResult(statistic=np.float64(299.55032743148195), pvalue=np.float64(1.354573829719252e-63), dof=4, expected_freq=array([[74.23255814, 33.20930233, 60.55813953],
+       [54.79069767, 24.51162791, 44.69767442],
+       [22.97674419, 10.27906977, 18.74418605]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta corresponde a la chi cuadrada de independencia y vemos que el valor p es menor a 0.05. También podemos ver que en las frecuencias esperadas no hay celdas con menos de 5 valores y el tamaño de muestra es apropiado.</p>
+<p>Veamos ahora la prueba de fisher.</p>
+</section>
+<section id="exacta-de-fisher">
+<h3>Exacta de Fisher<a class="headerlink" href="#exacta-de-fisher" title="Link to this heading">#</a></h3>
+<p>Para esta prueba requerimos una tabla 2x2, así que utilizaremos la variable <code class="docutils literal notranslate"><span class="pre">sex</span></code> y crearemos una nueva variable, <code class="docutils literal notranslate"><span class="pre">peso_bajo_media</span></code> en la cual veremos si el peso de un pingüino está por debajo de la media.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso_bajo_media</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">matriz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span>
+    <span class="n">peso_bajo_media</span>
+<span class="p">)</span>
+<span class="n">matriz</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>body_mass_g</th>
+      <th>False</th>
+      <th>True</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>53</td>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>92</td>
+      <td>76</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Vemos ahora que tenemos una tabla 2x2, con nuestra variable calculada.
+Ahora ejecutemos la prueba de fisher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">fisher_exact</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=np.float64(0.390916149068323), pvalue=np.float64(4.046749537813585e-05))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver que existe una asociación entre el sexo y tener peso debajo de la media. Ajustemos el análisis para ver si es el sexo <code class="docutils literal notranslate"><span class="pre">female</span></code> el asociado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso_bajo_media</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">female</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span>
+<span class="n">matriz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">female</span><span class="p">,</span>
+    <span class="n">peso_bajo_media</span>
+<span class="p">)</span>
+<span class="n">matriz</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>body_mass_g</th>
+      <th>False</th>
+      <th>True</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>False</th>
+      <td>98</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>True</th>
+      <td>53</td>
+      <td>112</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Algo raro pasó, las cuentas no son iguales, y esto se debe a que en el arreglo de datos hay faltantes, para poder analizar bien esta asociación necesitamos solo datos completos, lo haremos de la siguiente manera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_completos</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;body_mass_g&#39;</span><span class="p">])</span> 
+<span class="c1"># quita las filas que en las que falte cualquiera de las</span>
+<span class="c1"># dos variables</span>
+<span class="n">peso_bajo_media</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">female</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span>
+<span class="n">matriz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">female</span><span class="p">,</span>
+    <span class="n">peso_bajo_media</span>
+<span class="p">)</span>
+<span class="n">matriz</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>body_mass_g</th>
+      <th>False</th>
+      <th>True</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>False</th>
+      <td>92</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>True</th>
+      <td>53</td>
+      <td>112</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Esta vez las cuentas se ven bien, hagamos nuevamente la prueba.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">fisher_exact</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=np.float64(2.558093346573982), pvalue=np.float64(4.046749537813585e-05))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y generemos el OR</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">contingency</span><span class="o">.</span><span class="n">odds_ratio</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;sample&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OddsRatioResult(statistic=2.558093346573982)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que los pingüinos hembra tienen 2.5 veces más odds de estar por debajo del peso medio, lo cual podría estar relacionado con dimorfismo sexual.</p>
+</section>
+<section id="id2">
+<h3>Ejercicio<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Analiza el arreglo de datos y realiza otras comparaciones de asociación.</p>
+</section>
+</section>
+<section id="pruebas-ab">
+<h2>Pruebas AB<a class="headerlink" href="#pruebas-ab" title="Link to this heading">#</a></h2>
+<p>Las pruebas AB básicamente comparan dos series de datos y podemos pensarlas como un contraste entre una variable categórica (grupo) y una cuantitativa. Entre las pruebas AB más utilizadas están las pruebas <strong>t</strong> y las versiones no paramétricas basadas en rango como la U de Mann Whitney. Veamos cómo realizarlas.</p>
+<section id="t-de-student">
+<h3>T de Student<a class="headerlink" href="#t-de-student" title="Link to this heading">#</a></h3>
+<p>Pleanteemos la siguiente hipótesis:</p>
+<p><span class="math notranslate nohighlight">\(H_1: Peso_{hembras} \ne Peso_{machos}\)</span></p>
+<p>Utilizaremos las variables de la sección previa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_completos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>18.3</td>
+      <td>174.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.7</td>
+      <td>18.7</td>
+      <td>180.0</td>
+      <td>3600.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.9</td>
+      <td>19.2</td>
+      <td>189.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>18.1</td>
+      <td>185.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.8</td>
+      <td>17.2</td>
+      <td>180.0</td>
+      <td>3800.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">female</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1    False
+2     True
+3    False
+4    False
+Name: sex, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como female es una serie de datos booleanos, podemos usarla como filtro, para separar los valores de machos y hembras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span>
+<span class="n">peso_hembras</span> <span class="o">=</span> <span class="n">peso</span><span class="p">[</span><span class="n">female</span><span class="p">]</span>
+<span class="n">peso_machos</span> <span class="o">=</span> <span class="n">peso</span><span class="p">[</span><span class="o">~</span><span class="n">female</span><span class="p">]</span> <span class="c1"># ~ es el operador &quot;not&quot; </span>
+                            <span class="c1"># es decir &quot;not female&quot;</span>
+<span class="c1"># ahora hacemos la prueba T</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span> <span class="c1"># ind es independientes</span>
+    <span class="n">peso_hembras</span><span class="p">,</span> <span class="n">peso_machos</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(-8.541720337994516), pvalue=np.float64(4.897246751596224e-16), df=np.float64(331.0))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que el valor p es muy inferior a 0.05, lo cual corrobora nuestra hipótesis.</p>
+<p>Existe una variante de la prueba t que no asume varianzas iguales, la prueba <strong>t de Welch</strong>, veamos cómo aplicarla ahora.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span> <span class="c1"># ind es independientes</span>
+    <span class="n">peso_hembras</span><span class="p">,</span> <span class="n">peso_machos</span><span class="p">,</span>
+    <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># no asumimos varianzas iguales</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(-8.554537231165762), pvalue=np.float64(4.793891255051492e-16), df=np.float64(323.89588102864843))
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso el resultado no se modifica gran cosa.</p>
+</section>
+<section id="u-de-mann-whitney">
+<h3>U de Mann Whitney<a class="headerlink" href="#u-de-mann-whitney" title="Link to this heading">#</a></h3>
+<p>Si quisieramos realizar la prueba no paramétrica de rangos de U de Mann Whiney, lo haríamos de la siguiente forma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">peso_hembras</span><span class="p">,</span> <span class="n">peso_machos</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MannwhitneyuResult(statistic=np.float64(6874.5), pvalue=np.float64(1.8133343032461053e-15))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="correlacion">
+<h2>Correlación<a class="headerlink" href="#correlacion" title="Link to this heading">#</a></h2>
+<p>Existen varias pruebas de correlación pero las tres principalmente utilizadas son r de Pearson, rho de Spearman y Tau de Kendall, veamos cómo ejecutarlas.
+Para esto, seleccionaremos dos variables cuantitativas, en este ejemplo <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code> y <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code>.</p>
+<p>Primero separemos las series de interés.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_completos</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span> <span class="s1">&#39;bill_length_mm&#39;</span><span class="p">])</span>
+<span class="n">flippers</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">]</span>
+<span class="n">bill</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora las correlaciones.</p>
+<section id="pearson">
+<h3>Pearson<a class="headerlink" href="#pearson" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">flippers</span><span class="p">,</span> <span class="n">bill</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=np.float64(0.656181340746428), pvalue=np.float64(1.7439736176203663e-43))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spearman">
+<h3>Spearman<a class="headerlink" href="#spearman" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">flippers</span><span class="p">,</span> <span class="n">bill</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=np.float64(0.6727719416255544), pvalue=np.float64(2.0669356276079494e-46))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kendall">
+<h3>Kendall<a class="headerlink" href="#kendall" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">kendalltau</span><span class="p">(</span><span class="n">flippers</span><span class="p">,</span> <span class="n">bill</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=np.float64(0.48334544176274524), pvalue=np.float64(1.7471887323081624e-39))
+</pre></div>
+</div>
+</div>
+</div>
+<p>En los tres casos encontramos una relación directa moderada y estadísticamente significativa entre las variables.
+Visualicémoslo.</p>
+</section>
+<section id="visualizacion">
+<h3>Visualización<a class="headerlink" href="#visualizacion" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">flippers</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">bill</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;flipper_length_mm&#39;, ylabel=&#39;bill_length_mm&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/e74d92bb0f3e17195cb2fe43c0681c596eb7258b74c0f08f27fec880e74c1e88.png" src="../_images/e74d92bb0f3e17195cb2fe43c0681c596eb7258b74c0f08f27fec880e74c1e88.png" />
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Ejercicio<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Genera una visualización y las tres correlaciones para las tres diferentes especies.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tema-17-visualizaciones.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Tema 17: Visualizaciones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Recursos/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Recursos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-datos">Cargar datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-bondad-de-ajuste">Pruebas de bondad de ajuste</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-distribucion">Visualización de distribución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapiro-wilk">Shapiro-Wilk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kolmogorov-smirnov">Kolmogórov-Smirnov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anderson-darling">Anderson Darling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-con-scipy">Resultados con Scipy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-asociacion-bivariadas">Pruebas de asociación bivariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-cuadrada">Chi cuadrada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exacta-de-fisher">Exacta de Fisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-ab">Pruebas AB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-de-student">T de Student</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u-de-mann-whitney">U de Mann Whitney</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion">Correlación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson">Pearson</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman">Spearman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kendall">Kendall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p> 
+  Todos los derechos reservados.
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fchrisdewa.github.io%2Fcurso_python&label=Vistas&icon=eye&color=%239ec5fe&message=&style=for-the-badge&tz=Mexico%2FGeneral">
+<p> 
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

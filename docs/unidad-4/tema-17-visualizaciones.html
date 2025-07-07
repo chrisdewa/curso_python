@@ -72,7 +72,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Recursos" href="../Recursos/index.html" />
+    <link rel="next" title="Tema 18: Inferencia básica" href="tema-18-inferencia-b%C3%A1sica.html" />
     <link rel="prev" title="Tema 16: Descriptivos básicos" href="tema-16-descriptivos-b%C3%A1sicos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -224,6 +224,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l2"><a class="reference internal" href="tema-15-palmer-penguins.html">Tema 15: Palmer Penguins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema-16-descriptivos-b%C3%A1sicos.html">Tema 16: Descriptivos básicos</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 17: Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-18-inferencia-b%C3%A1sica.html">Tema 18: Inferencia básica</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
@@ -640,7 +641,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x159fc151d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11f880b1d30&gt;
 </pre></div>
 </div>
 <img alt="../_images/e5b778b7ed32da55dfd36944f5a49073b649d2717f5af48c5b5395a7b6d44869.png" src="../_images/e5b778b7ed32da55dfd36944f5a49073b649d2717f5af48c5b5395a7b6d44869.png" />
@@ -762,7 +763,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x159fe366350&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11f8a2c6350&gt;
 </pre></div>
 </div>
 <img alt="../_images/2545efb59daf7344262afd823d5ee63034919c7567ead69dba0c7424d172889c.png" src="../_images/2545efb59daf7344262afd823d5ee63034919c7567ead69dba0c7424d172889c.png" />
@@ -863,7 +864,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159fc1523c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f880b23c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/61d93e88c6b7459e596e1f8c85113e7d92999377e55c984f32e918c71e35f1c4.png" src="../_images/61d93e88c6b7459e596e1f8c85113e7d92999377e55c984f32e918c71e35f1c4.png" />
@@ -889,10 +890,10 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159ff73c910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f8b690910&gt;
 </pre></div>
 </div>
-<img alt="../_images/aa85923c038c871c1c5afde5ce0f90613186dcd8d11691effd89b625c5c6cef0.png" src="../_images/aa85923c038c871c1c5afde5ce0f90613186dcd8d11691effd89b625c5c6cef0.png" />
+<img alt="../_images/db8b140e2869f51c2c6a43c9f04123958a37f7c7c80e1e576cdd0acce13f1560.png" src="../_images/db8b140e2869f51c2c6a43c9f04123958a37f7c7c80e1e576cdd0acce13f1560.png" />
 </div>
 </div>
 </section>
@@ -911,10 +912,10 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159ff7e4e10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f8b730e10&gt;
 </pre></div>
 </div>
-<img alt="../_images/4b81906f22065bf94739d788c7e48ebbb3a051dbb68d07be32c526ffd7cfa83f.png" src="../_images/4b81906f22065bf94739d788c7e48ebbb3a051dbb68d07be32c526ffd7cfa83f.png" />
+<img alt="../_images/a57edd5b3cc6c7b76b084252032286215519a2307edcbdbaec2c56d3b816b393.png" src="../_images/a57edd5b3cc6c7b76b084252032286215519a2307edcbdbaec2c56d3b816b393.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -931,7 +932,7 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159ffce07d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f8bc1c7d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/cbdb8feb9369ec8ba7fa464846bdd46ab989c7529777a29ed0fb8aa8a1dad23c.png" src="../_images/cbdb8feb9369ec8ba7fa464846bdd46ab989c7529777a29ed0fb8aa8a1dad23c.png" />
@@ -953,7 +954,7 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159ffe3f250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f8bd7f250&gt;
 </pre></div>
 </div>
 <img alt="../_images/e9dc5c428af4bf92a9491bf0f3eb1505b0749beb683b7118a2369ddd50e2b8c8.png" src="../_images/e9dc5c428af4bf92a9491bf0f3eb1505b0749beb683b7118a2369ddd50e2b8c8.png" />
@@ -967,17 +968,16 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span>
     <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
-    <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x159ffed9d10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11f8be15d10&gt;
 </pre></div>
 </div>
-<img alt="../_images/5759fca7d0311f48f199a6f6496a1eb8ef92c9c4401e79fc43e29e9b9df3e4e9.png" src="../_images/5759fca7d0311f48f199a6f6496a1eb8ef92c9c4401e79fc43e29e9b9df3e4e9.png" />
+<img alt="../_images/47502faf37b792e1be899687144290e2690a5d2a99e613dbfc46d76388975d4f.png" src="../_images/47502faf37b792e1be899687144290e2690a5d2a99e613dbfc46d76388975d4f.png" />
 </div>
 </div>
 <p>Parece que los Adelíe tienen picos más cortos y anchos, mientras que los Gentoo tienen picos más angostos y largos, aunque los Chintrap se traslapa con las otras dos especies.</p>
@@ -1037,11 +1037,11 @@ Por ejemplo, qué pasa si queremos averiguar el tamaño total del pingüino, con
       </div>
     </a>
     <a class="right-next"
-       href="../Recursos/index.html"
+       href="tema-18-inferencia-b%C3%A1sica.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Recursos</p>
+        <p class="prev-next-title">Tema 18: Inferencia básica</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
