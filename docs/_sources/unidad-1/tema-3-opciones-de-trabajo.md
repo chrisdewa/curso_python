@@ -9,7 +9,7 @@ En este tema exploramos las distintas formas de **trabajar con código Python**,
 
 :::{admonition} Nota
 :class: note
-En este curso usaremos Python en forma local, asistidos por la herramienta `uv`, como se explicó en el [tema 1](<tema-1-preparación.md>). El objetivo de esta lección es que conozcas otras formas de correr Python.
+En este curso usaremos Python en forma local, asistidos por la herramienta `uv`, como se explicó en el [tema 1](<tema-1-preparacion.md>). El objetivo de esta lección es que conozcas otras formas de correr Python.
 :::
 
 ---
@@ -102,7 +102,7 @@ Es una forma muy flexible y profesional, aunque puede requerir mayor familiarida
 
 ### Astral UV
 
-Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el [tema 1](<tema-1-preparación.md>). Es la opción recomendada para este curso.
+Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el [tema 1](<tema-1-preparacion.md>). Es la opción recomendada para este curso.
 
 ---
 

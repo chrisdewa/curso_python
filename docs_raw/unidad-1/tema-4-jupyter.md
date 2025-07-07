@@ -8,7 +8,7 @@ nav_order: 4
 Jupyter es una plataforma interactiva ampliamente utilizada en ciencia de datos, programación y educación. Permite combinar código ejecutable, texto enriquecido (Markdown), visualizaciones, ecuaciones matemáticas y otros elementos en un mismo documento: la libreta o *notebook*.
 
 :::{note}
-Ya realizamos la instalación de JupyterLab usando `uv` en el [tema 1](<tema-1-preparación.md>). Si no lo hiciste en ese momento, puedes hacerlo ahora de la siguiente forma:
+Ya realizamos la instalación de JupyterLab usando `uv` en el [tema 1](<tema-1-preparacion.md>). Si no lo hiciste en ese momento, puedes hacerlo ahora de la siguiente forma:
 
 1. Abre tu terminal y navega usando `cd` al directorio del curso.
 2. Ejecuta este comando: `uv add jupyterlab seaborn pandas scipy statsmodels`
