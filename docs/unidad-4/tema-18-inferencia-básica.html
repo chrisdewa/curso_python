@@ -740,17 +740,18 @@ ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.2336
 <p>Scipy contiene prácticamente todas las distribuciones paramétricas habituales, la normal está en <code class="docutils literal notranslate"><span class="pre">stats.norm</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">peso</span> <span class="o">-</span> <span class="n">peso</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">peso</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># estandarizamos</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span>
-    <span class="n">z</span><span class="p">,</span> 
-    <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="c1"># queremos probar la distribución normal</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">media</span><span class="p">,</span> <span class="n">desviación</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">media</span><span class="p">,</span> <span class="n">desviación</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KS statistic: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=np.float64(0.10408424225215168), pvalue=np.float64(0.0011141206447900635), statistic_location=np.float64(-0.5009690301398295), statistic_sign=np.int8(1))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KS statistic: 0.1043, p-value: 0.0011
 </pre></div>
 </div>
 </div>
@@ -761,20 +762,22 @@ ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.2336
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">especie</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span> <span class="c1"># elejimos los valores únicos</span>
     <span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">especie</span>
     <span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">][</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">peso</span> <span class="o">-</span> <span class="n">peso</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">peso</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># estandarizamos</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">especie</span><span class="p">,</span> <span class="s1">&#39;n=&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">peso</span><span class="p">))</span> <span class="c1"># queremos también saber la n</span>
-    <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span>
+    <span class="n">media</span><span class="p">,</span> <span class="n">desviación</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+
+    <span class="c1"># Prueba KS contra una N(loc, scale)</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">media</span><span class="p">,</span> <span class="n">desviación</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">especie</span><span class="p">,</span> <span class="s1">&#39;n=&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">peso</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie n= 151
-KstestResult(statistic=np.float64(0.07246097564635684), pvalue=np.float64(0.3876243471754205), statistic_location=np.float64(-0.3285507654029253), statistic_sign=np.int8(1))
+KstestResult(statistic=np.float64(0.07287416687604759), pvalue=np.float64(0.3806981713520229), statistic_location=np.float64(3550.0), statistic_sign=np.int8(1))
 Chinstrap n= 68
-KstestResult(statistic=np.float64(0.09265913723429497), pvalue=np.float64(0.5714776097492497), statistic_location=np.float64(0.17409746844960372), statistic_sign=np.int8(1))
+KstestResult(statistic=np.float64(0.09215056172326219), pvalue=np.float64(0.5784408198748531), statistic_location=np.float64(3800.0), statistic_sign=np.int8(1))
 Gentoo n= 123
-KstestResult(statistic=np.float64(0.0681309311837266), pvalue=np.float64(0.5934927015323732), statistic_location=np.float64(0.8410436105945132), statistic_sign=np.int8(-1))
+KstestResult(statistic=np.float64(0.0690930363707869), pvalue=np.float64(0.5757241398765987), statistic_location=np.float64(5500.0), statistic_sign=np.int8(-1))
 </pre></div>
 </div>
 </div>
@@ -1353,6 +1356,12 @@ Para esto, seleccionaremos dos variables cuantitativas, en este ejemplo <code cl
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_completos</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span> <span class="s1">&#39;bill_length_mm&#39;</span><span class="p">])</span>
 <span class="n">flippers</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">]</span>
 <span class="n">bill</span> <span class="o">=</span> <span class="n">datos_completos</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datos separados correctamente&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Datos separados correctamente
 </pre></div>
 </div>
 </div>
@@ -1420,7 +1429,7 @@ Visualicémoslo.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;flipper_length_mm&#39;, ylabel=&#39;bill_length_mm&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/e74d92bb0f3e17195cb2fe43c0681c596eb7258b74c0f08f27fec880e74c1e88.png" src="../_images/e74d92bb0f3e17195cb2fe43c0681c596eb7258b74c0f08f27fec880e74c1e88.png" />
+<img alt="../_images/55419a1e7c6e177f78f31e21d4a891b1b0b3a6440f189a1ad04fd497e929d2c0.png" src="../_images/55419a1e7c6e177f78f31e21d4a891b1b0b3a6440f189a1ad04fd497e929d2c0.png" />
 </div>
 </div>
 </section>
