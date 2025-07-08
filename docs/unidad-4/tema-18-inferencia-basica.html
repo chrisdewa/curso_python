@@ -738,6 +738,15 @@ ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.2336
 <h3>Kolmogórov-Smirnov<a class="headerlink" href="#kolmogorov-smirnov" title="Link to this heading">#</a></h3>
 <p>En la prueba de KS probamos una hipótesis general, pero la prueba corrobora la bondad de ajuste a cualquier tipo de distribución que debemos especificar.</p>
 <p>Scipy contiene prácticamente todas las distribuciones paramétricas habituales, la normal está en <code class="docutils literal notranslate"><span class="pre">stats.norm</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La prueba de KS requiere fijar los parámetros de la distribución teórica. Es decir, si asumimos que el peso se distribuye como una normal, debemos indicar cuál es la media (<span class="math notranslate nohighlight">\(\mu\)</span>) y la desviación estándar (<span class="math notranslate nohighlight">\(\sigma\)</span>) de esa normal. Como no conocemos los parámetros verdaderos de la población, los estimamos a partir de la muestra utilizando stats.norm.fit, que devuelve los estimadores de máxima verosimilitud.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Importante: KS no es válida si se usan los mismos datos para estimar los parámetros y para probar el ajuste (como estamos haciendo aquí). Esto puede inflar el error tipo I, y por eso no se recomienda usar KS con parámetros estimados directamente de la muestra. Para este caso, se prefiere Anderson-Darling o Shapiro-Wilk.</p>
+<p>Aun así, KS sigue siendo útil para ilustrar el concepto de bondad de ajuste si se aclaran sus limitaciones.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
@@ -786,14 +795,6 @@ KstestResult(statistic=np.float64(0.0690930363707869), pvalue=np.float64(0.57572
 </div>
 </div>
 <p>Esta vez vemos que las tres subpoblaciones son normales.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>En la prueba de KS debemos estandarizar para probar el resultado.
-Estandarizar significa convertir los valores de los datos a puntuaciones z.
-La fórmula de la puntuación z es:
-<span class="math notranslate nohighlight">\(z = \frac{x-\bar{x}}{s}\)</span>
-Donde <span class="math notranslate nohighlight">\(\bar{x}\)</span> es la media, <em>s</em> es la desviación estándar y <em>x</em> es el dato.</p>
-</div>
 <p>Veamos ahora la prueba de Anderson Darling:</p>
 </section>
 <section id="anderson-darling">
