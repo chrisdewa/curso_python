@@ -1,49 +1,56 @@
 # Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud
 
-## Descripción del curso
+Este es el repositorio oficial del Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, un curso diseñado para profesionales y estudiantes del área de la salud que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos.
 
-Este curso-taller está diseñado para profesionales y estudiantes del área de la salud que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos. A través de clases teóricas y práctica intensiva, los participantes desarrollarán habilidades para manipular datos, generar visualizaciones, aplicar métodos estadísticos y comunicar resultados de forma reproducible y profesional.
+## Sitio oficial del curso
+
+https://chrisdewa.github.io/curso_python/
+
+## Descripción
+
+A través de clases teóricas y práctica intensiva, los participantes desarrollarán habilidades para:
+
+- Manipular datos con Python.
+- Generar visualizaciones efectivas.
+- Aplicar métodos estadísticos básicos y avanzados.
+- Comunicar resultados de forma reproducible en Jupyter Notebooks.
 
 ## Objetivo de aprendizaje
 
 Al finalizar el curso, la persona participante será capaz de realizar análisis estadísticos reproducibles en Python aplicados a datos de salud, incluyendo la exploración, limpieza, visualización, aplicación de pruebas estadísticas, modelos de regresión y generación de reportes científicos en Jupyter Notebooks.
 
----
-
-:::{admonition} ¿Qué aprenderás?
+```{admonition} ¿Qué aprenderás?
 :class: tip
 - Conceptos fundamentales de programación.
 - Aplicaciones estadísticas con Python.
 - Uso de JupyterLab y bibliotecas científicas.
-:::
+```
 
----
+## Duración y distribución horaria
 
-## Duración y Distribución Horaria
-
-**Duración total:** 300 horas  
-- **Lecturas teóricas (clases):** 100 horas  
-- **Práctica guiada (libretas y ejercicios):** 200 horas
-
----
+Duración total: 300 horas  
+- Lecturas teóricas (clases): 100 horas  
+- Práctica guiada (libretas y ejercicios): 200 horas
 
 ## Requisitos para tomar el curso
 
-|Requisito|Explicación|
-|---------|-----------|
-|Dominio intermedio del inglés|A pesar de que todo el curso y las libretas están en inglés, python, sus librerías y prácticamente toda la documentación, está en inglés. Se recomienda un nivel mínimo B1 para un curso satisfactorio.|
-|Tener conocimientos básicos de análisis estadísitcos y metodología de la investigación|Sin este requisito el alumno no podrá adquierir los conocimientos y competencias en forma satisfactoria|
-|Tener una computadora personal con sistema operativo Mac, Windows o Linux.|El curso contempla la instalación de software especializado, el alumno no podrá realizar las actividades sin no puede instalarlo.|
-|Pŕactica diaria|Python es un lenguaje de programación, como cualquier otro lenguaje, debe practicarse diariamente para lograr su aprendizaje, de lo contrario los conocimientos no se consolidarán|
+| Requisito | Explicación |
+|-----------|------------|
+| Dominio intermedio del inglés | Aunque el contenido del curso está en español, Python y la mayoría de su documentación están en inglés. Se recomienda un nivel mínimo B1. |
+| Conocimientos básicos de estadística y metodología de investigación | Son necesarios para adquirir adecuadamente las competencias del curso. |
+| Computadora personal (Mac, Windows o Linux) | Es indispensable para instalar el software y realizar las actividades prácticas. |
+| Práctica diaria | Python requiere práctica constante para un aprendizaje efectivo. |
 
----
+## Licencia y uso del contenido
 
+El contenido protegido por derechos de autor corresponde al código y materiales propios.  
+Los enlaces externos y las bibliotecas utilizadas pertenecen a sus respectivos autores y licencias.
 
-Todas las lecturas pueden consultarse tanto en [github](https://github.com/chrisdewa/curso_python/tree/main/docs) como en la [página](https://chrisdewa.github.io/curso_python). 
+## Cómo contribuir
 
-Si estás en la página del curso, las lecturas pueden consultarse en la barra lateral.
+Este repositorio está abierto a contribuciones externas.  
+Si deseas mejorar el contenido, corregir errores o proponer nuevas ideas, puedes abrir un *issue* o enviar un *pull request*.  
 
+Las contribuciones serán agradecidas y, si se incorporan, serán desplegadas públicamente en el curso con el debido reconocimiento.  
 
-
-```{tableofcontents}
-```
+Sin embargo, no generarán derechos de autoría ni retribuciones económicas.
