@@ -669,7 +669,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribución de peso&#39;)
 </pre></div>
 </div>
-<img alt="../_images/f984a30609368d82d0ffd4e8b4156752081d86d5f630f32cbc560becf17067cb.png" src="../_images/f984a30609368d82d0ffd4e8b4156752081d86d5f630f32cbc560becf17067cb.png" />
+<img alt="../_images/1d9c27090e0cb7f6b38786510470f556f92a35d5659ad08662fd4c42238ba0a9.png" src="../_images/1d9c27090e0cb7f6b38786510470f556f92a35d5659ad08662fd4c42238ba0a9.png" />
 </div>
 </div>
 <p>Podemos ver una distribución con asimetría positiva, probablemente porque tenemos tres subpoblaciones, podemos separar cada población, agregando una línea o dos más.</p>
@@ -686,7 +686,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/175006219d34b49873758639d3865828da52498d55ce61f5ca0e51e53a523cb2.png" src="../_images/175006219d34b49873758639d3865828da52498d55ce61f5ca0e51e53a523cb2.png" />
+<img alt="../_images/3c237fc9a59d6bd42ac0edf3ec362f2c677fd5d11a546d4d0280162af5600aa5.png" src="../_images/3c237fc9a59d6bd42ac0edf3ec362f2c677fd5d11a546d4d0280162af5600aa5.png" />
 </div>
 </div>
 <p>Separando las subpoblaciones podemos ver distribuciones aproximadamente normales.</p>
@@ -722,7 +722,7 @@ Repitamos la prueba por cada subpoblación.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie n= 151
-ShapiroResult(statistic=np.float64(0.9807078507062779), pvalue=np.float64(0.03239702501304089))
+ShapiroResult(statistic=np.float64(0.9807078507062779), pvalue=np.float64(0.03239702501304091))
 Chinstrap n= 68
 ShapiroResult(statistic=np.float64(0.984493761674102), pvalue=np.float64(0.5605082387697975))
 Gentoo n= 123
@@ -749,21 +749,19 @@ ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.2336
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
-
-<span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">media</span><span class="p">,</span> <span class="n">desviación</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
 <span class="c1"># fit regresa la media y la desviación para la población</span>
 <span class="c1"># No usamos el estimador de la muestra (con corrección de Bessel)</span>
 <span class="c1"># porque la prueba es sobre la distribución, no la muestra.</span>
 
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">media</span><span class="p">,</span> <span class="n">desviación</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KS statistic: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KS statistic: 0.1043, p-value: 0.0011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 0.0011
 </pre></div>
 </div>
 </div>
@@ -950,7 +948,7 @@ La variable &quot;body_mass_g&quot; sí es normal, p=0.5605
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi2ContingencyResult(statistic=np.float64(299.55032743148195), pvalue=np.float64(1.3545738297192517e-63), dof=4, expected_freq=array([[74.23255814, 33.20930233, 60.55813953],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi2ContingencyResult(statistic=np.float64(299.55032743148195), pvalue=np.float64(1.354573829719252e-63), dof=4, expected_freq=array([[74.23255814, 33.20930233, 60.55813953],
        [54.79069767, 24.51162791, 44.69767442],
        [22.97674419, 10.27906977, 18.74418605]]))
 </pre></div>
@@ -1343,7 +1341,7 @@ Name: sex, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MannwhitneyuResult(statistic=np.float64(6874.5), pvalue=np.float64(1.8133343032461057e-15))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MannwhitneyuResult(statistic=np.float64(6874.5), pvalue=np.float64(1.8133343032461053e-15))
 </pre></div>
 </div>
 </div>
@@ -1380,7 +1378,7 @@ Para esto, seleccionaremos dos variables cuantitativas, en este ejemplo <code cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=np.float64(0.656181340746428), pvalue=np.float64(1.7439736176204212e-43))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=np.float64(0.656181340746428), pvalue=np.float64(1.7439736176203663e-43))
 </pre></div>
 </div>
 </div>
@@ -1433,7 +1431,7 @@ Visualicémoslo.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;flipper_length_mm&#39;, ylabel=&#39;bill_length_mm&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/9e5ea9cf8479b506e01124218ecaaeff040cba8a22c9d6ee0c476c12d05dd9d4.png" src="../_images/9e5ea9cf8479b506e01124218ecaaeff040cba8a22c9d6ee0c476c12d05dd9d4.png" />
+<img alt="../_images/a3d6c095570eb884066ea6a870a467ff526a8742c186f625ab3e68f28b0c9142.png" src="../_images/a3d6c095570eb884066ea6a870a467ff526a8742c186f625ab3e68f28b0c9142.png" />
 </div>
 </div>
 </section>
