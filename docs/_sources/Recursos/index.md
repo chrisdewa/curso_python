@@ -23,5 +23,15 @@ Si piensas que has encontrado un acordeón u otro recurso que necesita estar en 
 |Tema o Librería|Guía|Oficial|Liga|
 |---|---|---|--|
 |`matplotlit`|Guía de inicio rápido|Sí|[liga](https://matplotlib.org/stable/users/explain/quick_start.html)|
+|`seaborn`|Tutoriales|Sí|[liga](https://seaborn.pydata.org/tutorial.html)|
+
+## Libros de texto
+
+|Libro|Autor|Liga|Comentario|
+|-----|-----|----|----------|
+|Think Python|Allen Downey|[liga](https://allendowney.github.io/ThinkPython/)|Excelente recurso, gratis, para comenzar a aprender python desde cero, con enfoque general.|
+|Think Stats|Allen Downey|[liga](https://allendowney.github.io/ThinkStats/)|Libro gratis enfocado a aprender análisis estadístico con python.|
+|Think Bayes|Allen Downey|[liga](https://allendowney.github.io/ThinkBayes2/)|Libro gratis para comenzar a aprender inferencia bayesiana en python.|
+|Python for Data Analysis, 3E|Wes McKinney|[liga](https://wesmckinney.com/book/python-basics)|Libro gratis de texto para comenzar con análisis de datos en python.|
 
 

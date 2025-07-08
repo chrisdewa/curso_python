@@ -64,7 +64,7 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Recursos" href="../Recursos/index.html" />
+    <link rel="next" title="Tema 19: Fundamentos de modelado estadístico" href="tema-19-modelado-fundamentos.html" />
     <link rel="prev" title="Tema 17: Visualizaciones" href="tema-17-visualizaciones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tema-16-descriptivos-basicos.html">Tema 16: Descriptivos básicos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema-17-visualizaciones.html">Tema 17: Visualizaciones</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 18: Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-19-modelado-fundamentos.html">Tema 19: Fundamentos de modelado estadístico</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
@@ -756,12 +757,12 @@ ShapiroResult(statistic=np.float64(0.9859276066609362), pvalue=np.float64(0.2336
 <span class="c1"># porque la prueba es sobre la distribución, no la muestra.</span>
 
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">media</span><span class="p">,</span> <span class="n">desviación</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value: </span><span class="si">{</span><span class="n">resultado</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 0.0011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=np.float64(0.1043424927687811), pvalue=np.float64(0.0010734945916456773), statistic_location=np.float64(3800.0), statistic_sign=np.int8(1))
 </pre></div>
 </div>
 </div>
@@ -1431,7 +1432,7 @@ Visualicémoslo.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;flipper_length_mm&#39;, ylabel=&#39;bill_length_mm&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/a3d6c095570eb884066ea6a870a467ff526a8742c186f625ab3e68f28b0c9142.png" src="../_images/a3d6c095570eb884066ea6a870a467ff526a8742c186f625ab3e68f28b0c9142.png" />
+<img alt="../_images/accca20a13ab6173de2e36e80ba639e9f91c861bddad2edd15c97b927d3c24ff.png" src="../_images/accca20a13ab6173de2e36e80ba639e9f91c861bddad2edd15c97b927d3c24ff.png" />
 </div>
 </div>
 </section>
@@ -1482,11 +1483,11 @@ Visualicémoslo.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Recursos/index.html"
+       href="tema-19-modelado-fundamentos.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Recursos</p>
+        <p class="prev-next-title">Tema 19: Fundamentos de modelado estadístico</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
