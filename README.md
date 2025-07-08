@@ -24,7 +24,8 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 Al finalizar el curso, la persona participante será capaz de realizar análisis estadísticos reproducibles en Python aplicados a datos de salud, incluyendo la exploración, limpieza, visualización, aplicación de pruebas estadísticas, modelos de regresión y generación de reportes científicos en Jupyter Notebooks.
 
 
-> [!TIP] ¿Qué aprenderás?
+> [!TIP]
+> **¿Qué aprenderás?**
 > - Conceptos fundamentales de programación.
 > - Aplicaciones estadísticas con Python.
 > - Uso de JupyterLab y bibliotecas científicas.
