@@ -1,4 +1,4 @@
-# CCurso-Taller Análisis Estadístico con Python
+# Curso-Taller Análisis Estadístico con Python
 
 Este es el repositorio oficial del Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, un curso diseñado para profesionales y estudiantes en áreas biomédicas que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos.
 
