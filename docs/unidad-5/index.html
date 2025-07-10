@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unidad 5: Recetario &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Unidad 5: Recetario de análisis estadísticos comunes &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -62,6 +62,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Medidas de rendimiento diangóstico" href="tema-20-rendimiento-diagnostico.html" />
+    <link rel="prev" title="Tema 19: Fundamentos de modelado estadístico" href="../unidad-4/tema-19-modelado-fundamentos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-1-preparacion.html">Tema 1: Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/tema-2-generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -218,6 +218,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-19-modelado-fundamentos.html">Tema 19: Fundamentos de modelado estadístico</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unidad 5: Recetario de análisis estadísticos comunes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tema-20-rendimiento-diagnostico.html">Medidas de rendimiento diangóstico</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Por definir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../otras-lecciones/python-intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -427,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unidad 5: Recetario</h1>
+    <h1>Unidad 5: Recetario de análisis estadísticos comunes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -441,11 +446,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unidad-5-recetario">
-<h1>Unidad 5: Recetario<a class="headerlink" href="#unidad-5-recetario" title="Link to this heading">#</a></h1>
-<p>En esta unidad abarcaremos múltiples recetas para diferentes tipos de análisis.
-Una receta va a ser un algoritmo, diseñado para resolver un problema particular.
-Esta unidad tiene la intensión de ser primariamente una referencia, su objetivo no es la memorización.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="unidad-5-recetario-de-analisis-estadisticos-comunes">
+<h1>Unidad 5: Recetario de análisis estadísticos comunes<a class="headerlink" href="#unidad-5-recetario-de-analisis-estadisticos-comunes" title="Link to this heading">#</a></h1>
+<p>En esta unidad abarcaremos múltiples recetas para diferentes tipos de análisis.</p>
+<p>Una receta va a ser un algoritmo, diseñado para resolver un problema particular.</p>
+<p>Esta unidad tiene la intensión de ser primariamente una referencia, su objetivo no es la memorización.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En esta libreta nos enfocaremos en utilizar código reutilizable, es decir, que el código que aquí encuentres, podrás utilizarlo en tus propios análisis sin modificaciones o mínimas, en todo caso.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -478,6 +489,24 @@ Esta unidad tiene la intensión de ser primariamente una referencia, su objetivo
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../unidad-4/tema-19-modelado-fundamentos.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Tema 19: Fundamentos de modelado estadístico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tema-20-rendimiento-diagnostico.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Medidas de rendimiento diangóstico</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -518,11 +547,7 @@ Por Christian Alejandro Delaflor Wagner
   <div class="footer-item">
     
 <div class="extra_footer">
-  <p> 
   Todos los derechos reservados.
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fchrisdewa.github.io%2Fcurso_python&label=Vistas&icon=eye&color=%239ec5fe&message=&style=for-the-badge&tz=Mexico%2FGeneral">
-<p> 
-
 </div>
   </div>
   

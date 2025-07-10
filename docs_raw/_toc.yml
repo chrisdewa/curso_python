@@ -26,8 +26,15 @@ chapters:
   - file: unidad-4/index
     sections:
       - glob: unidad-4/tema*
+  - file: unidad-5/index
+    sections:
+      - glob: unidad-5/tema*
+  - file: unidad-6/index
+    # sections:
+    #   - glob: unidad-6/tema*
   - file: Recursos/index
     # sections:
+    #   - glob: Recursos/*
   - file: otras-lecciones/index
     sections:
       - file: otras-lecciones/python-intermedio/index
