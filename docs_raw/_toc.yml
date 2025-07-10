@@ -19,23 +19,13 @@ chapters:
       - file: unidad-1/tema-6-conclusion
   - file: unidad-2/index
     sections:
-      - file: unidad-2/tema-7-variables
-      - file: unidad-2/tema-8-tipos-de-datos
-      - file: unidad-2/tema-9-operaciones-logicas
+      - glob: unidad-2/tema*
   - file: unidad-3/index
     sections:
-      - file: unidad-3/tema-10-control-de-flujo
-      - file: unidad-3/tema-11-funciones
-      - file: unidad-3/tema-12-librerias
-      - file: unidad-3/tema-13-demo
+      - glob: unidad-3/tema*
   - file: unidad-4/index
-    sections: 
-      - file: unidad-4/tema-14-manejo-de-datos-tabulados
-      - file: unidad-4/tema-15-palmer-penguins
-      - file: unidad-4/tema-16-descriptivos-basicos
-      - file: unidad-4/tema-17-visualizaciones
-      - file: unidad-4/tema-18-inferencia-basica
-      - file: unidad-4/tema-19-modelado-fundamentos
+    sections:
+      - glob: unidad-4/tema*
   - file: Recursos/index
     # sections:
   - file: otras-lecciones/index
