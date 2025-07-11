@@ -58,6 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tema-20-rendimiento-diagnostico';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
@@ -481,6 +483,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rendimiento-diagnostico">Rendimiento diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">Intervalos de confianza</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vpp-bayesianos">VPP Bayesianos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-los-datos">Nota sobre los datos</a></li>
 </ul>
             </nav>
@@ -821,7 +829,7 @@ Por lo tanto, el código funcionará exactamente igual si utilizamos la tabulaci
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">descomponer_tabulacion</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">descomponer_tabulacion</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extrae los valores de la tabla de contingencia 2x2 para un test diagnóstico.</span>
 
@@ -1084,63 +1092,102 @@ Por lo tanto, el código funcionará exactamente igual si utilizamos la tabulaci
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="intervalos-de-confianza">
+<h2>Intervalos de confianza<a class="headerlink" href="#intervalos-de-confianza" title="Link to this heading">#</a></h2>
+<p>Para cualquier proporción es posible calcular el intervalo de confianza. Hagámoslo para la sensibilidad.
+Recordando <span class="math notranslate nohighlight">\(Sensibilidad = VP/(VP+FN)\)</span>
+Para calcular utilizaremos el método de Wilson, puede revisar el siguiente paper para conocer cómo funcionan los demás.</p>
+<p>Erdoğan S, Gülhan OT. Alternative Confidence Interval Methods Used in the Diagnostic Accuracy Studies. Comput Math Methods Med. 2016;2016:7141050. doi: 10.1155/2016/7141050. Epub 2016 Jul 11. PMID: 27478491; PMCID: PMC4958484.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_diagnostico</span><span class="p">(</span><span class="n">tab2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportion_confint</span>
+
+<span class="n">sens</span> <span class="o">=</span> <span class="n">sensibilidad</span><span class="p">(</span><span class="n">tab1</span><span class="p">)</span>
+<span class="n">vp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vn</span> <span class="o">=</span> <span class="n">descomponer_tabulacion</span><span class="p">(</span><span class="n">tab1</span><span class="p">)</span>
+<span class="n">bajo</span><span class="p">,</span> <span class="n">alto</span> <span class="o">=</span> <span class="n">proportion_confint</span><span class="p">(</span>
+    <span class="n">count</span><span class="o">=</span><span class="n">vp</span><span class="p">,</span>   <span class="c1"># número de &quot;éxitos&quot;</span>
+    <span class="n">nobs</span><span class="o">=</span><span class="n">vp</span><span class="o">+</span><span class="n">fn</span><span class="p">,</span> <span class="c1"># número total de intentos</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;wilson&#39;</span><span class="p">,</span> <span class="c1"># Revisa la cita. Este método ofrece un buen balance en la estimación.</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sensibilidad: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1"> (IC 95% </span><span class="si">{</span><span class="n">bajo</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">alto</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Sensibilidad</th>
-      <td>0.870</td>
-    </tr>
-    <tr>
-      <th>Especificidad</th>
-      <td>0.935</td>
-    </tr>
-    <tr>
-      <th>VPP</th>
-      <td>0.800</td>
-    </tr>
-    <tr>
-      <th>VPN</th>
-      <td>0.960</td>
-    </tr>
-    <tr>
-      <th>Verosimilitud positiva</th>
-      <td>13.391</td>
-    </tr>
-    <tr>
-      <th>Verosimilitud negativa</th>
-      <td>0.139</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sensibilidad: 86.96% (IC 95% 67.87% - 95.46%)
+</pre></div>
 </div>
+</div>
+</div>
+<p>Como pudes ver, con base en el tamaño de muestra, el intervalo de confianza es elevado.</p>
+<section id="ejercicio">
+<h3>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Implementa el cálculo del intervalo de confianza para las demás estimaciones.</p></li>
+<li><p>Intenta incorporarlo dentro de la función <code class="docutils literal notranslate"><span class="pre">rendimiento_diagnostico</span></code>.</p></li>
+</ol>
+<p>Con estas herramientas podemos analizar el rendimiento diagnóstico de pruebas no solo propias de nuestra línea investigativa sino también de estudios que publiquen este tipo de datos.</p>
+</section>
+</section>
+<section id="vpp-bayesianos">
+<h2>VPP Bayesianos<a class="headerlink" href="#vpp-bayesianos" title="Link to this heading">#</a></h2>
+<p>Ahora, no podemos cerrar sin hablar de que los valores predictivos son directamente influenciados por la prevalencia de la enfermedad, por lo que se recomienda, en la mayoría de los casos, utilizar el cálculo ajustado a prevalencia (forma bayesiana).</p>
+<p>Recordemos que el teorema de bayes se define de la siguiente forma:</p>
+<p><span class="math notranslate nohighlight">\(P(Hipótesis|Evidencia) = \frac{P(Evidencia|Hipótesis)P(Hipótesis)}{P(Evidencia)}\)</span></p>
+<p>En este contexto la <code class="docutils literal notranslate"><span class="pre">evidencia</span></code> es el resultado del test y la <code class="docutils literal notranslate"><span class="pre">hipótesis</span></code> es que la persona esté enferma (Valor predictivo positivo).
+Luego entonces:</p>
+<p><span class="math notranslate nohighlight">\(P(Hipótesis|Evidencia) = VPP\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Evidencia|Hipótesis) = Sensibilidad\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Hipótesis) = Prevalencia\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Evidencia) = Probabilidad de test positivo\)</span></p>
+<p>La probabilidad de un test positivo está data en los escenarios donde el test es positivo y el paciente tiene la enfermedad por la probabilidad de tener la enfermedad y cuando la enfermedad no está presente pero el test es positivo por la probabilidad de no tener la enfermedad, dicho de otra forma:</p>
+<p><span class="math notranslate nohighlight">\(P(Evidencia) = Sensibilidad * Prevalencia + (1-Especificidad) * (1-Prevalencia)\)</span></p>
+<p>Implementemos este cálculo en python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vpp_bayes</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">,</span> <span class="n">prevalencia</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcula el valor predictivo positivo para la prevalencia&quot;&quot;&quot;</span>
+    <span class="n">sens</span> <span class="o">=</span> <span class="n">sensibilidad</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">)</span>
+    <span class="n">esp</span> <span class="o">=</span> <span class="n">especificidad</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">)</span>
+    <span class="n">numerador</span> <span class="o">=</span> <span class="n">sens</span> <span class="o">*</span> <span class="n">prevalencia</span>
+    <span class="n">denominador</span> <span class="o">=</span> <span class="n">numerador</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">esp</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">prevalencia</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numerador</span> <span class="o">/</span> <span class="n">denominador</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;función vpp_bayes definida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>función vpp_bayes definida
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vpp</span><span class="p">(</span><span class="n">tab1</span><span class="p">),</span> <span class="n">vpp_bayes</span><span class="p">(</span><span class="n">tab1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(0.8), np.float64(0.7026615969581749))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Como podemos ver para una prevalencia del 15% nuestro test tiene un rendimiendo medio con un VPP de solo ~70.3%, importante a tener en cuenta con enfermedades raras o estacionales.</p>
+</div>
+</section>
+<section id="id1">
+<h2>Ejercicio<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Implementa la función <code class="docutils literal notranslate"><span class="pre">vpn_bayes</span></code>.</p></li>
+<li><p>Busca algún artículo que reporte la sensibilidad y especificidad de un test y utiliza las funciones implementadas para corroborar sus datos.</p></li>
+<li><p>Intenta graficar las diferentes medidas de rendimiento diagnóstico utilizando <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> y/o <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+</ol>
 </section>
 <section id="nota-sobre-los-datos">
 <h2>Nota sobre los datos<a class="headerlink" href="#nota-sobre-los-datos" title="Link to this heading">#</a></h2>
@@ -1165,7 +1212,7 @@ Por lo tanto, el código funcionará exactamente igual si utilizamos la tabulaci
 </pre></div>
 </div>
 <p>Puedes generar tus propios datos imulados con estos datos.</p>
-<p>El código usa una comprension de lista para generar la variable <code class="docutils literal notranslate"><span class="pre">test</span></code>, puedes leer al respecto <a class="reference internal" href="../otras-lecciones/python-intermedio/comprensiones.html"><span class="std std-doc">aquí</span></a>.</p>
+<p>El código usa una comprension de lista para generar la variable <code class="docutils literal notranslate"><span class="pre">test</span></code>, puedes leer al respecto <a class="reference internal" href="#otras-lecciones%5Cpython-intermedio%5Ccomprensiones.md"><span class="xref myst">aquí</span></a>.</p>
 </section>
 </section>
 
@@ -1239,6 +1286,12 @@ Por lo tanto, el código funcionará exactamente igual si utilizamos la tabulaci
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rendimiento-diagnostico">Rendimiento diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">Intervalos de confianza</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vpp-bayesianos">VPP Bayesianos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-los-datos">Nota sobre los datos</a></li>
 </ul>
   </nav></div>
