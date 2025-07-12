@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Recursos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Medidas de asociación y correlación &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -58,12 +58,20 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Recursos/index';</script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/medidas-de-asociación';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Otras lecciones" href="../otras-lecciones/index.html" />
-    <link rel="prev" title="Unidad 5: Por definir" href="../unidad-6/index.html" />
+    <link rel="next" title="Medidas de rendimiento diagnóstico" href="rendimiento-diagnostico.html" />
+    <link rel="prev" title="Unidad 5: Recetario de análisis estadísticos comunes" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -218,13 +226,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-19-modelado-fundamentos.html">Tema 19: Fundamentos de modelado estadístico</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">Unidad 5: Recetario de análisis estadísticos comunes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/medidas-de-asociaci%C3%B3n.html">Medidas de asociación y correlación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/rendimiento-diagnostico.html">Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Recetario de análisis estadísticos comunes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rendimiento-diagnostico.html">Medidas de rendimiento diagnóstico</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Por definir</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../otras-lecciones/python-intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../otras-lecciones/python-intermedio/comprensiones.html">Comprensiones en Python</a></li>
@@ -279,6 +287,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/medidas-de-asociación.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -304,7 +343,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/Recursos/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/medidas-de-asociación.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +360,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2FRecursos/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/medidas-de-asociación.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +390,7 @@
       
       
       
-      <li><a href="../_sources/Recursos/index.md" target="_blank"
+      <li><a href="../_sources/unidad-5/medidas-de-asociación.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +400,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -435,7 +474,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Recursos</h1>
+    <h1>Medidas de asociación y correlación</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -445,9 +484,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acordeones">Acordeones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guias">Guías</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libros-de-texto">Libros de texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
 </ul>
             </nav>
         </div>
@@ -459,116 +496,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="recursos">
-<h1>Recursos<a class="headerlink" href="#recursos" title="Link to this heading">#</a></h1>
-<p>En este documento podrás encontrar muchos documentos útiles para ayudarte en el análisis de datos con python.</p>
-<div class="admonition tip">
-<p class="admonition-title">Truco</p>
-<p>Si piensas que has encontrado un acordeón u otro recurso que necesita estar en esta página por favor crea un <code class="docutils literal notranslate"><span class="pre">issue</span></code> en github para que lo agregue a esta página.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="medidas-de-asociacion-y-correlacion">
+<h1>Medidas de asociación y correlación<a class="headerlink" href="#medidas-de-asociacion-y-correlacion" title="Link to this heading">#</a></h1>
+<p>En esta libreta analizaremos diferentes medidas de asociación para diferentes conjuntos de datos, tanto numéricos como categóricos.</p>
+<p>We’ll consider the following flowchart</p>
+<pre  class="mermaid">
+        flowchart TD
+    A[Dos variables] --&gt; B{¿Tipo?}
+
+    B --&gt; C[Ambas categóricas]
+    C --&gt; D{¿Frecuencias esperadas ≥ 5?}
+    D -- Sí --&gt; F[χ² de Pearson]
+    D -- No --&gt; G[Test exacto de Fisher]
+
+    F --&gt; Cef[Medida de efecto]
+    G --&gt; Cef
+
+    Cef --&gt; OR[Odds Ratio]
+    Cef --&gt; V[V de Cramér]
+    Cef --&gt; Phi[Coeficiente Phi]
+
+    B --&gt; H[Una y Una]
+    H --&gt; I[Correlación Rango-Biserial]
+
+    B --&gt; J[Ambas numéricas]
+    J --&gt; K{¿Supuestos paramétricos?}
+    K -- No --&gt; L[Rho de Spearman]
+    K -- No --&gt; M[Tau de Kendall]
+    K -- Sí --&gt; N[r de Pearson]
+
+    </pre><p>Pese a que este tipo de diagramas son muy limitados, lo uso aquí solo con fines de resumen, no de guía. Siempre decide la prueba adecuada con base en tu contexto científico.</p>
+<section id="librerias-y-datos">
+<h2>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<p>Utilizaremos datos de un dataset público que puedes encontrar <a class="reference external" href="https://www.kaggle.com/datasets/pritsheta/heart-attack/data">aquí</a>.
+El dataset contiene la siguiente información:</p>
+<ol class="arabic simple">
+<li><p>Age: Age (in years)</p></li>
+<li><p>Sex: gender (1 = male; 0 = female)</p></li>
+<li><p>ChestPain: Chest Pain type .</p>
+<ul class="simple">
+<li><p>typical angina (all criteria present)</p></li>
+<li><p>atypical angina (two of three criteria satisfied)</p></li>
+<li><p>non-anginal pain (less than one criteria satisfied)</p></li>
+<li><p>asymptomatic (none of the criteria are satisfied)</p></li>
+</ul>
+</li>
+<li><p>Restbps: Resting Blood pressure (in mmHg, upon admission to the hospital)</p></li>
+<li><p>Chol: serum cholesterol in mg/dL</p></li>
+<li><p>Fbs: fasting blood sugar &gt; 120 mg/dL (likely to be diabetic) 1 = true; 0 = false</p></li>
+<li><p>RestECG: Resting electrocardiogram results</p>
+<ul class="simple">
+<li><p>Value 0: normal</p></li>
+<li><p>Value 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of &gt; 0.05 mV)</p></li>
+<li><p>Value 2: showing probable or definite left ventricular hypertrophy by Estes” criteria</p></li>
+</ul>
+</li>
+<li><p>MaxHR: Greatest number of beats per minute your heart can possibly reach during all-out strenuous exercise.</p></li>
+<li><p>Exang: exercise induced angina (1 = yes; 0 = no)</p></li>
+<li><p>Oldpeak: ST depression induced by exercise relative to rest (in mm, achieved by subtracting the lowest ST segment points during exercise and rest)</p></li>
+<li><p>Slope: the slope of the peak exercise ST segment, ST-T abnormalities are considered to be a crucial indicator for identifying presence of ischaemia</p>
+<ul class="simple">
+<li><p>Value 1: upsloping</p></li>
+<li><p>Value 2: flat</p></li>
+<li><p>Value 3: downsloping</p></li>
+</ul>
+</li>
+<li><p>Ca: number of major vessels (0-3) colored by fluoroscopy. Major cardial vessels are as goes: aorta, superior vena cava, inferior vena cava, pulmonary artery (oxygen-poor blood –&gt; lungs), pulmonary veins (oxygen-rich blood –&gt; heart), and coronary arteries (supplies blood to heart tissue).</p></li>
+<li><p>AHD: 0 = normal; 1 = fixed defect (heart tissue can’t absorb thallium both under stress and in rest); 2 = reversible defect (heart tissue is unable to absorb thallium only under the exercise portion of the test)</p></li>
+<li><p>AHD: 0 = no disease, 1 = disease</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/chrisdewa/curso_python/refs/heads/main/datos/Heart_Attack_Data.xls&#39;</span>
+</pre></div>
 </div>
-<section id="acordeones">
-<span id="acordeones-target"></span><h2>Acordeones<a class="headerlink" href="#acordeones" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Tema o Librería</p></th>
-<th class="head"><p>Acordeon</p></th>
-<th class="head"><p>Oficial</p></th>
-<th class="head"><p>Liga</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></td>
-<td><p>Data Wrangling. Uso general de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> con datos tidy.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">liga</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
-<td><p>Uso general.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/cheatsheets/_images/cheatsheets-1.png">liga</a></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
-<td><p>Manejo de ejes de las figuras.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/cheatsheets/_images/cheatsheets-1.png">liga</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
-<td><p>Consejos para principiantes.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/cheatsheets/_images/handout-beginner.png">liga</a></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
-<td><p>Consejos intermedios.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/cheatsheets/_images/handout-intermediate.png">liga</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
-<td><p>Trucos.</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/cheatsheets/_images/handout-tips.png">liga</a></p></td>
-</tr>
-</tbody>
-</table>
 </div>
-</section>
-<section id="guias">
-<h2>Guías<a class="headerlink" href="#guias" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Tema o Librería</p></th>
-<th class="head"><p>Guía</p></th>
-<th class="head"><p>Oficial</p></th>
-<th class="head"><p>Liga</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlit</span></code></p></td>
-<td><p>Guía de inicio rápido</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://matplotlib.org/stable/users/explain/quick_start.html">liga</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p></td>
-<td><p>Tutoriales</p></td>
-<td><p>Sí</p></td>
-<td><p><a class="reference external" href="https://seaborn.pydata.org/tutorial.html">liga</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="libros-de-texto">
-<h2>Libros de texto<a class="headerlink" href="#libros-de-texto" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Libro</p></th>
-<th class="head"><p>Autor</p></th>
-<th class="head"><p>Liga</p></th>
-<th class="head"><p>Comentario</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Think Python</p></td>
-<td><p>Allen Downey</p></td>
-<td><p><a class="reference external" href="https://allendowney.github.io/ThinkPython/">liga</a></p></td>
-<td><p>Excelente recurso, gratis, para comenzar a aprender python desde cero, con enfoque general.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Think Stats</p></td>
-<td><p>Allen Downey</p></td>
-<td><p><a class="reference external" href="https://allendowney.github.io/ThinkStats/">liga</a></p></td>
-<td><p>Libro gratis enfocado a aprender análisis estadístico con python.</p></td>
-</tr>
-<tr class="row-even"><td><p>Think Bayes</p></td>
-<td><p>Allen Downey</p></td>
-<td><p><a class="reference external" href="https://allendowney.github.io/ThinkBayes2/">liga</a></p></td>
-<td><p>Libro gratis para comenzar a aprender inferencia bayesiana en python.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Python for Data Analysis, 3E</p></td>
-<td><p>Wes McKinney</p></td>
-<td><p><a class="reference external" href="https://wesmckinney.com/book/python-basics">liga</a></p></td>
-<td><p>Libro gratis de texto para comenzar con análisis de datos en python.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </section>
 </section>
@@ -586,7 +591,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./Recursos"
+            path: "./unidad-5"
         },
         predefinedOutput: true
     }
@@ -604,20 +609,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../unidad-6/index.html"
+       href="index.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Unidad 5: Por definir</p>
+        <p class="prev-next-title">Unidad 5: Recetario de análisis estadísticos comunes</p>
       </div>
     </a>
     <a class="right-next"
-       href="../otras-lecciones/index.html"
+       href="rendimiento-diagnostico.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Otras lecciones</p>
+        <p class="prev-next-title">Medidas de rendimiento diagnóstico</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -637,9 +642,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acordeones">Acordeones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guias">Guías</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libros-de-texto">Libros de texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
 </ul>
   </nav></div>
 

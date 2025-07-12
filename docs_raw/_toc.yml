@@ -28,7 +28,7 @@ chapters:
       - glob: unidad-4/tema*
   - file: unidad-5/index
     sections:
-      - glob: unidad-5/tema*
+      - glob: unidad-5/*
   - file: unidad-6/index
     # sections:
     #   - glob: unidad-6/tema*
