@@ -486,7 +486,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-variables-categoricas">Dos variables categóricas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercio">Ejercio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-tamanos-del-efecto">Otros tamaños del efecto</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-asociacion">Matriz de asociación</a></li>
 </ul>
@@ -523,11 +523,11 @@ document.write(`
     A[Dos variables] --&gt; B{¿Tipo?}
 
     B --&gt; C[Ambas categóricas]
-    C --&gt; D{¿Frecuencias esperadas ≥ 5?}
+    C --&gt; D{¿Frecuencias esperadas ≥5?}
     D -- Sí --&gt; F[χ² de Pearson]
     D -- No --&gt; G[Test exacto de Fisher]
 
-    F --&gt; Cef[Medida de efecto]
+    F --&gt; Cef[Tamaño del efecto]
     G --&gt; Cef
 
     Cef --&gt; OR[Odds Ratio]
@@ -789,7 +789,7 @@ Primero obtengamos la tabla cruzada como se hizo en la lección previa.</p>
 </div>
 </div>
 </div>
-<p>Crearemos una función que realizará la chi cuadrada, obendrá el OR y su intervalo de confianza e imprimirá en la consola el resultado, además, verificará el supuesto de las frecuencias esperadas.</p>
+<p>Crearemos una función que realizará la chi cuadrada, obtendrá el OR y su intervalo de confianza e imprimirá en la consola el resultado, además, verificará el supuesto de las frecuencias esperadas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">chi_cuadrada</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
@@ -801,7 +801,7 @@ Primero obtengamos la tabla cruzada como se hizo en la lección previa.</p>
     <span class="n">OR</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">contingency</span><span class="o">.</span><span class="n">odds_ratio</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;sample&#39;</span><span class="p">)</span>
     <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">OR</span><span class="o">.</span><span class="n">confidence_interval</span><span class="p">()</span>
     <span class="n">cumple_frec</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">v</span><span class="o">&gt;</span><span class="mi">5</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">chi</span><span class="o">.</span><span class="n">expected_freq</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Resutado de Chi cuadrada: p=</span><span class="si">{</span><span class="n">chi</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.1e</span><span class="si">}</span><span class="s1">, OR=</span><span class="si">{</span><span class="n">OR</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> (IC 95% </span><span class="si">{</span><span class="n">low</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">high</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Resultado de Chi cuadrada: p=</span><span class="si">{</span><span class="n">chi</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.1e</span><span class="si">}</span><span class="s1">, OR=</span><span class="si">{</span><span class="n">OR</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> (IC 95% </span><span class="si">{</span><span class="n">low</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">high</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Función definida.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -825,11 +825,11 @@ Primero obtengamos la tabla cruzada como se hizo en la lección previa.</p>
 </div>
 </div>
 </div>
-<p>Podemos ver que existe una asociación significativa entre la presencia de la enfermedad y el sexo. Como en la tabla está codificado el sexo masculino como 1, curiosamente en estos datos, ser hombre es protector para la enfermedad cardiaca aguda. Además, podemos ver que la p es muy significativa, al igual que el odds ratio.</p>
-<section id="ejercio">
-<h3>Ejercio<a class="headerlink" href="#ejercio" title="Link to this heading">#</a></h3>
+<p>Podemos ver que existe una asociación significativa entre la presencia de la enfermedad y el sexo. Como en la tabla está codificado el sexo masculino como 1, curiosamente en estos datos, ser hombre es protector para la enfermedad cardíaca aguda. Además, podemos ver que la p es muy significativa, al igual que el odds ratio.</p>
+<section id="ejercicio">
+<h3>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Revisa la documentación de las funciones <code class="docutils literal notranslate"><span class="pre">chi2_contingecy</span></code> y <code class="docutils literal notranslate"><span class="pre">odds_ratio</span></code>.</p></li>
+<li><p>Revisa la documentación de las funciones <code class="docutils literal notranslate"><span class="pre">chi2_contingency</span></code> y <code class="docutils literal notranslate"><span class="pre">odds_ratio</span></code>.</p></li>
 <li><p>Ajusta la función para que acepte argumentos adicionales, de forma que podamos calcular intervalos de confianza para diferentes niveles de alfa.</p></li>
 <li><p>Ajusta la función para el parámetro «kind» de la función <code class="docutils literal notranslate"><span class="pre">odds_ratio</span></code>, pero primero asegúrate de entender qué hace.</p></li>
 <li><p>Implementa una función diferente que funcione con la exacta de fisher.</p></li>
@@ -855,7 +855,7 @@ Primero obtengamos la tabla cruzada como se hizo en la lección previa.</p>
 </section>
 <section id="matriz-de-asociacion">
 <h3>Matriz de asociación<a class="headerlink" href="#matriz-de-asociacion" title="Link to this heading">#</a></h3>
-<p>Ahora, podemos utilizar estas métricas, ya que no son exclusivas para datos 2x2, para generar matrices de asociación. Revisando los datos, las variables categóricas son: sex, cp, fbs, restecg, exang, splope, thal, target.</p>
+<p>Ahora, podemos utilizar estas métricas, ya que no son exclusivas para datos 2x2, para generar matrices de asociación. Revisando los datos, las variables categóricas son: sex, cp, fbs, restecg, exang, slope, thal, target.</p>
 <p>Primero crearemos una función que tome A y B, como series de un <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> y  genere una tabulación cruzada y calcule la V de Cramer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,7 +1029,7 @@ Primero obtengamos la tabla cruzada como se hizo en la lección previa.</p>
 </section>
 <section id="una-categorica-y-una-numerica">
 <h2>Una categórica y una numérica<a class="headerlink" href="#una-categorica-y-una-numerica" title="Link to this heading">#</a></h2>
-<p>Para analizar la asociación podemos utilizar la correlación punto biserial, que está implementada directamente en scipy.
+<p>Para analizar la asociación podemos utilizar la correlación punto biserial, que está implementada directamente en <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.
 Utilicemos <code class="docutils literal notranslate"><span class="pre">target</span></code> y <code class="docutils literal notranslate"><span class="pre">age</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1114,7 +1114,7 @@ Utilicemos <code class="docutils literal notranslate"><span class="pre">target</
 <section id="ejercicios">
 <h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Grafica las correlaciones.</p></li>
+<li><p>Gráfica las correlaciones.</p></li>
 <li><p>Continúa explorando los datos presentados.</p></li>
 <li><p>Revisa la página del dataset: <a class="reference external" href="https://www.kaggle.com/datasets/pritsheta/heart-attack/data">https://www.kaggle.com/datasets/pritsheta/heart-attack/data</a>.</p></li>
 <li><p>Revisa el código de otros para ver qué tipos de análisis utilizan.</p></li>
@@ -1194,7 +1194,7 @@ Utilicemos <code class="docutils literal notranslate"><span class="pre">target</
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-variables-categoricas">Dos variables categóricas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercio">Ejercio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-tamanos-del-efecto">Otros tamaños del efecto</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-asociacion">Matriz de asociación</a></li>
 </ul>
