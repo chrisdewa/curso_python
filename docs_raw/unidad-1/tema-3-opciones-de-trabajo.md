@@ -7,9 +7,10 @@ nav_order: 3
 
 En este tema exploramos las distintas formas de **trabajar con código Python**, desde opciones sencillas en la nube hasta entornos locales más avanzados y flexibles.
 
-:::{admonition} Nota
-:class: note
+:::{note} 
 En este curso usaremos Python en forma local, asistidos por la herramienta `uv`, como se explicó en el [tema 1](<tema-1-preparacion.md>). El objetivo de esta lección es que conozcas otras formas de correr Python.
+
+No es necesario que ejecutes o realices cada uno, solo es para tu conocimiento.
 :::
 
 ---
