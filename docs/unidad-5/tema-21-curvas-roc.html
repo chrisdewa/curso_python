@@ -576,16 +576,16 @@ Verás que en cada ejecución los números generados cambian.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+25
+50
+76
+70
 64
-55
-28
-98
-54
-49
-14
-58
-81
+96
+11
+68
+73
 </pre></div>
 </div>
 </div>
@@ -959,7 +959,6 @@ Primero generemos una nueva serie dentro de nuestro arreglo de datos con aquello
       <th></th>
       <th>Estándar</th>
       <th>Test</th>
-      <th>pred</th>
       <th>Predicho</th>
     </tr>
   </thead>
@@ -969,13 +968,11 @@ Primero generemos una nueva serie dentro de nuestro arreglo de datos con aquello
       <td>0</td>
       <td>22</td>
       <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0</td>
       <td>19</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -983,20 +980,17 @@ Primero generemos una nueva serie dentro de nuestro arreglo de datos con aquello
       <td>1</td>
       <td>23</td>
       <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
       <td>27</td>
       <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
       <td>18</td>
-      <td>0</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1116,12 +1110,12 @@ Ahora calculemos tabla cruzada y la sensibilidad y especificidad.</p>
     
     <span class="n">auc_roc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;AUC: </span><span class="si">{</span><span class="n">auc_roc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    
     <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tpr</span><span class="o">-</span><span class="n">fpr</span><span class="p">)</span>
     <span class="n">cutoff</span> <span class="o">=</span> <span class="n">th</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s1">&#39;o-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Umbral=</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-    <span class="n">tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pred&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Estándar&#39;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s1">&#39;o-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Umbral=</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Estándar&#39;</span><span class="p">])</span>
     <span class="n">sens</span> <span class="o">=</span> <span class="n">sensibilidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
     <span class="n">esp</span> <span class="o">=</span> <span class="n">especificidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Sensibilidad: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="se">\n</span><span class="s1">Especificidad: </span><span class="si">{</span><span class="n">esp</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span>
@@ -1142,7 +1136,7 @@ Ahora calculemos tabla cruzada y la sensibilidad y especificidad.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5f3b2840782892ab1873f68b2928ff9b3d0f18442a422be9915259c8f731cb17.png" src="../_images/5f3b2840782892ab1873f68b2928ff9b3d0f18442a422be9915259c8f731cb17.png" />
+<img alt="../_images/b19b32cc9456bbf77b26e353a3b13b552ddceb4a51fe391def8bc2b17cac6a43.png" src="../_images/b19b32cc9456bbf77b26e353a3b13b552ddceb4a51fe391def8bc2b17cac6a43.png" />
 </div>
 </div>
 </section>
