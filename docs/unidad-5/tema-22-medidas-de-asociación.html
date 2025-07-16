@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 21: Medidas de asociación y correlación &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Tema 22: Medidas de asociación y correlación &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -66,12 +66,12 @@
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
 window.addEventListener("load", () => mermaid.run());
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tema-21-medidas-de-asociación';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tema-22-medidas-de-asociación';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Unidad 5: Por definir" href="../unidad-6/index.html" />
-    <link rel="prev" title="Tema 20: Medidas de rendimiento diagnóstico" href="tema-20-rendimiento-diagnostico.html" />
+    <link rel="next" title="Tema 23: Tamaños del efecto" href="tema-23-tama%C3%B1os-effecto.html" />
+    <link rel="prev" title="Tema 21: Curvas ROC" href="tema-21-curvas-roc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -228,7 +228,9 @@ window.addEventListener("load", () => mermaid.run());
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Recetario de análisis estadísticos comunes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tema-20-rendimiento-diagnostico.html">Tema 20: Medidas de rendimiento diagnóstico</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 21: Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-21-curvas-roc.html">Tema 21: Curvas ROC</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 22: Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-23-tama%C3%B1os-effecto.html">Tema 23: Tamaños del efecto</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Por definir</a></li>
@@ -295,7 +297,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/tema-21-medidas-de-asociación.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/tema-22-medidas-de-asociación.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +345,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/tema-21-medidas-de-asociación.ipynb" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/tema-22-medidas-de-asociación.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +362,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/tema-21-medidas-de-asociación.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/tema-22-medidas-de-asociación.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +392,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="../_sources/unidad-5/tema-21-medidas-de-asociación.ipynb" target="_blank"
+      <li><a href="../_sources/unidad-5/tema-22-medidas-de-asociación.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -474,7 +476,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 21: Medidas de asociación y correlación</h1>
+    <h1>Tema 22: Medidas de asociación y correlación</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -514,8 +516,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-21-medidas-de-asociacion-y-correlacion">
-<h1>Tema 21: Medidas de asociación y correlación<a class="headerlink" href="#tema-21-medidas-de-asociacion-y-correlacion" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-22-medidas-de-asociacion-y-correlacion">
+<h1>Tema 22: Medidas de asociación y correlación<a class="headerlink" href="#tema-22-medidas-de-asociacion-y-correlacion" title="Link to this heading">#</a></h1>
 <p>En esta libreta analizaremos diferentes medidas de asociación para diferentes conjuntos de datos, tanto numéricos como categóricos.</p>
 <p>We’ll consider the following flowchart</p>
 <pre  class="mermaid">
@@ -544,6 +546,7 @@ document.write(`
     K -- Sí --&gt; N[r de Pearson]
 
     </pre><p>Pese a que este tipo de diagramas son muy limitados, lo uso aquí solo con fines de resumen, no de guía. Siempre decide la prueba adecuada con base en tu contexto científico.</p>
+<p>Ten en cuenta que el objetivo no es analizar formalmente los datos sino mostrar cómo se pueden utilizar y ejecutar diferentes formas de asociación.</p>
 <section id="librerias-y-datos">
 <h2>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <p>Utilizaremos datos de un dataset público que puedes encontrar <a class="reference external" href="https://www.kaggle.com/datasets/pritsheta/heart-attack/data">aquí</a>.
@@ -1159,20 +1162,20 @@ Utilicemos <code class="docutils literal notranslate"><span class="pre">target</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tema-20-rendimiento-diagnostico.html"
+       href="tema-21-curvas-roc.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 20: Medidas de rendimiento diagnóstico</p>
+        <p class="prev-next-title">Tema 21: Curvas ROC</p>
       </div>
     </a>
     <a class="right-next"
-       href="../unidad-6/index.html"
+       href="tema-23-tama%C3%B1os-effecto.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Unidad 5: Por definir</p>
+        <p class="prev-next-title">Tema 23: Tamaños del efecto</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
