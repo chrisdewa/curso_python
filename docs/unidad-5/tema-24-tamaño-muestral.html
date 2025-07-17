@@ -485,7 +485,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-para-proporciones">Estimación para proporciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-de-cochran">Fórmula de Cochran</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-de-equivalencia-en-una-proporcion">Estudios de equivalencia en una proporción</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#una-proporcion-finita-cochran">Una proporción finita (Cochran)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#una-proporcion-con-poblacion-finita-cochran">Una proporción con población finita (Cochran)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimar-una-media">Estimar una Media</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimar-un-odds-ratio">Estimar un Odds Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-independencia-chi2">Prueba de independencia (Chi²)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-tamano-de-muestra-con-statsmodels">Cálculo de tamaño de muestra con <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proporciones-comparacion-de-dos-grupos">Proporciones: comparación de dos grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-medias-en-dos-grupos">Comparación medias en dos grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-de-una-via-comparacion-de-mas-de-dos-medias">ANOVA de una vía (comparación de más de dos medias)</a></li>
 </ul>
 </li>
 </ul>
@@ -510,11 +520,14 @@ document.write(`
 <h2>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span> <span class="c1"># redondea hacia arriba</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ceil</span><span class="p">,</span> <span class="c1"># redondea hacia arriba</span>
+    <span class="n">sqrt</span><span class="p">,</span> <span class="c1"># la raíz cuadrada</span>
+<span class="p">)</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">root_scalar</span> <span class="c1"># para resolver numéricamente</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Librerías importadas&#39;</span><span class="p">)</span>
 </pre></div>
@@ -671,130 +684,490 @@ n = \frac{(Z_{1-\alpha/2} + Z_\beta)^2 \cdot p \cdot (1-p)}{d^2}
 </div>
 <p>Para este estudio requeriríamos entonces 130 sujetos.</p>
 </section>
-<section id="una-proporcion-finita-cochran">
-<h3>Una proporción finita (Cochran)<a class="headerlink" href="#una-proporcion-finita-cochran" title="Link to this heading">#</a></h3>
-<p>Existen situaciones en las que queremos acotar el tamaño muestral a una población conocida, para lo cual se realiza un ajuste a en la fórmula de Cochran.</p>
-<p>def una_prop_fin(p, error, N):
-z = 1.96<strong>2
-q = 1-p
-num = N<em>z</em>p*q
-den = error</strong>2*(N-1)+z<em>p</em>q
-n = num/den
-return n</p>
-<p>def una_media(s, error):
-z = 1.96
-n = (z*s/error)**2
-return n</p>
-<p>def un_odds_ratio(
-OR: float,
-p0: float,
-alpha: float=0.05,
-beta: float=0.2,
-ratio: int=1
-) -&gt; tuple[int, int]:
-«»»
-Calcula el tamaño de muestra para un odds ratio
-Args:
-OR: El Odds ratio a estimar
-p0: prevalencia general
-alpha: error tipo 1
-beta: error tipo 2
-ratio: razón de controles/casos
-Returns:
-int, int: n_casos,n_controles
-«»»
-power = 1-beta</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># p1 (prevalencia de exposición en casos)
-p1 = (OR * p0) / (1 + p0 * (OR - 1))
-# Z-scores a dos colas
-Za = stats.norm.ppf(1 - alpha/2).round(2) # e.j. ~1.96 para alpha=0.05
-Zb = stats.norm.ppf(power).round(2)  # e.j. ~0.84 para 80% power
-# Pooled exposure proportion
-p_bar = (p1 + ratio * p0) / (1 + ratio)
-q_bar = 1 - p_bar
+<section id="una-proporcion-con-poblacion-finita-cochran">
+<h3>Una proporción con población finita (Cochran)<a class="headerlink" href="#una-proporcion-con-poblacion-finita-cochran" title="Link to this heading">#</a></h3>
+<p>En ocasiones, el tamaño de la población es <strong>conocido y limitado</strong>. En estos casos, se recomienda aplicar una <strong>corrección por población finita</strong> a la fórmula de Cochran:</p>
+<div class="math notranslate nohighlight">
+\[
+n = \frac{N \cdot (Z_{1-\alpha/2})^2 \cdot p(1-p)}{d^2(N - 1) + (Z_{1-\alpha/2})^2 \cdot p(1-p)}
+\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> es el tamaño total de la población,</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z\)</span> es el valor crítico para el nivel de confianza deseado,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> es la proporción esperada,</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> es el margen de error (precisión deseada).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cochran_poblacion_finita</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hipotesis</span><span class="o">=</span><span class="s1">&#39;dos colas&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño de muestra para una proporción ajustado a una población finita.</span>
 
-# Calculatar
-n_cases = (
-    Za * math.sqrt((1 + ratio) * p_bar * q_bar)
-  + Zb * math.sqrt(p0 * (1 - p0) + ratio * p1 * (1 - p1))
-)**2 / (ratio * (p1 - p0)**2)
-n_controls = ratio * n_cases
-# Round up
-return math.ceil(n_cases), math.ceil(n_controls)
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - p: proporción esperada (entre 0 y 1)</span>
+<span class="sd">    - d: margen de error (precisión)</span>
+<span class="sd">    - N: tamaño total de la población</span>
+<span class="sd">    - alfa: nivel de significancia (por defecto 0.05)</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - n: tamaño de muestra ajustado (float, no redondeado)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hips</span> <span class="o">=</span> <span class="s1">&#39;dos colas&#39;</span><span class="p">,</span> <span class="s1">&#39;una cola&#39;</span>
+    <span class="k">if</span> <span class="n">hipotesis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hips</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;La hipótesis debe ser &#39;dos colas&#39; o &#39;una cola&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hipotesis</span> <span class="o">==</span> <span class="s1">&#39;dos colas&#39;</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="n">den</span>
+    <span class="k">return</span> <span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Función definida&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>def for_chi2_indep(p_ij, alpha=0.05, beta=0.2):
-«»»
-Compute sample size for chi-square test of independence in r x c table.
-Always uses brentq method.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parameters:
-p_ij (2D array): Expected joint probabilities matrix (r x c), must sum to 1.
-alpha (float): Type I error (e.g., 0.05)
-beta (float): Type II error (e.g., 0.2 for 80% power)
-
-Returns:
-  n (float): Required sample size
-
-Add:
-  Taken from Chow 2008 6.2.1
-&quot;&quot;&quot;
-
-# 1. Check that p_ij is valid
-if not np.isclose(np.sum(p_ij), 1):
-    raise ValueError(&quot;The matrix p_ij must sum to 1.&quot;)
-
-r = len(p_ij)
-c = len(p_ij[0] if r else 0)
-
-# 2. Degrees of freedom
-df = (r - 1) * (c - 1)
-
-# 3. Critical value under central chi-squared
-critical_value = stats.chi2.ppf(1 - alpha, df)
-
-# 4. Objective function for root finding
-def objective(delta):
-    return stats.ncx2.sf(critical_value, df, delta) - (1 - beta)
-
-# 5. Solve for delta using brentq
-sol = root_scalar(objective, bracket=[0, 50], method=&#39;brentq&#39;)
-if not sol.converged:
-    raise RuntimeError(&quot;Root finding did not converge.&quot;)
-
-delta = sol.root
-
-# 6. Marginals
-p_i_dot = np.sum(p_ij, axis=1)  # row sums
-p_dot_j = np.sum(p_ij, axis=0)  # column sums
-
-# 7. Compute the noncentrality effect structure
-effect_size = 0.0
-for i in range(r):
-    for j in range(c):
-        expected = p_i_dot[i] * p_dot_j[j]
-        if expected &gt; 0:
-            effect_size += ((p_ij[i, j] - expected) ** 2) / expected
-
-# 8. Sample size
-n = delta / effect_size
-
-return n
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Función definida
 </pre></div>
 </div>
-<p>def dos_props(p1, p2):
-num = p1*(1-p1) + p2 * (1-p2)
-den = (p1-p2)**2
-z = (1.96 + 0.84)**2
-return z * num/den</p>
-<p>def dos_medias(mu1, mu2, s):
-d = (mu1-mu2)/s
-za = 1.96
-zb = 0.84
-n = (
-(2 * (za+zb)<strong>2)
-/ d</strong>2
-) + 0.25 * za**2
-return math.ceil(n)</p>
+</div>
+</div>
+<p>Utilicemos ahora la fórmula con los siguientes parámetros:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p = 0.4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d = 0.05\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(N = 350\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha = 0.05\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(hipótesis = \text{una cola}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cochran_poblacion_finita</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>180
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estimar-una-media">
+<h2>Estimar una Media<a class="headerlink" href="#estimar-una-media" title="Link to this heading">#</a></h2>
+<p>Utilizaremos la fórmula para una media.</p>
+<div class="math notranslate nohighlight">
+\[
+n = (\frac{Z_{1-\alpha/2} \cdot \sigma}{d})^2
+\]</div>
+<p>Muy parecida a la fórmula que utilizamos para la proporción. Ten en cuenta que <span class="math notranslate nohighlight">\(\sigma\)</span> es la desviación estándar de la media a estimar y <span class="math notranslate nohighlight">\(\d\)</span> es el margen de error de la media.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimar_una_media</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hipotesis</span><span class="o">=</span><span class="s1">&#39;dos colas&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño de muestra para estimar una media en población indefinida.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - sigma: desviación estándar esperada</span>
+<span class="sd">    - d: margen de error (precisión)</span>
+<span class="sd">    - alfa: nivel de significancia (por defecto 0.05)</span>
+<span class="sd">    - hipotesis: &#39;dos colas&#39; o &#39;una cola&#39;</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - n: tamaño de muestra (entero)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hips</span> <span class="o">=</span> <span class="s1">&#39;dos colas&#39;</span><span class="p">,</span> <span class="s1">&#39;una cola&#39;</span>
+    <span class="k">if</span> <span class="n">hipotesis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hips</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;La hipótesis debe ser &#39;dos colas&#39; o &#39;una cola&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hipotesis</span> <span class="o">==</span> <span class="s1">&#39;dos colas&#39;</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alfa</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alfa</span><span class="p">)</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Función definida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Función definida
+</pre></div>
+</div>
+</div>
+</div>
+<p>Supongamos que deseamos estimar el promedio de una variable continua (por ejemplo, niveles séricos de una proteína), con:</p>
+<ul class="simple">
+<li><p>una desviación estándar estimada de 12 unidades,</p></li>
+<li><p>un margen de error aceptable de 3 unidades,</p></li>
+<li><p>un nivel de confianza del 99%,</p></li>
+<li><p>y una hipótesis a dos colas.</p></li>
+</ul>
+<p>Llamamos a la función así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimar_una_media</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>107
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-1">
+<h2>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Diseña tu propia función para estimar:</p>
+<ul class="simple">
+<li><p>La media en un estudio analítico, tanto para muestras pareadas como para muestras independientes.</p></li>
+<li><p>Para estimar dos proporciones.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="estimar-un-odds-ratio">
+<h2>Estimar un Odds Ratio<a class="headerlink" href="#estimar-un-odds-ratio" title="Link to this heading">#</a></h2>
+<p>Cuando deseamos estimar la asociación entre una exposición y un evento binario (por ejemplo, enfermedad presente o ausente), es común utilizar un <strong>estudio de casos y controles</strong> y calcular el <strong>odds ratio (OR)</strong>.</p>
+<p>Para calcular el tamaño de muestra necesario en este tipo de estudios, se requiere conocer:</p>
+<ul class="simple">
+<li><p>el <strong>OR</strong> esperado (efecto mínimo que se desea detectar),</p></li>
+<li><p>la <strong>prevalencia de exposición en los controles</strong> (<span class="math notranslate nohighlight">\(p_0\)</span>),</p></li>
+<li><p>el <strong>nivel de significancia</strong> (<span class="math notranslate nohighlight">\(\alpha\)</span>),</p></li>
+<li><p>el <strong>poder estadístico</strong> deseado (<span class="math notranslate nohighlight">\(1 - \beta\)</span>),</p></li>
+<li><p>y la <strong>razón de controles por cada caso</strong>.</p></li>
+</ul>
+<p>La fórmula aproximada para calcular el número de casos es:</p>
+<div class="math notranslate nohighlight">
+\[
+n_{casos} = \frac{\left[ Z_{1-\alpha/2} \cdot \sqrt{(1 + k) \cdot \bar{p}(1 - \bar{p})} + Z_{1-\beta} \cdot \sqrt{p_0(1 - p_0) + k \cdot p_1(1 - p_1)} \right]^2}{k \cdot (p_1 - p_0)^2}
+\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> es la razón de controles por caso,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_0\)</span> es la prevalencia de exposición en controles,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_1\)</span> es la prevalencia de exposición en casos, calculada como:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+p_1 = \frac{OR \cdot p_0}{1 + p_0 \cdot (OR - 1)}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{p}\)</span> es la proporción combinada de exposición:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\bar{p} = \frac{p_1 + k \cdot p_0}{1 + k}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">un_odds_ratio</span><span class="p">(</span><span class="n">OR</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño de muestra para estimar un odds ratio en un estudio de casos y controles.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - OR: odds ratio esperado</span>
+<span class="sd">    - p0: prevalencia de exposición en los controles</span>
+<span class="sd">    - alpha: error tipo I (por defecto 0.05)</span>
+<span class="sd">    - beta: error tipo II (por defecto 0.2, equivalente a 80% de poder)</span>
+<span class="sd">    - ratio: razón de controles por caso (por defecto 1:1)</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - n_casos: número de casos requeridos (entero)</span>
+<span class="sd">    - n_controles: número de controles requeridos (entero)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">poder</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">beta</span>
+
+    <span class="c1"># Prevalencia esperada de exposición en los casos</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="n">OR</span> <span class="o">*</span> <span class="n">p0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p0</span> <span class="o">*</span> <span class="p">(</span><span class="n">OR</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Valores críticos de Z</span>
+    <span class="n">Za</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Zb</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">poder</span><span class="p">)</span>
+
+    <span class="c1"># Proporciones combinadas</span>
+    <span class="n">p_bar</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">p0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ratio</span><span class="p">)</span>
+    <span class="n">q_bar</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p_bar</span>
+
+    <span class="c1"># Cálculo del tamaño de muestra</span>
+    <span class="n">numerador</span> <span class="o">=</span> <span class="p">(</span><span class="n">Za</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ratio</span><span class="p">)</span> <span class="o">*</span> <span class="n">p_bar</span> <span class="o">*</span> <span class="n">q_bar</span><span class="p">)</span> <span class="o">+</span> <span class="n">Zb</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">p0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span> <span class="o">+</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">denominador</span> <span class="o">=</span> <span class="n">ratio</span> <span class="o">*</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="n">n_casos</span> <span class="o">=</span> <span class="n">numerador</span> <span class="o">/</span> <span class="n">denominador</span>
+    <span class="n">n_controles</span> <span class="o">=</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">n_casos</span>
+
+    <span class="k">return</span> <span class="n">ceil</span><span class="p">(</span><span class="n">n_casos</span><span class="p">),</span> <span class="n">ceil</span><span class="p">(</span><span class="n">n_controles</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Función definida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Función definida
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Supongamos que queremos detectar un OR = 2.0</span>
+<span class="c1"># con p0 = 0.3, alpha = 0.05, beta = 0.2, y ratio 2:1</span>
+
+<span class="n">un_odds_ratio</span><span class="p">(</span><span class="n">OR</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(105, 209)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por lo que requeriríamos un total de 105 casos y 209 controles como mínimo.</p>
+</section>
+<section id="prueba-de-independencia-chi2">
+<h2>Prueba de independencia (Chi²)<a class="headerlink" href="#prueba-de-independencia-chi2" title="Link to this heading">#</a></h2>
+<p>Cuando se desea evaluar la <strong>asociación entre dos variables categóricas</strong>, se puede utilizar la <strong>prueba de independencia Chi-cuadrado</strong>. En este caso, se parte de una <strong>tabla de contingencia</strong> con las probabilidades conjuntas esperadas bajo la hipótesis alternativa.</p>
+<p>El tamaño de muestra se calcula a partir del parámetro de no centralidad <span class="math notranslate nohighlight">\(\lambda\)</span> que satisface:</p>
+<div class="math notranslate nohighlight">
+\[
+1 - \beta = P\left(\chi^2_{df}(\lambda) &gt; \chi^2_{1-\alpha, df}\right)
+\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\chi^2_{df}(\lambda)\)</span> es una chi-cuadrada no central con <span class="math notranslate nohighlight">\(df = (r-1)(c-1)\)</span> grados de libertad y parámetro <span class="math notranslate nohighlight">\(\lambda\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^2_{1-\alpha, df}\)</span> es el valor crítico de la chi-cuadrada central al nivel <span class="math notranslate nohighlight">\(\alpha\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> es el error tipo II (el poder es <span class="math notranslate nohighlight">\(1 - \beta\)</span>).</p></li>
+</ul>
+<p>Una vez que se estima <span class="math notranslate nohighlight">\(\lambda\)</span>, el tamaño de muestra se calcula como:</p>
+<div class="math notranslate nohighlight">
+\[
+n = \frac{\lambda}{w^2}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(w^2\)</span> es el tamaño del efecto según la diferencia entre proporciones conjuntas y esperadas:</p>
+<div class="math notranslate nohighlight">
+\[
+w^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(p_{ij} - p_{i\cdot} p_{\cdot j})^2}{p_{i\cdot} p_{\cdot j}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">chi2_independencia</span><span class="p">(</span><span class="n">p_ij</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño de muestra para una prueba de chi² de independencia.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - p_ij: matriz (2D) de probabilidades conjuntas bajo la hipótesis alternativa, debe sumar 1.</span>
+<span class="sd">    - alpha: error tipo I (por defecto 0.05)</span>
+<span class="sd">    - beta: error tipo II (por defecto 0.2, equivalente a 80% de poder)</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - n: tamaño de muestra requerido (float)</span>
+
+<span class="sd">    Basado en: Chow et al. (2008), sección 6.2.1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_ij</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;La matriz p_ij debe sumar 1.&quot;</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_ij</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_ij</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">r</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Valor crítico de chi² central</span>
+    <span class="n">crit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+    <span class="c1"># Resolver lambda para que la chi² no central tenga el poder deseado</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">objetivo</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">ncx2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">crit</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">beta</span><span class="p">)</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">root_scalar</span><span class="p">(</span><span class="n">objetivo</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;brentq&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sol</span><span class="o">.</span><span class="n">converged</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No se pudo encontrar el valor de lambda.&quot;</span><span class="p">)</span>
+
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">root</span>
+
+    <span class="c1"># Calcular márgenes</span>
+    <span class="n">p_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_ij</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># sumas por fila</span>
+    <span class="n">p_j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_ij</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># sumas por columna</span>
+
+    <span class="c1"># Tamaño del efecto (w²)</span>
+    <span class="n">efecto</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+            <span class="n">esperado</span> <span class="o">=</span> <span class="n">p_i</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">p_j</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">esperado</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">efecto</span> <span class="o">+=</span> <span class="p">((</span><span class="n">p_ij</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">esperado</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">esperado</span>
+
+    <span class="c1"># Tamaño de muestra</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">/</span> <span class="n">efecto</span>
+    <span class="k">return</span> <span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Función definida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Función definida
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">]</span>
+<span class="p">])</span>  <span class="c1"># Matriz de probabilidades conjuntas que suma 1</span>
+
+<span class="n">chi2_independencia</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>En esta sección exploramos distintas fórmulas para calcular el tamaño de muestra en estudios cuantitativos:</p>
+<ul class="simple">
+<li><p>Usamos la <strong>fórmula de Cochran</strong> para estimar proporciones y medias, tanto en poblaciones grandes como finitas.</p></li>
+<li><p>Incorporamos el <strong>poder estadístico</strong> para estudios comparativos (por ejemplo, al estimar una diferencia de proporciones o un odds ratio).</p></li>
+<li><p>Aplicamos la <strong>prueba chi² de independencia</strong> para detectar asociación entre variables categóricas, usando una aproximación basada en la distribución no central.</p></li>
+</ul>
+<p>Estas herramientas son fundamentales para planear estudios con suficiente poder para detectar efectos reales, y evitar tamaños muestrales insuficientes o excesivos.</p>
+<p>Esta siguiente sección es demostrativa.</p>
+</section>
+<section id="calculo-de-tamano-de-muestra-con-statsmodels">
+<h2>Cálculo de tamaño de muestra con <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#calculo-de-tamano-de-muestra-con-statsmodels" title="Link to this heading">#</a></h2>
+<p>La librería <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> incluye utilidades para calcular el tamaño de muestra, el poder estadístico o la magnitud del efecto en distintos tipos de estudios. Usaremos el módulo <code class="docutils literal notranslate"><span class="pre">statsmodels.stats.power</span></code>.</p>
+<section id="proporciones-comparacion-de-dos-grupos">
+<h3>Proporciones: comparación de dos grupos<a class="headerlink" href="#proporciones-comparacion-de-dos-grupos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.power</span><span class="w"> </span><span class="kn">import</span> <span class="n">NormalIndPower</span>
+
+<span class="c1"># Instanciar objeto para pruebas z de dos proporciones independientes</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">NormalIndPower</span><span class="p">()</span>
+
+<span class="c1"># Calcular tamaño de muestra necesario por grupo</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">power</span><span class="o">.</span><span class="n">solve_power</span><span class="p">(</span>
+    <span class="n">effect_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># tamaño del efecto (p. ej. g de Hedge)</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>        <span class="c1"># razón de tamaños de grupo (n2/n1)</span>
+    <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño por grupo: </span><span class="si">{</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño por grupo: 63
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparacion-medias-en-dos-grupos">
+<h3>Comparación medias en dos grupos<a class="headerlink" href="#comparacion-medias-en-dos-grupos" title="Link to this heading">#</a></h3>
+<p>Como en el caso de las pruebas t.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.power</span><span class="w"> </span><span class="kn">import</span> <span class="n">TTestIndPower</span>
+
+<span class="n">t_power</span> <span class="o">=</span> <span class="n">TTestIndPower</span><span class="p">()</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">t_power</span><span class="o">.</span><span class="n">solve_power</span><span class="p">(</span>
+    <span class="n">effect_size</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>  <span class="c1"># tamaño del efecto (Cohen&#39;s d)</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño por grupo: </span><span class="si">{</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño por grupo: 45
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="anova-de-una-via-comparacion-de-mas-de-dos-medias">
+<h3>ANOVA de una vía (comparación de más de dos medias)<a class="headerlink" href="#anova-de-una-via-comparacion-de-mas-de-dos-medias" title="Link to this heading">#</a></h3>
+<p>Para estudios donde se desea comparar <strong>más de dos grupos</strong> en cuanto a su media, se utiliza un <strong>ANOVA de una vía</strong>. Podemos calcular el tamaño de muestra necesario por grupo con <code class="docutils literal notranslate"><span class="pre">FTestAnovaPower</span></code> de <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.power</span><span class="w"> </span><span class="kn">import</span> <span class="n">FTestAnovaPower</span>
+
+<span class="n">anova_power</span> <span class="o">=</span> <span class="n">FTestAnovaPower</span><span class="p">()</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">anova_power</span><span class="o">.</span><span class="n">solve_power</span><span class="p">(</span>
+    <span class="n">effect_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># tamaño del efecto (Cohen&#39;s f)</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">k_groups</span><span class="o">=</span><span class="mi">3</span>         <span class="c1"># número de grupos</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño por grupo: </span><span class="si">{</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño por grupo: 158
+</pre></div>
+</div>
+</div>
+</div>
+<p>Puedes convertir de <span class="math notranslate nohighlight">\(\eta^2\)</span> (eta cuadrada) a f usando:</p>
+<div class="math notranslate nohighlight">
+\[ f = \sqrt{\frac{\eta^2}{1-\eta^2}}\]</div>
+<p>Por ejemplo:</p>
+<p>Queremos detectar una diferencia moderada en la media de colesterol en 3 grupos de dieta con:</p>
+<ul class="simple">
+<li><p>un tamaño del efecto <span class="math notranslate nohighlight">\(\eta^2\)</span> = 0.03,</p></li>
+<li><p>un nivel de significancia de 0.05,</p></li>
+<li><p>un poder del 80%.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.power</span><span class="w"> </span><span class="kn">import</span> <span class="n">FTestAnovaPower</span>
+
+<span class="n">anova_power</span> <span class="o">=</span> <span class="n">FTestAnovaPower</span><span class="p">()</span>
+
+<span class="n">eta2</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">eta2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eta2</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">anova_power</span><span class="o">.</span><span class="n">solve_power</span><span class="p">(</span>
+    <span class="n">effect_size</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> 
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> 
+    <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> 
+    <span class="n">k_groups</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño por grupo: </span><span class="si">{</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño por grupo: 315
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -867,7 +1240,17 @@ return math.ceil(n)</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-para-proporciones">Estimación para proporciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-de-cochran">Fórmula de Cochran</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-de-equivalencia-en-una-proporcion">Estudios de equivalencia en una proporción</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#una-proporcion-finita-cochran">Una proporción finita (Cochran)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#una-proporcion-con-poblacion-finita-cochran">Una proporción con población finita (Cochran)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimar-una-media">Estimar una Media</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimar-un-odds-ratio">Estimar un Odds Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-independencia-chi2">Prueba de independencia (Chi²)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-tamano-de-muestra-con-statsmodels">Cálculo de tamaño de muestra con <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proporciones-comparacion-de-dos-grupos">Proporciones: comparación de dos grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-medias-en-dos-grupos">Comparación medias en dos grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-de-una-via-comparacion-de-mas-de-dos-medias">ANOVA de una vía (comparación de más de dos medias)</a></li>
 </ul>
 </li>
 </ul>
