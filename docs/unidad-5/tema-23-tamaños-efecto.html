@@ -493,7 +493,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-de-rosenthal">r de Rosenthal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion-rango-biserial">Correlación Rango-Biserial.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplificacion-del-codigo-para-datos-reportados">Simplificación del código para datos reportados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adecuacion-del-codigo-para-datos-reportados">Adecuación del código para datos reportados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
             </nav>
@@ -962,29 +962,27 @@ r_{rb} = \frac{2U}{n_1 n_2} - 1
 </div>
 </div>
 </section>
-<section id="simplificacion-del-codigo-para-datos-reportados">
-<h2>Simplificación del código para datos reportados<a class="headerlink" href="#simplificacion-del-codigo-para-datos-reportados" title="Link to this heading">#</a></h2>
+<section id="adecuacion-del-codigo-para-datos-reportados">
+<h2>Adecuación del código para datos reportados<a class="headerlink" href="#adecuacion-del-codigo-para-datos-reportados" title="Link to this heading">#</a></h2>
 <p>Puede ser el caso de que no contemos con los datos crudos del estudio para obtener toda la información, pero modificando ligeramente el código, es posible crear funciones que acepten los estimadores reportados por los estudios.</p>
 <p>Por ejemplo, retomemos la corrección exacta de Hedge para el tamaño del efecto, si buscamos en detalle los datos que necesitamos en realidad solo es necesario conocer las desviaciones estándar, las medias y los tamaños de los grupos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g_hedge_exacta_v2</span><span class="p">(</span><span class="n">media1</span><span class="p">,</span> <span class="n">media2</span><span class="p">,</span> <span class="n">sd1</span><span class="p">,</span> <span class="n">sd2</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="c1"># calculamos los grados de libertad</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>
-
+    <span class="c1"># la desviación estándar unificada</span>
     <span class="n">sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
         <span class="p">((</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">sd1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">sd2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
         <span class="o">/</span>
         <span class="n">df</span>
     <span class="p">)</span>
-
+    <span class="c1"># el factor de corrección de acuerdo a la fórmula</span>
     <span class="n">j</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">((</span><span class="n">df</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
-
+    <span class="c1"># finalmente calculamos el tamaño del efecto y lo multiplicamos </span>
+    <span class="c1"># por el factor de corrección.</span>
     <span class="n">g</span> <span class="o">=</span> <span class="p">((</span><span class="n">media1</span> <span class="o">-</span> <span class="n">media2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
     <span class="k">return</span> <span class="n">g</span>
-
-<span class="n">media1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intervencion</span><span class="p">)</span>
-<span class="n">media2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
-
 
 <span class="n">g_hedge_exacta_v2</span><span class="p">(</span>
     <span class="n">media1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intervencion</span><span class="p">),</span>
@@ -1007,7 +1005,10 @@ r_{rb} = \frac{2U}{n_1 n_2} - 1
 </section>
 <section id="ejercicios">
 <h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
-<p>Calcula ahora tú los tamaños del efecto para otros datos. Puedes utilizar datos reales o el dataset de pingüinos que practicamos en la unidad 4.</p>
+<ol class="arabic simple">
+<li><p>Calcula ahora tú los tamaños del efecto para otros datos. Puedes utilizar datos reales o el dataset de pingüinos que practicamos en la unidad 4.</p></li>
+<li><p>Genera el <code class="docutils literal notranslate"><span class="pre">docstring</span></code> de la función g_hedge_exacta_v2.</p></li>
+</ol>
 </section>
 </section>
 
@@ -1087,7 +1088,7 @@ r_{rb} = \frac{2U}{n_1 n_2} - 1
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-de-rosenthal">r de Rosenthal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion-rango-biserial">Correlación Rango-Biserial.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplificacion-del-codigo-para-datos-reportados">Simplificación del código para datos reportados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adecuacion-del-codigo-para-datos-reportados">Adecuación del código para datos reportados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
   </nav></div>
