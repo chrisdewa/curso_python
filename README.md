@@ -60,3 +60,6 @@ Las contribuciones serán agradecidas y, si se incorporan, serán desplegadas p�
 
 Sin embargo, no generarán derechos de autoría ni retribuciones económicas.
 
+
+## DOI:
+10.5281/zenodo.16290872
