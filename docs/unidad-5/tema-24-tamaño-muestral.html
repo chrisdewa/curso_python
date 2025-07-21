@@ -64,7 +64,7 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Unidad 5: Por definir" href="../unidad-6/index.html" />
+    <link rel="next" title="Tema 25: Análisis de Varianza" href="tema-25-anova.html" />
     <link rel="prev" title="Tema 23: Tamaños del efecto" href="tema-23-tama%C3%B1os-efecto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -226,6 +226,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tema-22-medidas-de-asociaci%C3%B3n.html">Tema 22: Medidas de asociación y correlación</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tema-23-tama%C3%B1os-efecto.html">Tema 23: Tamaños del efecto</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 24: Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-25-anova.html">Tema 25: Análisis de Varianza</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Por definir</a></li>
@@ -766,7 +767,7 @@ n = \frac{N \cdot (Z_{1-\alpha/2})^2 \cdot p(1-p)}{d^2(N - 1) + (Z_{1-\alpha/2})
 \[
 n = (\frac{Z_{1-\alpha/2} \cdot \sigma}{d})^2
 \]</div>
-<p>Muy parecida a la fórmula que utilizamos para la proporción. Ten en cuenta que <span class="math notranslate nohighlight">\(\sigma\)</span> es la desviación estándar de la media a estimar y <span class="math notranslate nohighlight">\(\d\)</span> es el margen de error de la media.</p>
+<p>Muy parecida a la fórmula que utilizamos para la proporción. Ten en cuenta que <span class="math notranslate nohighlight">\(\sigma\)</span> es la desviación estándar de la media a estimar y <span class="math notranslate nohighlight">\(d\)</span> es el margen de error de la media.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimar_una_media</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hipotesis</span><span class="o">=</span><span class="s1">&#39;dos colas&#39;</span><span class="p">):</span>
@@ -1166,6 +1167,15 @@ w^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(p_{ij} - p_{i\cdot} p_{\cdot j})^2}{p_{i\
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño por grupo: 315
 </pre></div>
 </div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Kernel</span> <span class="n">crashed</span> <span class="k">while</span> <span class="n">executing</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">cell</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">previous</span> <span class="n">cell</span><span class="o">.</span> 
+
+<span class="n">Please</span> <span class="n">review</span> <span class="n">the</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cell</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">identify</span> <span class="n">a</span> <span class="n">possible</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">failure</span><span class="o">.</span> 
+
+<span class="n">Click</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;https://aka.ms/vscodeJupyterKernelCrash&#39;</span><span class="o">&gt;</span><span class="n">here</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">info</span><span class="o">.</span> 
+
+<span class="n">View</span> <span class="n">Jupyter</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;command:jupyter.viewOutput&#39;</span><span class="o">&gt;</span><span class="n">log</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">further</span> <span class="n">details</span><span class="o">.</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1212,11 +1222,11 @@ w^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(p_{ij} - p_{i\cdot} p_{\cdot j})^2}{p_{i\
       </div>
     </a>
     <a class="right-next"
-       href="../unidad-6/index.html"
+       href="tema-25-anova.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Unidad 5: Por definir</p>
+        <p class="prev-next-title">Tema 25: Análisis de Varianza</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
