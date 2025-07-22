@@ -226,6 +226,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-24-tama%C3%B1o-muestral.html">Tema 24: Tamaños de muestra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-25-anova.html">Tema 25: Análisis de Varianza</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-26-modelos-mixtos.html">Tema 26: Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-rearreglos-de-datos.html">Tema 27: Rearreglo de datos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Por definir</a></li>
@@ -535,7 +536,7 @@ document.write(`
 <p>Como se revisión en la <a class="reference internal" href="../unidad-1/tema-2-generalidades/2.3-python.html#tema2-tipos-target"><span class="std std-ref">lección 3</span></a> y en las lecciones anterior, todos los valores en python son objetos que tienen un cierto tipo.</p>
 <section id="que-es-un-objeto">
 <h2>¿Qué es un objeto?<a class="headerlink" href="#que-es-un-objeto" title="Link to this heading">#</a></h2>
-<p>Los objetos, en cualquier lenguaje de programacion son abstracciones de lógica y valores. Aunque, para comenzar a trabajar con python, no es necesario tener un entendimiento muy profundo del paradigma de <code class="docutils literal notranslate"><span class="pre">Programación</span> <span class="pre">Orientada</span> <span class="pre">a</span> <span class="pre">Objetos</span></code> (OOP, por sus siglas en inglés), para profundizar el dominio le lenguaje, es un concepto fundamental.</p>
+<p>Los objetos, en cualquier lenguaje de programación son abstracciones de lógica y valores. Aunque, para comenzar a trabajar con python, no es necesario tener un entendimiento muy profundo del paradigma de <code class="docutils literal notranslate"><span class="pre">Programación</span> <span class="pre">Orientada</span> <span class="pre">a</span> <span class="pre">Objetos</span></code> (OOP, por sus siglas en inglés), para profundizar el dominio le lenguaje, es un concepto fundamental.</p>
 <p>En este curso no nos enfocaremos en OOP, pero hay algunos conceptos necesarios que debemos conocer y trataremos en esta libreta.</p>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
@@ -556,7 +557,7 @@ En las siguientes celdas iremos revisando cada uno de los tipos básicos, su uti
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
 <p>Los <strong>Métodos</strong> son funciones asociadas a cada objeto. Piensa en funciones que actúan con el objeto para hacer algo.
-Por ejmplo:</p>
+Por ejemplo:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">mi_lista.sort()</span></code>
 El método <code class="docutils literal notranslate"><span class="pre">sort</span></code>, asociado a una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, ordena la lista en cuestión.
@@ -566,7 +567,7 @@ Todos los métodos se ejecutan, con paréntesis, como <code class="docutils lite
 Por ejemplo:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">datos.columns</span></code>
-El artibuto <code class="docutils literal notranslate"><span class="pre">columns</span></code>, asociado a un <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, devuelve una lista de las columnas en el arreglo de datos.
+El atributo <code class="docutils literal notranslate"><span class="pre">columns</span></code>, asociado a un <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, devuelve una lista de las columnas en el arreglo de datos.
 Los atributos no se ejecutan, no tienen paréntesis al final.</p>
 </div></blockquote>
 </div>
@@ -601,9 +602,9 @@ En la siguiente celda agrega variables tipo <code class="docutils literal notran
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># por ejemplo</span>
-<span class="n">presión_sistólica</span> <span class="o">=</span> <span class="mi">134</span> <span class="c1"># int</span>
-<span class="n">presión_diastólica</span> <span class="o">=</span> <span class="mi">71</span> <span class="c1"># int</span>
-<span class="n">tensión_arterial_media</span> <span class="o">=</span> <span class="p">(</span><span class="n">presión_sistólica</span> <span class="o">+</span> <span class="n">presión_diastólica</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="c1"># float</span>
+<span class="n">tensión_sistólica</span> <span class="o">=</span> <span class="mi">134</span> <span class="c1"># int</span>
+<span class="n">tensión_diastólica</span> <span class="o">=</span> <span class="mi">71</span> <span class="c1"># int</span>
+<span class="n">tensión_arterial_media</span> <span class="o">=</span> <span class="p">(</span><span class="n">tensión_sistólica</span> <span class="o">+</span> <span class="n">tensión_diastólica</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="c1"># float</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tensión_arterial_media</span><span class="p">)</span>
 
 <span class="c1"># pon aqui tus datos y realiza operaciones con ellas</span>
@@ -622,7 +623,7 @@ En la siguiente celda agrega variables tipo <code class="docutils literal notran
 <p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son valores que pueden tomar un valor «cierto» o «falso», <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son en realidad desendientes de los <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code> (Falso) y <code class="docutils literal notranslate"><span class="pre">1</span></code> (Cierto), así, <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">+</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">2</span></code>.
+<p>Los tipos <code class="docutils literal notranslate"><span class="pre">bool</span></code> son en realidad descendientes de los <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code> (Falso) y <code class="docutils literal notranslate"><span class="pre">1</span></code> (Cierto), así, <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">+</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">2</span></code>.
 Esto puede ser algo confuso pero no tienes que preocuparte por ello en este momento.</p>
 </div>
 <p>Lo más habitual es generar valores por medio de pruebas lógicas que veremos en otra lección, pero te dejo un ejemplo:</p>
@@ -691,7 +692,7 @@ ChristianDelaflor
 <section id="tipo-nulo-nonetype">
 <h3>Tipo Nulo (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)<a class="headerlink" href="#tipo-nulo-nonetype" title="Link to this heading">#</a></h3>
 <p>El tipo nulo o <code class="docutils literal notranslate"><span class="pre">None</span></code> es un valor único que representa la ausencia de un valor.
-Sus usos varían, como cuando se pretende obtener el primer objeto que cumpla alguna característica dentro de una lista pero ningun valor cumple con los parámetros.</p>
+Sus usos varían, como cuando se pretende obtener el primer objeto que cumpla alguna característica dentro de una lista pero ningún valor cumple con los parámetros.</p>
 </section>
 </section>
 <section id="colecciones">
@@ -766,8 +767,8 @@ Sus usos varían, como cuando se pretende obtener el primer objeto que cumpla al
 </div>
 <section id="indexacion">
 <h5>Indexación<a class="headerlink" href="#indexacion" title="Link to this heading">#</a></h5>
-<p>En python la posición de los valores en una colección se marca desde el número cero. Es decir, el primer elemento está en la posición cero, el segundo en la uno, y así suscecivamente.
-Para acceder al elemento en la posición <code class="docutils literal notranslate"><span class="pre">n</span></code>, lo que hacemos es utilizar corchetes después de la lista, como si ejecutaramos una función, pero con corchetes en lugar de paréntesis:</p>
+<p>En python la posición de los valores en una colección se marca desde el número cero. Es decir, el primer elemento está en la posición cero, el segundo en la uno, y así sucesivamente.
+Para acceder al elemento en la posición <code class="docutils literal notranslate"><span class="pre">n</span></code>, lo que hacemos es utilizar corchetes después de la lista, como si ejecutáramos una función, pero con corchetes en lugar de paréntesis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># accede al elemento 10 de la lista. </span>
 </pre></div>
 </div>
@@ -801,7 +802,7 @@ Para acceder al elemento en la posición <code class="docutils literal notransla
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;esta celda va a fallar&#39;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">frutas</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 
@@ -916,12 +917,12 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1838824238848
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1654615809728
 [&#39;h&#39;, &#39;z&#39;, &#39;a&#39;]
-1838824238848
-140722963280936
+1654615809728
+140704208966696
 6
-140722963280968
+140704208966728
 </pre></div>
 </div>
 </div>
@@ -963,7 +964,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </section>
 <section id="conjuntos-set">
 <h3>Conjuntos (<code class="docutils literal notranslate"><span class="pre">set</span></code>)<a class="headerlink" href="#conjuntos-set" title="Link to this heading">#</a></h3>
-<p>Los conjuntos, o sets, son colecciones <strong>NO ORDENADAS</strong> de valores <strong>UNICOS</strong>. Esto quiere decir que dentro de un set solo existe una sola versión de cada objeto, si más versiones quieren ser incorporadas, serán ignoradas.</p>
+<p>Los conjuntos, o sets, son colecciones <strong>NO ORDENADAS</strong> de valores <strong>ÚNICOS</strong>. Esto quiere decir que dentro de un set solo existe una sola versión de cada objeto, si más versiones quieren ser incorporadas, serán ignoradas.</p>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
 <p>Se puede crear sets de cualquier tipo de colecciones.</p>
@@ -977,7 +978,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 <p class="admonition-title">Importante</p>
 <p>Como no tienen orden, no es posible usar indexación ni slicing con los sets.</p>
 </div>
-<p>Los sets son útiles sobre todo en comparaciones, por ejemplo, si quieremos saber si dos conjuntos contienen los mismos objetos únicos o conocer cuáles están en ambos, por ejemplo, como verás en la siguiente celda.</p>
+<p>Los sets son útiles sobre todo en comparaciones, por ejemplo, si queremos saber si dos conjuntos contienen los mismos objetos únicos o conocer cuáles están en ambos, por ejemplo, como verás en la siguiente celda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sujetos_grupo_a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;María&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">}</span> <span class="c1"># conjunto de sujetos del grupo A</span>
@@ -997,10 +998,10 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Pedro&#39;}
-{&#39;Juan&#39;, &#39;María&#39;}
+{&#39;María&#39;, &#39;Juan&#39;}
 {&#39;Luis&#39;, &#39;Ana&#39;}
-{&#39;Juan&#39;, &#39;Pedro&#39;, &#39;Luis&#39;, &#39;Ana&#39;, &#39;María&#39;}
-{&#39;Luis&#39;, &#39;Ana&#39;, &#39;Juan&#39;, &#39;María&#39;}
+{&#39;Luis&#39;, &#39;Juan&#39;, &#39;María&#39;, &#39;Pedro&#39;, &#39;Ana&#39;}
+{&#39;Juan&#39;, &#39;María&#39;, &#39;Luis&#39;, &#39;Ana&#39;}
 </pre></div>
 </div>
 </div>
@@ -1050,19 +1051,19 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 <section id="acceder-a-los-valores-dentro-del-diccionario">
 <h4>Acceder a los valores dentro del diccionario<a class="headerlink" href="#acceder-a-los-valores-dentro-del-diccionario" title="Link to this heading">#</a></h4>
 <p>Supongamos que trabajamos con el ejemplo anterior, el diccionario <code class="docutils literal notranslate"><span class="pre">sujeto</span></code>, que corresponde a la información de un paciente.
-Se utilizan los mismos corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> pero en lugar del índice del objeto, vamos a poner el la llave del valor al que queremos acceder, por ejemplo, si quisieramos saber qué edad tiene el paciente:</p>
+Se utilizan los mismos corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> pero en lugar del índice del objeto, vamos a poner el la llave del valor al que queremos acceder, por ejemplo, si quisiéramos saber qué edad tiene el paciente:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">edad</span> <span class="o">=</span> <span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">]</span>
 
 </pre></div>
 </div>
-<p>Como se accede al objeto asociado con la llave en cuestión, es posible interactuar diréctamente por ejemplo, si queremos acceder a la lista de comorbilidades y obtener el primer valor (DM2), el código sería:</p>
+<p>Como se accede al objeto asociado con la llave en cuestión, es posible interactuar directamente por ejemplo, si queremos acceder a la lista de comorbilidades y obtener el primer valor (DM2), el código sería:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">primera_comorbilidad</span> <span class="o">=</span> <span class="n">sujeto</span><span class="p">[</span><span class="s1">&#39;comorbilidades&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># DM2</span>
 </pre></div>
 </div>
-<p>Como ves, el primer juego de corchetes es para la llave, pero el segundo es para la lista. Es decir que en este ejemplo, <code class="docutils literal notranslate"><span class="pre">sujeto['comorbilidades']</span></code> es lo mismo que si tuvieramos directamente la lista<code class="docutils literal notranslate"><span class="pre">['DM2',</span> <span class="pre">'HAS']</span></code>.</p>
+<p>Como ves, el primer juego de corchetes es para la llave, pero el segundo es para la lista. Es decir que en este ejemplo, <code class="docutils literal notranslate"><span class="pre">sujeto['comorbilidades']</span></code> es lo mismo que si tuviéramos directamente la lista<code class="docutils literal notranslate"><span class="pre">['DM2',</span> <span class="pre">'HAS']</span></code>.</p>
 </section>
 <section id="agregar-o-cambiar-valores-en-el-diccionario">
 <h4>agregar o cambiar valores en el diccionario<a class="headerlink" href="#agregar-o-cambiar-valores-en-el-diccionario" title="Link to this heading">#</a></h4>
