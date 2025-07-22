@@ -58,6 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tema-26-modelos-mixtos';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
@@ -487,8 +489,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">Modelo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interceptos-aleatorios">Interceptos aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendiente-aleatoria">Pendiente aleatoria</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gee">GEE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
             </nav>
         </div>
@@ -509,6 +515,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 <span class="c1"># !pip install pingouin -q # quita este comentario si estás en colab</span>
@@ -549,6 +556,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">.package</span></code> nos dice de qué paquete de R se tomó el dataset, en este caso LME4.</p>
 <p>También podemos ver la documentación propia de R para este dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,7 +638,7 @@ document.write(`
 </div>
 <section id="datos">
 <h3>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h3>
-<p>Para acceder a los datos utilizamos el atributo <code class="docutils literal notranslate"><span class="pre">data</span></code>-</p>
+<p>Para acceder a los datos utilizamos el atributo <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
@@ -706,14 +714,14 @@ document.write(`
 <h3>Interceptos aleatorios<a class="headerlink" href="#interceptos-aleatorios" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
     <span class="s1">&#39;Reaction ~ Days&#39;</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
     <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="c1"># intercepto aleatorio</span>
 <span class="p">)</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">model1</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -739,7 +747,12 @@ Subject Var 1378.176   17.156
 </div>
 <p>En este modelo estamos permitiendo que cada sujeto varíe su intercepto, es decir, ajustamos el modelo para el tiempo de reacción de cada sujeto al momento cero.</p>
 <p>Si analizamos lo resultados, vemos que el intercepto es <code class="docutils literal notranslate"><span class="pre">251.405</span></code>, este es el promedio del tiempo de reacción de los sujetos antes de la deprivación de sueño, es decir al momento cero. El coeficiente de <code class="docutils literal notranslate"><span class="pre">Days</span></code> es <code class="docutils literal notranslate"><span class="pre">10.467</span></code> es decir, que en promedio, cada día de deprivación, aumentó el tiempo de reacción en 10 ms.</p>
+<p>Observa que la varianza de cada sujeto es de 1378.176, la desviación estándar sería su raíz <code class="docutils literal notranslate"><span class="pre">37.123</span></code>.</p>
+<p>En el output de <code class="docutils literal notranslate"><span class="pre">summary</span></code> puedes ver también un rubro de <code class="docutils literal notranslate"><span class="pre">scale</span></code> que se refiere a la varianza del error del modelo.</p>
 <p>Este modelo, sin embargo, no considera que cada sujeto responde de forma diferente a la deprivación, algunos sujetos parecen aumentar más o menos su tiempo de reacción conforme pasan los días. Veamos la siguiente figura.</p>
+</section>
+<section id="visualizacion">
+<h3>Visualización<a class="headerlink" href="#visualizacion" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
@@ -754,12 +767,15 @@ Subject Var 1378.176   17.156
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x70de49c6dbe0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1ec5d1a9d30&gt;
 </pre></div>
 </div>
-<img alt="../_images/12fc3aa2ab046bb7bcf956abc18d9116a0052074c4107eef64ead9ccfcb62790.png" src="../_images/12fc3aa2ab046bb7bcf956abc18d9116a0052074c4107eef64ead9ccfcb62790.png" />
+<img alt="../_images/78b328c16440904963f4ab42e13f51540954e83e4b3a5e22e2c3ba65ed67486d.png" src="../_images/78b328c16440904963f4ab42e13f51540954e83e4b3a5e22e2c3ba65ed67486d.png" />
 </div>
 </div>
+</section>
+<section id="pendiente-aleatoria">
+<h3>Pendiente aleatoria<a class="headerlink" href="#pendiente-aleatoria" title="Link to this heading">#</a></h3>
 <p>Para poder contemplar la pendiente de cada sujeto en el modelo, debemos agregar una pendiente aleatoria, en statsmodels se ve así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,8 +786,8 @@ Subject Var 1378.176   17.156
     <span class="n">re_formula</span><span class="o">=</span><span class="s1">&#39;~ Days&#39;</span><span class="p">,</span> <span class="c1"># pendiente aleatoria (Days|Subject)</span>
 <span class="p">)</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -797,7 +813,164 @@ Days Var            35.072    0.610
 </div>
 </div>
 </div>
+<p>Analicemos el resultado, en primer lugar destaca que disminuyó <code class="docutils literal notranslate"><span class="pre">scale</span></code> lo que quiere decir que el modelo tiene un error más pequeño y tenemos dos nuevos componentes en la matriz de varianzas-covarianzas: <code class="docutils literal notranslate"><span class="pre">Subject</span> <span class="pre">x</span> <span class="pre">Days</span> <span class="pre">Cov</span></code> y <code class="docutils literal notranslate"><span class="pre">Days</span> <span class="pre">Var</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Subject</span> <span class="pre">x</span> <span class="pre">Days</span> <span class="pre">Cov</span></code>: Es la covarianza del efecto de los días sobre cada sujeto. Es positiva, lo que nos indica que los sujetos que comienzan con más tiempo de reacción tienden a aumentar más su tiempo de reacción conforme pasan los días. Podemos incluso utilizar la fórmula de la correlación para convertir este valor en una forma más interpretable.</p>
+<div class="math notranslate nohighlight">
+\[
+\rho = \frac{COV(X, Y)}{\sqrt{VAR(X)} \cdot \sqrt{VAR(Y)}}
+\]</div>
+<p>Para resolverlo, ya tenemos la varianza del sujeto y la varianza de días, así que podemos utilizar el siguiente código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result2</span><span class="o">.</span><span class="n">cov_re</span> <span class="c1"># matriz de covarianza</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject</th>
+      <th>Days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subject</th>
+      <td>612.096487</td>
+      <td>9.604599</td>
+    </tr>
+    <tr>
+      <th>Days</th>
+      <td>9.604599</td>
+      <td>35.071623</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">cov_re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="s1">&#39;Days&#39;</span><span class="p">]</span>
+<span class="n">var_subj</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">cov_re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="s1">&#39;Subject&#39;</span><span class="p">]</span>
+<span class="n">var_days</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">cov_re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Days&#39;</span><span class="p">,</span> <span class="s1">&#39;Days&#39;</span><span class="p">]</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">cov</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_subj</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_days</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.066
+</pre></div>
+</div>
+</div>
+</div>
+<p>La correlación es pequeña, pero positiva. Una correlación cercana a cero indica que la variabilidad en el intercepto de los sujetos no está fuertemente relacionada con su sensibilidad al número de días de privación del sueño.</p>
+<p>Este modelo contempla no solo el cambio del tiempo de reacción en el tiempo, sino que considera la variabilidad de cada sujeto.</p>
 </section>
+</section>
+<section id="gee">
+<h2>GEE<a class="headerlink" href="#gee" title="Link to this heading">#</a></h2>
+<p>Los modelos de efectos mixtos  son poderosos, robustos y estables para analizar datos longitudinales, jerárquicos o agrupados y el resultado se enfoca en los individuos, pero si quisiéramos conocer el efecto poblacional de la deprivación del sueño, el modelo de elección serían las <strong>Ecuaciones de estimación generalizadas</strong> (GEE).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GEE</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
+    <span class="s1">&#39;Reaction ~ Days&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span>
+<span class="p">)</span>
+<span class="n">result3</span> <span class="o">=</span> <span class="n">model3</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result3</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:                    Reaction   No. Observations:                  180
+Model:                                 GEE   No. clusters:                       18
+Method:                        Generalized   Min. cluster size:                  10
+                      Estimating Equations   Max. cluster size:                  10
+Family:                           Gaussian   Mean cluster size:                10.0
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Tue, 22 Jul 2025   Scale:                        2276.694
+Covariance type:                    robust   Time:                         08:10:36
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept    251.4051      6.632     37.906      0.000     238.406     264.404
+Days          10.4673      1.502      6.968      0.000       7.523      13.412
+==============================================================================
+Skew:                          0.0147   Kurtosis:                       0.3867
+Centered skew:                 0.2144   Centered kurtosis:              2.3434
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>A diferencia de los modelos mixtos, GEE no modela la variabilidad entre sujetos, sino que corrige la estimación de los efectos fijos teniendo en cuenta la correlación entre medidas repetidas. En el modelo 3 se usó la estructura de correlación independiente (por defecto), que no siempre es adecuada para datos longitudinales. Por eso, en el modelo 4 probamos una estructura <code class="docutils literal notranslate"><span class="pre">exchangeable</span></code>, que asume una correlación constante entre las observaciones de cada sujeto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.genmod.cov_struct</span><span class="w"> </span><span class="kn">import</span> <span class="n">Exchangeable</span>
+
+<span class="n">model4</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GEE</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
+    <span class="s1">&#39;Reaction ~ Days&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span>
+    <span class="n">cov_struct</span><span class="o">=</span><span class="n">Exchangeable</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">result4</span> <span class="o">=</span> <span class="n">model4</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result4</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:                    Reaction   No. Observations:                  180
+Model:                                 GEE   No. clusters:                       18
+Method:                        Generalized   Min. cluster size:                  10
+                      Estimating Equations   Max. cluster size:                  10
+Family:                           Gaussian   Mean cluster size:                10.0
+Dependence structure:         Exchangeable   Num. iterations:                     2
+Date:                     Tue, 22 Jul 2025   Scale:                        2276.694
+Covariance type:                    robust   Time:                         08:15:51
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept    251.4051      6.632     37.906      0.000     238.406     264.404
+Days          10.4673      1.502      6.968      0.000       7.523      13.412
+==============================================================================
+Skew:                          0.0147   Kurtosis:                       0.3867
+Centered skew:                 0.2144   Centered kurtosis:              2.3434
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, el resultado del modelo no cambia al modificar la estructura de correlación, ya que solo hay una observación por día por sujeto. Esto impide estimar de forma significativa la correlación entre medidas dentro de cada sujeto. Aun así, es buena práctica especificar una estructura de covarianza apropiada cuando se trabaja con datos longitudinales.</p>
+</section>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Aplica lo aprendido en con tus propios datos.</p></li>
+<li><p>Busca el dataset <code class="docutils literal notranslate"><span class="pre">pbc</span></code> de <code class="docutils literal notranslate"><span class="pre">survival</span></code>. Lee su documentación y analízalo con las herramientas que aprendiste.</p></li>
+</ol>
 </section>
 </section>
 
@@ -871,8 +1044,12 @@ Days Var            35.072    0.610
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">Modelo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interceptos-aleatorios">Interceptos aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendiente-aleatoria">Pendiente aleatoria</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gee">GEE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
   </nav></div>
 
