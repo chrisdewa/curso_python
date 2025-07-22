@@ -496,7 +496,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colecciones">Colecciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-list">Listas (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-obtener-los-valores-dentro-de-la-lista">Cómo obtener los valores dentro de la lista</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indizacion">indización</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rebanadas-slicing">Rebanadas (Slicing)</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
@@ -686,7 +686,7 @@ ChristianDelaflor
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
-<p>Las cadenas de texto <code class="docutils literal notranslate"><span class="pre">str</span></code> son en realidad colecciones formadas por caracteres individuales. Esto quiere decir que puedes utilizar slicing e indexación, ordenamiento, etcétera, parecido a las listas como verás en la siguiente sección, solo contempla que las cadenas de texto son inmutables, así que al reordenarlo estás efectivamente cambiando el objeto asociado a la variable, no lo estás mutando.</p>
+<p>Las cadenas de texto <code class="docutils literal notranslate"><span class="pre">str</span></code> son en realidad colecciones formadas por caracteres individuales. Esto quiere decir que puedes utilizar slicing e indización, ordenamiento, etcétera, parecido a las listas como verás en la siguiente sección, solo contempla que las cadenas de texto son inmutables, así que al reordenarlo estás efectivamente cambiando el objeto asociado a la variable, no lo estás mutando.</p>
 </div>
 </section>
 <section id="tipo-nulo-nonetype">
@@ -763,10 +763,10 @@ Sus usos varían, como cuando se pretende obtener el primer objeto que cumpla al
 <h4>Cómo obtener los valores dentro de la lista<a class="headerlink" href="#como-obtener-los-valores-dentro-de-la-lista" title="Link to this heading">#</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>El concepto de indexación y de slicing aplica a las listas y las tuplas, pero también es crítico cuando veamos arreglos de datos, que se utilizan en el análisis estadístico.</p>
+<p>El concepto de indización y de slicing aplica a las listas y las tuplas, pero también es crítico cuando veamos arreglos de datos, que se utilizan en el análisis estadístico.</p>
 </div>
-<section id="indexacion">
-<h5>Indexación<a class="headerlink" href="#indexacion" title="Link to this heading">#</a></h5>
+<section id="indizacion">
+<h5>indización<a class="headerlink" href="#indizacion" title="Link to this heading">#</a></h5>
 <p>En python la posición de los valores en una colección se marca desde el número cero. Es decir, el primer elemento está en la posición cero, el segundo en la uno, y así sucesivamente.
 Para acceder al elemento en la posición <code class="docutils literal notranslate"><span class="pre">n</span></code>, lo que hacemos es utilizar corchetes después de la lista, como si ejecutáramos una función, pero con corchetes en lugar de paréntesis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># accede al elemento 10 de la lista. </span>
@@ -976,7 +976,7 @@ Lo usaremos más adelante en el curso para manipular arreglos de datos, esto fun
 </div>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>Como no tienen orden, no es posible usar indexación ni slicing con los sets.</p>
+<p>Como no tienen orden, no es posible usar indización ni slicing con los sets.</p>
 </div>
 <p>Los sets son útiles sobre todo en comparaciones, por ejemplo, si queremos saber si dos conjuntos contienen los mismos objetos únicos o conocer cuáles están en ambos, por ejemplo, como verás en la siguiente celda.</p>
 <div class="cell docutils container">
@@ -1187,7 +1187,7 @@ Se utilizan los mismos corchetes <code class="docutils literal notranslate"><spa
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colecciones">Colecciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-list">Listas (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-obtener-los-valores-dentro-de-la-lista">Cómo obtener los valores dentro de la lista</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion">Indexación</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#indizacion">indización</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rebanadas-slicing">Rebanadas (Slicing)</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
