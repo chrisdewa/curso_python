@@ -1,17 +1,10 @@
----
-title: "Tema 1: Preparación inicial"
-parent: "Unidad 1: Aspectos Básicos"
-nav_order: 1
----
-
-
 # Tema 1: Preparación inicial
 
 ## Objetivo del tema
-Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. El alumno podrá gestionar sus propios proyectos con python y uv. 
+Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. Podrás gestionar tus propios proyectos con python y uv. 
 
 :::{note}
-En todo el curso, se sugiere que el alumno realice todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
+En todo el curso, se sugiere que ejecutes todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
 :::
 
 (correr-python-target)=
@@ -20,7 +13,6 @@ En todo el curso, se sugiere que el alumno realice todas las actividades dentro 
 “Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.
 
 A diferencia de otros lenguajes de programación que son "compilados", python es un lenguaje "interpretado", esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado "intérprete" que lo leé y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.
-
 
 
 ## ¿Qué es `uv` y por qué usarlo?
@@ -32,7 +24,7 @@ Es la opción preferida por el momento ya que facilita mucho todo el flujo de tr
 
 :::{admonition} Cómo ejecutar comandos
 :class: important
-1. Escribe el comendo y sus argumentos.
+1. Escribe el comando y sus argumentos.
 2. Da enter para ejecutar.
 :::
 
@@ -49,7 +41,7 @@ El primer paso es abrir la terminal. Cuando lo hagas, puedes intentar los siguie
 - `mkdir` - Crea un nuevo directorio con el nombre especificado (**m**a**k**e **dir**).
 
 :::{tip}
-Existen muchos comandos diferentes, revisa la documentación de tu sistema para concer cuáles tienes disponibles.
+Existen muchos comandos diferentes, revisa la documentación de tu sistema para conocer cuáles tienes disponibles.
 :::
 
 ### 2. Instalación
@@ -86,7 +78,7 @@ Este ejemplo asume que en la carpeta "Documentos" existe otra llamada "cursos".
 :::
 
 El comando `cd` "Cambiar directorio" permite navegar el sistema de archivos. Para regresar un nivel usa `cd ..`. Para regresar a la carpeta principal, solo pon `cd`.
-Esto funciona tanto en Mac y linux como en Windows. 
+Esto funciona tanto en Mac y Linux como en Windows. 
 
 2. Inicializar el proyecto
 
@@ -106,15 +98,18 @@ uv add jupyterlab seaborn pandas scipy statsmodels
 
 Esto instalará en nuestro proyecto lo siguiente
 
-- jupyter lab: es una herramienta para escribir y ejecutar python, especialmente pensada para análisis de datos.
-- seaborn: es una librería para visualización de datos, permite hacer muchos tipos de gráficos.
-- pandas: permite la manipulación y análisis de datos tabulados, es como el excel de python.
-- scipy: es una librería para análisis estadísticos generales, por ejemplo, t de student, pruebas de normalidad, etc.
-- statsmodels: es una librería para modelado estadístico, útil para distintos tipos de análisis como regresiones.
+|Librería|Descripción|
+|--------|-----------|
+|`jupyter lab`| Es una herramienta para escribir y ejecutar python, especialmente pensada para análisis de datos.|
+|`seaborn`| Es una librería para visualización de datos, permite hacer muchos tipos de gráficos.|
+|`pandas`| Permite la manipulación y análisis de datos tabulados, Es como el excel de python.|
+|`scipy`| Es una librería para análisis estadísticos generales, por ejemplo, t de student, pruebas de normalidad, etc.|
+|`statsmodels`| Es una librería para modelado estadístico, útil para distintos tipos de análisis como regresiones.|
 
 Ahora que está todo instalado, podremos comenzar a trabajar.
 
 (terminal-target)=
+
 ## Entrar a la consola (`python`) y ejecutar un comando de prueba
 
 Sin salir de la consola, ejecuta el siguiente comando:
@@ -131,7 +126,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 
 ```
-Esto quiere decir que ya te encuentras dentro del intérprete de python, y podras comenzar a escribir código directamente.
+Esto quiere decir que ya te encuentras dentro del intérprete de python, y podrás comenzar a escribir código directamente.
 
 **¡FELICIDADES!**
 
@@ -157,6 +152,9 @@ En la siguiente lectura aprenderás más al respecto.
 
 :::{important}
 Para salir del intérprete debes escribir `exit()`. Con paréntesis, esto le dice al intérprete que ha llegado al final del programa.
+:::{note}
+En versiones más recientes del intérprete, solo ejecutar `exit` puede ser suficiente
+:::
 :::
 
 ## Práctica personal
@@ -171,5 +169,5 @@ Para salir del intérprete debes escribir `exit()`. Con paréntesis, esto le dic
    print(123)
    ```
 :::{important}
-Cuando hayas terminado puedes cerrar la terminal, recibierás una advertencia antes de hacerlo.
+Cuando hayas terminado puedes cerrar la terminal, recibieras una advertencia antes de hacerlo.
 :::
