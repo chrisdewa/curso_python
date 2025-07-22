@@ -458,7 +458,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -474,6 +476,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interceptos-aleatorios">Interceptos aleatorios</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -486,6 +503,302 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tema-26-modelos-mixtos">
 <h1>Tema 26: Modelos Mixtos<a class="headerlink" href="#tema-26-modelos-mixtos" title="Link to this heading">#</a></h1>
 <p>En la libreta previa exploramos cómo realizar un análisis de varianza de medidas repetidas en el dataset de <code class="docutils literal notranslate"><span class="pre">sleepstudy</span></code>, y comentamos que este dataset es muy utilizado para ejemplificar el uso y ventajas de los modelos mixtos o jerárquicos.</p>
+<section id="librerias-y-datos">
+<h2>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="c1"># !pip install pingouin -q # quita este comentario si estás en colab</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pingouin</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s1">&#39;sleepstudy&#39;</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">&#39;lme4&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Librerías importadas y datset descargado&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas y datset descargado
+</pre></div>
+</div>
+</div>
+</div>
+<p>Exploremos qué información adicional nos da statsmodels sobre este dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Reaction times in a sleep deprivation study&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">package</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;lme4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos ver la documentación propia de R para este dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. container::
+
+   .. container::
+
+      ========== ===============
+      sleepstudy R Documentation
+      ========== ===============
+
+      .. rubric:: Reaction times in a sleep deprivation study
+         :name: reaction-times-in-a-sleep-deprivation-study
+
+      .. rubric:: Description
+         :name: description
+
+      The average reaction time per day (in milliseconds) for subjects
+      in a sleep deprivation study.
+
+      Days 0-1 were adaptation and training (T1/T2), day 2 was baseline
+      (B); sleep deprivation started after day 2.
+
+      .. rubric:: Format
+         :name: format
+
+      A data frame with 180 observations on the following 3 variables.
+
+      ``Reaction``
+         Average reaction time (ms)
+
+      ``Days``
+         Number of days of sleep deprivation
+
+      ``Subject``
+         Subject number on which the observation was made.
+
+      .. rubric:: Details
+         :name: details
+
+      These data are from the study described in Belenky et al. (2003),
+      for the most sleep-deprived group (3 hours time-in-bed) and for
+      the first 10 days of the study, up to the recovery period. The
+      original study analyzed speed (1/(reaction time)) and treated day
+      as a categorical rather than a continuous predictor.
+
+      .. rubric:: References
+         :name: references
+
+      Gregory Belenky, Nancy J. Wesensten, David R. Thorne, Maria L.
+      Thomas, Helen C. Sing, Daniel P. Redmond, Michael B. Russo and
+      Thomas J. Balkin (2003) Patterns of performance degradation and
+      restoration during sleep restriction and subsequent recovery: a
+      sleep dose-response study. *Journal of Sleep Research* **12**,
+      1–12.
+
+      .. rubric:: Examples
+         :name: examples
+
+      .. code:: R
+
+         str(sleepstudy)
+         require(lattice)
+         xyplot(Reaction ~ Days | Subject, sleepstudy, type = c(&quot;g&quot;,&quot;p&quot;,&quot;r&quot;),
+                index = function(x,y) coef(lm(y ~ x))[1],
+                xlab = &quot;Days of sleep deprivation&quot;,
+                ylab = &quot;Average reaction time (ms)&quot;, aspect = &quot;xy&quot;)
+         (fm1 &lt;- lmer(Reaction ~ Days + (Days|Subject), sleepstudy, subset=Days&gt;=2))
+         ## independent model
+         (fm2 &lt;- lmer(Reaction ~ Days + (1|Subject) + (0+Days|Subject), sleepstudy, subset=Days&gt;=2))
+</pre></div>
+</div>
+</div>
+</div>
+<section id="datos">
+<h3>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h3>
+<p>Para acceder a los datos utilizamos el atributo <code class="docutils literal notranslate"><span class="pre">data</span></code>-</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Reaction</th>
+      <th>Days</th>
+      <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>249.5600</td>
+      <td>0</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>258.7047</td>
+      <td>1</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>250.8006</td>
+      <td>2</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>321.4398</td>
+      <td>3</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>356.8519</td>
+      <td>4</td>
+      <td>308</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="modelo">
+<h2>Modelo<a class="headerlink" href="#modelo" title="Link to this heading">#</a></h2>
+<p>Modelaremos la relación entre los días de deprivación de sueño y el tiempo de reacción permitiendo una pendiente aleatoria para cada sujeto a lo largo del tiempo.</p>
+<section id="interceptos-aleatorios">
+<h3>Interceptos aleatorios<a class="headerlink" href="#interceptos-aleatorios" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
+    <span class="s1">&#39;Reaction ~ Days&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="c1"># intercepto aleatorio</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Mixed Linear Model Regression Results
+==========================================================
+Model:             MixedLM  Dependent Variable:  Reaction 
+No. Observations:  180      Method:              REML     
+No. Groups:        18       Scale:               960.4568 
+Min. group size:   10       Log-Likelihood:      -893.2325
+Max. group size:   10       Converged:           Yes      
+Mean group size:   10.0                                   
+----------------------------------------------------------
+             Coef.   Std.Err.   z    P&gt;|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept    251.405    9.747 25.794 0.000 232.302 270.508
+Days          10.467    0.804 13.015 0.000   8.891  12.044
+Subject Var 1378.176   17.156                             
+==========================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este modelo estamos permitiendo que cada sujeto varíe su intercepto, es decir, ajustamos el modelo para el tiempo de reacción de cada sujeto al momento cero.</p>
+<p>Si analizamos lo resultados, vemos que el intercepto es <code class="docutils literal notranslate"><span class="pre">251.405</span></code>, este es el promedio del tiempo de reacción de los sujetos antes de la deprivación de sueño, es decir al momento cero. El coeficiente de <code class="docutils literal notranslate"><span class="pre">Days</span></code> es <code class="docutils literal notranslate"><span class="pre">10.467</span></code> es decir, que en promedio, cada día de deprivación, aumentó el tiempo de reacción en 10 ms.</p>
+<p>Este modelo, sin embargo, no considera que cada sujeto responde de forma diferente a la deprivación, algunos sujetos parecen aumentar más o menos su tiempo de reacción conforme pasan los días. Veamos la siguiente figura.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Days&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Reaction&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span>
+    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x70de49c6dbe0&gt;
+</pre></div>
+</div>
+<img alt="../_images/12fc3aa2ab046bb7bcf956abc18d9116a0052074c4107eef64ead9ccfcb62790.png" src="../_images/12fc3aa2ab046bb7bcf956abc18d9116a0052074c4107eef64ead9ccfcb62790.png" />
+</div>
+</div>
+<p>Para poder contemplar la pendiente de cada sujeto en el modelo, debemos agregar una pendiente aleatoria, en statsmodels se ve así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span>
+    <span class="s1">&#39;Reaction ~ Days&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="c1"># intercepto aleatorio</span>
+    <span class="n">re_formula</span><span class="o">=</span><span class="s1">&#39;~ Days&#39;</span><span class="p">,</span> <span class="c1"># pendiente aleatoria (Days|Subject)</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Mixed Linear Model Regression Results
+================================================================
+Model:               MixedLM    Dependent Variable:    Reaction 
+No. Observations:    180        Method:                REML     
+No. Groups:          18         Scale:                 654.9405 
+Min. group size:     10         Log-Likelihood:        -871.8141
+Max. group size:     10         Converged:             Yes      
+Mean group size:     10.0                                       
+----------------------------------------------------------------
+                    Coef.  Std.Err.   z    P&gt;|z|  [0.025  0.975]
+----------------------------------------------------------------
+Intercept          251.405    6.825 36.838 0.000 238.029 264.781
+Days                10.467    1.546  6.771 0.000   7.438  13.497
+Subject Var        612.096   11.881                             
+Subject x Days Cov   9.605    1.821                             
+Days Var            35.072    0.610                             
+================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -542,6 +855,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interceptos-aleatorios">Interceptos aleatorios</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

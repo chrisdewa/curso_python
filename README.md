@@ -61,5 +61,6 @@ Las contribuciones serán agradecidas y, si se incorporan, serán desplegadas p�
 Sin embargo, no generarán derechos de autoría ni retribuciones económicas.
 
 
-## DOI:
-10.5281/zenodo.16290872
+## Cómo citar
+
+> Delaflor Wagner, Christian Alejandro. Curso-Taller de Análisis Estadístico con Python (version 0.1.0). Zenodo, 2025. https://doi.org/10.5281/zenodo.16290873.
