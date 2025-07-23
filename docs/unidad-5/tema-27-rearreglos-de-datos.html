@@ -459,7 +459,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -475,6 +477,29 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melt-cambiar-de-formato-ancho-a-largo">Melt, cambiar de formato ancho a largo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-que-tener-ordenados-asi-los-datos">Para qué tener ordenados así los datos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-en-formato-ancho">Visualización en formato ancho</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-en-formato-largo">Visualización en formato largo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-cambiar-de-formato-largo-a-ancho">Pivot - cambiar de formato largo a ancho</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataset">Carga del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividades">Actividades</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -486,7 +511,860 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tema-27-rearreglo-de-datos">
 <h1>Tema 27: Rearreglo de datos<a class="headerlink" href="#tema-27-rearreglo-de-datos" title="Link to this heading">#</a></h1>
-<p>Hasta el momento hemos trabajado con datos que ya han sido arreglados en forma</p>
+<p>Hasta el momento hemos trabajado con datos que ya han sido arreglados en forma que el análisis estadístico es sencillo, pero esto no siempre ocurre en la realidad, de hecho, la gran mayoría de las veces no contamos con datos arreglados en exactamente la forma en que necesitamos para algún análisis o visualización.</p>
+<p>En esta libreta veremos algunos métodos para manipular arreglos de datos como lo deseemos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Revisa el acordeón de pandas en los  <a class="reference internal" href="../Recursos/index.html#acordeones-target"><span class="std std-ref">recursos</span></a>.</p>
+</div>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Librerías importadas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="melt-cambiar-de-formato-ancho-a-largo">
+<h2>Melt, cambiar de formato ancho a largo<a class="headerlink" href="#melt-cambiar-de-formato-ancho-a-largo" title="Link to this heading">#</a></h2>
+<p>Trabajaremos con un dataset muy sencillo, con datos inventados. Los datos simulan un estudio en el cual se recolectó información de una medición <code class="docutils literal notranslate"><span class="pre">X</span></code> a lo largo de 3 días para los sujetos A, B, C, D y E.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;sujeto&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;edad&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">18</span><span class="p">,</span>   <span class="mi">23</span><span class="p">,</span>  <span class="mi">42</span><span class="p">,</span>  <span class="mi">32</span><span class="p">,</span>  <span class="mi">28</span><span class="p">],</span>
+    <span class="s1">&#39;sexo&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span>     <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;dia1&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">5</span><span class="p">,</span>     <span class="mi">3</span><span class="p">,</span>   <span class="mi">6</span><span class="p">,</span>   <span class="mi">8</span><span class="p">,</span>   <span class="mi">2</span><span class="p">],</span>
+    <span class="s1">&#39;dia2&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">6</span><span class="p">,</span>     <span class="mi">2</span><span class="p">,</span>   <span class="mi">7</span><span class="p">,</span>   <span class="mi">4</span><span class="p">,</span>   <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;dia3&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">7</span><span class="p">,</span>     <span class="mi">4</span><span class="p">,</span>   <span class="mi">8</span><span class="p">,</span>   <span class="mi">3</span><span class="p">,</span>   <span class="mi">4</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sujeto</th>
+      <th>edad</th>
+      <th>sexo</th>
+      <th>dia1</th>
+      <th>dia2</th>
+      <th>dia3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+      <td>8</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nuestro objetivo es convertir este dataset «ancho» en formato «largo» o «tidy». Para ello, necesitamos que exista una sola columna de «tiempo» y otra de «medición», pero sin perder la información sobre el sexo y la edad de cada sujeto.</p>
+<p>Para hacerlo utilizamos el método <code class="docutils literal notranslate"><span class="pre">DataFrame.melt</span></code> el cual toma los siguientes argumentos:</p>
+<ul class="simple">
+<li><p>id_vars: Variables que se van a mantener constantes en cada fila, las que no cambian en cada día.</p></li>
+<li><p>value_vars: Variables que queremos juntar en una sola columna..</p></li>
+<li><p>var_name: Nombre de la variable (los días), defecto es «variable»</p></li>
+<li><p>value_name: Nombre de la variable del valor (la medición), por defecto es «value.</p></li>
+<li><p>col_level: Útil cuando hay multi-índices.</p></li>
+<li><p>ignore_index: Si es verdadero se ignora el índice original.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sujeto&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;sexo&#39;</span><span class="p">],</span> <span class="c1"># repite en cada fila</span>
+    <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dia1&#39;</span><span class="p">,</span> <span class="s1">&#39;dia2&#39;</span><span class="p">,</span> <span class="s1">&#39;dia3&#39;</span><span class="p">],</span><span class="c1"># colapsa en una sola columna</span>
+    <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Día&#39;</span><span class="p">,</span> <span class="c1"># el nombre de la columna</span>
+    <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Medición&#39;</span><span class="p">,</span> <span class="c1"># el nombre del valor</span>
+    <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># para quedarnos con el índice original</span>
+<span class="p">)</span>
+<span class="n">long</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sujeto</th>
+      <th>edad</th>
+      <th>sexo</th>
+      <th>Día</th>
+      <th>Medición</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+      <td>dia1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+      <td>dia1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+      <td>dia1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+      <td>dia1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+      <td>dia1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+      <td>dia2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+      <td>dia2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+      <td>dia2</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+      <td>dia2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+      <td>dia2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+      <td>dia3</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+      <td>dia3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+      <td>dia3</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+      <td>dia3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+      <td>dia3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="para-que-tener-ordenados-asi-los-datos">
+<h3>Para qué tener ordenados así los datos.<a class="headerlink" href="#para-que-tener-ordenados-asi-los-datos" title="Link to this heading">#</a></h3>
+<p>Existen muchas razones, para los análisis de regresión y ANOVA de medidas repetidas es necesario, pero simplemente para visualizar también lo hace más fácil.</p>
+<section id="visualizacion-en-formato-ancho">
+<h4>Visualización en formato ancho<a class="headerlink" href="#visualizacion-en-formato-ancho" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dias</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dia1&#39;</span><span class="p">,</span> <span class="s1">&#39;dia2&#39;</span><span class="p">,</span> <span class="s1">&#39;dia3&#39;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">wide</span><span class="p">[</span><span class="n">dias</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/0b94ac34fe94aefec560038c90dc9f16abb2b52dcc20311083e777b81659845a.png" src="../_images/0b94ac34fe94aefec560038c90dc9f16abb2b52dcc20311083e777b81659845a.png" />
+</div>
+</div>
+<p>Luce muy bien, pero las posibilidades de análisis son limitadas, no podemos comparar por ejemplo contra la variable sexo. En cambio, con el formato long is muy sencillo.</p>
+</section>
+<section id="visualizacion-en-formato-largo">
+<h4>Visualización en formato largo<a class="headerlink" href="#visualizacion-en-formato-largo" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Día&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Medición&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sexo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Día&#39;, ylabel=&#39;Medición&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/f622be4801a1324860b7191129386a0edba8abaf86da4d742f101fe640bbe9e1.png" src="../_images/f622be4801a1324860b7191129386a0edba8abaf86da4d742f101fe640bbe9e1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="pivot-cambiar-de-formato-largo-a-ancho">
+<h2>Pivot - cambiar de formato largo a ancho<a class="headerlink" href="#pivot-cambiar-de-formato-largo-a-ancho" title="Link to this heading">#</a></h2>
+<p>A pesar de que los formatos largos son útiles para algunos análisis pueden no ser ideales para otros tipo, para esto puede ser que necesitemos ejecutar la versión opuesta y esto se logra con el método <code class="docutils literal notranslate"><span class="pre">DataFrame.pivot</span></code>.</p>
+<p>Analicemos la ayuda disponible para el método.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function pivot in module pandas.core.frame:
+
+pivot(self, *, columns, index=&lt;no_default&gt;, values=&lt;no_default&gt;) -&gt; &#39;DataFrame&#39;
+    Return reshaped DataFrame organized by given index / column values.
+
+    Reshape data (produce a &quot;pivot&quot; table) based on column values. Uses
+    unique values from specified `index` / `columns` to form axes of the
+    resulting DataFrame. This function does not support data
+    aggregation, multiple values will result in a MultiIndex in the
+    columns. See the :ref:`User Guide &lt;reshaping&gt;` for more on reshaping.
+
+    Parameters
+    ----------
+    columns : str or object or a list of str
+        Column to use to make new frame&#39;s columns.
+    index : str or object or a list of str, optional
+        Column to use to make new frame&#39;s index. If not given, uses existing index.
+    values : str, object or a list of the previous, optional
+        Column(s) to use for populating new frame&#39;s values. If not
+        specified, all remaining columns will be used and the result will
+        have hierarchically indexed columns.
+
+    Returns
+    -------
+    DataFrame
+        Returns reshaped DataFrame.
+
+    Raises
+    ------
+    ValueError:
+        When there are any `index`, `columns` combinations with multiple
+        values. `DataFrame.pivot_table` when you need to aggregate.
+
+    See Also
+    --------
+    DataFrame.pivot_table : Generalization of pivot that can handle
+        duplicate values for one index/column pair.
+    DataFrame.unstack : Pivot based on the index values instead of a
+        column.
+    wide_to_long : Wide panel to long format. Less flexible but more
+        user-friendly than melt.
+
+    Notes
+    -----
+    For finer-tuned control, see hierarchical indexing documentation along
+    with the related stack/unstack methods.
+
+    Reference :ref:`the user guide &lt;reshaping.pivot&gt;` for more examples.
+
+    Examples
+    --------
+    &gt;&gt;&gt; df = pd.DataFrame({&#39;foo&#39;: [&#39;one&#39;, &#39;one&#39;, &#39;one&#39;, &#39;two&#39;, &#39;two&#39;,
+    ...                            &#39;two&#39;],
+    ...                    &#39;bar&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;],
+    ...                    &#39;baz&#39;: [1, 2, 3, 4, 5, 6],
+    ...                    &#39;zoo&#39;: [&#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;q&#39;, &#39;w&#39;, &#39;t&#39;]})
+    &gt;&gt;&gt; df
+        foo   bar  baz  zoo
+    0   one   A    1    x
+    1   one   B    2    y
+    2   one   C    3    z
+    3   two   A    4    q
+    4   two   B    5    w
+    5   two   C    6    t
+
+    &gt;&gt;&gt; df.pivot(index=&#39;foo&#39;, columns=&#39;bar&#39;, values=&#39;baz&#39;)
+    bar  A   B   C
+    foo
+    one  1   2   3
+    two  4   5   6
+
+    &gt;&gt;&gt; df.pivot(index=&#39;foo&#39;, columns=&#39;bar&#39;)[&#39;baz&#39;]
+    bar  A   B   C
+    foo
+    one  1   2   3
+    two  4   5   6
+
+    &gt;&gt;&gt; df.pivot(index=&#39;foo&#39;, columns=&#39;bar&#39;, values=[&#39;baz&#39;, &#39;zoo&#39;])
+          baz       zoo
+    bar   A  B  C   A  B  C
+    foo
+    one   1  2  3   x  y  z
+    two   4  5  6   q  w  t
+
+    You could also assign a list of column names or a list of index names.
+
+    &gt;&gt;&gt; df = pd.DataFrame({
+    ...        &quot;lev1&quot;: [1, 1, 1, 2, 2, 2],
+    ...        &quot;lev2&quot;: [1, 1, 2, 1, 1, 2],
+    ...        &quot;lev3&quot;: [1, 2, 1, 2, 1, 2],
+    ...        &quot;lev4&quot;: [1, 2, 3, 4, 5, 6],
+    ...        &quot;values&quot;: [0, 1, 2, 3, 4, 5]})
+    &gt;&gt;&gt; df
+        lev1 lev2 lev3 lev4 values
+    0   1    1    1    1    0
+    1   1    1    2    2    1
+    2   1    2    1    3    2
+    3   2    1    2    4    3
+    4   2    1    1    5    4
+    5   2    2    2    6    5
+
+    &gt;&gt;&gt; df.pivot(index=&quot;lev1&quot;, columns=[&quot;lev2&quot;, &quot;lev3&quot;], values=&quot;values&quot;)
+    lev2    1         2
+    lev3    1    2    1    2
+    lev1
+    1     0.0  1.0  2.0  NaN
+    2     4.0  3.0  NaN  5.0
+
+    &gt;&gt;&gt; df.pivot(index=[&quot;lev1&quot;, &quot;lev2&quot;], columns=[&quot;lev3&quot;], values=&quot;values&quot;)
+          lev3    1    2
+    lev1  lev2
+       1     1  0.0  1.0
+             2  2.0  NaN
+       2     1  4.0  3.0
+             2  NaN  5.0
+
+    A ValueError is raised if there are any duplicates.
+
+    &gt;&gt;&gt; df = pd.DataFrame({&quot;foo&quot;: [&#39;one&#39;, &#39;one&#39;, &#39;two&#39;, &#39;two&#39;],
+    ...                    &quot;bar&quot;: [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;],
+    ...                    &quot;baz&quot;: [1, 2, 3, 4]})
+    &gt;&gt;&gt; df
+       foo bar  baz
+    0  one   A    1
+    1  one   A    2
+    2  two   B    3
+    3  two   C    4
+
+    Notice that the first two rows are the same for our `index`
+    and `columns` arguments.
+
+    &gt;&gt;&gt; df.pivot(index=&#39;foo&#39;, columns=&#39;bar&#39;, values=&#39;baz&#39;)
+    Traceback (most recent call last):
+       ...
+    ValueError: Index contains duplicate entries, cannot reshape
+</pre></div>
+</div>
+</div>
+</div>
+<p>La documentación es extensa, pero revísala con detenimiento, verás que incluso incluye ejemplos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wide_back</span> <span class="o">=</span> <span class="n">long</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+    <span class="c1"># index=&#39;sujeto&#39;,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Día&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Medición&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">wide_back</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Día</th>
+      <th>dia1</th>
+      <th>dia2</th>
+      <th>dia3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Desafortunadamente pivot no permite preservar los valores como la edad y el sexo, así que necesitamos juntar esa información nuevamente desde el formato long.</p>
+<p>Como en el arreglo long los valores únicos se repiten, solo necesitamos seleccionar las columnas que queremos y quitar los duplicados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">long</span><span class="p">[[</span><span class="s1">&#39;sujeto&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;sexo&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">meta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sujeto</th>
+      <th>edad</th>
+      <th>sexo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Y ahora juntamos ambos arreglos y listo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wide_final</span> <span class="o">=</span> <span class="n">wide_back</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+<span class="n">wide_final</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dia1</th>
+      <th>dia2</th>
+      <th>dia3</th>
+      <th>sujeto</th>
+      <th>edad</th>
+      <th>sexo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>A</td>
+      <td>18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>B</td>
+      <td>23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>C</td>
+      <td>42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>4</td>
+      <td>3</td>
+      <td>D</td>
+      <td>32</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+      <td>E</td>
+      <td>28</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="merge">
+<h2>Merge<a class="headerlink" href="#merge" title="Link to this heading">#</a></h2>
+<p>Cuando tenemos dos conjuntos de datos que comparten una columna en común que identifica las filas de cada sujeto, podemos juntarlos con <code class="docutils literal notranslate"><span class="pre">DataFrame.merge</span></code>. Esta opción es similar a <code class="docutils literal notranslate"><span class="pre">join</span></code> pero es más flexible y poderoso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glucosa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;glucosa&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="n">datos_generales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;identificación&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">37</span><span class="p">],</span>
+    <span class="s1">&#39;sexo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">glucosa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datos_generales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   id  glucosa
+0   1      100
+1   2       98
+2   3      105
+3   4      125
+4   5      300
+   identificación  edad  sexo
+0               1    25     1
+1               2    33     0
+2               3    52     0
+3               4    78     1
+4               5    37     1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora utilicemos merge para combinarlos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_generales</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">right</span><span class="o">=</span><span class="n">glucosa</span><span class="p">,</span>
+    <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;identificación&#39;</span><span class="p">,</span>
+    <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="c1"># para no tener duplicada la fila id.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>identificación</th>
+      <th>edad</th>
+      <th>sexo</th>
+      <th>glucosa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>25</td>
+      <td>1</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>33</td>
+      <td>0</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>52</td>
+      <td>0</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>78</td>
+      <td>1</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>37</td>
+      <td>1</td>
+      <td>300</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<p>Vamos a trabajar con el dataset <code class="docutils literal notranslate"><span class="pre">exercise</span></code> que viene incluido en <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. Este simula un estudio donde se midió la frecuencia cardiaca (<code class="docutils literal notranslate"><span class="pre">pulse</span></code>) en diferentes tipos de ejercicio y distintos tiempos de duración, agrupados por sujeto y condición física (<code class="docutils literal notranslate"><span class="pre">diet</span></code>).</p>
+<section id="carga-del-dataset">
+<h3>Carga del dataset<a class="headerlink" href="#carga-del-dataset" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;exercise&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Este dataset contiene las siguientes columnas:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: identificador del sujeto</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diet</span></code>: tipo de dieta (<code class="docutils literal notranslate"><span class="pre">low</span> <span class="pre">fat</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">fat</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pulse</span></code>: frecuencia cardíaca</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code>: tipo de ejercicio (<code class="docutils literal notranslate"><span class="pre">rest</span></code>, <code class="docutils literal notranslate"><span class="pre">walking</span></code>, <code class="docutils literal notranslate"><span class="pre">running</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>: duración del ejercicio en minutos (<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">min</span></code>)</p></li>
+</ul>
+</section>
+<section id="actividades">
+<h3>Actividades<a class="headerlink" href="#actividades" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Reorganiza los datos en formato ancho, de modo que cada tipo de ejercicio (<code class="docutils literal notranslate"><span class="pre">kind</span></code>) sea una columna y los valores sean la frecuencia cardíaca (<code class="docutils literal notranslate"><span class="pre">pulse</span></code>). Usa <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> si hay duplicados.</p></li>
+<li><p>Convierte nuevamente a formato largo, manteniendo <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">diet</span></code> y <code class="docutils literal notranslate"><span class="pre">time</span></code> como columnas fijas. Asegúrate de nombrar adecuadamente las nuevas columnas (<code class="docutils literal notranslate"><span class="pre">ejercicio</span></code>, <code class="docutils literal notranslate"><span class="pre">pulso</span></code>).</p></li>
+<li><p>Calcula el promedio de frecuencia cardíaca por tipo de ejercicio utilizando <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p></li>
+<li><p>Genera un <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> que compare la frecuencia cardíaca según el tipo de ejercicio, diferenciando por dieta (<code class="docutils literal notranslate"><span class="pre">diet</span></code>), usando el formato largo.</p></li>
+<li><p>Calcula el cambio en frecuencia cardíaca entre reposo (<code class="docutils literal notranslate"><span class="pre">rest</span></code>) y caminata (<code class="docutils literal notranslate"><span class="pre">walking</span></code>) por sujeto y crea una nueva columna <code class="docutils literal notranslate"><span class="pre">delta_walk_rest</span></code>.</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -543,6 +1421,36 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melt-cambiar-de-formato-ancho-a-largo">Melt, cambiar de formato ancho a largo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-que-tener-ordenados-asi-los-datos">Para qué tener ordenados así los datos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-en-formato-ancho">Visualización en formato ancho</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-en-formato-largo">Visualización en formato largo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-cambiar-de-formato-largo-a-ancho">Pivot - cambiar de formato largo a ancho</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataset">Carga del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actividades">Actividades</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
