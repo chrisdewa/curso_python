@@ -1,6 +1,6 @@
 # Curso-Taller Análisis Estadístico con Python
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16290873.svg)](https://doi.org/10.5281/zenodo.16290873)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16290872.svg)](https://doi.org/10.5281/zenodo.16290872)
 
 
 
@@ -77,4 +77,4 @@ Sin embargo, no generarán derechos de autoría ni retribuciones económicas.
 
 ## Cómo citar
 
-> Delaflor Wagner, C. A. (2025). Curso-Taller de Análisis Estadístico con Python. Zenodo. https://doi.org/10.5281/zenodo.16290873
+> Delaflor Wagner, C. A. (2025). Curso-Taller de Análisis Estadístico con Python. Zenodo. https://doi.org/10.5281/zenodo.16290872
