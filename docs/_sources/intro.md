@@ -1,6 +1,6 @@
 # Curso-Taller Análisis Estadístico con Python
 
-<a href="https://doi.org/10.5281/zenodo.16290873"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.16290873.svg" alt="DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.16290872"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.16290872.svg" alt="DOI"></a>
 
 
 Este Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, está diseñado para profesionales y estudiantes en áreas biomédicas que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos.
@@ -69,4 +69,4 @@ Sin embargo, no generarán derechos de autoría ni retribuciones económicas.
 
 ## Cómo citar
 
-> Delaflor Wagner, C. A. (2025). Curso-Taller de Análisis Estadístico con Python. Zenodo. https://doi.org/10.5281/zenodo.16290873
+> Delaflor Wagner, C. A. (2025). Curso-Taller de Análisis Estadístico con Python. Zenodo. https://doi.org/10.5281/zenodo.16290872

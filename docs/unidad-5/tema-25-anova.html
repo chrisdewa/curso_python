@@ -496,6 +496,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-de-dos-vias">ANOVA de dos vías</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ancova">ANCOVA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-repetidas">Medidas repetidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-parametrico">No paramétrico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupos-independientes">Grupos independientes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">Scipy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pingouin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Medidas repetidas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">scipy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">pingouin</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
             </nav>
@@ -525,6 +538,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 <span class="c1">#!pip install -q pingouin # quita el comentario si estás en colab.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pingouin</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
@@ -796,7 +810,7 @@ H_0: \mu_{Adelie} = \mu_{Chinstrap} = \mu_{Gentoo}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1bac5884ec0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x22ac16ad160&gt;
 </pre></div>
 </div>
 <img alt="../_images/2d7c8a50fbcc0503a89dd08e74e3f634d54a1b35c4c83a8bee1c85b51296081f.png" src="../_images/2d7c8a50fbcc0503a89dd08e74e3f634d54a1b35c4c83a8bee1c85b51296081f.png" />
@@ -1435,10 +1449,10 @@ H_0: \mu_{Adelie} = \mu_{Chinstrap} = \mu_{Gentoo}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1bb04079f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x22ac38991d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/406ed1c86cfa38859586e68b1b0eae691e38895fe397ab6cfafbe563435407c1.png" src="../_images/406ed1c86cfa38859586e68b1b0eae691e38895fe397ab6cfafbe563435407c1.png" />
+<img alt="../_images/c58ecbf5a5cd816fef27ba5bcfbd67b7ee64640762201773878b303ed271b5f9.png" src="../_images/c58ecbf5a5cd816fef27ba5bcfbd67b7ee64640762201773878b303ed271b5f9.png" />
 </div>
 </div>
 <p>Podemos ver que en general, se incrementa el tiempo de reacción conforme se depriva del sueño al sujeto, excepto para el sujeto 335 que se tomó muy serie el ejercicio.</p>
@@ -1506,6 +1520,183 @@ H_0: \mu_{Adelie} = \mu_{Chinstrap} = \mu_{Gentoo}
 </div></div></div>
 </div>
 <p>Podemos ver que el tiempo efectivamente varía en el tiempo para cada sujeto, con una p significativa, aún con la corrección por esfericidad (Greenhouse-Geisser). Por lo que corroboramos que existe un cambio significativo con un tamaño de efecto importante.</p>
+</section>
+<section id="no-parametrico">
+<h2>No paramétrico<a class="headerlink" href="#no-parametrico" title="Link to this heading">#</a></h2>
+<p>Veamos cómo analizar la diferencia entre más de dos grupos con las pruebas no paramétricas de Kruskal-Wallis y Friedman.</p>
+<section id="grupos-independientes">
+<h3>Grupos independientes<a class="headerlink" href="#grupos-independientes" title="Link to this heading">#</a></h3>
+<p>Para analizar más de dos grupos en forma no paramétrica, la prueba de rutina es Kruskal-Wallis, que en python está implementada en varios paquetes.</p>
+<section id="scipy">
+<h4>Scipy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;body_mass_g&#39;</span><span class="p">])</span>
+<span class="c1"># esta es otra forma de extraer los grupos</span>
+<span class="c1"># primero agrupamos y seleccionamos la columna</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">clean_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span>
+<span class="c1"># luego extraemos los grupos</span>
+<span class="n">adelie</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Adelie&#39;</span><span class="p">)</span>
+<span class="n">chinstrap</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Chinstrap&#39;</span><span class="p">)</span>
+<span class="n">gentoo</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Gentoo&#39;</span><span class="p">)</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">kruskal</span><span class="p">(</span><span class="n">adelie</span><span class="p">,</span> <span class="n">chinstrap</span><span class="p">,</span> <span class="n">gentoo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KruskalResult(statistic=np.float64(217.59924143680436), pvalue=np.float64(5.609512095829062e-48))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h4>Pingouin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la sintaxis es muy parecida al anova</span>
+<span class="n">pg</span><span class="o">.</span><span class="n">kruskal</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dv</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span> <span class="n">between</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source</th>
+      <th>ddof1</th>
+      <th>H</th>
+      <th>p-unc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Kruskal</th>
+      <td>species</td>
+      <td>2</td>
+      <td>217.599241</td>
+      <td>5.609512e-48</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h3>Medidas repetidas<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Para el análisis de Friedman contamos con las mismas herramientas.</p>
+<section id="id3">
+<h4>scipy<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Como tenemos varios días en el estudio, necesitamos extraer cada día directamente a un objeto, en lugar de separar en variables como hicimos con las especies, lo haremos con los días.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dias</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">sleep_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Days&#39;</span><span class="p">)[</span><span class="s1">&#39;Reaction&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;guardando día:&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">dias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>guardando día: 0
+guardando día: 1
+guardando día: 2
+guardando día: 3
+guardando día: 4
+guardando día: 5
+guardando día: 6
+guardando día: 7
+guardando día: 8
+guardando día: 9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora en la variable <code class="docutils literal notranslate"><span class="pre">dias</span></code> tenemos una lista con los valores del tiempo de reacción para cada día, pongámoslo en la prueba de friedman.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">friedmanchisquare</span><span class="p">(</span><span class="o">*</span><span class="n">dias</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FriedmanchisquareResult(statistic=np.float64(86.08484848484852), pvalue=np.float64(9.904181018793203e-15))
+</pre></div>
+</div>
+</div>
+</div>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">*</span></code> antes de la lista, «desempaqueta» la colección en los argumentos de la función. Si analizamos el encabezado de la función vemos esto <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">friedmanchisquare(*samples:</span> <span class="pre">Any)</span></code>, puedes ver que samples es un argumento que puede recibir cualquier cantidad de valores y terminan todos en una lista, al utilizar <code class="docutils literal notranslate"><span class="pre">*dias</span></code> estamos pasando cada objeto dentro de la lista al parámetro <code class="docutils literal notranslate"><span class="pre">samples</span></code>. Revisa el tema de <a class="reference internal" href="../unidad-3/tema-11-funciones.html#parametros-variables-target"><span class="std std-ref">argumentos</span></a> para recordar estos conceptos.</p>
+</section>
+<section id="id4">
+<h4>pingouin<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pg</span><span class="o">.</span><span class="n">friedman</span><span class="p">(</span>
+    <span class="n">sleep_data</span><span class="p">,</span> <span class="n">dv</span><span class="o">=</span><span class="s1">&#39;Reaction&#39;</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="s1">&#39;Days&#39;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> 
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source</th>
+      <th>W</th>
+      <th>ddof1</th>
+      <th>Q</th>
+      <th>p-unc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Friedman</th>
+      <td>Days</td>
+      <td>0.531388</td>
+      <td>9</td>
+      <td>86.084848</td>
+      <td>9.904181e-15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nuevamente <code class="docutils literal notranslate"><span class="pre">pingouin</span></code> es más sencillo de utilizar y produce resultados más estéticos.</p>
+</section>
+</section>
 </section>
 <section id="ejercicios">
 <h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
@@ -1590,6 +1781,19 @@ H_0: \mu_{Adelie} = \mu_{Chinstrap} = \mu_{Gentoo}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-de-dos-vias">ANOVA de dos vías</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ancova">ANCOVA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-repetidas">Medidas repetidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-parametrico">No paramétrico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupos-independientes">Grupos independientes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">Scipy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pingouin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Medidas repetidas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">scipy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">pingouin</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
   </nav></div>
