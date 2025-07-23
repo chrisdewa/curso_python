@@ -31,9 +31,7 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 
 ## Duración y distribución horaria
 
-Duración total: 300 horas  
-- Lecturas teóricas (clases): 100 horas  
-- Práctica guiada (libretas y ejercicios): 200 horas
+La duración aproximada total del curso es de **300 horas**, que incluyen la lectura y comprensión de los temas, ejecución del código y ejercicios y clases guiadas por el autor.  
 
 ## Requisitos para tomar el curso
 
@@ -46,8 +44,19 @@ Duración total: 300 horas
 
 ## Licencia y uso del contenido
 
-El contenido protegido por derechos de autor corresponde al código y materiales propios.  
-Los enlaces externos y las bibliotecas utilizadas pertenecen a sus respectivos autores y licencias.
+CC BY-NC-ND 4.0 © Copyright 2025. Christian Alejandro Delaflor Wagner.
+
+*Usted puede compartir el material siempre que siga los términos de la licencia*.
+
+|Términos|Descripción|
+|---|---|
+|Atribución|Usted debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que usted o su uso tienen el apoyo de la licenciante. |
+|NoComercial|Usted no puede hacer uso del material con propósitos comerciales.|
+|SinDerivadas|Si remezcla, transforma o crea a partir del material, no podrá distribuir el material modificado|
+|No hay restricciones adicionales|No puede aplicar términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia.|
+
+Licencia completa: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.
+
 
 ## Cómo contribuir
 

@@ -5,7 +5,7 @@ title: "Curso-Taller de Análisis Estadístico con Python"
 author: Christian Alejandro Delaflor Wagner
 logo: logo.png
 
-copyright: "2025"
+copyright: "2025. CC BY-NC-ND 4.0"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -43,7 +43,7 @@ html:
   use_edit_page_button: true
   use_issues_button: true
   #theme: sphinx_book_theme
-  extra_footer: Todos los derechos reservados.
+  # extra_footer: CC BY-NC-ND 4.0 # Todos los derechos reservados.
 sphinx:
   config:
     language: es

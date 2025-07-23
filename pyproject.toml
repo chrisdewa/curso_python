@@ -1,6 +1,6 @@
 [project]
 name = "curso-python"
-version = "0.1.0"
+version = "0.2.0"
 description = "Curso-Taller de Análisis Estadístico con Python para ciencias de la salud y afines."
 authors = [
     {name = "Christian Alejandro Delaflor Wagner"}
@@ -9,6 +9,7 @@ license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "bambi>=0.15.0",
     "jupyter-book>=1.0.4.post1",
     "jupyterlab>=4.4.3",
     "matplotlib>=3.10.3",

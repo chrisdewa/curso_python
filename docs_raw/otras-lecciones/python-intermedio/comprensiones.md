@@ -1,4 +1,5 @@
 # Comprensiones en Python
+(comprensiones-target)=
 
 Las comprensiones (`comprehensions`) son expresiones declarativas que permiten construir colecciones de forma concisa y legible. Usan la semántica de expresión de Python para crear listas, diccionarios, sets o generadores, sin necesidad de escribir bucles explícitos.
 

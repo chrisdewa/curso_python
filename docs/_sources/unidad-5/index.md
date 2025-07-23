@@ -1,4 +1,4 @@
-# Unidad 5: Recetario de análisis estadísticos comunes
+# Unidad 5: Procedimientos estadísticos frecuentes
 
 En esta unidad abarcaremos múltiples recetas para diferentes tipos de análisis. 
 
