@@ -13,6 +13,7 @@ dependencies = [
     "ipywidgets>=8.1.7",
     "jupyter-book>=1.0.4.post1",
     "jupyterlab>=4.4.3",
+    "lifelines>=0.30.0",
     "matplotlib>=3.10.3",
     "numpyro>=0.18.0",
     "openpyxl>=3.1.5",

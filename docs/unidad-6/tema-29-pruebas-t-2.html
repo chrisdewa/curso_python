@@ -218,6 +218,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-17-visualizaciones.html">Tema 17: Visualizaciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-18-inferencia-basica.html">Tema 18: Inferencia básica</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-19-modelado-fundamentos.html">Tema 19: Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-extra-rearreglos-de-datos.html">Tema extra: Rearreglo de datos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -228,7 +229,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-24-tama%C3%B1o-muestral.html">Tema 24: Tamaños de muestra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-25-anova.html">Tema 25: Análisis de Varianza</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-26-modelos-mixtos.html">Tema 26: Modelos Mixtos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-rearreglos-de-datos.html">Tema 27: Rearreglo de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-sobrevida.html">Tema 27: Análisis de sobrevida</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -664,17 +665,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                                                                                                   
- <span style="font-weight: bold"> Progress                  </span> <span style="font-weight: bold"> Draws </span> <span style="font-weight: bold"> Divergences </span> <span style="font-weight: bold"> Step size </span> <span style="font-weight: bold"> Grad evals </span> <span style="font-weight: bold"> Sampling Speed </span> <span style="font-weight: bold"> Elapsed </span> <span style="font-weight: bold"> Remaining </span> 
- ───────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
-  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             0.91        3            163.13 draws/s   0:00:12   0:00:00    
-  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             1.35        3            263.38 draws/s   0:00:07   0:00:00    
-  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             0.85        3            88.10 draws/s    0:00:22   0:00:00    
-  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             0.98        3            534.29 draws/s   0:00:03   0:00:00    
-                                                                                                                   
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 33 seconds.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+C:\Users\User\Documents\coding\curso_python\.venv\Lib\site-packages\pytensor\link\c\cmodule.py:2968: UserWarning: PyTensor could not link to a BLAS installation. Operations that might benefit from BLAS will be severely degraded.
+This usually happens when PyTensor is installed via pip. We recommend it be installed via conda/mamba/pixi instead.
+Alternatively, you can use an experimental backend such as Numba or JAX that perform their own BLAS optimizations, by setting `pytensor.config.mode == &#39;NUMBA&#39;` or passing `mode=&#39;NUMBA&#39;` when compiling a PyTensor function.
+For more options and details see https://pytensor.readthedocs.io/en/latest/troubleshooting.html#how-do-i-configure-test-my-blas-library
+  warnings.warn(
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, Intercept, species]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7665ba379ae744708ab57fe8f27e1ee8", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 19 seconds.
 </pre></div>
 </div>
 </div>
@@ -688,7 +690,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c758ceef463c3752034783c16bb35db2f3eb5070ce26e7b5782d07768c55e58.png" src="../_images/0c758ceef463c3752034783c16bb35db2f3eb5070ce26e7b5782d07768c55e58.png" />
+<img alt="../_images/2f6db58489bc8623090cd85efeae1add2ee2d5ec9209e0d297c5e7339616fed6.png" src="../_images/2f6db58489bc8623090cd85efeae1add2ee2d5ec9209e0d297c5e7339616fed6.png" />
 </div>
 </div>
 <p>Podemos ver que las cadenas parecen haber convergido ya que las trazas tienen forma de «ruido». Ahora podemos analizar los resultados.</p>
@@ -699,7 +701,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34d2acc5288317fcc5f2513279cffd09cf5c064305060d323f259a70f2509def.png" src="../_images/34d2acc5288317fcc5f2513279cffd09cf5c064305060d323f259a70f2509def.png" />
+<img alt="../_images/4d643f6d257f9a8d604a0096bb188635b08c0c4c51e9f1104daa9f43b4807769.png" src="../_images/4d643f6d257f9a8d604a0096bb188635b08c0c4c51e9f1104daa9f43b4807769.png" />
 </div>
 </div>
 <p>Esto grafica las posteriores, pero en realidad solo nos interesa el grupo de especie.</p>
@@ -710,7 +712,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ba204e3a9a8357e197bdca2f3694fab5f106ab52d451713811ff042345f708e4.png" src="../_images/ba204e3a9a8357e197bdca2f3694fab5f106ab52d451713811ff042345f708e4.png" />
+<img alt="../_images/1fa83b8dcfc978c7e7bc5eaa37c9dd8e2a1db88766e0cd7d2c97444a5d705a9f.png" src="../_images/1fa83b8dcfc978c7e7bc5eaa37c9dd8e2a1db88766e0cd7d2c97444a5d705a9f.png" />
 </div>
 </div>
 <p>Podemos ver que efectivamente no parece haber diferencia, ya que el intervalo de credibilidad cruza el cero. Veamoslo en forma de tabla.</p>
@@ -753,38 +755,38 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
   <tbody>
     <tr>
       <th>sigma</th>
-      <td>438.630</td>
-      <td>21.103</td>
-      <td>398.420</td>
-      <td>477.170</td>
-      <td>0.267</td>
-      <td>0.347</td>
-      <td>6338.0</td>
-      <td>3401.0</td>
+      <td>438.428</td>
+      <td>20.364</td>
+      <td>401.399</td>
+      <td>476.737</td>
+      <td>0.268</td>
+      <td>0.310</td>
+      <td>5847.0</td>
+      <td>3296.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Intercept</th>
-      <td>3700.055</td>
-      <td>35.392</td>
-      <td>3633.572</td>
-      <td>3764.523</td>
-      <td>0.453</td>
-      <td>0.594</td>
-      <td>6180.0</td>
-      <td>3123.0</td>
+      <td>3700.557</td>
+      <td>34.833</td>
+      <td>3637.994</td>
+      <td>3769.530</td>
+      <td>0.427</td>
+      <td>0.548</td>
+      <td>6661.0</td>
+      <td>3360.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>species[Chinstrap]</th>
-      <td>33.179</td>
-      <td>64.860</td>
-      <td>-88.855</td>
-      <td>151.203</td>
-      <td>0.835</td>
-      <td>1.023</td>
-      <td>6046.0</td>
-      <td>3021.0</td>
+      <td>32.529</td>
+      <td>62.406</td>
+      <td>-89.768</td>
+      <td>146.522</td>
+      <td>0.766</td>
+      <td>0.979</td>
+      <td>6637.0</td>
+      <td>3193.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -793,13 +795,33 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 <p>Sigma es la diferencia entre las especies, el intercepto es la media de peso para la especie de referencia (Adelie). Bambi tomó el primer valor como el de referencia, es posible especificar el grupo de referencia pero lo veremos en otra lección, en este caso ambos grupos son adecuados. <code class="docutils literal notranslate"><span class="pre">species[Chinstrap]</span></code> es la diferencia en el valor del peso para esta especie.</p>
 <p>En la tabla también podemos ver el valor <span class="math notranslate nohighlight">\(\hat{R}=1\)</span> en todos los casos, lo que es importante para la confiabilidad de los resultados.</p>
-<p>Podemos ver que el intervalo creible  cruza igualmente por el cero, por lo que podemos rechazar la significancia de la diferencia.</p>
+<p>Podemos ver que el intervalo creible  cruza igualmente por el cero, por lo que podemos rechazar la significancia de la diferencia. Pero calculemos el factor bayes, para ello necesitamos muestear el prior y unirlo a nuestro resultado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prior</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">prior_predictive</span><span class="p">()</span> <span class="c1"># muestreamos el prior</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="c1"># extendemos el resultado para que contenga el prior</span>
+<span class="n">az</span><span class="o">.</span><span class="n">bayes_factor</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;species&#39;</span><span class="p">)</span> <span class="c1"># especificamos la variable de interés</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling: [Intercept, body_mass_g, sigma, species]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BF10&#39;: np.float64(0.004070164247117231),
+ &#39;BF01&#39;: np.float64(245.69033073008504)}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver que tenemos evidencia muy fuerte a favor de la hipótesis nula.</p>
 </section>
 <section id="ejercicio">
 <h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Ejecuta este método para comparación de medias con tus propios datos.</p></li>
 <li><p>Compara varias cadenas. Ajusta el modelo con diferente número de chains (por ejemplo, 2 o 8) y analiza si afecta el resultado o la convergencia.</p></li>
+<li><p>Realiza la prueba T comparando el peso de acuerdo al sexo.</p></li>
 </ol>
 </section>
 </section>

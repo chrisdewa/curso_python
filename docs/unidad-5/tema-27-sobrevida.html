@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unidad 1: Aspectos Básicos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Tema 27: Análisis de sobrevida &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -58,14 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-1/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tema-27-sobrevida';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Tema 1: Preparación inicial" href="tema-1-preparacion.html" />
-    <link rel="prev" title="Curso-Taller Análisis Estadístico con Python" href="../intro.html" />
+    <link rel="next" title="Unidad 5: Análisis Bayesianos" href="../unidad-6/index.html" />
+    <link rel="prev" title="Tema 26: Modelos Mixtos" href="tema-26-modelos-mixtos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -184,18 +182,18 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="tema-1-preparacion.html">Tema 1: Preparación inicial</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tema-2-generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="tema-2-generalidades/2.1-algoritmica.html">Tema 2.1: Algorítmica</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tema-2-generalidades/2.2-programacion.html">Tema 2.2: Programación</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tema-2-generalidades/2.3-python.html">Tema 2.3: Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-1-preparacion.html">Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/tema-2-generalidades/index.html">Tema 2: Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.1-algoritmica.html">Tema 2.1: Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.2-programacion.html">Tema 2.2: Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/tema-2-generalidades/2.3-python.html">Tema 2.3: Python</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-3-opciones-de-trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-4-jupyter.html">Tema 4: Jupyter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-5-primera-libreta.html">Tema 5: Tu primera libreta</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-6-conclusion.html">Tema 6: Conclusiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-3-opciones-de-trabajo.html">Tema 3: ¿Dónde y cómo ejecutar Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-4-jupyter.html">Tema 4: Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-5-primera-libreta.html">Tema 5: Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-6-conclusion.html">Tema 6: Conclusiones</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -221,15 +219,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-extra-rearreglos-de-datos.html">Tema extra: Rearreglo de datos</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-20-rendimiento-diagnostico.html">Tema 20: Medidas de rendimiento diagnóstico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-21-curvas-roc.html">Tema 21: Curvas ROC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-22-medidas-de-asociaci%C3%B3n.html">Tema 22: Medidas de asociación y correlación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-23-tama%C3%B1os-efecto.html">Tema 23: Tamaños del efecto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-24-tama%C3%B1o-muestral.html">Tema 24: Tamaños de muestra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-25-anova.html">Tema 25: Análisis de Varianza</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-26-modelos-mixtos.html">Tema 26: Modelos Mixtos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-sobrevida.html">Tema 27: Análisis de sobrevida</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Procedimientos estadísticos frecuentes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tema-20-rendimiento-diagnostico.html">Tema 20: Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-21-curvas-roc.html">Tema 21: Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-22-medidas-de-asociaci%C3%B3n.html">Tema 22: Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-23-tama%C3%B1os-efecto.html">Tema 23: Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-24-tama%C3%B1o-muestral.html">Tema 24: Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-25-anova.html">Tema 25: Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-26-modelos-mixtos.html">Tema 26: Modelos Mixtos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 27: Análisis de sobrevida</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -296,6 +294,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/tema-27-sobrevida.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -321,7 +350,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-1/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/tema-27-sobrevida.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +367,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-1/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/tema-27-sobrevida.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +397,7 @@
       
       
       
-      <li><a href="../_sources/unidad-1/index.md" target="_blank"
+      <li><a href="../_sources/unidad-5/tema-27-sobrevida.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +407,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -450,7 +479,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unidad 1: Aspectos Básicos</h1>
+    <h1>Tema 27: Análisis de sobrevida</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -464,11 +493,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unidad-1-aspectos-basicos">
-<h1>Unidad 1: Aspectos Básicos<a class="headerlink" href="#unidad-1-aspectos-basicos" title="Link to this heading">#</a></h1>
-<p>Al finalizar esta unidad, comprenderás los fundamentos generales de la programación, el lenguaje Python y su utilidad, conocerás cómo preparar tu entorno de trabajo y podrás ejecutar código en diferentes plataformas.</p>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-27-analisis-de-sobrevida">
+<h1>Tema 27: Análisis de sobrevida<a class="headerlink" href="#tema-27-analisis-de-sobrevida" title="Link to this heading">#</a></h1>
+<p>En esta libreta aprenderás cómo ejecutar los análisis de sobrevida más frecuentemente utilizados.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,7 +511,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./unidad-1"
+            path: "./unidad-5"
         },
         predefinedOutput: true
     }
@@ -502,20 +529,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="tema-26-modelos-mixtos.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Curso-Taller Análisis Estadístico con Python</p>
+        <p class="prev-next-title">Tema 26: Modelos Mixtos</p>
       </div>
     </a>
     <a class="right-next"
-       href="tema-1-preparacion.html"
+       href="../unidad-6/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Tema 1: Preparación inicial</p>
+        <p class="prev-next-title">Unidad 5: Análisis Bayesianos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
