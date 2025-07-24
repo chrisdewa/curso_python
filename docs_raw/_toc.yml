@@ -32,6 +32,9 @@ chapters:
   - file: unidad-6/index
     sections:
       - glob: unidad-6/tema*
+  - file: unidad-7/index
+    sections:
+      - glob: unidad-7/*
   - file: Recursos/index
     # sections:
     #   - glob: Recursos/*
