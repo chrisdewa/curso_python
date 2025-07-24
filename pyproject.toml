@@ -10,9 +10,11 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "bambi>=0.15.0",
+    "ipywidgets>=8.1.7",
     "jupyter-book>=1.0.4.post1",
     "jupyterlab>=4.4.3",
     "matplotlib>=3.10.3",
+    "numpyro>=0.18.0",
     "openpyxl>=3.1.5",
     "pandas>=2.3.0",
     "pingouin>=0.5.5",

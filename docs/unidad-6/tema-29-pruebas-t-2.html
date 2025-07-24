@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unidad 5: Análisis Bayesianos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Tema 29: Pruebas T 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -60,12 +60,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-6/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-6/tema-29-pruebas-t-2';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Tema 28: Pruebas t" href="tema-28-pruebas-t.html" />
-    <link rel="prev" title="Tema 27: Rearreglo de datos" href="../unidad-5/tema-27-rearreglos-de-datos.html" />
+    <link rel="next" title="Unidad 7: Libretas reutilizables" href="../unidad-7/index.html" />
+    <link rel="prev" title="Tema 28: Pruebas t" href="tema-28-pruebas-t.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -231,9 +231,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-rearreglos-de-datos.html">Tema 27: Rearreglo de datos</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unidad 5: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tema-28-pruebas-t.html">Tema 28: Pruebas t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-29-pruebas-t-2.html">Tema 29: Pruebas T 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 29: Pruebas T 2</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -295,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-6/tema-29-pruebas-t-2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -320,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-6/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-6/tema-29-pruebas-t-2.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +368,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-6/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-6/tema-29-pruebas-t-2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +398,7 @@
       
       
       
-      <li><a href="../_sources/unidad-6/index.md" target="_blank"
+      <li><a href="../_sources/unidad-6/tema-29-pruebas-t-2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +408,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -438,7 +469,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -449,11 +482,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unidad 5: Análisis Bayesianos</h1>
+    <h1>Tema 29: Pruebas T 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -463,32 +504,276 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unidad-5-analisis-bayesianos">
-<h1>Unidad 5: Análisis Bayesianos<a class="headerlink" href="#unidad-5-analisis-bayesianos" title="Link to this heading">#</a></h1>
-<p>En esta unidad se revisará de forma concisa cómo realizar análisis bayesianos desde una perspectiva programática de alto nivel.</p>
-<p>Si bien es posible resolver problemas de asociación, comparación de pares o correlación mediante métodos cerrados, como los Factores de Bayes, para análisis más complejos, incluida la regresión, es necesario emplear métodos de Montecarlo basados en cadenas de Markov. La implementación de estos métodos puede resultar compleja; sin embargo, el uso de librerías de alto nivel, como <code class="docutils literal notranslate"><span class="pre">bambi</span></code>, permite simplificar considerablemente el proceso.</p>
-<div class="admonition important">
-<p class="admonition-title">Importante</p>
-<p>Para esta libreta utilizaremos las siguientes librerías, asegúrate de tenerlas instaladas.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">bambi</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pingouin</span></code></p></li>
-</ul>
-<p>Instálalas con:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>bambi<span class="w"> </span>pingouin
-</pre></div>
-</div>
-<p>o con:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>bambi<span class="w"> </span>pingouin
-</pre></div>
-</div>
-<p>O si estás en google colab, puedes hacerlo en una celda de código así:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>bambi<span class="w"> </span>pingouin
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-29-pruebas-t-2">
+<h1>Tema 29: Pruebas T 2<a class="headerlink" href="#tema-29-pruebas-t-2" title="Link to this heading">#</a></h1>
+<p>En esta libreta veremos otro método para realizar una comparación de dos medias.</p>
+<p>Te sugiero que revises esta <a class="reference external" href="https://bambinos.github.io/bambi/notebooks/t-test.html">libreta</a> de la documentación de bambi para la explicación del modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">arviz</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">az</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pingouin</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">read_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="toctree-wrapper compound">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>18.3</td>
+      <td>174.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.7</td>
+      <td>18.7</td>
+      <td>180.0</td>
+      <td>3600.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.9</td>
+      <td>19.2</td>
+      <td>189.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>18.1</td>
+      <td>185.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.8</td>
+      <td>17.2</td>
+      <td>180.0</td>
+      <td>3800.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">]</span> 
+<span class="n">model</span> <span class="o">=</span> <span class="n">bmb</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+    <span class="s1">&#39;body_mass_g ~ species&#39;</span><span class="p">,</span> <span class="n">clean_data</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Automatically removing 1/220 rows from the dataset.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Formula: body_mass_g ~ species
+        Family: gaussian
+          Link: mu = identity
+  Observations: 219
+        Priors: 
+    target = mu
+        Common-level effects
+            Intercept ~ Normal(mu: 3710.7306, sigma: 1310.4353)
+            species ~ Normal(mu: 0.0, sigma: 2351.7068)
+        
+        Auxiliary parameters
+            sigma ~ HalfStudentT(nu: 4.0, sigma: 435.2532)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                                                                                                   
+ <span style="font-weight: bold"> Progress                  </span> <span style="font-weight: bold"> Draws </span> <span style="font-weight: bold"> Divergences </span> <span style="font-weight: bold"> Step size </span> <span style="font-weight: bold"> Grad evals </span> <span style="font-weight: bold"> Sampling Speed </span> <span style="font-weight: bold"> Elapsed </span> <span style="font-weight: bold"> Remaining </span> 
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             1.14        3            188.26 draws/s   0:00:10   0:00:00    
+  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             0.93        3            209.98 draws/s   0:00:09   0:00:00    
+  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             1.03        1            256.28 draws/s   0:00:07   0:00:00    
+  <span style="color: #1f77b4; text-decoration-color: #1f77b4">━━━━━━━━━━━━━━━━━━━━━━━━━</span>   2000    0             0.93        3            510.60 draws/s   0:00:03   0:00:00    
+                                                                                                                   
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con esto bambi ajustó los datos al modelo y corrió la cadenas markov para muestrear la distribución posterior. Es importante ver que las cadenas parecen no haber encontrado divergencias, lo cual es excelente.
+Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadamente. El análisis puede realizarse con <code class="docutils literal notranslate"><span class="pre">arviz</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span><span class="n">result</span><span class="p">,);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6c415e18ab7b20665f3eef2b1b5ac05f72dfa31a769a033b717a226dc8044c82.png" src="../_images/6c415e18ab7b20665f3eef2b1b5ac05f72dfa31a769a033b717a226dc8044c82.png" />
+</div>
+</div>
+<p>Podemos ver que las cadenas parecen haber convergido ya que las trazas tienen forma de «ruido». Ahora podemos analizar los resultados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c5075750e54d278937509eaab35bfdc174901ce7325d2f24f058992d72b7979b.png" src="../_images/c5075750e54d278937509eaab35bfdc174901ce7325d2f24f058992d72b7979b.png" />
+</div>
+</div>
+<p>Esto grafica las posteriores, pero en realidad solo nos interesa el grupo de especie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">ref_val</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d5b519372ece3a474d9410bf568457e817a633c57e13fc91aae8ab697534d74d.png" src="../_images/d5b519372ece3a474d9410bf568457e817a633c57e13fc91aae8ab697534d74d.png" />
+</div>
+</div>
+<p>Podemos ver que efectivamente no parece haber diferencia, ya que el intervalo de credibilidad cruza el cero. Veamoslo en forma de tabla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sigma</th>
+      <td>438.697</td>
+      <td>21.203</td>
+      <td>400.862</td>
+      <td>479.822</td>
+      <td>0.289</td>
+      <td>0.329</td>
+      <td>5384.0</td>
+      <td>2804.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Intercept</th>
+      <td>3700.708</td>
+      <td>36.349</td>
+      <td>3630.994</td>
+      <td>3767.187</td>
+      <td>0.500</td>
+      <td>0.580</td>
+      <td>5333.0</td>
+      <td>3040.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>species[Chinstrap]</th>
+      <td>33.467</td>
+      <td>63.391</td>
+      <td>-87.993</td>
+      <td>147.955</td>
+      <td>0.890</td>
+      <td>0.990</td>
+      <td>5088.0</td>
+      <td>2969.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sigma es la diferencia entre las especies, el intercepto es la media de peso para la especie de referencia (Adelie). Bambi tomó el primer valor como el de referencia, es posible especificar el grupo de referencia pero lo veremos en otra lección, en este caso ambos grupos son adecuados. <code class="docutils literal notranslate"><span class="pre">species[Chinstrap]</span></code> es la diferencia en el valor del peso para esta especie. Podemos ver que el intervalo creible  es -87 - 148 por lo que podemos rechazar la significancia de la diferencia, pero podemos obtener la probabilidad posterior de que los grupos sean diferentes.</p>
+<p>En la tabla también podemos ver el valor <span class="math notranslate nohighlight">\(\hat{R}=1\)</span> en todos los casos, lo que es importante para la confiabilidad de los resultados.</p>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Ejecuta este método para comparación de medias con tus propios datos.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -522,20 +807,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../unidad-5/tema-27-rearreglos-de-datos.html"
+       href="tema-28-pruebas-t.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 27: Rearreglo de datos</p>
+        <p class="prev-next-title">Tema 28: Pruebas t</p>
       </div>
     </a>
     <a class="right-next"
-       href="tema-28-pruebas-t.html"
+       href="../unidad-7/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Tema 28: Pruebas t</p>
+        <p class="prev-next-title">Unidad 7: Libretas reutilizables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,6 +830,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
