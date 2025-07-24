@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 29: Pruebas T 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Tema 29: Pruebas T, parte 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -65,7 +65,7 @@
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Unidad 7: Libretas reutilizables" href="../unidad-7/index.html" />
-    <link rel="prev" title="Tema 28: Pruebas t" href="tema-28-pruebas-t.html" />
+    <link rel="prev" title="Tema 28: Pruebas T, parte 1" href="tema-28-pruebas-t.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -232,8 +232,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="tema-28-pruebas-t.html">Tema 28: Pruebas t</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 29: Pruebas T 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-28-pruebas-t.html">Tema 28: Pruebas T, parte 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 29: Pruebas T, parte 2</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,7 +482,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 29: Pruebas T 2</h1>
+    <h1>Tema 29: Pruebas T, parte 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,6 +492,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">Definición del modelo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
             </nav>
@@ -504,10 +506,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-29-pruebas-t-2">
-<h1>Tema 29: Pruebas T 2<a class="headerlink" href="#tema-29-pruebas-t-2" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-29-pruebas-t-parte-2">
+<h1>Tema 29: Pruebas T, parte 2<a class="headerlink" href="#tema-29-pruebas-t-parte-2" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta libreta es la parte 2 del análisis bayesiano de comparación de medias, pero también es la introducción para los modelos lineales</p>
+</div>
 <p>En esta libreta veremos otro método para realizar una comparación de dos medias.</p>
-<p>Te sugiero que revises esta <a class="reference external" href="https://bambinos.github.io/bambi/notebooks/t-test.html">libreta</a> de la documentación de bambi para la explicación del modelo.</p>
+<p>Te sugiero que revises esta <a class="reference external" href="https://bambinos.github.io/bambi/notebooks/t-test.html">libreta</a> de la documentación de <code class="docutils literal notranslate"><span class="pre">bambi</span></code> para mayor explicación del modelo y un ejemplo diferente.</p>
+<p>Cuando utilizamos una prueba t, lo que hacemos son comparar las medias en dos grupo con la hipótesis <span class="math notranslate nohighlight">\(\mu_0 \ne \mu_1\)</span>, al hacerlo, utilizamos de forma implícita un modelo lineal, donde comparamos:</p>
+<div class="math notranslate nohighlight">
+\[\mu_0 = \beta_0 + \epsilon\]</div>
+<div class="math notranslate nohighlight">
+\[\mu_1 = \beta_0 + \beta_1 + \epsilon\]</div>
+<p>Por lo tanto, para el caso de la hipótesis nula <span class="math notranslate nohighlight">\(\mu_0 = \mu_1\)</span>, la ecuación de interés es:</p>
+<div class="math notranslate nohighlight">
+\[\beta_0 + \epsilon = \beta_0 + \beta_1 + \epsilon\]</div>
+<p>Resolviendo para <span class="math notranslate nohighlight">\(\beta_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\beta_1 = 0\]</div>
+<p>Por lo tanto, podemos utilizar un modelo lineal para resolver el caso de la parte 1, con palmer penguins, de la diferencia de peso entre el peso (<code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>) entre las especies Adelie y Chinstrap.</p>
+<section id="librerias-y-datos">
+<h2>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
@@ -602,11 +622,16 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="definicion-del-modelo">
+<h2>Definición del modelo<a class="headerlink" href="#definicion-del-modelo" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">]</span> <span class="c1"># solo queremos adelie y chinstrap</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">bmb</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
-    <span class="s1">&#39;body_mass_g ~ species&#39;</span><span class="p">,</span> <span class="n">clean_data</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span>
+    <span class="s1">&#39;body_mass_g ~ species&#39;</span><span class="p">,</span> <span class="c1"># también podemos usar la sintaxis de fórmula</span>
+    <span class="n">clean_data</span><span class="p">,</span> <span class="c1"># pasamos los datos limpios</span>
+    <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># especificamos que queremos retirar los NaN</span>
 <span class="p">)</span>
 <span class="n">model</span>
 </pre></div>
@@ -769,11 +794,12 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 <p>Sigma es la diferencia entre las especies, el intercepto es la media de peso para la especie de referencia (Adelie). Bambi tomó el primer valor como el de referencia, es posible especificar el grupo de referencia pero lo veremos en otra lección, en este caso ambos grupos son adecuados. <code class="docutils literal notranslate"><span class="pre">species[Chinstrap]</span></code> es la diferencia en el valor del peso para esta especie.</p>
 <p>En la tabla también podemos ver el valor <span class="math notranslate nohighlight">\(\hat{R}=1\)</span> en todos los casos, lo que es importante para la confiabilidad de los resultados.</p>
 <p>Podemos ver que el intervalo creible  cruza igualmente por el cero, por lo que podemos rechazar la significancia de la diferencia.</p>
-<p>Es decir, la probabilidad de que la diferencia sea 0</p>
+</section>
 <section id="ejercicio">
 <h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Ejecuta este método para comparación de medias con tus propios datos.</p></li>
+<li><p>Compara varias cadenas. Ajusta el modelo con diferente número de chains (por ejemplo, 2 o 8) y analiza si afecta el resultado o la convergencia.</p></li>
 </ol>
 </section>
 </section>
@@ -814,7 +840,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Tema 28: Pruebas t</p>
+        <p class="prev-next-title">Tema 28: Pruebas T, parte 1</p>
       </div>
     </a>
     <a class="right-next"
@@ -842,6 +868,8 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">Definición del modelo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
 </ul>
   </nav></div>
