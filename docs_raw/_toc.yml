@@ -40,7 +40,4 @@ chapters:
     #   - glob: Recursos/*
   - file: otras-lecciones/index
     sections:
-      - file: otras-lecciones/python-intermedio/index
-        sections:
-          - file: otras-lecciones/python-intermedio/comprensiones
-      - file: otras-lecciones/f-strings
+      - glob: otras-lecciones/* 

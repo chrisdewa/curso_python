@@ -243,10 +243,7 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Recursos/index.html">Recursos</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../otras-lecciones/python-intermedio/index.html">Python Intermedio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../otras-lecciones/python-intermedio/comprensiones.html">Comprensiones en Python</a></li>
-</ul>
-</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">Comprensiones en Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">f-string: Dar formato al texto</a></li>
 </ul>
 </details></li>
@@ -515,7 +512,10 @@ document.write(`
 </div>
 <p>En esta libreta veremos otro método para realizar una comparación de dos medias.</p>
 <p>Te sugiero que revises esta <a class="reference external" href="https://bambinos.github.io/bambi/notebooks/t-test.html">libreta</a> de la documentación de <code class="docutils literal notranslate"><span class="pre">bambi</span></code> para mayor explicación del modelo y un ejemplo diferente.</p>
-<p>Cuando utilizamos una prueba t, lo que hacemos son comparar las medias en dos grupo con la hipótesis <span class="math notranslate nohighlight">\(\mu_0 \ne \mu_1\)</span>, al hacerlo, utilizamos de forma implícita un modelo lineal, donde comparamos:</p>
+<p>Cuando utilizamos una prueba t, lo que hacemos es comparar dos medias en dos grupo con la hipótesis <span class="math notranslate nohighlight">\(\mu_0 \ne \mu_1\)</span>, al hacerlo, utilizamos de forma implícita un modelo lineal, donde comparamos:</p>
+<div class="math notranslate nohighlight">
+\[\mu_i = \beta_0 + \beta_1(i) + \epsilon\]</div>
+<p>En este caso <span class="math notranslate nohighlight">\(i\)</span> es valor dicotómico de la población en cuestión. Retomando el dataset <code class="docutils literal notranslate"><span class="pre">palmer</span> <span class="pre">penguins</span></code>, si comparamos el peso entre la población <strong>Adelie</strong> y la <strong>Chinstrap</strong>, dentro del modelo, <span class="math notranslate nohighlight">\(\text{adelie} = 0\)</span> y <span class="math notranslate nohighlight">\(\text{chinstrap} = 1\)</span>; de tal forma que <span class="math notranslate nohighlight">\(i \in {0, 1}\)</span>. Al sustituir los índices:</p>
 <div class="math notranslate nohighlight">
 \[\mu_0 = \beta_0 + \epsilon\]</div>
 <div class="math notranslate nohighlight">
@@ -526,7 +526,7 @@ document.write(`
 <p>Resolviendo para <span class="math notranslate nohighlight">\(\beta_1\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\beta_1 = 0\]</div>
-<p>Por lo tanto, podemos utilizar un modelo lineal para resolver el caso de la parte 1, con palmer penguins, de la diferencia de peso entre el peso (<code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>) entre las especies Adelie y Chinstrap.</p>
+<p>Repasando, en el modelo que contruiremos, la categoría de referencia es «Adelie», <span class="math notranslate nohighlight">\(\beta_0\)</span> es la media de  peso de los Adelie y <span class="math notranslate nohighlight">\(\beta_1\)</span> es la diferencia de peso entre los Adelie y los Chinstrap.</p>
 <section id="librerias-y-datos">
 <h2>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -658,6 +658,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Ahora ajustaremos los datos al modelo con el método <code class="docutils literal notranslate"><span class="pre">fit</span></code>. Este proceso es costoso, computacionalmente hablando, ya que genera el muestreo de la posterior por el método Montecarlo por cadenas Markov (MCMC). Dependiendo de tu instalación pude que veas algunas advertencias, ignóralas por el momento.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">chains</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -675,13 +676,13 @@ Multiprocess sampling (4 chains in 4 jobs)
 NUTS: [sigma, Intercept, species]
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7665ba379ae744708ab57fe8f27e1ee8", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 19 seconds.
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "de156a5782fc4a128d4ad2f4a243e6f3", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 15 seconds.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Con esto bambi ajustó los datos al modelo y corrió la cadenas markov para muestrear la distribución posterior. Es importante ver que las cadenas parecen no haber encontrado divergencias, lo cual es excelente.
+<p>Es importante ver que las cadenas parecen no haber encontrado divergencias, lo cual es excelente.
 Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadamente. El análisis puede realizarse con <code class="docutils literal notranslate"><span class="pre">arviz</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -690,7 +691,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f6db58489bc8623090cd85efeae1add2ee2d5ec9209e0d297c5e7339616fed6.png" src="../_images/2f6db58489bc8623090cd85efeae1add2ee2d5ec9209e0d297c5e7339616fed6.png" />
+<img alt="../_images/ea4bc03e801b613cec27d14fb0dec713b90d46c30cfd3274d9929e7a1030c9e9.png" src="../_images/ea4bc03e801b613cec27d14fb0dec713b90d46c30cfd3274d9929e7a1030c9e9.png" />
 </div>
 </div>
 <p>Podemos ver que las cadenas parecen haber convergido ya que las trazas tienen forma de «ruido». Ahora podemos analizar los resultados.</p>
@@ -701,18 +702,22 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4d643f6d257f9a8d604a0096bb188635b08c0c4c51e9f1104daa9f43b4807769.png" src="../_images/4d643f6d257f9a8d604a0096bb188635b08c0c4c51e9f1104daa9f43b4807769.png" />
+<img alt="../_images/bdf62773dc5a6cec4aa23008fd63b4815a325885ff2b0e4af9f7edc4e31bf4d2.png" src="../_images/bdf62773dc5a6cec4aa23008fd63b4815a325885ff2b0e4af9f7edc4e31bf4d2.png" />
 </div>
 </div>
 <p>Esto grafica las posteriores, pero en realidad solo nos interesa el grupo de especie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">ref_val</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span>
+    <span class="n">result</span><span class="p">,</span> <span class="c1"># el objeto resultado de fit</span>
+    <span class="n">var_names</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="c1"># el nombre de la variable que nos interesa</span>
+    <span class="n">ref_val</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># el valor de referencia con que queremos comparar.</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1fa83b8dcfc978c7e7bc5eaa37c9dd8e2a1db88766e0cd7d2c97444a5d705a9f.png" src="../_images/1fa83b8dcfc978c7e7bc5eaa37c9dd8e2a1db88766e0cd7d2c97444a5d705a9f.png" />
+<img alt="../_images/b3aa5c910a8a030c6d82405a162d7d799b8afde0a899c54070b73a47add5445e.png" src="../_images/b3aa5c910a8a030c6d82405a162d7d799b8afde0a899c54070b73a47add5445e.png" />
 </div>
 </div>
 <p>Podemos ver que efectivamente no parece haber diferencia, ya que el intervalo de credibilidad cruza el cero. Veamoslo en forma de tabla.</p>
@@ -755,38 +760,38 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
   <tbody>
     <tr>
       <th>sigma</th>
-      <td>438.428</td>
-      <td>20.364</td>
-      <td>401.399</td>
-      <td>476.737</td>
+      <td>438.187</td>
+      <td>20.559</td>
+      <td>399.598</td>
+      <td>475.394</td>
       <td>0.268</td>
-      <td>0.310</td>
-      <td>5847.0</td>
-      <td>3296.0</td>
+      <td>0.346</td>
+      <td>5994.0</td>
+      <td>2779.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Intercept</th>
-      <td>3700.557</td>
-      <td>34.833</td>
-      <td>3637.994</td>
-      <td>3769.530</td>
-      <td>0.427</td>
-      <td>0.548</td>
-      <td>6661.0</td>
-      <td>3360.0</td>
+      <td>3701.036</td>
+      <td>35.576</td>
+      <td>3632.574</td>
+      <td>3765.734</td>
+      <td>0.452</td>
+      <td>0.553</td>
+      <td>6173.0</td>
+      <td>3114.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>species[Chinstrap]</th>
-      <td>32.529</td>
-      <td>62.406</td>
-      <td>-89.768</td>
-      <td>146.522</td>
-      <td>0.766</td>
-      <td>0.979</td>
-      <td>6637.0</td>
-      <td>3193.0</td>
+      <td>32.199</td>
+      <td>63.543</td>
+      <td>-83.054</td>
+      <td>152.023</td>
+      <td>0.812</td>
+      <td>1.025</td>
+      <td>6125.0</td>
+      <td>3205.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -806,10 +811,11 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling: [Intercept, body_mass_g, sigma, species]
+arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BF10&#39;: np.float64(0.004070164247117231),
- &#39;BF01&#39;: np.float64(245.69033073008504)}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BF10&#39;: np.float64(0.003766522877088962),
+ &#39;BF01&#39;: np.float64(265.4968608003973)}
 </pre></div>
 </div>
 </div>
