@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tema 7: Variables &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>Tema 30: Actualización Bayesiana de una Proporción &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -60,12 +60,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-2/tema-7-variables';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-6/tema-30-actualización-proporción';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Tema 8: Tipos de datos" href="tema-8-tipos-de-datos.html" />
-    <link rel="prev" title="Unidad 2: Python como calculadora" href="index.html" />
+    <link rel="next" title="Unidad 7: Libretas reutilizables" href="../unidad-7/index.html" />
+    <link rel="prev" title="Tema 29: Pruebas T, parte 2" href="tema-29-pruebas-t-2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -198,10 +198,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-1/tema-6-conclusion.html">Tema 6: Conclusiones</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 2: Python como calculadora</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 7: Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-8-tipos-de-datos.html">Tema 8: Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tema-9-operaciones-logicas.html">Tema 9: Operaciones lógicas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-7-variables.html">Tema 7: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-8-tipos-de-datos.html">Tema 8: Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-9-operaciones-logicas.html">Tema 9: Operaciones lógicas</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">Unidad 3: Programación lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -232,10 +232,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-sobrevida.html">Tema 27: Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">Unidad 5: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-28-pruebas-t.html">Tema 28: Pruebas T, parte 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-29-pruebas-t-2.html">Tema 29: Pruebas T, parte 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-30-actualizaci%C3%B3n-proporci%C3%B3n.html">Tema 30: Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Unidad 5: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tema-28-pruebas-t.html">Tema 28: Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tema-29-pruebas-t-2.html">Tema 29: Pruebas T, parte 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tema 30: Actualización Bayesiana de una Proporción</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -302,7 +302,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-2/tema-7-variables.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-6/tema-30-actualización-proporción.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +350,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-2/tema-7-variables.ipynb" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-6/tema-30-actualización-proporción.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-2/tema-7-variables.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-6/tema-30-actualización-proporción.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +397,7 @@
       
       
       
-      <li><a href="../_sources/unidad-2/tema-7-variables.ipynb" target="_blank"
+      <li><a href="../_sources/unidad-6/tema-30-actualización-proporción.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -481,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tema 7: Variables</h1>
+    <h1>Tema 30: Actualización Bayesiana de una Proporción</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -491,14 +491,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-variable">¿Qué es una variable?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-significa-que-todo-es-un-objeto-en-python">¿Qué significa que todo es un objeto en Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad-de-objetos">Mutabilidad de objetos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-saber-si-un-objeto-es-el-mismo-que-otro">¿Cómo saber si un objeto es el mismo que otro?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#igualdad">Igualdad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad">Identidad</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
             </nav>
         </div>
@@ -510,202 +504,108 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tema-7-variables">
-<h1>Tema 7: Variables<a class="headerlink" href="#tema-7-variables" title="Link to this heading">#</a></h1>
-<p>En esta libreta aprenderás qué son las variables, cómo asignarles valores, y cómo manipularlas y trabajar con ellas. Entenderás la diferencia entre una <strong>variable</strong> y un <strong>valor</strong>, y comenzarás a explorar cómo Python maneja internamente estos conceptos a través de los <strong>objetos</strong>.</p>
-<p>Primero comencemos a utilizar las celdas de código como una calculadora.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-30-actualizacion-bayesiana-de-una-proporcion">
+<h1>Tema 30: Actualización Bayesiana de una Proporción<a class="headerlink" href="#tema-30-actualizacion-bayesiana-de-una-proporcion" title="Link to this heading">#</a></h1>
+<p>En esta libreta exploraremos cómo podemos realizar una actualización bayesiana de la estimación de una proporción en estudios seriados.</p>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta es una celda de código</span>
-<span class="c1"># Podemos escribir comentarios poniendo el signo de gato &quot;#&quot;</span>
-<span class="c1"># Ejecútala con ctrl + enter o el botón de &quot;play&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Librerías importadas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tomaremos como base el siguiente paper.</p>
+<blockquote>
+<div><p>Fombonne E, Marcin C, Manero AC, Bruno R, Diaz C, Villalobos M, Ramsay K, Nealy B. Prevalence of Autism Spectrum Disorders in Guanajuato, Mexico: The Leon survey. J Autism Dev Disord. 2016 May;46(5):1669-85. doi: 10.1007/s10803-016-2696-6. PMID: 26797939.</p>
+</div></blockquote>
+<p>Se describe que de la muestra de 432 niños, 31 presentaron autismo, una proporción de 0.7%; aunque en el estudio se estima la prevalencia en 0.87% este número se obtuvo por simulación, así que tomaremos el valor empírico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">432</span>
+<span class="n">casos</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">casos</span><span class="o">/</span><span class="n">n</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Prevalencia: </span><span class="si">{</span><span class="n">prop</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prevalencia: 7.18%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos modelar la proporción con la distribución beta, utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.
+La distribución Beta se define: <span class="math notranslate nohighlight">\(~Beta(\alpha; \beta)\)</span>, donde alfa es el número de casos positivos y beta los negativos, es decir <span class="math notranslate nohighlight">\(\beta = n - \alpha\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># función helper para no repetir el código muchas veces.</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Suma</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Multiplicación</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># División, observa que el resultado es un número decimal</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># División entera, el resultado es un entero</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Potencia</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
-10
-5.0
-5
-8
-</pre></div>
-</div>
-</div>
-</div>
-<p>intenta jugar con la celda de código, haz tus propios cálculos.
-Ahora, estamos muy limitados si trabajamos así, para progresar a tareas más complejas, necesitamos variables.</p>
-<section id="que-es-una-variable">
-<h2>¿Qué es una variable?<a class="headerlink" href="#que-es-una-variable" title="Link to this heading">#</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Importante</p>
-<ul class="simple">
-<li><p><strong>Valor:</strong> Es el dato en sí. Puede ser un número como <code class="docutils literal notranslate"><span class="pre">5</span></code>, un texto como <code class="docutils literal notranslate"><span class="pre">&quot;hola&quot;</span></code>, o algo más complejo.</p></li>
-<li><p><strong>Variable:</strong> Es un <em>nombre</em> que se asocia a un valor. Las variables nos permiten guardar información y referirnos a ella más adelante.</p></li>
-</ul>
-</div>
-<p>En Python, cuando haces una asignación como:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-<p>Estás creando un <strong>nombre</strong> (<code class="docutils literal notranslate"><span class="pre">x</span></code>) que apunta a un <strong>valor</strong> (<code class="docutils literal notranslate"><span class="pre">5</span></code>). Decimos que <code class="docutils literal notranslate"><span class="pre">x</span></code> <em>referencia</em> al valor <code class="docutils literal notranslate"><span class="pre">5</span></code>. Este valor es un <strong>objeto</strong> en Python.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Juan&quot;</span>
-<span class="n">edad</span> <span class="o">=</span> <span class="mi">30</span>
-</pre></div>
-</div>
-<p>Los nombres <code class="docutils literal notranslate"><span class="pre">nombre</span></code> y <code class="docutils literal notranslate"><span class="pre">edad</span></code> son variables. <code class="docutils literal notranslate"><span class="pre">&quot;Juan&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">30</span></code> son valores. Estos valores pueden cambiarse fácilmente:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">edad</span> <span class="o">=</span> <span class="n">edad</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>Ahora <code class="docutils literal notranslate"><span class="pre">edad</span></code> tiene un nuevo valor: <code class="docutils literal notranslate"><span class="pre">31</span></code>.</p>
-</section>
-<section id="que-significa-que-todo-es-un-objeto-en-python">
-<h2>¿Qué significa que todo es un objeto en Python?<a class="headerlink" href="#que-significa-que-todo-es-un-objeto-en-python" title="Link to this heading">#</a></h2>
-<p>Cada valor en Python es en realidad un <strong>objeto</strong>. Eso quiere decir que incluso algo tan simple como el número <code class="docutils literal notranslate"><span class="pre">5</span></code> tiene propiedades y comportamientos.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Esto te mostrará que el valor <code class="docutils literal notranslate"><span class="pre">5</span></code> es de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, pero más adelante veremos qué significa eso. Por ahora, quédate con la idea de que los valores tienen un tipo y que Python usa objetos para representar todo.</p>
-<div class="admonition tip">
-<p class="admonition-title">Truco</p>
-<p><strong>Ojo</strong>: Los objetos son los valores, no las variables.</p>
-</div>
-<p>Ahora vamos a practicar con algunas asignaciones y operaciones con variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># esta es una variable, su nombre es &quot;x&quot;, su valor es &quot;3&quot;.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_beta</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Esta función grafica la distribución con los parámetros dados&quot;&quot;&quot;</span>
+    <span class="c1"># obtenemos la densidad en el intervalo 0,1</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">moda</span> <span class="o">=</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">moda</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;moda=</span><span class="si">{</span><span class="n">moda</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Distribución del parámetro $\theta$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p>Observa que debajo de la celda está el número 3.
-Este número aparece porque la celda ejecutó <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> y <code class="docutils literal notranslate"><span class="pre">x</span></code> es la varable con el valor 3, definido en la linea 5 con <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta es otra celda de código.</span>
-<span class="c1"># Vamos a asignar una nueva variable llamada &quot;y&quot; y le vamos a dar el valor de 5.</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="c1"># Ahora vamos a sumar las dos variables y mostrar el resultado.</span>
-<span class="n">suma</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
-<span class="c1"># Ahora vamos a restar las dos variables y mostrar el resultado.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
-</pre></div>
-</div>
-</div>
-</div>
-<p>Deberías ver ahora el número 8. Pero nota que no hemos modificado ni <code class="docutils literal notranslate"><span class="pre">x</span></code> ni <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p>Qué pasa si queremos que <code class="docutils literal notranslate"><span class="pre">x</span></code> sea ahora igual a la suma de <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p>Es decir:</p>
-<p><span class="math notranslate nohighlight">\(x = x + y\)</span></p>
-<p>Así como lo acabamos de escribir, en forma matemática, es válido en python.</p>
-<p>Python fue diseñado para que el manejo de variables sea parecido a la notación matemática.</p>
-<p>Intentémoslo.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
-</pre></div>
-</div>
-</div>
-</div>
-<p>Deberías volver a ver el número 8, pero nota algo interesante, ejecuta la celda varias veces, verás que el numero continúa incrementándose más y más.</p>
-<p>Esto sucede porque <code class="docutils literal notranslate"><span class="pre">y</span></code> vale <strong>5</strong> y el valor de <code class="docutils literal notranslate"><span class="pre">x</span></code> lo cambiamos con base en lo que vale x al momento de la ejecución del código, la primera vez, <code class="docutils literal notranslate"><span class="pre">x</span></code> vale 3, pero la segunda vale 8, la tercera 13, etcétera.</p>
-<p>En la celda de abajo escribe un nuevo código que defina las variables <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code> nuevamente, de tal forma que cuando se ejecute la celda múltiples veces no se siga incrementando su valor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escríbe código aquí definiendo de nuevo a &quot;x&quot; y a &quot;y&quot;.</span>
 
-<span class="c1"># --------</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># x es un vector unidimensional del 0 al 0.3 con 1000 elementos.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># 1000 es solo para la resolución</span>
+<span class="n">alfa</span> <span class="o">=</span> <span class="n">casos</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span> <span class="n">alfa</span>
+
+<span class="n">plot_beta</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estudio original&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+<img alt="../_images/6c965aff2717fdfdfa7299cddcac09f92ed2055f1234e337a94625d19aa09207.png" src="../_images/6c965aff2717fdfdfa7299cddcac09f92ed2055f1234e337a94625d19aa09207.png" />
+</div>
+</div>
+<p>Ahora supongamos que un estudio reciente encontró que en una cohorte de 157 niños, 15 tenían autismo. Podemos realizar una actualización bayesiana de la siguiente manera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alfa2</span> <span class="o">=</span> <span class="n">alfa</span> <span class="o">+</span> <span class="mi">15</span> <span class="c1"># agregamos al parámetro alfa nuestro </span>
+<span class="n">beta2</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">157</span> <span class="o">-</span> <span class="n">alfa2</span>
+
+<span class="n">plot_beta</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prior empírico (estudio 1)&#39;</span><span class="p">)</span>
+<span class="n">plot_beta</span><span class="p">(</span><span class="n">alfa2</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Posterior (con estudio 2)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/a6f5bd59ed335c21b9af1864a3b03949bfefd659c7320494e53800f4410affda.png" src="../_images/a6f5bd59ed335c21b9af1864a3b03949bfefd659c7320494e53800f4410affda.png" />
 </div>
+</div>
+<p>La proporción del estudio de replicación fue <span class="math notranslate nohighlight">\(15/157 = 0.0955\)</span>, pero al realizar la actualización bayesiana con la distribución Beta, el nuevo máximo a posteriori para la prevalencia es <span class="math notranslate nohighlight">\(MAP ~ Beta(\alpha_2, \beta_2) \approx 0.08\)</span>, MAP es «maximo a posteriori» y para la distribución beta es la moda, que cuando alfa y beta son mayores de 1, se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+moda = \frac{\alpha - 1}{\alpha + \beta -2}
+\]</div>
 </section>
-<section id="mutabilidad-de-objetos">
-<h2>Mutabilidad de objetos<a class="headerlink" href="#mutabilidad-de-objetos" title="Link to this heading">#</a></h2>
-<p>En python existen dos tipos de objetos, los que son mutables y los que no.
-Hasta ahora hemos trabajado con tipos numéricos enteros, <code class="docutils literal notranslate"><span class="pre">int</span></code> en python.
-Los valores tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> no son mutables, es decir, un dos no puede convertirse en tres.</p>
-<p>Pero, ¿no es esto lo que acabamos de hacer?, en efecto <strong>NO</strong>.</p>
-<p>Cuando decimos <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code>, el valor «3» es un objeto tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, y cuando sumamos <code class="docutils literal notranslate"><span class="pre">y</span></code>, otro objeto <code class="docutils literal notranslate"><span class="pre">int</span></code> con el valor «5», lo que estamos haciendo es creando un <em>nuevo</em> objeto con el valor 8, es decir, que el 3 no se convirtió en 8, sino que un nuevo objeto se asignó a la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Truco</p>
-<p>Imagina las variables como «contenedores».
-Dentro de la copa puedes poner cualquier valor e incluso cambiarlo, en python, nada te previene de cambiar el valor de <code class="docutils literal notranslate"><span class="pre">x</span></code> por algo completamente diferente, como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;hola&quot;</span></code>.</p>
-</div>
-<p>Veremos lo tipos mutables en la siguiente lección, pero por ahora es importante recordar que los tipos <code class="docutils literal notranslate"><span class="pre">int</span></code> no son mutables, pero eso no quiere decir que no podamos cambiar las «variables», solo son los «valores» los que no pueden mutar.</p>
-</section>
-<section id="como-saber-si-un-objeto-es-el-mismo-que-otro">
-<h2>¿Cómo saber si un objeto es el mismo que otro?<a class="headerlink" href="#como-saber-si-un-objeto-es-el-mismo-que-otro" title="Link to this heading">#</a></h2>
-<p>Aquí hay que separar dos conceptos: «Identidad» e «Igualdad».</p>
-<section id="igualdad">
-<h3>Igualdad<a class="headerlink" href="#igualdad" title="Link to this heading">#</a></h3>
-<p>Si yo quiero saber si dos objetos son equivalentes, utilizo el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>.
-Por ejemplo, en python, otro tipo de datos son los <code class="docutils literal notranslate"><span class="pre">float</span></code>. Los tipos float, tienen punto decimal.
-Podríamos comparar <code class="docutils literal notranslate"><span class="pre">x=3</span></code> y <code class="docutils literal notranslate"><span class="pre">y=3.0</span></code> y ver si son <strong>equivalentes</strong>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># True</span>
-</pre></div>
-</div>
-</section>
-<section id="identidad">
-<h3>Identidad<a class="headerlink" href="#identidad" title="Link to this heading">#</a></h3>
-<p>Si lo que quiero es saber si dos variables apuntan al mismo objeto, entonces uso el operador <code class="docutils literal notranslate"><span class="pre">is</span></code>.
-Es decir, en el ejemplo <code class="docutils literal notranslate"><span class="pre">x=3</span></code> y <code class="docutils literal notranslate"><span class="pre">y=3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y</span></code> va a decir <strong>False</strong>, porque aunque son iguales, no son la misma cosa.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># False</span>
-<span class="c1"># pero</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># True</span>
-</pre></div>
-</div>
-<div class="error admonition">
-<p class="admonition-title">Concepto crítico</p>
-<p>No uses el operador <code class="docutils literal notranslate"><span class="pre">is</span></code> para comprobar equivalencia, por ejemplo:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">is</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>En su lugar, utiliza el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>Utiliza la última celda para realizar algunas operaciones sencillas, utiliza otros operadores, revisa la sección de <a class="reference internal" href="../unidad-1/tema-2-generalidades/2.3-python.html#operadores-target"><span class="std std-ref">operadores</span></a>.</p>
-</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Prueba la actualización con diferentes valores de alfa y beta.</p></li>
+<li><p>Ejecuta el análisis con datos que sean de tu interés. Puedes utilizar este método para combinar diferentes fuentes de información.</p></li>
+<li><p>Revisa la distribución beta y ajusta la función <code class="docutils literal notranslate"><span class="pre">plot_beta</span></code> para contemplar otros casos de alfa y beta para la moda.</p></li>
+<li><p>Ajusta el eje x de la gráfica para que cubra el 99% de probabilidad de la distribución (por ejemplo, usando <code class="docutils literal notranslate"><span class="pre">ppf(0.001)</span></code> y <code class="docutils literal notranslate"><span class="pre">ppf(0.999)</span></code>), y compara cómo cambia la visualización con respecto al rango fijo original.</p></li>
+</ol>
 </section>
 </section>
 
@@ -722,7 +622,7 @@ Es decir, en el ejemplo <code class="docutils literal notranslate"><span class="
         },
         kernelOptions: {
             name: "python3",
-            path: "./unidad-2"
+            path: "./unidad-6"
         },
         predefinedOutput: true
     }
@@ -740,20 +640,20 @@ Es decir, en el ejemplo <code class="docutils literal notranslate"><span class="
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="tema-29-pruebas-t-2.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Unidad 2: Python como calculadora</p>
+        <p class="prev-next-title">Tema 29: Pruebas T, parte 2</p>
       </div>
     </a>
     <a class="right-next"
-       href="tema-8-tipos-de-datos.html"
+       href="../unidad-7/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Tema 8: Tipos de datos</p>
+        <p class="prev-next-title">Unidad 7: Libretas reutilizables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -773,14 +673,8 @@ Es decir, en el ejemplo <code class="docutils literal notranslate"><span class="
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-variable">¿Qué es una variable?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-significa-que-todo-es-un-objeto-en-python">¿Qué significa que todo es un objeto en Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutabilidad-de-objetos">Mutabilidad de objetos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-saber-si-un-objeto-es-el-mismo-que-otro">¿Cómo saber si un objeto es el mismo que otro?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#igualdad">Igualdad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad">Identidad</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
 </ul>
   </nav></div>
 
