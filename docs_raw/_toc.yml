@@ -36,8 +36,8 @@ chapters:
     sections:
       - glob: unidad-7/*
   - file: Recursos/index
-    # sections:
-    #   - glob: Recursos/*
+    sections:
+      - glob: Recursos/*
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 

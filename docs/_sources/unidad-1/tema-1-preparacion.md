@@ -4,7 +4,7 @@
 Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. Podrás gestionar tus propios proyectos con python y uv. 
 
 :::{note}
-En todo el curso, se sugiere que ejecutes todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
+En todo el curso, se sugiere que ejecutes todas las actividades dentro de tu entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
 :::
 
 (correr-python-target)=
@@ -12,14 +12,14 @@ En todo el curso, se sugiere que ejecutes todas las actividades dentro en su ent
 
 “Correr” Python significa ejecutar instrucciones escritas en este lenguaje para que la computadora las interprete y realice acciones, como mostrar texto, realizar cálculos, o procesar datos.
 
-A diferencia de otros lenguajes de programación que son "compilados", python es un lenguaje "interpretado", esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado "intérprete" que lo leé y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.
+A diferencia de otros lenguajes de programación que son "compilados", python es un lenguaje "interpretado", esto quiere decir que el código, lo que el programador escribe, pasa por un programa llamado "intérprete" que lo lee y ejecuta el código, en lugar de que el código se transforme en instrucciones directas para la máquina como es el caso de los lenguajes compilados.
 
 
 ## ¿Qué es `uv` y por qué usarlo?
 
 [Astral UV](https://docs.astral.sh/uv/) es una herramienta moderna para gestionar proyectos Python de forma segura y reproducible.
 
-Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es forma sugerida de trabajar en este curso.
+Es la opción preferida por el momento ya que facilita mucho todo el flujo de trabajo, desde la instalación de python, sus librerías y demás dependencias, entornos virtuales y empaquetamiento; por ahora no tienes que preocuparte de esos términos, pero es la forma sugerida de trabajar en este curso.
 
 
 :::{admonition} Cómo ejecutar comandos
@@ -169,5 +169,5 @@ En versiones más recientes del intérprete, solo ejecutar `exit` puede ser sufi
    print(123)
    ```
 :::{important}
-Cuando hayas terminado puedes cerrar la terminal, recibieras una advertencia antes de hacerlo.
+Cuando hayas terminado puedes cerrar la terminal, puede ser que recibas una advertencia antes de hacerlo.
 :::

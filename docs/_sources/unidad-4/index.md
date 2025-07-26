@@ -18,7 +18,7 @@ Por favor utiliza `uv` para instalar los siguientes recursos:
 
 
 ```bash
-uv add pandas openpyxl seaborn matplotlib seaborn
+uv add pandas openpyxl seaborn matplotlib
 ```
 
 :::{note}
