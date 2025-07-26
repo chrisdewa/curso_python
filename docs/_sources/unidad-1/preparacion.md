@@ -1,4 +1,4 @@
-# Tema 1: Preparación inicial
+# Preparación inicial
 
 ## Objetivo del tema
 Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. Podrás gestionar tus propios proyectos con python y uv. 

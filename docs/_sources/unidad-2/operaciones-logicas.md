@@ -1,9 +1,4 @@
----
-parent: "Unidad 2: Python como calculadora"
-nav_order: 3
----
-
-# Tema 9: Operaciones lógicas
+# Operaciones lógicas
 
 En este tema aprenderás a utilizar operadores lógicos en Python para construir expresiones que devuelven valores booleanos, lo cual es fundamental para el control del flujo en programas.
 

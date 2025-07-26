@@ -1,7 +1,3 @@
----
-nav_order: 1
-has_children: true
----
 
 # Unidad 2: Python como calculadora
 

@@ -1,4 +1,4 @@
-# Tema 12: Librerías
+# Librerías
 
 :::{tip}
 El fondo de este tema es simple:

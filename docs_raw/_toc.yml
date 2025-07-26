@@ -20,10 +20,15 @@ chapters:
       - file: unidad-1/conclusion
   - file: unidad-2/index
     sections:
-      - glob: unidad-2/tema*
+      - file: unidad-2/variables
+      - file: unidad-2/tipos-de-datos
+      - file: unidad-2/operaciones-logicas
   - file: unidad-3/index
     sections:
-      - glob: unidad-3/tema*
+      - file: unidad-3/control-de-flujo
+      - file: unidad-3/funciones
+      - file: unidad-3/librerias
+      - file: unidad-3/demo
   - file: unidad-4/index
     sections:
       - glob: unidad-4/tema*
