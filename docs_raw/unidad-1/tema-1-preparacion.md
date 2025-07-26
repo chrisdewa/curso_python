@@ -4,7 +4,7 @@
 Instalar Python utilizando `uv`, configurar un entorno virtual y ejecutar una primera prueba interactiva desde la consola de Python. Podrás gestionar tus propios proyectos con python y uv. 
 
 :::{note}
-En todo el curso, se sugiere que ejecutes todas las actividades dentro en su entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
+En todo el curso, se sugiere que ejecutes todas las actividades dentro de tu entorno de ejecución local, aunque el libro ofrece una forma de correr las libretas en la nube.
 :::
 
 (correr-python-target)=
@@ -169,5 +169,5 @@ En versiones más recientes del intérprete, solo ejecutar `exit` puede ser sufi
    print(123)
    ```
 :::{important}
-Cuando hayas terminado puedes cerrar la terminal, recibieras una advertencia antes de hacerlo.
+Cuando hayas terminado puedes cerrar la terminal, puede ser que recibas una advertencia antes de hacerlo.
 :::
