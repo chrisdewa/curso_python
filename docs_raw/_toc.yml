@@ -31,7 +31,13 @@ chapters:
       - file: unidad-3/demo
   - file: unidad-4/index
     sections:
-      - glob: unidad-4/tema*
+      - file: unidad-4/manejo-de-datos-tabulados
+      - file: unidad-4/palmer-penguins
+      - file: unidad-4/descriptivos-basicos
+      - file: unidad-4/visualizaciones
+      - file: unidad-4/inferencia-basica
+      - file: unidad-4/modelado-fundamentos
+      - file: unidad-4/rearreglos-de-datos
   - file: unidad-5/index
     sections:
       - glob: unidad-5/*
