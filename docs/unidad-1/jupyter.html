@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.4. Jupyter &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-1/jupyter';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="1.5. Tu primera libreta" href="primera-libreta.html" />
+    <link rel="prev" title="1.3. Dónde y cómo ejecutar Python" href="opciones-de-trabajo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Unidad 1: Aspectos Básicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preparacion.html">1.1. Tema 1: Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-7-variables.html">2.1. Tema 7: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-8-tipos-de-datos.html">2.2. Tema 8: Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tema-9-operaciones-logicas.html">2.3. Tema 9: Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-10-control-de-flujo.html">3.1. Tema 10: Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-11-funciones.html">3.2. Tema 11: Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-12-librerias.html">3.3. Tema 12: Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/tema-13-demo.html">3.4. Tema 13: Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-14-manejo-de-datos-tabulados.html">4.2. Tema 14: Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-15-palmer-penguins.html">4.3. Tema 15: Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-16-descriptivos-basicos.html">4.4. Tema 16: Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-17-visualizaciones.html">4.5. Tema 17: Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-18-inferencia-basica.html">4.6. Tema 18: Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-19-modelado-fundamentos.html">4.7. Tema 19: Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/tema-extra-rearreglos-de-datos.html">4.8. Tema extra: Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-20-rendimiento-diagnostico.html">5.1. Tema 20: Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-21-curvas-roc.html">5.2. Tema 21: Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-22-medidas-de-asociacion.html">5.3. Tema 22: Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-23-tama%C3%B1os-efecto.html">5.4. Tema 23: Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-24-tama%C3%B1o-muestral.html">5.5. Tema 24: Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-25-anova.html">5.6. Tema 25: Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-26-modelos-mixtos.html">5.7. Tema 26: Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-27-sobrevida.html">5.8. Tema 27: Análisis de sobrevida</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tema-extra-glm.html">5.9. Tema extra: Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-28-pruebas-t.html">6.1. Tema 28: Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-29-pruebas-t-2.html">6.2. Tema 29: Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/tema-30-actualizaci%C3%B3n-proporcion.html">6.3. Tema 30: Actualización Bayesiana de una Proporción</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">7. Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-7/tama%C3%B1os-de-muestra.html">7.1. Tamaños de muestra</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">8.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">8.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">9. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">10. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-1/jupyter.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-1/jupyter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-1/jupyter.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jupyter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter">1.4.1. ¿Qué es Jupyter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-entre-jupyter-notebook-y-jupyterlab">1.4.2. Diferencias entre Jupyter Notebook y JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-celdas">1.4.3. Tipos de celdas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ejecutar-codigo">1.4.4. Cómo ejecutar código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-jupyterlab">1.4.5. Cómo abrir JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">1.4.6. Buenas prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">1.4.7. Práctica personal</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter">
+<h1><span class="section-number">1.4. </span>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h1>
+<p>Jupyter es una plataforma interactiva ampliamente utilizada en ciencia de datos, programación y educación. Permite combinar código ejecutable, texto enriquecido (Markdown), visualizaciones, ecuaciones matemáticas y otros elementos en un mismo documento: la libreta o <em>notebook</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ya realizamos la instalación de JupyterLab usando <code class="docutils literal notranslate"><span class="pre">uv</span></code> en el <a class="reference internal" href="#tema-1-preparacion.md"><span class="xref myst">tema 1</span></a>. Si no lo hiciste en ese momento, puedes hacerlo ahora de la siguiente forma:</p>
+<ol class="arabic simple">
+<li><p>Abre tu terminal y navega usando <code class="docutils literal notranslate"><span class="pre">cd</span></code> al directorio del curso.</p></li>
+<li><p>Ejecuta este comando: <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">jupyterlab</span> <span class="pre">seaborn</span> <span class="pre">pandas</span> <span class="pre">scipy</span> <span class="pre">statsmodels</span></code></p></li>
+</ol>
+<p>Este comando instala las principales dependencias que requieres para este curso.</p>
+</div>
+<section id="que-es-jupyter">
+<h2><span class="section-number">1.4.1. </span>¿Qué es Jupyter?<a class="headerlink" href="#que-es-jupyter" title="Link to this heading">#</a></h2>
+<p>El nombre «Jupyter» proviene de <strong>Julia</strong>, <strong>Python</strong> y <strong>R</strong>, aunque actualmente soporta muchos más lenguajes. Las libretas Jupyter son documentos <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> que pueden abrirse y ejecutarse en una interfaz web.</p>
+<p>Su principal ventaja es que permite <strong>ver el resultado del código justo debajo de la celda que lo ejecuta</strong>, facilitando la exploración y documentación simultánea.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Consulta la <a class="reference external" href="https://jupyter.org">documentación oficial de Jupyter</a> para más información.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>¿Sabías que en 2021 la revista nature nombró el proyecto <a class="reference external" href="https://www.nature.com/articles/d41586-021-00075-2">jupyter</a> como uno de los 10 herramientas informáticas más influyentes en la transformación de la ciencia?</p>
+</div>
+<p>En jupyter escribimos código en «libretas» cada libreta permite escribir código, texto, fórmulas matemáticas, etcétera. Se guardan en archivos con extensión <code class="docutils literal notranslate"><span class="pre">ipynb</span></code>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Para saber más</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/">JupyterLab</a></p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Project Jupyter</a></p></li>
+<li><p><a class="reference external" href="https://cienciadedatos.net/documentos/py08_jupyter.html">Guía básica de Jupyter en español (Ciencia de Datos)</a></p></li>
+</ul>
+</div>
+</section>
+<section id="diferencias-entre-jupyter-notebook-y-jupyterlab">
+<h2><span class="section-number">1.4.2. </span>Diferencias entre Jupyter Notebook y JupyterLab<a class="headerlink" href="#diferencias-entre-jupyter-notebook-y-jupyterlab" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Jupyter Notebook</strong> es la interfaz clásica.</p></li>
+<li><p><strong>JupyterLab</strong> es una interfaz moderna, flexible y más potente.</p></li>
+</ul>
+<p>Ambas permiten usar notebooks, pero <strong>JupyterLab</strong> agrega soporte para pestañas, explorador de archivos, consolas, y más.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>A partir de este punto, en todo el libro, cuando se hable de «libretas», nos referiremos libretas jupyter.</p>
+</div>
+</section>
+<section id="tipos-de-celdas">
+<h2><span class="section-number">1.4.3. </span>Tipos de celdas<a class="headerlink" href="#tipos-de-celdas" title="Link to this heading">#</a></h2>
+<p>En una libreta, hay principalmente dos tipos de celdas:</p>
+<ul class="simple">
+<li><p><strong>Celda de código</strong>: permite escribir y ejecutar código en Python u otro lenguaje.</p></li>
+<li><p><strong>Celda de texto (Markdown)</strong>: permite escribir texto con formato, listas, ecuaciones LaTeX, encabezados, enlaces, imágenes, etc.</p></li>
+</ul>
+<p>Puedes cambiar el tipo de celda desde el menú desplegable que aparece en la barra superior de la interfaz.</p>
+</section>
+<section id="como-ejecutar-codigo">
+<h2><span class="section-number">1.4.4. </span>Cómo ejecutar código<a class="headerlink" href="#como-ejecutar-codigo" title="Link to this heading">#</a></h2>
+<p>Para correr una celda:</p>
+<ul class="simple">
+<li><p>Haz clic dentro de ella y presiona <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p></li>
+<li><p>También puedes usar el botón ▶️ en la barra de herramientas.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> ejecuta la celda y pasa a la siguiente, creando una nueva celda en caso necesario.
+<code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code> solo ejecuta la celda sin moverte de lugar ni crear nuevas celdas.</p>
+</div>
+<p>Cada vez que ejecutas una celda, su número de ejecución se actualiza (<code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, etc.). El kernel (núcleo de ejecución) mantiene el estado entre celdas, lo que permite ejecutar el código en cualquier orden, aunque se recomienda hacerlo de forma secuencial.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Piensa en el «kernel» como el intérprete específico de la libreta que estás usando.
+Si abres una nueva libreta, las variables de una no se pasan a otra porque cada una tiene su propio intérprete.</p>
+<p>Conocer qué es el kernel es necesario porque hay muchas veces que interactuar con él es la vía para solucionar muchos problemas, tan sencillo como reiniciarlo o apagarlo.</p>
+<p>Existen diferentes tipos de kernel, nosotros solo usaremos el kernel de python en este curso, pero existen kernels de los principales lenguajes de programación estadística como <code class="docutils literal notranslate"><span class="pre">julia</span></code> y <code class="docutils literal notranslate"><span class="pre">R</span></code>, así como muchos otros tipos de lenguajes de programación.</p>
+</div>
+</section>
+<section id="como-abrir-jupyterlab">
+<h2><span class="section-number">1.4.5. </span>Cómo abrir JupyterLab<a class="headerlink" href="#como-abrir-jupyterlab" title="Link to this heading">#</a></h2>
+<p>Desde la terminal, dentro del proyecto, es decir, la carpeta del curso, lánzalo con <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>Esto abrirá la interfaz de JupyterLab en tu navegador. Ahí podrás:</p>
+<ul class="simple">
+<li><p>Crear nuevos notebooks</p></li>
+<li><p>Abrir archivos <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> ya existentes</p></li>
+<li><p>Editar scripts <code class="docutils literal notranslate"><span class="pre">.py</span></code>, archivos de texto, CSV, y más</p></li>
+</ul>
+</section>
+<section id="buenas-practicas">
+<h2><span class="section-number">1.4.6. </span>Buenas prácticas<a class="headerlink" href="#buenas-practicas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ejecuta siempre tus notebooks de arriba hacia abajo para evitar errores por variables no definidas.</p></li>
+<li><p>Usa celdas Markdown para documentar tus procesos y facilitar su lectura.</p></li>
+<li><p>Guarda frecuentemente (<code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code>).</p></li>
+<li><p>Si el kernel se congela, puedes reiniciarlo desde el menú <code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span></code>.</p></li>
+</ul>
+</section>
+<section id="practica-personal">
+<h2><span class="section-number">1.4.7. </span>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h2>
+<p>Entra en jupyter lab y explora la interfaz, crea una nueva libreta con el botón [+] y selecciona el kernel de python.
+Escribe cualquiera de los ejemplos de python que hemos puesto hasta ahora como <code class="docutils literal notranslate"><span class="pre">print('hola</span> <span class="pre">mundo')</span></code>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="opciones-de-trabajo.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Dónde y cómo ejecutar Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="primera-libreta.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Tu primera libreta</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter">1.4.1. ¿Qué es Jupyter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-entre-jupyter-notebook-y-jupyterlab">1.4.2. Diferencias entre Jupyter Notebook y JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-celdas">1.4.3. Tipos de celdas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ejecutar-codigo">1.4.4. Cómo ejecutar código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-jupyterlab">1.4.5. Cómo abrir JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">1.4.6. Buenas prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">1.4.7. Práctica personal</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

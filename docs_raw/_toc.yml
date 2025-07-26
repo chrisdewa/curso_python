@@ -3,20 +3,21 @@
 
 format: jb-book
 root: intro
-
+options:
+  numbered: true
 chapters:
   - file: unidad-1/index
     sections:
-      - file: unidad-1/tema-1-preparacion
-      - file: unidad-1/tema-2-generalidades/index
+      - file: unidad-1/preparacion
+      - file: unidad-1/generalidades/index
         sections:
-          - file: unidad-1/tema-2-generalidades/2.1-algoritmica
-          - file: unidad-1/tema-2-generalidades/2.2-programacion
-          - file: unidad-1/tema-2-generalidades/2.3-python
-      - file: unidad-1/tema-3-opciones-de-trabajo
-      - file: unidad-1/tema-4-jupyter
-      - file: unidad-1/tema-5-primera-libreta
-      - file: unidad-1/tema-6-conclusion
+          - file: unidad-1/generalidades/algoritmica
+          - file: unidad-1/generalidades/programacion
+          - file: unidad-1/generalidades/python
+      - file: unidad-1/opciones-de-trabajo
+      - file: unidad-1/jupyter
+      - file: unidad-1/primera-libreta
+      - file: unidad-1/conclusion
   - file: unidad-2/index
     sections:
       - glob: unidad-2/tema*
@@ -35,9 +36,8 @@ chapters:
   - file: unidad-7/index
     sections:
       - glob: unidad-7/*
-  - file: Recursos/index
-    sections:
-      - glob: Recursos/*
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
+  - file: recursos
+  - file: glosario
