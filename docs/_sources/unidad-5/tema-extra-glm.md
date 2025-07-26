@@ -37,13 +37,17 @@ $$
 
 ---
 
-### 🔹 Opción 1: Usar `GLM` con familia `Binomial`
+### Opción 1: Usar `GLM` con familia `Binomial`
 
 ```python
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
 
-modelo = smf.glm(formula='y ~ x1 + x2', data=df, family=sm.families.Binomial())
+modelo = smf.glm(
+    formula='y ~ x1 + x2', 
+    data=df, 
+    family=sm.families.Binomial()
+)
 resultado = modelo.fit()
 print(resultado.summary())
 ```
@@ -52,7 +56,7 @@ print(resultado.summary())
 
 ---
 
-### 🔹 Opción 2: Usar `Logit` (modelo específico para respuesta binaria)
+### Opción 2: Usar `Logit` (modelo específico para respuesta binaria)
 
 #### API de fórmulas (más simple)
 
@@ -84,7 +88,11 @@ resultado = modelo.fit()
 Para conteos (por ejemplo, número de visitas, eventos, etc.), se usa:
 
 ```python
-modelo = smf.glm(formula='y ~ x', data=df, family=sm.families.Poisson())
+modelo = smf.glm(
+    formula='y ~ x', 
+    data=df, 
+    family=sm.families.Poisson()
+)
 resultado = modelo.fit()
 ```
 
@@ -95,10 +103,12 @@ resultado = modelo.fit()
 Puedes cambiar el enlace por defecto. Por ejemplo, para usar **Probit** en lugar de Logit:
 
 ```python
-from statsmodels.genmod.families.links import probit
+from statsmodels.genmod.families.links import Probit
 
-modelo = smf.glm('y ~ x1 + x2', data=df,
-                 family=sm.families.Binomial(link=probit()))
+modelo = smf.glm(
+    'y ~ x1 + x2', data=df,
+    family=sm.families.Binomial(link=Probit())
+)
 resultado = modelo.fit()
 ```
 
@@ -122,16 +132,6 @@ predicciones = resultado.predict(df)
 print(predicciones.head())
 ```
 
----
-
-## Evaluación del modelo
-
-- **AIC / BIC**: Comparar modelos
-- **Deviance residuals**: Evaluar ajuste
-- **Pseudo-R²**: No está incluido directamente, pero puede calcularse
-- **Test de Wald**: Verificado en `resultado.summary()`
-
----
 
 ## Distribuciones disponibles en `statsmodels` para GLM
 

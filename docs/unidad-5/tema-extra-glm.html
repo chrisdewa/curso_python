@@ -471,8 +471,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">Forma general del modelo:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">🔹 Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">🔹 Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">API de fórmulas (más simple)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">API de clases (más control)</a></li>
 </ul>
@@ -486,7 +486,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">Predicción de probabilidades</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
 </ul>
@@ -540,11 +539,15 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="opcion-1-usar-glm-con-familia-binomial">
-<h3>🔹 Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code><a class="headerlink" href="#opcion-1-usar-glm-con-familia-binomial" title="Link to this heading">#</a></h3>
+<h3>Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code><a class="headerlink" href="#opcion-1-usar-glm-con-familia-binomial" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
-<span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">())</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> 
+    <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">()</span>
+<span class="p">)</span>
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
@@ -555,7 +558,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">
-<h3>🔹 Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)<a class="headerlink" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria" title="Link to this heading">#</a></h3>
+<h3>Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)<a class="headerlink" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria" title="Link to this heading">#</a></h3>
 <section id="api-de-formulas-mas-simple">
 <h4>API de fórmulas (más simple)<a class="headerlink" href="#api-de-formulas-mas-simple" title="Link to this heading">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -586,7 +589,11 @@ document.write(`
 <section id="regresion-de-poisson">
 <h2>Regresión de Poisson<a class="headerlink" href="#regresion-de-poisson" title="Link to this heading">#</a></h2>
 <p>Para conteos (por ejemplo, número de visitas, eventos, etc.), se usa:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> 
+    <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">()</span>
+<span class="p">)</span>
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -595,10 +602,12 @@ document.write(`
 <section id="modificar-la-funcion-de-enlace">
 <h2>Modificar la función de enlace<a class="headerlink" href="#modificar-la-funcion-de-enlace" title="Link to this heading">#</a></h2>
 <p>Puedes cambiar el enlace por defecto. Por ejemplo, para usar <strong>Probit</strong> en lugar de Logit:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.genmod.families.links</span><span class="w"> </span><span class="kn">import</span> <span class="n">probit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.genmod.families.links</span><span class="w"> </span><span class="kn">import</span> <span class="n">Probit</span>
 
-<span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span><span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-                 <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">probit</span><span class="p">()))</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span>
+    <span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">Probit</span><span class="p">())</span>
+<span class="p">)</span>
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -622,17 +631,6 @@ document.write(`
 </div>
 </section>
 </section>
-<hr class="docutils" />
-<section id="evaluacion-del-modelo">
-<h2>Evaluación del modelo<a class="headerlink" href="#evaluacion-del-modelo" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>AIC / BIC</strong>: Comparar modelos</p></li>
-<li><p><strong>Deviance residuals</strong>: Evaluar ajuste</p></li>
-<li><p><strong>Pseudo-R²</strong>: No está incluido directamente, pero puede calcularse</p></li>
-<li><p><strong>Test de Wald</strong>: Verificado en <code class="docutils literal notranslate"><span class="pre">resultado.summary()</span></code></p></li>
-</ul>
-</section>
-<hr class="docutils" />
 <section id="distribuciones-disponibles-en-statsmodels-para-glm">
 <h2>Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM<a class="headerlink" href="#distribuciones-disponibles-en-statsmodels-para-glm" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -762,8 +760,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">Forma general del modelo:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">🔹 Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">🔹 Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">API de fórmulas (más simple)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">API de clases (más control)</a></li>
 </ul>
@@ -777,7 +775,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">Predicción de probabilidades</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
 </ul>
