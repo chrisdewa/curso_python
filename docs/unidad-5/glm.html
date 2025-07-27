@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.9. Regresión logística y GLM en statsmodels &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>5.8. Regresión logística y GLM en statsmodels &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="6. Unidad 6: Análisis Bayesianos" href="../unidad-6/index.html" />
-    <link rel="prev" title="5.8. Análisis de sobrevida" href="sobrevida.html" />
+    <link rel="next" title="5.9. Análisis de sobrevida" href="sobrevida.html" />
+    <link rel="prev" title="5.7. Modelos Mixtos" href="modelos-mixtos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -229,8 +229,8 @@
 <li class="toctree-l2"><a class="reference internal" href="tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="anova.html">5.6. Análisis de Varianza</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sobrevida.html">5.8. Análisis de sobrevida</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.9. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -462,30 +462,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-modelo-lineal-generalizado-glm">5.9.1. ¿Qué es un modelo lineal generalizado (GLM)?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-un-glm">5.9.1.1. Componentes de un GLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-modelo-lineal-generalizado-glm">5.8.1. ¿Qué es un modelo lineal generalizado (GLM)?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-un-glm">5.8.1.1. Componentes de un GLM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">5.9.2. API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">5.9.3. Regresión logística</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">5.9.3.1. Forma general del modelo:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">5.9.3.2. Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">5.9.3.3. Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">5.9.3.3.1. API de fórmulas (más simple)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">5.9.3.3.2. API de clases (más control)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">5.8.2. API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">5.8.3. Regresión logística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">5.8.3.1. Forma general del modelo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">5.8.3.2. Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">5.8.3.3. Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">5.8.3.3.1. API de fórmulas (más simple)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">5.8.3.3.2. API de clases (más control)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-de-poisson">5.9.4. Regresión de Poisson</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-la-funcion-de-enlace">5.9.5. Modificar la función de enlace</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-prediccion">5.9.6. Interpretación y predicción</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-y-razones-de-momios">5.9.6.1. Coeficientes y razones de momios</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">5.9.6.2. Predicción de probabilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-de-poisson">5.8.4. Regresión de Poisson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-la-funcion-de-enlace">5.8.5. Modificar la función de enlace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-prediccion">5.8.6. Interpretación y predicción</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-y-razones-de-momios">5.8.6.1. Coeficientes y razones de momios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">5.8.6.2. Predicción de probabilidades</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">5.9.7. Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.9.8. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">5.8.7. Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.8.8. Conclusión</a></li>
 </ul>
             </nav>
         </div>
@@ -498,16 +498,16 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="regresion-logistica-y-glm-en-statsmodels">
-<h1><span class="section-number">5.9. </span>Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#regresion-logistica-y-glm-en-statsmodels" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5.8. </span>Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#regresion-logistica-y-glm-en-statsmodels" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Este tema <strong>no es una libreta ejecutable</strong>, sino una guía de referencia en formato Markdown. Puedes consultarla para ajustar modelos de regresión logística y otros modelos lineales generalizados (GLM) usando <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> en Python.</p>
 </div>
 <section id="que-es-un-modelo-lineal-generalizado-glm">
-<h2><span class="section-number">5.9.1. </span>¿Qué es un modelo lineal generalizado (GLM)?<a class="headerlink" href="#que-es-un-modelo-lineal-generalizado-glm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.1. </span>¿Qué es un modelo lineal generalizado (GLM)?<a class="headerlink" href="#que-es-un-modelo-lineal-generalizado-glm" title="Link to this heading">#</a></h2>
 <p>Un <strong>GLM</strong> es una extensión del modelo de regresión lineal que permite modelar variables dependientes que no siguen una distribución normal continua. En lugar de asumir que la variable respuesta tiene distribución normal, se puede especificar una distribución adecuada al tipo de dato, junto con una función de enlace.</p>
 <section id="componentes-de-un-glm">
-<h3><span class="section-number">5.9.1.1. </span>Componentes de un GLM<a class="headerlink" href="#componentes-de-un-glm" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.1.1. </span>Componentes de un GLM<a class="headerlink" href="#componentes-de-un-glm" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Componente aleatorio</strong>: la distribución de la variable respuesta (binomial, Poisson, gamma, etc.)</p></li>
 <li><p><strong>Componente sistemático</strong>: combinación lineal de predictores (Xβ)</p></li>
@@ -517,7 +517,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="api-disponibles-en-statsmodels">
-<h2><span class="section-number">5.9.2. </span>API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#api-disponibles-en-statsmodels" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.2. </span>API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#api-disponibles-en-statsmodels" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> ofrece dos formas principales de ajustar modelos:</p>
 <ul class="simple">
 <li><p><strong>API de fórmulas</strong> (<code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code>, abreviado <code class="docutils literal notranslate"><span class="pre">smf</span></code>): usa una notación tipo R, como <code class="docutils literal notranslate"><span class="pre">&quot;y</span> <span class="pre">~</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2&quot;</span></code>.</p></li>
@@ -526,10 +526,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="regresion-logistica">
-<h2><span class="section-number">5.9.3. </span>Regresión logística<a class="headerlink" href="#regresion-logistica" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.3. </span>Regresión logística<a class="headerlink" href="#regresion-logistica" title="Link to this heading">#</a></h2>
 <p>La <strong>regresión logística</strong> es un caso especial de GLM donde la variable dependiente es binaria (0/1) y la función de enlace es la logística (logit). El modelo estima la probabilidad de que un evento ocurra.</p>
 <section id="forma-general-del-modelo">
-<h3><span class="section-number">5.9.3.1. </span>Forma general del modelo:<a class="headerlink" href="#forma-general-del-modelo" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.3.1. </span>Forma general del modelo:<a class="headerlink" href="#forma-general-del-modelo" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \log\left(\frac{\pi(x)}{1 - \pi(x)}\right) = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p
@@ -537,7 +537,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="opcion-1-usar-glm-con-familia-binomial">
-<h3><span class="section-number">5.9.3.2. </span>Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code><a class="headerlink" href="#opcion-1-usar-glm-con-familia-binomial" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.3.2. </span>Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code><a class="headerlink" href="#opcion-1-usar-glm-con-familia-binomial" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
@@ -556,16 +556,16 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">
-<h3><span class="section-number">5.9.3.3. </span>Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)<a class="headerlink" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.3.3. </span>Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)<a class="headerlink" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria" title="Link to this heading">#</a></h3>
 <section id="api-de-formulas-mas-simple">
-<h4><span class="section-number">5.9.3.3.1. </span>API de fórmulas (más simple)<a class="headerlink" href="#api-de-formulas-mas-simple" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.8.3.3.1. </span>API de fórmulas (más simple)<a class="headerlink" href="#api-de-formulas-mas-simple" title="Link to this heading">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x1 + x2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
 <span class="n">resultado</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="api-de-clases-mas-control">
-<h4><span class="section-number">5.9.3.3.2. </span>API de clases (más control)<a class="headerlink" href="#api-de-clases-mas-control" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.8.3.3.2. </span>API de clases (más control)<a class="headerlink" href="#api-de-clases-mas-control" title="Link to this heading">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
@@ -585,7 +585,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="regresion-de-poisson">
-<h2><span class="section-number">5.9.4. </span>Regresión de Poisson<a class="headerlink" href="#regresion-de-poisson" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.4. </span>Regresión de Poisson<a class="headerlink" href="#regresion-de-poisson" title="Link to this heading">#</a></h2>
 <p>Para conteos (por ejemplo, número de visitas, eventos, etc.), se usa:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span>
     <span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x&#39;</span><span class="p">,</span> 
@@ -598,7 +598,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="modificar-la-funcion-de-enlace">
-<h2><span class="section-number">5.9.5. </span>Modificar la función de enlace<a class="headerlink" href="#modificar-la-funcion-de-enlace" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.5. </span>Modificar la función de enlace<a class="headerlink" href="#modificar-la-funcion-de-enlace" title="Link to this heading">#</a></h2>
 <p>Puedes cambiar el enlace por defecto. Por ejemplo, para usar <strong>Probit</strong> en lugar de Logit:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.genmod.families.links</span><span class="w"> </span><span class="kn">import</span> <span class="n">Probit</span>
 
@@ -612,9 +612,9 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="interpretacion-y-prediccion">
-<h2><span class="section-number">5.9.6. </span>Interpretación y predicción<a class="headerlink" href="#interpretacion-y-prediccion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.6. </span>Interpretación y predicción<a class="headerlink" href="#interpretacion-y-prediccion" title="Link to this heading">#</a></h2>
 <section id="coeficientes-y-razones-de-momios">
-<h3><span class="section-number">5.9.6.1. </span>Coeficientes y razones de momios<a class="headerlink" href="#coeficientes-y-razones-de-momios" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.6.1. </span>Coeficientes y razones de momios<a class="headerlink" href="#coeficientes-y-razones-de-momios" title="Link to this heading">#</a></h3>
 <p>Los coeficientes están en escala de log-odds. Para obtener razones de momios (odds ratio):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
@@ -622,7 +622,7 @@ document.write(`
 </div>
 </section>
 <section id="prediccion-de-probabilidades">
-<h3><span class="section-number">5.9.6.2. </span>Predicción de probabilidades<a class="headerlink" href="#prediccion-de-probabilidades" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.8.6.2. </span>Predicción de probabilidades<a class="headerlink" href="#prediccion-de-probabilidades" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">predicciones</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">predicciones</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
@@ -630,7 +630,7 @@ document.write(`
 </section>
 </section>
 <section id="distribuciones-disponibles-en-statsmodels-para-glm">
-<h2><span class="section-number">5.9.7. </span>Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM<a class="headerlink" href="#distribuciones-disponibles-en-statsmodels-para-glm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.7. </span>Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM<a class="headerlink" href="#distribuciones-disponibles-en-statsmodels-para-glm" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Tipo de respuesta</p></th>
@@ -676,7 +676,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="conclusion">
-<h2><span class="section-number">5.9.8. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8.8. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> proporciona dos formas equivalentes y complementarias para ajustar modelos de regresión logística y otros GLM. Para variables binarias, se recomienda <code class="docutils literal notranslate"><span class="pre">Logit</span></code> o <code class="docutils literal notranslate"><span class="pre">logit</span></code>; para estructuras más generales o cambio de enlace, <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con <code class="docutils literal notranslate"><span class="pre">Binomial()</span></code> es la opción adecuada.</p>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
@@ -718,20 +718,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="sobrevida.html"
+       href="modelos-mixtos.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">5.8. </span>Análisis de sobrevida</p>
+        <p class="prev-next-title"><span class="section-number">5.7. </span>Modelos Mixtos</p>
       </div>
     </a>
     <a class="right-next"
-       href="../unidad-6/index.html"
+       href="sobrevida.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Unidad 6: Análisis Bayesianos</p>
+        <p class="prev-next-title"><span class="section-number">5.9. </span>Análisis de sobrevida</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -751,30 +751,30 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-modelo-lineal-generalizado-glm">5.9.1. ¿Qué es un modelo lineal generalizado (GLM)?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-un-glm">5.9.1.1. Componentes de un GLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-modelo-lineal-generalizado-glm">5.8.1. ¿Qué es un modelo lineal generalizado (GLM)?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-un-glm">5.8.1.1. Componentes de un GLM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">5.9.2. API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">5.9.3. Regresión logística</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">5.9.3.1. Forma general del modelo:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">5.9.3.2. Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">5.9.3.3. Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">5.9.3.3.1. API de fórmulas (más simple)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">5.9.3.3.2. API de clases (más control)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-disponibles-en-statsmodels">5.8.2. API disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">5.8.3. Regresión logística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-general-del-modelo">5.8.3.1. Forma general del modelo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-1-usar-glm-con-familia-binomial">5.8.3.2. Opción 1: Usar <code class="docutils literal notranslate"><span class="pre">GLM</span></code> con familia <code class="docutils literal notranslate"><span class="pre">Binomial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-2-usar-logit-modelo-especifico-para-respuesta-binaria">5.8.3.3. Opción 2: Usar <code class="docutils literal notranslate"><span class="pre">Logit</span></code> (modelo específico para respuesta binaria)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-formulas-mas-simple">5.8.3.3.1. API de fórmulas (más simple)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#api-de-clases-mas-control">5.8.3.3.2. API de clases (más control)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-de-poisson">5.9.4. Regresión de Poisson</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-la-funcion-de-enlace">5.9.5. Modificar la función de enlace</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-prediccion">5.9.6. Interpretación y predicción</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-y-razones-de-momios">5.9.6.1. Coeficientes y razones de momios</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">5.9.6.2. Predicción de probabilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-de-poisson">5.8.4. Regresión de Poisson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-la-funcion-de-enlace">5.8.5. Modificar la función de enlace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-prediccion">5.8.6. Interpretación y predicción</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-y-razones-de-momios">5.8.6.1. Coeficientes y razones de momios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-de-probabilidades">5.8.6.2. Predicción de probabilidades</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">5.9.7. Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.9.8. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-disponibles-en-statsmodels-para-glm">5.8.7. Distribuciones disponibles en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> para GLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.8.8. Conclusión</a></li>
 </ul>
   </nav></div>
 

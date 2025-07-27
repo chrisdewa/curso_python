@@ -47,8 +47,8 @@ chapters:
       - file: unidad-5/tamaño-muestral
       - file: unidad-5/anova
       - file: unidad-5/modelos-mixtos.ipynb 
-      - file: unidad-5/sobrevida
       - file: unidad-5/glm
+      - file: unidad-5/sobrevida
   - file: unidad-6/index
     sections:
       - file: unidad-6/actualización-proporcion

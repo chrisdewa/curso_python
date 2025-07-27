@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.8. Análisis de sobrevida &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>5.9. Análisis de sobrevida &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="5.9. Regresión logística y GLM en statsmodels" href="glm.html" />
-    <link rel="prev" title="5.7. Modelos Mixtos" href="modelos-mixtos.html" />
+    <link rel="next" title="6. Unidad 6: Análisis Bayesianos" href="../unidad-6/index.html" />
+    <link rel="prev" title="5.8. Regresión logística y GLM en statsmodels" href="glm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -229,8 +229,8 @@
 <li class="toctree-l2"><a class="reference internal" href="tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="anova.html">5.6. Análisis de Varianza</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.8. Análisis de sobrevida</a></li>
-<li class="toctree-l2"><a class="reference internal" href="glm.html">5.9. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -493,18 +493,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.8.1. Librerías y datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.8.1.1. Información sobre el dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.9.1. Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.9.1.1. Información sobre el dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.8.2. Exploración Visual de los datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.8.3. Curvas de sobrevida</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.8.4. Log-Rank</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.8.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.8.5.1. Ejemplo global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.9.2. Exploración Visual de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.9.3. Curvas de sobrevida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.9.4. Log-Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.9.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.9.5.1. Ejemplo global</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.8.6. Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.9.6. Ejercicios</a></li>
 </ul>
             </nav>
         </div>
@@ -517,7 +517,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-sobrevida">
-<h1><span class="section-number">5.8. </span>Análisis de sobrevida<a class="headerlink" href="#analisis-de-sobrevida" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5.9. </span>Análisis de sobrevida<a class="headerlink" href="#analisis-de-sobrevida" title="Link to this heading">#</a></h1>
 <p>En esta libreta aprenderás cómo ejecutar los análisis de sobrevida más frecuentemente utilizados.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
@@ -537,7 +537,7 @@ document.write(`
 </div>
 <p>Para cualquier análisis de sobrevida necesitamos un juego de datos con al menos una columna cuantitativa de <em>Tiempo al Evento</em> y otra columna dicotómica de <em>Evento Observado</em>.</p>
 <section id="librerias-y-datos">
-<h2><span class="section-number">5.8.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
@@ -611,7 +611,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="informacion-sobre-el-dataset">
-<h3><span class="section-number">5.8.1.1. </span>Información sobre el dataset<a class="headerlink" href="#informacion-sobre-el-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.9.1.1. </span>Información sobre el dataset<a class="headerlink" href="#informacion-sobre-el-dataset" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">load_waltons</span><span class="p">)</span>
@@ -639,7 +639,7 @@ load_waltons(**kwargs)
 </section>
 </section>
 <section id="exploracion-visual-de-los-datos">
-<h2><span class="section-number">5.8.2. </span>Exploración Visual de los datos<a class="headerlink" href="#exploracion-visual-de-los-datos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.2. </span>Exploración Visual de los datos<a class="headerlink" href="#exploracion-visual-de-los-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
@@ -695,7 +695,7 @@ Utilizaremos primero <code class="docutils literal notranslate"><span class="pre
 <p>Podemos comenzar a analizar la sobrevida utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, para ello, necesitamos convertir los datos a un objeto <code class="docutils literal notranslate"><span class="pre">CensoredData</span></code> donde especificaremos los datos observados y aquellos con algún tipo de censura.</p>
 </section>
 <section id="curvas-de-sobrevida">
-<h2><span class="section-number">5.8.3. </span>Curvas de sobrevida<a class="headerlink" href="#curvas-de-sobrevida" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.3. </span>Curvas de sobrevida<a class="headerlink" href="#curvas-de-sobrevida" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">CensoredData</span><span class="p">(</span>
@@ -901,7 +901,7 @@ logrank_test(
 </div>
 </section>
 <section id="log-rank">
-<h2><span class="section-number">5.8.4. </span>Log-Rank<a class="headerlink" href="#log-rank" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.4. </span>Log-Rank<a class="headerlink" href="#log-rank" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;control&#39;</span>
@@ -973,7 +973,7 @@ logrank_test(
 </div>
 </section>
 <section id="sobrevida-condicional">
-<h2><span class="section-number">5.8.5. </span>Sobrevida condicional<a class="headerlink" href="#sobrevida-condicional" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.5. </span>Sobrevida condicional<a class="headerlink" href="#sobrevida-condicional" title="Link to this heading">#</a></h2>
 <p>La <strong>sobrevida condicional</strong> responde a preguntas como:</p>
 <blockquote>
 <div><p>“¿Cuál es la probabilidad de que un individuo sobreviva 10 días más, dado que ya ha sobrevivido los primeros 20?”</p>
@@ -986,7 +986,7 @@ S(t \mid t &gt; t_0) = \frac{S(t)}{S(t_0)}
 <p>donde ( S(t) ) es la función de sobrevida acumulada, y ( t_0 ) es el tiempo a partir del cual se condiciona la probabilidad de seguir sobreviviendo.</p>
 <p>Esto es útil en seguimiento clínico, por ejemplo, para pacientes que ya han superado una etapa crítica y queremos estimar su pronóstico futuro.</p>
 <section id="ejemplo-global">
-<h3><span class="section-number">5.8.5.1. </span>Ejemplo global<a class="headerlink" href="#ejemplo-global" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.9.5.1. </span>Ejemplo global<a class="headerlink" href="#ejemplo-global" title="Link to this heading">#</a></h3>
 <p>Supongamos que queremos saber cuál es la probabilidad de que un individuo sobreviva al menos 10 días más, <strong>dado que ya ha sobrevivido 15 días</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1012,7 +1012,7 @@ S(t \mid t &gt; t_0) = \frac{S(t)}{S(t_0)}
 </section>
 </section>
 <section id="ejercicios">
-<h2><span class="section-number">5.8.6. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9.6. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Explora las opciones disponibles en <code class="docutils literal notranslate"><span class="pre">lifelines.datasets</span></code> y prueba tus conocimientos con estos datasets.</p></li>
 <li><p>El objeto <code class="docutils literal notranslate"><span class="pre">cd</span></code> de <code class="docutils literal notranslate"><span class="pre">scipy</span></code> ofrece un interfaz sencilla para obtener información de sobrevida. Revisa la documentación para ver qué puede hacer. Te sugiero iniciar por <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ecdf.html">aquí</a> y <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.CensoredData.html#scipy.stats.CensoredData">aquí</a>.</p></li>
@@ -1054,20 +1054,20 @@ S(t \mid t &gt; t_0) = \frac{S(t)}{S(t_0)}
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="modelos-mixtos.html"
+       href="glm.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">5.7. </span>Modelos Mixtos</p>
+        <p class="prev-next-title"><span class="section-number">5.8. </span>Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="glm.html"
+       href="../unidad-6/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">5.9. </span>Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Unidad 6: Análisis Bayesianos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1087,18 +1087,18 @@ S(t \mid t &gt; t_0) = \frac{S(t)}{S(t_0)}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.8.1. Librerías y datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.8.1.1. Información sobre el dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.9.1. Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.9.1.1. Información sobre el dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.8.2. Exploración Visual de los datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.8.3. Curvas de sobrevida</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.8.4. Log-Rank</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.8.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.8.5.1. Ejemplo global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.9.2. Exploración Visual de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.9.3. Curvas de sobrevida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.9.4. Log-Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.9.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.9.5.1. Ejemplo global</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.8.6. Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.9.6. Ejercicios</a></li>
 </ul>
   </nav></div>
 
