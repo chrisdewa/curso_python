@@ -40,10 +40,20 @@ chapters:
       - file: unidad-4/rearreglos-de-datos
   - file: unidad-5/index
     sections:
-      - glob: unidad-5/*
+      - file: unidad-5/rendimiento-diagnostico
+      - file: unidad-5/curvas-roc
+      - file: unidad-5/medidas-de-asociacion
+      - file: unidad-5/tamaños-efecto
+      - file: unidad-5/tamaño-muestral
+      - file: unidad-5/anova
+      - file: unidad-5/modelos-mixtos.ipynb 
+      - file: unidad-5/sobrevida
+      - file: unidad-5/glm
   - file: unidad-6/index
     sections:
-      - glob: unidad-6/tema*
+      - file: unidad-6/actualización-proporcion
+      - file: unidad-6/pruebas-t
+      - file: unidad-6/pruebas-t-2
   - file: unidad-7/index
     sections:
       - glob: unidad-7/*

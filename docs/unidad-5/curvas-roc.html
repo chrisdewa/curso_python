@@ -1,0 +1,1309 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.2. Curvas ROC &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/curvas-roc';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5.3. Medidas de asociación y correlación" href="medidas-de-asociacion.html" />
+    <link rel="prev" title="5.1. Medidas de rendimiento diagnóstico" href="rendimiento-diagnostico.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sobrevida.html">5.8. Análisis de sobrevida</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glm.html">5.9. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizaci%C3%B3n-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">7. Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-7/tama%C3%B1os-de-muestra.html">7.1. Tamaños de muestra</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">8.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">8.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">9. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">10. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/curvas-roc.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/curvas-roc.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/curvas-roc.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-5/curvas-roc.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Curvas ROC</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.2.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">5.2.2. Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semilla-aleatoria">5.2.2.1. Semilla aleatoria</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion">5.2.2.1.1. Demostración</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-sin-semilla">5.2.2.1.1.1. Ejemplo sin semilla</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-con-semilla">5.2.2.1.1.2. Ejemplo con semilla</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#elije-tu-semilla">5.2.2.1.2. Elije tu semilla</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion">5.2.3. Simulación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2.4. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc">5.2.5. Curva ROC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aucroc">5.2.5.1. AUCROC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-youden">5.2.5.2. Índice de Youden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-y-especificidad">5.2.5.3. Sensibilidad y Especificidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporte-final">5.2.5.4. Reporte final</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-completa">5.2.6. Función completa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.2.7. Ejercicios</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="curvas-roc">
+<h1><span class="section-number">5.2. </span>Curvas ROC<a class="headerlink" href="#curvas-roc" title="Link to this heading">#</a></h1>
+<p>Las curvas de Característica Operativa del Receptor son muy utilizada para identificar puntos de corte maximizando la sensibilidad y especificidad de una prueba con resultado binario.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para esta libreta es necesario tener instalada la librería <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, puedes hacerlo con el comando <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">scikit-learn</span></code> dentro del directorio del curso.</p>
+<p>Observa, sin embargo, que a la hora de importar la librería se hace como <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, esto se debe a restricciones en el nombre de las variables en python y a la comodidad de un nombre más corto.</p>
+</div>
+<section id="librerias">
+<h2><span class="section-number">5.2.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span> <span class="c1"># pruebas y distribuciones</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">expit</span> <span class="c1"># logit inversa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># librería de cálculos matemáticos y vectores</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># manejo de datos tabulados</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span> <span class="c1"># para la curva ROC</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># para graficar.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Librerías importadas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datos">
+<h2><span class="section-number">5.2.2. </span>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<p>Utilizaremos datos con una variable predictora numérica discreta en el intervalo 0-40 con distribución normal.</p>
+<p>En esta libreta también utilizaremos datos simulados, sin embargo, esta vez correremos la simulación al momento de ejecutar la libreta, es decir, que en cada caso los datos generados serán únicos para tí. Sin embargo, para hacerlo replicable, utilizaremos el concepto de <code class="docutils literal notranslate"><span class="pre">semilla</span></code> aleatoria.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Cuando utilizamos una semilla aleatoria el algoritmo generador de números pseudo-aleatorios operará en forma determinística.
+Es decir, que a pesar de que los números sean <em>aleatorios</em>, aparecerán en el mismo orden cada vez.</p>
+<p>Esto es crítico para la reproducibilidad de resultados en pruebas que dependen de números aleatorios, por ejemplo, <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrap</a></p>
+</div>
+<section id="semilla-aleatoria">
+<h3><span class="section-number">5.2.2.1. </span>Semilla aleatoria<a class="headerlink" href="#semilla-aleatoria" title="Link to this heading">#</a></h3>
+<section id="demostracion">
+<h4><span class="section-number">5.2.2.1.1. </span>Demostración<a class="headerlink" href="#demostracion" title="Link to this heading">#</a></h4>
+<p>Para ver cómo funciona la semilla ejecuta la siguiente celda.
+Utilizaremos <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, una librería para operaciones matemáticas con vectores y matrices; está en el corazón de librerías como <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y <code class="docutils literal notranslate"><span class="pre">scipy</span></code> y por lo tanto es donde debemos «sembrar» la <code class="docutils literal notranslate"><span class="pre">semilla</span></code>.</p>
+<section id="ejemplo-sin-semilla">
+<h5><span class="section-number">5.2.2.1.1.1. </span>Ejemplo sin semilla<a class="headerlink" href="#ejemplo-sin-semilla" title="Link to this heading">#</a></h5>
+<p>Ejecuta la siguiente celda el número de veces que gustes, pero al menos más de dos veces.
+Verás que en cada ejecución los números generados cambian.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># quitamos cualquier efecto de seed que quede en la memoria</span>
+<span class="c1"># solo en caso de que hayamos corrido alguna semilla antes de esta celda</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1"># 10 números del 0 al 9</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># número aleatorio del 0 al 100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+25
+50
+76
+70
+64
+96
+11
+68
+73
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-con-semilla">
+<h5><span class="section-number">5.2.2.1.1.2. </span>Ejemplo con semilla<a class="headerlink" href="#ejemplo-con-semilla" title="Link to this heading">#</a></h5>
+<p>Ahora utilizamos la semilla <code class="docutils literal notranslate"><span class="pre">42</span></code>, repite el ejercicio previo, ejecuta la siguiente celda múltiples veces pero al menos más de dos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># el argumento puede ser cualquier int</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1"># 10 números del 0 al 9</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># número aleatorio del 0 al 100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51
+92
+14
+71
+60
+20
+82
+86
+74
+74
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como ves, a pesar de que los números son «aleatorios», al utilizar una semilla, podemos replicar la misma secuencia cada vez.</p>
+</section>
+</section>
+<section id="elije-tu-semilla">
+<h4><span class="section-number">5.2.2.1.2. </span>Elije tu semilla<a class="headerlink" href="#elije-tu-semilla" title="Link to this heading">#</a></h4>
+<p>En la siguiente celda elegiremos la semilla que utlizarás en el resto de la libreta.</p>
+<p>¿Cuál es tu número de la suerte?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1"># elige el número que tú quieras.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Semilla elegida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semilla elegida
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="simulacion">
+<h2><span class="section-number">5.2.3. </span>Simulación<a class="headerlink" href="#simulacion" title="Link to this heading">#</a></h2>
+<p>Para simular los datos utilizaremos la siguiente función. Lee la documentación y sigue el código para ver cómo funciona.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simular_test</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">err_s</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simula datos de una escala diagnóstica discreta asociada a un desenlace binario.</span>
+
+<span class="sd">    Genera N observaciones de una escala (&#39;Test&#39;) con distribución normal discreta (media `mu`, DE `s`), </span>
+<span class="sd">    y un desenlace binario (&#39;Estándar&#39;) modelado mediante regresión logística con error aditivo (`err_s`) </span>
+<span class="sd">    y un intercepto centrado en -mu.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        Media de la escala.</span>
+<span class="sd">    s : float</span>
+<span class="sd">        Desviación estándar de la escala.</span>
+<span class="sd">    N : int</span>
+<span class="sd">        Número de observaciones simuladas.</span>
+<span class="sd">    err_s : float, opcional</span>
+<span class="sd">        Desviación estándar del error logístico. Por defecto 1.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        DataFrame con dos columnas:</span>
+<span class="sd">        - &#39;Test&#39;: puntaje discreto de la escala.</span>
+<span class="sd">        - &#39;Estándar&#39;: desenlace binario simulado.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">B0</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">err_s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">X</span> <span class="o">+</span> <span class="n">err</span> <span class="c1"># predictor z de la regresión logística</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="c1"># logit inversa p = 1 / (1+exp(-z))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;Estándar&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+        <span class="s1">&#39;Test&#39;</span><span class="p">:</span> <span class="n">X</span>
+    <span class="p">})</span>
+    
+    <span class="k">return</span> <span class="n">data</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">simular_test</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Estándar</th>
+      <th>Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Con esto simulamos datos de 100 sujetos para un test discreto con media de 20 y desviación estándar de 5 con un error aleatorio con desviación estándar de 1.</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">5.2.4. </span>Librerías<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Veamos las librerías que utilizaremos, debes reconocer las primeras tres ya que son tomadas con exactitud de la lección de rendimiento diagnóstico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">descomponer_tabulacion</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrae los valores de la tabla de contingencia 2x2 para un test diagnóstico.</span>
+
+<span class="sd">    Asume que la tabla está organizada con:</span>
+<span class="sd">    - Filas: resultado del test (1 = positivo, 0 = negativo)</span>
+<span class="sd">    - Columnas: estándar diagnóstico (1 = enfermedad presente, 0 = enfermedad ausente)</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tabulacion : pd.DataFrame</span>
+<span class="sd">        Tabla de contingencia 2x2 con los resultados del test y el estándar diagnóstico.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        Una tupla con cuatro enteros: (VP, FP, FN, VN)</span>
+<span class="sd">        - VP: Verdaderos Positivos</span>
+<span class="sd">        - FP: Falsos Positivos</span>
+<span class="sd">        - FN: Falsos Negativos</span>
+<span class="sd">        - VN: Verdaderos Negativos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">tabulacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> 
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">tabulacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> 
+    <span class="n">fn</span> <span class="o">=</span> <span class="n">tabulacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> 
+    <span class="n">vn</span> <span class="o">=</span> <span class="n">tabulacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">vp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vn</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sensibilidad</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula la sensibilidad (verdaderos positivos / total de enfermos).</span>
+
+<span class="sd">    Parámetro:</span>
+<span class="sd">    - tabulacion: DataFrame 2x2 con los resultados del test y estándar diagnóstico.</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - Sensibilidad como flotante.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vn</span> <span class="o">=</span> <span class="n">descomponer_tabulacion</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vp</span> <span class="o">/</span> <span class="p">(</span><span class="n">vp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">especificidad</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula la especificidad (verdaderos negativos / total de sanos).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vn</span> <span class="o">=</span> <span class="n">descomponer_tabulacion</span><span class="p">(</span><span class="n">tabulacion</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vn</span> <span class="o">/</span> <span class="p">(</span><span class="n">vn</span> <span class="o">+</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Funciones soporte definidas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Funciones soporte definidas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="curva-roc">
+<h2><span class="section-number">5.2.5. </span>Curva ROC<a class="headerlink" href="#curva-roc" title="Link to this heading">#</a></h2>
+<p>Ahora viene la parte medular de esta libreta. Generar la curva ROC y obtener el mejor punto de corte para la prueba con base en el índice J de Youden.</p>
+<p>Antes de comenzar, asegúrate de revisar a fondo el tema de qué es y para qué se usa la curva <a class="reference external" href="https://doi.org/10.1016/j.patrec.2005.10.010">ROC</a>, el AUC y el índice de <a class="reference external" href="https://en.wikipedia.org/wiki/Youden%27s_J_statistic">Youden</a>.</p>
+<p>Lo primero que necesitamos hacer es extraer la información para la curva roc, lo cual tiene tres elementos:</p>
+<ul class="simple">
+<li><p>La tasa de falsos positivos</p></li>
+<li><p>La tasa de verdaderos positivos</p></li>
+<li><p>Los umbrales para cada caso</p></li>
+</ul>
+<p>El primer elemento no es más que <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">especificidad</span></code> y el segundo es simplemente la <code class="docutils literal notranslate"><span class="pre">sensibilidad</span></code>.</p>
+<p>Afortunadamente, como muchos otros casos, esta función ya está implementada en python, en una librería nueva llamada <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, que contiene múltiples herramientas para ejecutar, diagnosticar y tunear diversos algoritmos de aprendizaje de máquina (ML), y es una de las principales librerías que hace a python tan atractivo para ML.</p>
+<p>Ejecutemos la función <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verdaderos</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Estándar&#39;</span><span class="p">]</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">]</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">verdaderos</span><span class="p">,</span> <span class="n">predictor</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fpr</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">tpr</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">th</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0.] [0.         0.02631579 0.18421053] [inf 29. 27.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code> extrae los tres fragmentos de la curva que necesitamos:
+<code class="docutils literal notranslate"><span class="pre">fpr</span></code>: <em>False Positive Rate</em>, es decir, <code class="docutils literal notranslate"><span class="pre">1-Especificidad</span></code>
+<code class="docutils literal notranslate"><span class="pre">tpr</span></code>: <em>True Positive Rate</em>, es decir, <code class="docutils literal notranslate"><span class="pre">sensibilidad</span></code>
+<code class="docutils literal notranslate"><span class="pre">th</span></code>: <em>Threshold</em>, es decir, umbrales.</p>
+<p>Ahora, podemos graficar la curva.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Curva ROC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1 - Especificidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sensibilidad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Sensibilidad&#39;)
+</pre></div>
+</div>
+<img alt="../_images/7b9c7aac1a7c13f2e3e254ce402f7f3d6aa6a52270cbf5b308afebf9177f3e95.png" src="../_images/7b9c7aac1a7c13f2e3e254ce402f7f3d6aa6a52270cbf5b308afebf9177f3e95.png" />
+</div>
+</div>
+<section id="aucroc">
+<h3><span class="section-number">5.2.5.1. </span>AUCROC<a class="headerlink" href="#aucroc" title="Link to this heading">#</a></h3>
+<p>Ahora calculemos el área bajo la curva ROC, o AUC (o AUCROC), para ello, usaremos otra función de <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">auc_roc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">auc_roc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9492784380305602
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con esto podemos ver el rendimiento predictivo de la prueba a lo largo de los diferentes puntos de corte, parece ser bastante apropiada, claro que esto es por diseño en estos datos simulados, puedes jugar con la función de generar datos para obtener un dataset diferente.</p>
+</section>
+<section id="indice-de-youden">
+<h3><span class="section-number">5.2.5.2. </span>Índice de Youden<a class="headerlink" href="#indice-de-youden" title="Link to this heading">#</a></h3>
+<p>Ahora veamos cómo calcular el índice de Youden.
+Lo que necesitamos hacer es encontrar el punto en la curva donde se se tenga en balance, la máxima sensibilidad con la menor tasa de falsos positivos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tpr</span><span class="o">-</span><span class="n">fpr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>El índice <code class="docutils literal notranslate"><span class="pre">j</span></code> lo obtenemos al encontrar el índice máximo de los elementos resultantes de restar <code class="docutils literal notranslate"><span class="pre">tpr</span></code> y <code class="docutils literal notranslate"><span class="pre">fpr</span></code>, observa qué pasa con esta operación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tpr</span><span class="o">-</span><span class="n">fpr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.02631579, 0.18421053, 0.21052632, 0.28947368,
+       0.47368421, 0.57894737, 0.57300509, 0.70288625, 0.74363328,
+       0.73174873, 0.58064516, 0.41935484, 0.32258065, 0.27419355,
+       0.19354839, 0.16129032, 0.09677419, 0.06451613, 0.01612903,
+       0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si lo cuentas desde el cero, verás que el elemento 9 es el máximo en esta serie de datos. Con el índice <code class="docutils literal notranslate"><span class="pre">j</span></code> ahora podemos obtener el mejor punto de corte (cutoff en inglés) en la curva ROC.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutoff</span> <span class="o">=</span> <span class="n">th</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<span class="n">cutoff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(20.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Según esta simulación, el punto de corte <code class="docutils literal notranslate"><span class="pre">20</span></code> es el que resulta en la mayor sensibilidad y especificidad, veamos cuáles son estos parámetros.
+Primero generemos una nueva serie dentro de nuestro arreglo de datos con aquellos puntajes del <code class="docutils literal notranslate"><span class="pre">Test</span></code> que resulten mayores o igual que 20.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Predicho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Estándar</th>
+      <th>Test</th>
+      <th>Predicho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>22</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>19</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>27</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>18</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">ge</span></code> quiere decir <em>Grater or Equal</em> y con este, podemos generar una columna de valores predichos para la enfermedad.
+Ahora calculemos tabla cruzada y la sensibilidad y especificidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Predicho&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Estándar&#39;</span><span class="p">])</span>
+<span class="n">tab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Estándar</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Predicho</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>51</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="sensibilidad-y-especificidad">
+<h3><span class="section-number">5.2.5.3. </span>Sensibilidad y Especificidad<a class="headerlink" href="#sensibilidad-y-especificidad" title="Link to this heading">#</a></h3>
+<p>Finalmente utilicemos las funciones de sensibilidad y especificidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sens</span> <span class="o">=</span> <span class="n">sensibilidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">esp</span> <span class="o">=</span> <span class="n">especificidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">sens</span><span class="p">,</span> <span class="n">esp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(0.9210526315789473), np.float64(0.8225806451612904))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reporte-final">
+<h3><span class="section-number">5.2.5.4. </span>Reporte final<a class="headerlink" href="#reporte-final" title="Link to this heading">#</a></h3>
+<p>Y reportemos nuestros resultados en forma limpia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AUCROC: </span><span class="si">{</span><span class="n">auc_roc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Índice de Youden: </span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s2">, Sensibilidad: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">, Especificidad: </span><span class="si">{</span><span class="n">esp</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUCROC: 0.949, Índice de Youden: 20.0, Sensibilidad: 92.1%, Especificidad: 82.3%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="funcion-completa">
+<h2><span class="section-number">5.2.6. </span>Función completa<a class="headerlink" href="#funcion-completa" title="Link to this heading">#</a></h2>
+<p>Ahora veamos cómo podemos compactar toda esta lógica en una sola función reutilizable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">true_col</span><span class="o">=</span><span class="s1">&#39;Estándar&#39;</span><span class="p">,</span> <span class="n">pred_col</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    La función grafica la curva roc, con su área bajo la curva e índice de Youden y lo retorna.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">        data: pd.DataFrame</span>
+<span class="sd">            Arreglo de datos con las columnas que tienen el estado real y el resultado del test</span>
+<span class="sd">        true_col: str</span>
+<span class="sd">            Nombre de la columna donde están los valores verdaderos</span>
+<span class="sd">        pred_col: str</span>
+<span class="sd">            Nombre de la columna donde están los valores del test que predicen a `true_col`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">true_col</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">pred_col</span><span class="p">],</span>
+        <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    
+    <span class="n">auc_roc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;AUC: </span><span class="si">{</span><span class="n">auc_roc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tpr</span><span class="o">-</span><span class="n">fpr</span><span class="p">)</span>
+    <span class="n">cutoff</span> <span class="o">=</span> <span class="n">th</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s1">&#39;o-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Umbral=</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Estándar&#39;</span><span class="p">])</span>
+    <span class="n">sens</span> <span class="o">=</span> <span class="n">sensibilidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+    <span class="n">esp</span> <span class="o">=</span> <span class="n">especificidad</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Sensibilidad: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="se">\n</span><span class="s1">Especificidad: </span><span class="si">{</span><span class="n">esp</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">fpr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tpr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;--k&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Curva ROC&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sensibilidad&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1 - Especificidad&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b19b32cc9456bbf77b26e353a3b13b552ddceb4a51fe391def8bc2b17cac6a43.png" src="../_images/b19b32cc9456bbf77b26e353a3b13b552ddceb4a51fe391def8bc2b17cac6a43.png" />
+</div>
+</div>
+</section>
+<section id="ejercicios">
+<h2><span class="section-number">5.2.7. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Intenta ejecutar lo aprendido con tus propios datos.</p></li>
+<li><p>Juega con las funciones de simulación para obtener otros datos</p></li>
+<li><p>Intenta utilizar la función de simulación y gráfico en forma repetida
+para conocer los diferentes resultados que pueden generarse.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rendimiento-diagnostico.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Medidas de rendimiento diagnóstico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="medidas-de-asociacion.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>Medidas de asociación y correlación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.2.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">5.2.2. Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semilla-aleatoria">5.2.2.1. Semilla aleatoria</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion">5.2.2.1.1. Demostración</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-sin-semilla">5.2.2.1.1.1. Ejemplo sin semilla</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-con-semilla">5.2.2.1.1.2. Ejemplo con semilla</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#elije-tu-semilla">5.2.2.1.2. Elije tu semilla</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion">5.2.3. Simulación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2.4. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc">5.2.5. Curva ROC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aucroc">5.2.5.1. AUCROC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-youden">5.2.5.2. Índice de Youden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-y-especificidad">5.2.5.3. Sensibilidad y Especificidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporte-final">5.2.5.4. Reporte final</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-completa">5.2.6. Función completa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.2.7. Ejercicios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
