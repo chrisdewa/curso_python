@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.3. Pruebas T, parte 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>6.4. Pruebas T, parte 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="7. Unidad 7: Libretas reutilizables" href="../unidad-7/index.html" />
-    <link rel="prev" title="6.2. Pruebas T, parte 1" href="pruebas-t.html" />
+    <link rel="next" title="7. Otras lecciones" href="../otras-lecciones/index.html" />
+    <link rel="prev" title="6.3. Pruebas T, parte 1" href="pruebas-t.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -234,22 +234,19 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="actualizaci%C3%B3n-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.2. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Pruebas T, parte 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-7/index.html">7. Unidad 7: Libretas reutilizables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-7/tama%C3%B1os-de-muestra.html">7.1. Tamaños de muestra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">8.1. Comprensiones en Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">8.2. f-string: Dar formato al texto</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="../recursos.html">9. Recursos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glosario.html">10. Glosario de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
 </ul>
 
     </div>
@@ -493,9 +490,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.3.2. Definición del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.3.3. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.4.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.4.2. Definición del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.4.3. Ejercicio</a></li>
 </ul>
             </nav>
         </div>
@@ -508,7 +505,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pruebas-t-parte-2">
-<h1><span class="section-number">6.3. </span>Pruebas T, parte 2<a class="headerlink" href="#pruebas-t-parte-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6.4. </span>Pruebas T, parte 2<a class="headerlink" href="#pruebas-t-parte-2" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Esta libreta es la parte 2 del análisis bayesiano de comparación de medias, pero también es la introducción para los modelos lineales</p>
@@ -531,7 +528,7 @@ document.write(`
 \[\beta_1 = 0\]</div>
 <p>Repasando, en el modelo que contruiremos, la categoría de referencia es «Adelie», <span class="math notranslate nohighlight">\(\beta_0\)</span> es la media de  peso de los Adelie y <span class="math notranslate nohighlight">\(\beta_1\)</span> es la diferencia de peso entre los Adelie y los Chinstrap.</p>
 <section id="librerias-y-datos">
-<h2><span class="section-number">6.3.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
@@ -628,7 +625,7 @@ document.write(`
 </div>
 </section>
 <section id="definicion-del-modelo">
-<h2><span class="section-number">6.3.2. </span>Definición del modelo<a class="headerlink" href="#definicion-del-modelo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4.2. </span>Definición del modelo<a class="headerlink" href="#definicion-del-modelo" title="Link to this heading">#</a></h2>
 <p>Necesitaremos la fórmula, los datos y especificaremos la familia de la distrubicón, en este caso utilizaremos la distribución T, ya que es más robusta para el análisis por sus colas pesadas, también especificamos que queremos eliminar los valores faltantes, <code class="docutils literal notranslate"><span class="pre">bambi</span></code> no los tira por default como <code class="docutils literal notranslate"><span class="pre">statsmodels.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -658,8 +655,8 @@ document.write(`
             species ~ Normal(mu: 0.0, sigma: 2351.7068)
         
         Auxiliary parameters
-            nu ~ Gamma(alpha: 2.0, beta: 0.1)
             sigma ~ HalfStudentT(nu: 4.0, sigma: 435.2532)
+            nu ~ Gamma(alpha: 2.0, beta: 0.1)
 </pre></div>
 </div>
 </div>
@@ -679,11 +676,11 @@ Alternatively, you can use an experimental backend such as Numba or JAX that per
 For more options and details see https://pytensor.readthedocs.io/en/latest/troubleshooting.html#how-do-i-configure-test-my-blas-library
   warnings.warn(
 Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [nu, sigma, Intercept, species]
+NUTS: [sigma, nu, Intercept, species]
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1d44bec8019f4f789f3c42b473e31d06", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 34 seconds.
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec635acefa764e07881ffaffe099d731", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 18 seconds.
 </pre></div>
 </div>
 </div>
@@ -697,7 +694,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5364c9b27635337262d3a6e3a84119efd66aff1c5767482389662cef27eaf9d3.png" src="../_images/5364c9b27635337262d3a6e3a84119efd66aff1c5767482389662cef27eaf9d3.png" />
+<img alt="../_images/3c7250ea8a4414b28304d37b265459be49d0c3e515dd09ff899e77fa8b619078.png" src="../_images/3c7250ea8a4414b28304d37b265459be49d0c3e515dd09ff899e77fa8b619078.png" />
 </div>
 </div>
 <p>Podemos ver que las cadenas parecen haber convergido ya que las trazas tienen forma de «ruido». Ahora podemos analizar los resultados.</p>
@@ -708,7 +705,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4991ba28e7ca530e854d943724b774a8ea0632af7ada73d0cc0938ac296df24.png" src="../_images/f4991ba28e7ca530e854d943724b774a8ea0632af7ada73d0cc0938ac296df24.png" />
+<img alt="../_images/51e43feafc51b2af4dc9bd53d71b19b2fa0e3f623c85b4fc836dbf14160ab383.png" src="../_images/51e43feafc51b2af4dc9bd53d71b19b2fa0e3f623c85b4fc836dbf14160ab383.png" />
 </div>
 </div>
 <p>Esto grafica las posteriores, pero en realidad solo nos interesa el grupo de especie.</p>
@@ -723,7 +720,7 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9cc59c3ae685c251b1fb3394ac1841746bb2f8601ed9b4a94291110c0d303166.png" src="../_images/9cc59c3ae685c251b1fb3394ac1841746bb2f8601ed9b4a94291110c0d303166.png" />
+<img alt="../_images/3ae586c43b1ceddc4857a674e30c1c02157dca92dc889b81b3dd923e4e560062.png" src="../_images/3ae586c43b1ceddc4857a674e30c1c02157dca92dc889b81b3dd923e4e560062.png" />
 </div>
 </div>
 <p>Podemos ver que efectivamente no parece haber diferencia, ya que el intervalo de credibilidad cruza el cero. Veamoslo en forma de tabla.</p>
@@ -765,51 +762,51 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
   </thead>
   <tbody>
     <tr>
-      <th>nu</th>
-      <td>29.605</td>
-      <td>14.654</td>
-      <td>8.249</td>
-      <td>56.715</td>
-      <td>0.223</td>
-      <td>0.267</td>
-      <td>4240.0</td>
-      <td>3293.0</td>
+      <th>sigma</th>
+      <td>423.677</td>
+      <td>22.407</td>
+      <td>381.918</td>
+      <td>466.119</td>
+      <td>0.341</td>
+      <td>0.326</td>
+      <td>4342.0</td>
+      <td>2969.0</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>sigma</th>
-      <td>423.602</td>
-      <td>22.335</td>
-      <td>383.396</td>
-      <td>465.932</td>
-      <td>0.322</td>
-      <td>0.317</td>
-      <td>4789.0</td>
-      <td>3160.0</td>
+      <th>nu</th>
+      <td>30.179</td>
+      <td>15.369</td>
+      <td>7.039</td>
+      <td>57.730</td>
+      <td>0.227</td>
+      <td>0.273</td>
+      <td>4302.0</td>
+      <td>2709.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Intercept</th>
-      <td>3694.661</td>
-      <td>36.329</td>
-      <td>3626.397</td>
-      <td>3758.705</td>
-      <td>0.461</td>
-      <td>0.548</td>
-      <td>6205.0</td>
-      <td>3036.0</td>
+      <td>3694.867</td>
+      <td>37.099</td>
+      <td>3624.077</td>
+      <td>3762.506</td>
+      <td>0.494</td>
+      <td>0.575</td>
+      <td>5610.0</td>
+      <td>3009.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>species[Chinstrap]</th>
-      <td>35.513</td>
-      <td>64.209</td>
-      <td>-91.772</td>
-      <td>146.110</td>
-      <td>0.779</td>
-      <td>1.058</td>
-      <td>6788.0</td>
-      <td>2943.0</td>
+      <td>36.213</td>
+      <td>64.414</td>
+      <td>-91.113</td>
+      <td>152.362</td>
+      <td>0.776</td>
+      <td>1.018</td>
+      <td>6893.0</td>
+      <td>3302.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -832,8 +829,8 @@ Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadame
 arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BF10&#39;: np.float64(0.0038184057990220547),
- &#39;BF01&#39;: np.float64(261.8893990408546)}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BF10&#39;: np.float64(0.003911852822721657),
+ &#39;BF01&#39;: np.float64(255.63333931981975)}
 </pre></div>
 </div>
 </div>
@@ -841,7 +838,7 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
 <p>Podemos ver que tenemos evidencia muy fuerte a favor de la hipótesis nula.</p>
 </section>
 <section id="ejercicio">
-<h2><span class="section-number">6.3.3. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4.3. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Ejecuta este método para comparación de medias con tus propios datos.</p></li>
 <li><p>Compara varias cadenas. Ajusta el modelo con diferente número de chains (por ejemplo, 2 o 8) y analiza si afecta el resultado o la convergencia.</p></li>
@@ -886,15 +883,15 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>Pruebas T, parte 1</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Pruebas T, parte 1</p>
       </div>
     </a>
     <a class="right-next"
-       href="../unidad-7/index.html"
+       href="../otras-lecciones/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Unidad 7: Libretas reutilizables</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Otras lecciones</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -914,9 +911,9 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.3.2. Definición del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.3.3. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.4.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.4.2. Definición del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.4.3. Ejercicio</a></li>
 </ul>
   </nav></div>
 

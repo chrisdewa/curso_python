@@ -51,12 +51,10 @@ chapters:
       - file: unidad-5/sobrevida
   - file: unidad-6/index
     sections:
-      - file: unidad-6/actualización-proporcion
+      - file: unidad-6/actualizacion-proporcion
+      - file: unidad-6/actualizacion-media
       - file: unidad-6/pruebas-t
       - file: unidad-6/pruebas-t-2
-  - file: unidad-7/index
-    sections:
-      - glob: unidad-7/*
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
