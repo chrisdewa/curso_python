@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.9. Análisis de sobrevida &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/sobrevida';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="6. Unidad 6: Análisis Bayesianos" href="../unidad-6/index.html" />
+    <link rel="prev" title="5.8. Regresión logística y GLM en statsmodels" href="glm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/sobrevida.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/sobrevida.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/sobrevida.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-5/sobrevida.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de sobrevida</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.9.1. Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.9.1.1. Información sobre el dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.9.2. Exploración Visual de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.9.3. Curvas de sobrevida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.9.4. Log-Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.9.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.9.5.1. Ejemplo global</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.9.6. Ejercicios</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-sobrevida">
+<h1><span class="section-number">5.9. </span>Análisis de sobrevida<a class="headerlink" href="#analisis-de-sobrevida" title="Link to this heading">#</a></h1>
+<p>En esta libreta aprenderás cómo ejecutar los análisis de sobrevida más frecuentemente utilizados.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para esta lección utilizaremos una librería nueva llamada <code class="docutils literal notranslate"><span class="pre">lifelines</span></code>. Puedes instalarla así:</p>
+<p><strong>Con UV</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>lifelines
+</pre></div>
+</div>
+<p><strong>Con PIP</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>lifelines
+</pre></div>
+</div>
+<p><strong>En Colab</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>lifelines
+</pre></div>
+</div>
+</div>
+<p>Para cualquier análisis de sobrevida necesitamos un juego de datos con al menos una columna cuantitativa de <em>Tiempo al Evento</em> y otra columna dicotómica de <em>Evento Observado</em>.</p>
+<section id="librerias-y-datos">
+<h2><span class="section-number">5.9.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lifelines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ll</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifelines.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_waltons</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_waltons</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>T</th>
+      <th>E</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6.0</td>
+      <td>1</td>
+      <td>miR-137</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13.0</td>
+      <td>1</td>
+      <td>miR-137</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.0</td>
+      <td>1</td>
+      <td>miR-137</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13.0</td>
+      <td>1</td>
+      <td>miR-137</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19.0</td>
+      <td>1</td>
+      <td>miR-137</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="informacion-sobre-el-dataset">
+<h3><span class="section-number">5.9.1.1. </span>Información sobre el dataset<a class="headerlink" href="#informacion-sobre-el-dataset" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">load_waltons</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function load_waltons in module lifelines.datasets:
+
+load_waltons(**kwargs)
+    Genotypes and number of days survived in Drosophila. Since we work with flies, we don&#39;t need to worry about left-censoring. We know the birth date of all flies. We do have issues with accidentally killing some or if some escape. These would be right-censored as we do not actually observe their death due to &quot;natural&quot; causes.::
+
+        Size: (163,3)
+        Example:
+             T  E    group
+             6  1  miR-137
+            13  1  miR-137
+            13  1  miR-137
+            13  1  miR-137
+            19  1  miR-137
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exploracion-visual-de-los-datos">
+<h2><span class="section-number">5.9.2. </span>Exploración Visual de los datos<a class="headerlink" href="#exploracion-visual-de-los-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;T&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x20a33122510&gt;
+</pre></div>
+</div>
+<img alt="../_images/0ae9bda15edd40c4fa6cdf83d95424e23c2b334e2285b374ba8533b7d394bc6c.png" src="../_images/0ae9bda15edd40c4fa6cdf83d95424e23c2b334e2285b374ba8533b7d394bc6c.png" />
+</div>
+</div>
+<p>Parece que el grupo miR-137 tuvo una menor sobrevida, lo analizaremos a detalle más adelante.</p>
+<p>Lifelines provee gráficos específicos para la exploración de los análisis de supervivencia dentro de <code class="docutils literal notranslate"><span class="pre">lifelines.plotting</span></code>.
+Utilizaremos primero <code class="docutils literal notranslate"><span class="pre">ll.plotting.plot_lifetimes</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ll</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_lifetimes</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\User\Documents\coding\curso_python\.venv\Lib\site-packages\lifelines\plotting.py:773: UserWarning: For less visual clutter, you may want to subsample to less than 25 individuals.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/d085241631a77fc56a2a6c2f332197732e5b3904c2cbed166472cac9ba81f637.png" src="../_images/d085241631a77fc56a2a6c2f332197732e5b3904c2cbed166472cac9ba81f637.png" />
+</div>
+</div>
+<p>La función arroja una advertencia sobre el número de individuos, pero el gráfico es interpretable. Las líneas rojas son los eventos observados y los azules son los no observados. Veamos una muestra aleatoria de 25 individuos de este datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_lifetimes</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">sample</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/a71781914d8548dddd06775840ecf4200235432d226f5ff07d1e4aec1154f71e.png" src="../_images/a71781914d8548dddd06775840ecf4200235432d226f5ff07d1e4aec1154f71e.png" />
+</div>
+</div>
+<p>Podemos comenzar a analizar la sobrevida utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, para ello, necesitamos convertir los datos a un objeto <code class="docutils literal notranslate"><span class="pre">CensoredData</span></code> donde especificaremos los datos observados y aquellos con algún tipo de censura.</p>
+</section>
+<section id="curvas-de-sobrevida">
+<h2><span class="section-number">5.9.3. </span>Curvas de sobrevida<a class="headerlink" href="#curvas-de-sobrevida" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">CensoredData</span><span class="p">(</span>
+    <span class="n">uncensored</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="c1"># seleccionamos solo a los que observamos E</span>
+    <span class="n">right</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="c1"># quienes desconocemos su desenlace</span>
+<span class="p">)</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">ecdf</span><span class="p">(</span><span class="n">cd</span><span class="p">)</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sobrevida estimada&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tiempo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Función de sobrevida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Función de sobrevida&#39;)
+</pre></div>
+</div>
+<img alt="../_images/b4f5b3104648b4de7d6d23a142a400b2ab8149ee4b8eec3c29db112dce55398c.png" src="../_images/b4f5b3104648b4de7d6d23a142a400b2ab8149ee4b8eec3c29db112dce55398c.png" />
+</div>
+</div>
+<p>Este gráfico es simple y útil pero con limitaciones para análisis más complejos, utilizaremos <code class="docutils literal notranslate"><span class="pre">lifelines.</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primero inicializamos el estimador de Kaplan-Meier.</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sobrevida Waltons&#39;</span><span class="p">)</span>
+<span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">durations</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
+    <span class="n">event_observed</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">km</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">(</span>
+    <span class="n">show_censors</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sobrevida Global&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sobrevida&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">median_survival_time_</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mediana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8840dd4710b1b80bb0418b756dcc27680878990744534ced601676f091e8c1b6.png" src="../_images/8840dd4710b1b80bb0418b756dcc27680878990744534ced601676f091e8c1b6.png" />
+</div>
+</div>
+<p>Podemos obtener información cuantitativa también.</p>
+<p>Ahora separaremos por grupos de forma dinámica, aquí solo hay dos grupos, pero este código funcionaría incluso con más.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+    <span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">group</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cond</span><span class="p">][</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">cond</span><span class="p">][</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">(</span><span class="n">show_censors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mediana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sobrevida&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Tiempo&#39;)
+</pre></div>
+</div>
+<img alt="../_images/8eb1fd086bb59d744c19d9064ef0d5f4865b5f14a80c837ec080b1fd06d6a36d.png" src="../_images/8eb1fd086bb59d744c19d9064ef0d5f4865b5f14a80c837ec080b1fd06d6a36d.png" />
+</div>
+</div>
+<p>Comprobemos la significancia con la prueba de log-rank. Primero revisemos la documentación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ll</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">logrank_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function logrank_test in module lifelines.statistics:
+
+logrank_test(
+    durations_A,
+    durations_B,
+    event_observed_A=None,
+    event_observed_B=None,
+    t_0=-1,
+    weights_A=None,
+    weights_B=None,
+    weightings=None,
+    **kwargs
+) -&gt; lifelines.statistics.StatisticalResult
+    Measures and reports on whether two intensity processes are different. That is, given two
+    event series, determines whether the data generating processes are statistically different.
+    The test-statistic is chi-squared under the null hypothesis. Let :math:`h_i(t)` be the hazard ratio of
+    group :math:`i` at time :math:`t`, then:
+
+    .. math::
+        \begin{align}
+         &amp; H_0: h_1(t) = h_2(t) \\
+         &amp; H_A: h_1(t) = c h_2(t), \;\; c \ne 1
+        \end{align}
+
+    This implicitly uses the log-rank weights.
+
+    Note
+    -----
+    - *lifelines* logrank implementation only handles right-censored data.
+
+    - The logrank test has maximum power when the assumption of proportional hazards is true. As a consequence, if the survival curves cross, the logrank test will give an inaccurate assessment of differences.
+
+    - This implementation is a special case of the function ``multivariate_logrank_test``, which is used internally. See Survival and Event Analysis, page 108.
+
+    - There are only disadvantages to using the log-rank test versus using the Cox regression. See more `here &lt;https://discourse.datamethods.org/t/when-is-log-rank-preferred-over-univariable-cox-regression/2344&gt;`_ for a discussion. To convert to using the Cox regression:
+
+    .. code:: python
+
+        from lifelines import CoxPHFitter
+
+        dfA = pd.DataFrame({&#39;E&#39;: event_observed_A, &#39;T&#39;: durations_A, &#39;groupA&#39;: 1})
+        dfB = pd.DataFrame({&#39;E&#39;: event_observed_B, &#39;T&#39;: durations_B, &#39;groupA&#39;: 0})
+        df = pd.concat([dfA, dfB])
+
+        cph = CoxPHFitter().fit(df, &#39;T&#39;, &#39;E&#39;)
+        cph.print_summary()
+
+
+
+    Parameters
+    ----------
+
+    durations_A: iterable
+        a (n,) list-like of event durations (birth to death,...) for the first population.
+
+    durations_B: iterable
+        a (n,) list-like of event durations (birth to death,...) for the second population.
+
+    event_observed_A: iterable, optional
+        a (n,) list-like of censorship flags, (1 if observed, 0 if not), for the first population.
+        Default assumes all observed.
+
+    event_observed_B: iterable, optional
+        a (n,) list-like of censorship flags, (1 if observed, 0 if not), for the second population.
+        Default assumes all observed.
+
+    weights_A: iterable, optional
+        case weights
+
+    weights_B: iterable, optional
+        case weights
+
+    t_0: float, optional (default=-1)
+        The final time period under observation, and subjects who experience the event after this time are set to be censored.
+        Specify -1 to use all time.
+
+    weightings: str, optional
+        apply a weighted logrank test: options are &quot;wilcoxon&quot; for Wilcoxon (also known as Breslow), &quot;tarone-ware&quot;
+        for Tarone-Ware, &quot;peto&quot; for Peto test and &quot;fleming-harrington&quot; for Fleming-Harrington test.
+        These are useful for testing for early or late differences in the survival curve. For the Fleming-Harrington
+        test, keyword arguments p and q must also be provided with non-negative values.
+
+        Weightings are applied at the ith ordered failure time, :math:`t_{i}`, according to:
+            Wilcoxon: :math:`n_i`
+            Tarone-Ware: :math:`\sqrt{n_i}`
+            Peto: :math:`\bar{S}(t_i)`
+            Fleming-Harrington: :math:`\hat{S}(t_i)^p \times (1 - \hat{S}(t_i))^q`
+
+            where :math:`n_i` is the number at risk just prior to time :math:`t_{i}`, :math:`\bar{S}(t_i)` is
+            Peto-Peto&#39;s modified survival estimate and :math:`\hat{S}(t_i)` is the left-continuous
+            Kaplan-Meier survival estimate at time :math:`t_{i}`.
+
+    Returns
+    -------
+
+    StatisticalResult
+      a StatisticalResult object with properties ``p_value``, ``summary``, ``test_statistic``, ``print_summary``
+
+    Examples
+    --------
+
+    .. code:: python
+
+        T1 = [1, 4, 10, 12, 12, 3, 5.4]
+        E1 = [1, 0, 1,  0,  1,  1, 1]
+
+        T2 = [4, 5, 7, 11, 14, 20, 8, 8]
+        E2 = [1, 1, 1, 1,  1,  1,  1, 1]
+
+        from lifelines.statistics import logrank_test
+        results = logrank_test(T1, T2, event_observed_A=E1, event_observed_B=E2)
+
+        results.print_summary()
+        print(results.p_value)        # 0.7676
+        print(results.test_statistic) # 0.0872
+
+
+    See Also
+    --------
+    multivariate_logrank_test
+    pairwise_logrank_test
+    survival_difference_at_fixed_point_in_time_test
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="log-rank">
+<h2><span class="section-number">5.9.4. </span>Log-Rank<a class="headerlink" href="#log-rank" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;control&#39;</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span>
+<span class="n">mir</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">cond</span><span class="p">]</span> <span class="c1"># operador not</span>
+
+<span class="n">ll</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">logrank_test</span><span class="p">(</span>
+    <span class="n">durations_A</span><span class="o">=</span><span class="n">controls</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
+    <span class="n">durations_B</span><span class="o">=</span><span class="n">mir</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
+    <span class="n">event_observed_A</span><span class="o">=</span><span class="n">controls</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>
+    <span class="n">event_observed_B</span><span class="o">=</span><span class="n">mir</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <tbody>
+    <tr>
+      <th>t_0</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>null_distribution</th>
+      <td>chi squared</td>
+    </tr>
+    <tr>
+      <th>degrees_of_freedom</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>test_name</th>
+      <td>logrank_test</td>
+    </tr>
+  </tbody>
+</table>
+</div><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_statistic</th>
+      <th>p</th>
+      <th>-log2(p)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>122.25</td>
+      <td>&lt;0.005</td>
+      <td>91.99</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="sobrevida-condicional">
+<h2><span class="section-number">5.9.5. </span>Sobrevida condicional<a class="headerlink" href="#sobrevida-condicional" title="Link to this heading">#</a></h2>
+<p>La <strong>sobrevida condicional</strong> responde a preguntas como:</p>
+<blockquote>
+<div><p>“¿Cuál es la probabilidad de que un individuo sobreviva 10 días más, dado que ya ha sobrevivido los primeros 20?”</p>
+</div></blockquote>
+<p>Matemáticamente, se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t \mid t &gt; t_0) = \frac{S(t)}{S(t_0)}
+\]</div>
+<p>donde ( S(t) ) es la función de sobrevida acumulada, y ( t_0 ) es el tiempo a partir del cual se condiciona la probabilidad de seguir sobreviviendo.</p>
+<p>Esto es útil en seguimiento clínico, por ejemplo, para pacientes que ya han superado una etapa crítica y queremos estimar su pronóstico futuro.</p>
+<section id="ejemplo-global">
+<h3><span class="section-number">5.9.5.1. </span>Ejemplo global<a class="headerlink" href="#ejemplo-global" title="Link to this heading">#</a></h3>
+<p>Supongamos que queremos saber cuál es la probabilidad de que un individuo sobreviva al menos 10 días más, <strong>dado que ya ha sobrevivido 15 días</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustamos el modelo Kaplan-Meier</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">()</span>
+<span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">durations</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">event_observed</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+
+<span class="c1"># Obtenemos la sobrevida en t = 15 y t = 25</span>
+<span class="n">S_15</span><span class="p">,</span> <span class="n">S_25</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">survival_function_at_times</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
+
+<span class="c1"># Sobrevida condicional: probabilidad de sobrevivir hasta 25, dado que llegó a 15</span>
+<span class="n">cond_surv</span> <span class="o">=</span> <span class="n">S_25</span> <span class="o">/</span> <span class="n">S_15</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidad de sobrevivir 10 días más (de 15 a 25), dado que llegó a 15: </span><span class="si">{</span><span class="n">cond_surv</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidad de sobrevivir 10 días más (de 15 a 25), dado que llegó a 15: 0.947
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicios">
+<h2><span class="section-number">5.9.6. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Explora las opciones disponibles en <code class="docutils literal notranslate"><span class="pre">lifelines.datasets</span></code> y prueba tus conocimientos con estos datasets.</p></li>
+<li><p>El objeto <code class="docutils literal notranslate"><span class="pre">cd</span></code> de <code class="docutils literal notranslate"><span class="pre">scipy</span></code> ofrece un interfaz sencilla para obtener información de sobrevida. Revisa la documentación para ver qué puede hacer. Te sugiero iniciar por <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ecdf.html">aquí</a> y <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.CensoredData.html#scipy.stats.CensoredData">aquí</a>.</p></li>
+<li><p>Compara la sobrevida condicionada entre los controles y el grupo de estudio.</p></li>
+<li><p>Revisa la documentación de <a class="reference external" href="https://lifelines.readthedocs.io/en/latest/Quickstart.html">lifelines</a> para ver otros ejemplos.</p></li>
+<li><p>Aplica lo aprendido con tus propios datos.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="glm.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">5.8. </span>Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../unidad-6/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Unidad 6: Análisis Bayesianos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">5.9.1. Librerías y datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-dataset">5.9.1.1. Información sobre el dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-visual-de-los-datos">5.9.2. Exploración Visual de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-sobrevida">5.9.3. Curvas de sobrevida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-rank">5.9.4. Log-Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrevida-condicional">5.9.5. Sobrevida condicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-global">5.9.5.1. Ejemplo global</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.9.6. Ejercicios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

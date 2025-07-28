@@ -3,41 +3,60 @@
 
 format: jb-book
 root: intro
-
+options:
+  numbered: true
 chapters:
   - file: unidad-1/index
     sections:
-      - file: unidad-1/tema-1-preparacion
-      - file: unidad-1/tema-2-generalidades/index
+      - file: unidad-1/preparacion
+      - file: unidad-1/generalidades/index
         sections:
-          - file: unidad-1/tema-2-generalidades/2.1-algoritmica
-          - file: unidad-1/tema-2-generalidades/2.2-programacion
-          - file: unidad-1/tema-2-generalidades/2.3-python
-      - file: unidad-1/tema-3-opciones-de-trabajo
-      - file: unidad-1/tema-4-jupyter
-      - file: unidad-1/tema-5-primera-libreta
-      - file: unidad-1/tema-6-conclusion
+          - file: unidad-1/generalidades/algoritmica
+          - file: unidad-1/generalidades/programacion
+          - file: unidad-1/generalidades/python
+      - file: unidad-1/opciones-de-trabajo
+      - file: unidad-1/jupyter
+      - file: unidad-1/primera-libreta
+      - file: unidad-1/conclusion
   - file: unidad-2/index
     sections:
-      - glob: unidad-2/tema*
+      - file: unidad-2/variables
+      - file: unidad-2/tipos-de-datos
+      - file: unidad-2/operaciones-logicas
   - file: unidad-3/index
     sections:
-      - glob: unidad-3/tema*
+      - file: unidad-3/control-de-flujo
+      - file: unidad-3/funciones
+      - file: unidad-3/librerias
+      - file: unidad-3/demo
   - file: unidad-4/index
     sections:
-      - glob: unidad-4/tema*
+      - file: unidad-4/manejo-de-datos-tabulados
+      - file: unidad-4/palmer-penguins
+      - file: unidad-4/descriptivos-basicos
+      - file: unidad-4/visualizaciones
+      - file: unidad-4/inferencia-basica
+      - file: unidad-4/modelado-fundamentos
+      - file: unidad-4/rearreglos-de-datos
   - file: unidad-5/index
     sections:
-      - glob: unidad-5/*
+      - file: unidad-5/rendimiento-diagnostico
+      - file: unidad-5/curvas-roc
+      - file: unidad-5/medidas-de-asociacion
+      - file: unidad-5/tamaños-efecto
+      - file: unidad-5/tamaño-muestral
+      - file: unidad-5/anova
+      - file: unidad-5/modelos-mixtos.ipynb 
+      - file: unidad-5/glm
+      - file: unidad-5/sobrevida
   - file: unidad-6/index
     sections:
-      - glob: unidad-6/tema*
-  - file: unidad-7/index
-    sections:
-      - glob: unidad-7/*
-  - file: Recursos/index
-    sections:
-      - glob: Recursos/*
+      - file: unidad-6/actualizacion-proporcion
+      - file: unidad-6/actualizacion-media
+      - file: unidad-6/pruebas-t
+      - file: unidad-6/pruebas-t-2
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
+  - file: recursos
+  - file: glosario

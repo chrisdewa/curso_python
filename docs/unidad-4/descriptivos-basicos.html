@@ -1,0 +1,1600 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.3. Descriptivos básicos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-4/descriptivos-basicos';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="4.4. Visualizaciones" href="visualizaciones.html" />
+    <link rel="prev" title="4.2. Palmer Penguins" href="palmer-penguins.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Unidad 4: Aspectos básicos del análisis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-4/descriptivos-basicos.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-4/descriptivos-basicos.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-4/descriptivos-basicos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-4/descriptivos-basicos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Descriptivos básicos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-las-librerias">4.3.1. Cargar las librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-los-datos-desde-la-url">4.3.2. Cargar los datos desde la url</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nota">4.3.2.1. Nota</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-descriptivo">4.3.3. Análisis descriptivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-dataset">4.3.3.1. Información del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptivos-categoricos">4.3.3.2. Descriptivos categóricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generales">4.3.3.2.1. Generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cuentas">4.3.3.2.2. Cuentas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">4.3.3.2.3. Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptivos-numericos">4.3.3.3. Descriptivos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.3.3.1. Descriptivos básicos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones-basicas">4.3.3.4. Visualizaciones básicas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones">4.3.3.4.1. Distribuciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">4.3.3.4.1.1. Histogramas</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.3.4.1.1.1. Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad">4.3.3.4.2. Densidad</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-caja-y-brazos">4.3.3.4.3. Boxplot (Caja y brazos)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.3.4.4. Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion">4.3.3.5. Dispersión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-final">4.3.3.6. Ejercicio final</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">4.3.3.7. Práctica personal</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="descriptivos-basicos">
+<h1><span class="section-number">4.3. </span>Descriptivos básicos<a class="headerlink" href="#descriptivos-basicos" title="Link to this heading">#</a></h1>
+<p>En libretas anteriores ya vimos que los <code class="docutils literal notranslate"><span class="pre">datasets</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code> tiene un método llamado <code class="docutils literal notranslate"><span class="pre">describe</span></code> que puede generar algunos estadísticos claves para comenzar a describir los datos, pero hoy iremos más profundo en cómo analizarlos. En esta libreta usaremos una librería nueva <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para comenzar a elaborar gráficos exploratorios.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Aunque utilizamos <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> en esta libreta vamos a dejar que pandas se encargue de los gráficos, en otras lecciones veremos cómo usar matplotlib de forma más directa.</p>
+</div>
+<section id="cargar-las-librerias">
+<h2><span class="section-number">4.3.1. </span>Cargar las librerías<a class="headerlink" href="#cargar-las-librerias" title="Link to this heading">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Recuerda que cada celda que se ejecuta deposita sus valores en la memoria del kernel de python que estamos utilizando.
+Eso quiere decir que podemos importar las librerías en una sola celda para organizar nuestro código.
+Comenzaremos cargando todo lo necesario desde el principio.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>En python las importaciones pueden ser procesos tardados, como lo verás en esta libreta, pero python importa librerías una sola vez. Esto quiere decir, que si tienes dos importaciones de lo mismo, python no volverá a importar la librería.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># aquí python importa la libería</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># aquí python prácticamente se salta la línea</span>
+</pre></div>
+</div>
+</div>
+<p>Ejecuta la siguiente celda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nota que a todas les cambiamos el nombre</span>
+<span class="c1"># esto es estándar en el análisis de datos</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Importaciones listas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importaciones listas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cargar-los-datos-desde-la-url">
+<h2><span class="section-number">4.3.2. </span>Cargar los datos desde la url<a class="headerlink" href="#cargar-los-datos-desde-la-url" title="Link to this heading">#</a></h2>
+<p>Esto es igual que en la libreta previa, pero si hiciste el ejercicio final, intenta cambiar el código para importar la librería desde el archivo <code class="docutils literal notranslate"><span class="pre">csv</span></code>.</p>
+<section id="nota">
+<h3><span class="section-number">4.3.2.1. </span>Nota<a class="headerlink" href="#nota" title="Link to this heading">#</a></h3>
+<p>Si tienes el archivo <code class="docutils literal notranslate"><span class="pre">csv</span></code> puedes cargarlo así.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;Documentos/cursos/pingüinos.csv&#39;</span> <span class="c1"># ejemplo</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/raphaelvallat/pingouin/refs/heads/main/src/pingouin/datasets/penguins.csv&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># solo las primeras 5 filas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>18.3</td>
+      <td>174.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.7</td>
+      <td>18.7</td>
+      <td>180.0</td>
+      <td>3600.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.9</td>
+      <td>19.2</td>
+      <td>189.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>18.1</td>
+      <td>185.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.8</td>
+      <td>17.2</td>
+      <td>180.0</td>
+      <td>3800.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="analisis-descriptivo">
+<h2><span class="section-number">4.3.3. </span>Análisis descriptivo<a class="headerlink" href="#analisis-descriptivo" title="Link to this heading">#</a></h2>
+<p>Como debiste revisar en la libreta previa el dataset contiene tres especies diferentes de pingüinos, <strong>Adelie</strong>, <strong>Chinstrap</strong> y <strong>Gentoo</strong>; y contiene algunos datos de ellos, de qué isla provienen, las dimenciones de sus picos, aletas y su peso corporal, así como su sexo. Comenzaremos analizando los datos categóricos.</p>
+<section id="informacion-del-dataset">
+<h3><span class="section-number">4.3.3.1. </span>Información del dataset<a class="headerlink" href="#informacion-del-dataset" title="Link to this heading">#</a></h3>
+<p>Comencemos analizando el dataset como un todo, qué columnas tiene, cuántas filas, datos faltantes, etcétera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 344 entries, 0 to 343
+Data columns (total 7 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   species            344 non-null    object 
+ 1   island             344 non-null    object 
+ 2   bill_length_mm     342 non-null    float64
+ 3   bill_depth_mm      342 non-null    float64
+ 4   flipper_length_mm  342 non-null    float64
+ 5   body_mass_g        342 non-null    float64
+ 6   sex                333 non-null    object 
+dtypes: float64(4), object(3)
+memory usage: 18.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver que tenemos siete columnas, tres variables categóricas y cuatro numéricas <code class="docutils literal notranslate"><span class="pre">float</span></code>. Además, podemos ver que tenemos información de 344 pingüinos, pero no tenemos todos los datos de cada uno, solo la columna de especie e isla están completas y en la columna de sexo nos faltan 11 datos.</p>
+</section>
+<section id="descriptivos-categoricos">
+<h3><span class="section-number">4.3.3.2. </span>Descriptivos categóricos<a class="headerlink" href="#descriptivos-categoricos" title="Link to this heading">#</a></h3>
+<section id="generales">
+<h4><span class="section-number">4.3.3.2.1. </span>Generales<a class="headerlink" href="#generales" title="Link to this heading">#</a></h4>
+<p>Iniciemos utilizando el método <code class="docutils literal notranslate"><span class="pre">describe</span></code> con las variables categóricas, en el output the <code class="docutils literal notranslate"><span class="pre">info</span></code> aparecen como «object».</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>344</td>
+      <td>344</td>
+      <td>333</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>152</td>
+      <td>168</td>
+      <td>168</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>De aquí podemos ver que en especie, tenemos las tres ya comentadas y que la más frecuente aparentemente es la <strong>Adelie</strong>, la mayoría de los pingüinos provienen de la isla <strong>Biscoe</strong> y hay en total tres islas, solo tenemos dos categorías en la variable <code class="docutils literal notranslate"><span class="pre">sex</span></code> y la más frecuente es «male».</p>
+</section>
+<section id="cuentas">
+<h4><span class="section-number">4.3.3.2.2. </span>Cuentas<a class="headerlink" href="#cuentas" title="Link to this heading">#</a></h4>
+<p>Esta información es útil pero es limitada, nos gustaría poder ver, de cada variable, su cuenta de valores y su porcentaje relativo, como es habitual.
+Comencemos por obtener la cuenta de cada variable, eso lo hacemos con el método <code class="docutils literal notranslate"><span class="pre">value_counts</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iniciaremos por &quot;especie&quot;</span>
+<span class="n">especie</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">especie</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species
+Adelie       152
+Gentoo       124
+Chinstrap     68
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para «especie» tenemos entonces los 152 Adelie que ya <code class="docutils literal notranslate"><span class="pre">describe</span></code> nos había dato, pero ahora podemos ver la cuenta de las otras dos especies, parece que la más rara en este dataset es Chinstrap.</p>
+<p>Este código está bien, epero habría que analizar las otras dos categóricas y eso multiplicaría nuestro código, así que podemos utilizar eficientemente un simple loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;island&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">]:</span> <span class="c1"># hacemos un loop para ahorrar código</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species
+Adelie       152
+Gentoo       124
+Chinstrap     68
+Name: count, dtype: int64
+island
+Biscoe       168
+Dream        124
+Torgersen     52
+Name: count, dtype: int64
+sex
+male      168
+female    165
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puedes ver en dos líneas de código obtuvimos los datos que nos interesaban.
+Ahora, veamos cómo podemos calcular las frecuencias relativas.
+La fórmula es muy básica</p>
+<p><span class="math notranslate nohighlight">\(\text{frecuencia relativa} = \frac{n_{cat}}{n_{total}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cuenta</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1"># obtenemos la cuenta</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">cuenta</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># suma todos los valores</span>
+<span class="n">relativos</span> <span class="o">=</span> <span class="n">cuenta</span> <span class="o">/</span> <span class="n">total</span> <span class="c1"># dividie cada cuenta entre el total</span>
+<span class="n">porcentaje</span> <span class="o">=</span> <span class="n">relativos</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># si lo queremos como porcentaje</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span> <span class="c1"># utilizamos un dataframe para que mejore el formato del output.</span>
+    <span class="s1">&#39;cuenta&#39;</span><span class="p">:</span> <span class="n">cuenta</span><span class="p">,</span>
+    <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="n">relativos</span><span class="p">,</span>
+    <span class="s1">&#39;%&#39;</span><span class="p">:</span> <span class="n">porcentaje</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cuenta</th>
+      <th>p</th>
+      <th>%</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>152</td>
+      <td>0.441860</td>
+      <td>44.186047</td>
+    </tr>
+    <tr>
+      <th>Gentoo</th>
+      <td>124</td>
+      <td>0.360465</td>
+      <td>36.046512</td>
+    </tr>
+    <tr>
+      <th>Chinstrap</th>
+      <td>68</td>
+      <td>0.197674</td>
+      <td>19.767442</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>observa lo fácil que podemos hacer todos los cálculos. Es como una calculadora.</p>
+</section>
+<section id="ejercicio">
+<h4><span class="section-number">4.3.3.2.3. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h4>
+<p>Calcula ahora tú las frecuencias relativas de las otras dos variables categóricas <code class="docutils literal notranslate"><span class="pre">island</span></code> y <code class="docutils literal notranslate"><span class="pre">sex</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;tu código aquí&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;tu código aquí&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="descriptivos-numericos">
+<h3><span class="section-number">4.3.3.3. </span>Descriptivos numéricos<a class="headerlink" href="#descriptivos-numericos" title="Link to this heading">#</a></h3>
+<p>Veamos ahora cómo describir nuestros datos numéricos.
+Iniciemos como en la libreta previa con <code class="docutils literal notranslate"><span class="pre">describe</span></code>.</p>
+<section id="id1">
+<h4><span class="section-number">4.3.3.3.1. </span>Descriptivos básicos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># por default solo muestra las numéricas</span>
+              <span class="c1"># no es necesario especificarlo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>342.000000</td>
+      <td>342.000000</td>
+      <td>342.000000</td>
+      <td>342.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>43.921930</td>
+      <td>17.151170</td>
+      <td>200.915205</td>
+      <td>4201.754386</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.459584</td>
+      <td>1.974793</td>
+      <td>14.061714</td>
+      <td>801.954536</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>32.100000</td>
+      <td>13.100000</td>
+      <td>172.000000</td>
+      <td>2700.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.225000</td>
+      <td>15.600000</td>
+      <td>190.000000</td>
+      <td>3550.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>44.450000</td>
+      <td>17.300000</td>
+      <td>197.000000</td>
+      <td>4050.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>48.500000</td>
+      <td>18.700000</td>
+      <td>213.000000</td>
+      <td>4750.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>59.600000</td>
+      <td>21.500000</td>
+      <td>231.000000</td>
+      <td>6300.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>La tabla está bien, pero seguro te parece raro el formato, generalmente estos gráficos se muestran al revés, con las varialbes en las filas y los descriptivos en las columnas.
+«Voltear la tabla» en python, es tribial. El término técnico es <code class="docutils literal notranslate"><span class="pre">Trasponer</span></code> y se logra de la siguiente manera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span> <span class="c1"># solo usamos el atributo T.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>bill_length_mm</th>
+      <td>342.0</td>
+      <td>43.921930</td>
+      <td>5.459584</td>
+      <td>32.1</td>
+      <td>39.225</td>
+      <td>44.45</td>
+      <td>48.5</td>
+      <td>59.6</td>
+    </tr>
+    <tr>
+      <th>bill_depth_mm</th>
+      <td>342.0</td>
+      <td>17.151170</td>
+      <td>1.974793</td>
+      <td>13.1</td>
+      <td>15.600</td>
+      <td>17.30</td>
+      <td>18.7</td>
+      <td>21.5</td>
+    </tr>
+    <tr>
+      <th>flipper_length_mm</th>
+      <td>342.0</td>
+      <td>200.915205</td>
+      <td>14.061714</td>
+      <td>172.0</td>
+      <td>190.000</td>
+      <td>197.00</td>
+      <td>213.0</td>
+      <td>231.0</td>
+    </tr>
+    <tr>
+      <th>body_mass_g</th>
+      <td>342.0</td>
+      <td>4201.754386</td>
+      <td>801.954536</td>
+      <td>2700.0</td>
+      <td>3550.000</td>
+      <td>4050.00</td>
+      <td>4750.0</td>
+      <td>6300.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>También puede ser que sean demasiados decimales y eso dificulte la lectura, nuevamente arreglarlo es tribial, redondearemos a 2 decimales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>bill_length_mm</th>
+      <td>342.0</td>
+      <td>43.92</td>
+      <td>5.46</td>
+      <td>32.1</td>
+      <td>39.22</td>
+      <td>44.45</td>
+      <td>48.5</td>
+      <td>59.6</td>
+    </tr>
+    <tr>
+      <th>bill_depth_mm</th>
+      <td>342.0</td>
+      <td>17.15</td>
+      <td>1.97</td>
+      <td>13.1</td>
+      <td>15.60</td>
+      <td>17.30</td>
+      <td>18.7</td>
+      <td>21.5</td>
+    </tr>
+    <tr>
+      <th>flipper_length_mm</th>
+      <td>342.0</td>
+      <td>200.92</td>
+      <td>14.06</td>
+      <td>172.0</td>
+      <td>190.00</td>
+      <td>197.00</td>
+      <td>213.0</td>
+      <td>231.0</td>
+    </tr>
+    <tr>
+      <th>body_mass_g</th>
+      <td>342.0</td>
+      <td>4201.75</td>
+      <td>801.95</td>
+      <td>2700.0</td>
+      <td>3550.00</td>
+      <td>4050.00</td>
+      <td>4750.0</td>
+      <td>6300.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Otro de los principales descriptivos en variables numéricas son las correlaciones.
+En pandas es igualmente tribial generar una matriz de correlación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">df</span>
+    <span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="c1"># excluimos a las variables categóricas</span>
+    <span class="o">.</span><span class="n">corr</span><span class="p">()</span> <span class="c1"># corremos la matriz de correlación</span>
+            <span class="c1"># por default utilizará pearson</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>bill_length_mm</th>
+      <td>1.000000</td>
+      <td>-0.235053</td>
+      <td>0.656181</td>
+      <td>0.595110</td>
+    </tr>
+    <tr>
+      <th>bill_depth_mm</th>
+      <td>-0.235053</td>
+      <td>1.000000</td>
+      <td>-0.583851</td>
+      <td>-0.471916</td>
+    </tr>
+    <tr>
+      <th>flipper_length_mm</th>
+      <td>0.656181</td>
+      <td>-0.583851</td>
+      <td>1.000000</td>
+      <td>0.871202</td>
+    </tr>
+    <tr>
+      <th>body_mass_g</th>
+      <td>0.595110</td>
+      <td>-0.471916</td>
+      <td>0.871202</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">T</span></code> está disponible en cualquier arreglo de datos, no solo en los descriptivos.
+Lo mismo para el método <code class="docutils literal notranslate"><span class="pre">round</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="visualizaciones-basicas">
+<h3><span class="section-number">4.3.3.4. </span>Visualizaciones básicas<a class="headerlink" href="#visualizaciones-basicas" title="Link to this heading">#</a></h3>
+<p>Para continuar nuestro análisis descriptivo básico, utilizaremos algunos gráficos comunes.
+Para comenzar a visualizar nuestros datos utilizaremos <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Por favor tomate un momento para revisar la <a class="reference external" href="https://matplotlib.org/stable/index.html">documentación</a> de matplotlib.
+También revisa los <a class="reference internal" href="../recursos.html#acordeones-target"><span class="std std-ref">acordeones</span></a>.</p>
+</div>
+<section id="distribuciones">
+<h4><span class="section-number">4.3.3.4.1. </span>Distribuciones<a class="headerlink" href="#distribuciones" title="Link to this heading">#</a></h4>
+<section id="histogramas">
+<h5><span class="section-number">4.3.3.4.1.1. </span>Histogramas<a class="headerlink" href="#histogramas" title="Link to this heading">#</a></h5>
+<p>Los histogramas nos dan información de la frecuencia de cada valor posible de nuestras variables numéricas.
+Exploremos el comportamiento del peso.
+Es posible generar un histograma directamente de la columna de peso con <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y el método <code class="docutils literal notranslate"><span class="pre">hist</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/f1355e9eaee3161c5cd91ba67667445e9f62bee823487f9de4a3a0c63ce3c67b.png" src="../_images/f1355e9eaee3161c5cd91ba67667445e9f62bee823487f9de4a3a0c63ce3c67b.png" />
+</div>
+</div>
+<p>Si solo lo dejamos así, es poco informativo. En un momento veremos cómo darle más estilo a la imagen, pero antes, es importante resaltar algo notable que está sucediendo.
+No es <code class="docutils literal notranslate"><span class="pre">pandas</span></code> quien acaba de hacer el histograma, en realidad fue <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Sí, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> es la base de muchas librerías que ayudan con la visualización de los datos, incluyendo <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
+Eso quiere decir que podemos utilizar <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para interactuar más con la imagen, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de peso&#39;</span><span class="p">)</span> <span class="c1"># para el título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peso en gramos&#39;</span><span class="p">)</span>    <span class="c1"># rótulo X</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>        <span class="c1"># rótulo Y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                      <span class="c1"># para el formato de salida de la imagen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2d4ff74a6709f9bcc393626c3cf2e78438169f4c70f308d9751ce4f5e6bdcc34.png" src="../_images/2d4ff74a6709f9bcc393626c3cf2e78438169f4c70f308d9751ce4f5e6bdcc34.png" />
+</div>
+</div>
+<section id="id2">
+<h6><span class="section-number">4.3.3.4.1.1.1. </span>Ejercicio<a class="headerlink" href="#id2" title="Link to this heading">#</a></h6>
+<ol class="arabic simple">
+<li><p>Revisa la <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.plot.hist.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">pd.Series.hist</span></code>.</p></li>
+<li><p>Utiliza la documentación y los ejemplos para generar nuevas versiones del histograma.</p></li>
+<li><p>Revisa también <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.hist</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejemplo de lo que se puede hacer si utilizamos hist desde el dataframe en lugar de la serie.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span> <span class="c1"># dato que va al histograma</span>
+    <span class="n">by</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>  <span class="c1"># cómo separar los datos</span>
+    <span class="n">xrot</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1ea41526da31d95100666307da923e915102254b1f91a139c567c6a280884bfb.png" src="../_images/1ea41526da31d95100666307da923e915102254b1f91a139c567c6a280884bfb.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="densidad">
+<h4><span class="section-number">4.3.3.4.2. </span>Densidad<a class="headerlink" href="#densidad" title="Link to this heading">#</a></h4>
+<p>Los gráficos de densidad son también muy útiles y frecuentemente utilizados para analizar la distribución de los datos.
+El método estándar para analizar la densidad de datos empíricos es con el estimado del kernel, en inglés <code class="docutils literal notranslate"><span class="pre">kde</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Densidad de peso&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peso en gramos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/752f2730d1e59660fa2a508e7fe94bafc182d9442a439fa0d8d771a69e91ac25.png" src="../_images/752f2730d1e59660fa2a508e7fe94bafc182d9442a439fa0d8d771a69e91ac25.png" />
+</div>
+</div>
+</section>
+<section id="boxplot-caja-y-brazos">
+<h4><span class="section-number">4.3.3.4.3. </span>Boxplot (Caja y brazos)<a class="headerlink" href="#boxplot-caja-y-brazos" title="Link to this heading">#</a></h4>
+<p>Estos gráficos también son uno de los principales estándares para visualizar la distribución de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b8bd743a9e9b7af9733258ac4f25a5aa02c5a5ed16fa776cf7259fdcf30bad2e.png" src="../_images/b8bd743a9e9b7af9733258ac4f25a5aa02c5a5ed16fa776cf7259fdcf30bad2e.png" />
+</div>
+</div>
+</section>
+<section id="id3">
+<h4><span class="section-number">4.3.3.4.4. </span>Ejercicio<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Utiliza los tres tipos de gráficos que hemos analizado hasta ahora para analizar el resto de las variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;tu código aquí&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;tu código aquí&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dispersion">
+<h3><span class="section-number">4.3.3.5. </span>Dispersión<a class="headerlink" href="#dispersion" title="Link to this heading">#</a></h3>
+<p>Otro de los principales gráficos en el análisis de datos es el de dispersión, que muestra la relación entre dos principales variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dispersión entre el largo y el ancho del pico&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ab19206dcd11d8e8ee6c429c8f62c482da8e501e16bc559ff2ddab9f0c857364.png" src="../_images/ab19206dcd11d8e8ee6c429c8f62c482da8e501e16bc559ff2ddab9f0c857364.png" />
+</div>
+</div>
+<p>Si observas con atención, existen tres diferentes clusters o «conglomerados» podemos ver qué pasa si asignamos colore por especie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Adelie&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Chinstrap&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dispersión entre el largo y el ancho del pico por especie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f8f9eca8b981a4d3312044a865623b893f441074ffd0e828088891af964ce7d3.png" src="../_images/f8f9eca8b981a4d3312044a865623b893f441074ffd0e828088891af964ce7d3.png" />
+</div>
+</div>
+<p>Los colores muestran que hay diferencias por especies, pero en el gráfico no tenemos claro qué especie es qué color, podemos agregarlo pero veremos luego cómo hacerlo.</p>
+</section>
+<section id="ejercicio-final">
+<h3><span class="section-number">4.3.3.6. </span>Ejercicio final<a class="headerlink" href="#ejercicio-final" title="Link to this heading">#</a></h3>
+<p>Utiliza lo aprendido y termina de analizar los datos y las diferentes asociaciones que creas que existan.</p>
+</section>
+<section id="practica-personal">
+<h3><span class="section-number">4.3.3.7. </span>Práctica personal<a class="headerlink" href="#practica-personal" title="Link to this heading">#</a></h3>
+<p>Abre otro dataset que conozcas y aplica lo que practicamos.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="palmer-penguins.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>Palmer Penguins</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="visualizaciones.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Visualizaciones</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-las-librerias">4.3.1. Cargar las librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-los-datos-desde-la-url">4.3.2. Cargar los datos desde la url</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nota">4.3.2.1. Nota</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-descriptivo">4.3.3. Análisis descriptivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-dataset">4.3.3.1. Información del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptivos-categoricos">4.3.3.2. Descriptivos categóricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generales">4.3.3.2.1. Generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cuentas">4.3.3.2.2. Cuentas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">4.3.3.2.3. Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptivos-numericos">4.3.3.3. Descriptivos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.3.3.1. Descriptivos básicos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones-basicas">4.3.3.4. Visualizaciones básicas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones">4.3.3.4.1. Distribuciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">4.3.3.4.1.1. Histogramas</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.3.4.1.1.1. Ejercicio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad">4.3.3.4.2. Densidad</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-caja-y-brazos">4.3.3.4.3. Boxplot (Caja y brazos)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.3.4.4. Ejercicio</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion">4.3.3.5. Dispersión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-final">4.3.3.6. Ejercicio final</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-personal">4.3.3.7. Práctica personal</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

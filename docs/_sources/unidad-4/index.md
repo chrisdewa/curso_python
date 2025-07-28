@@ -5,7 +5,6 @@ En esta unidad aprenderás cómo realizar análisis exploratorios en `python`.
 Aprenderás cómo importar datos desde excel y otras fuentes, cómo calcular descriptivos y cómo realizar gráficos para analizarlos.
 
 (unidad4-preparacion-target)=
-## Preparación
 
 :::{important}
 Es necesario prepar nuestro entorno de trabajo para ejecutar las libretas de la unidad.

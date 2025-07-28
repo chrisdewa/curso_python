@@ -1,0 +1,1156 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.4. Tamaños del efecto &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-5/tamaños-efecto';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5.5. Tamaños de muestra" href="tama%C3%B1o-muestral.html" />
+    <link rel="prev" title="5.3. Medidas de asociación y correlación" href="medidas-de-asociacion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sobrevida.html">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-5/tamaños-efecto.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-5/tamaños-efecto.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-5/tamaños-efecto.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-5/tamaños-efecto.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tamaños del efecto</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.4.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">5.4.2. Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-los-datos">5.4.3. Visualización de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencia-de-grupos">5.4.4. Diferencia de grupos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-de-cohen">5.4.5. d de Cohen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-de-hedges">5.4.6. g de Hedges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-ajustada-correccion-aproximada">5.4.6.1. Versión ajustada (corrección aproximada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-exacta-correccion-con-funcion-gamma">5.4.6.2. Versión exacta (corrección con función Gamma)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-de-rosenthal">5.4.7. r de Rosenthal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion-rango-biserial">5.4.8. Correlación Rango-Biserial.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adecuacion-del-codigo-para-datos-reportados">5.4.9. Adecuación del código para datos reportados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.4.10. Ejercicios</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tamanos-del-efecto">
+<h1><span class="section-number">5.4. </span>Tamaños del efecto<a class="headerlink" href="#tamanos-del-efecto" title="Link to this heading">#</a></h1>
+<p>En esta libreta aprenderás cómo calcular algunos de los tamaños del efecto más utilizados, la d de Cohen, la g de Hedge, la r de Rosenthal y la correlación rango-biserial.</p>
+<section id="librerias">
+<h2><span class="section-number">5.4.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># para semilla aleatoria</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">expit</span><span class="p">,</span> <span class="n">gamma</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># establece la semilla que quieras</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Librerías importadas y semilla establecida&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas y semilla establecida
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datos">
+<h2><span class="section-number">5.4.2. </span>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<p>Para esta libreta utilizaremos datos simulados con una variable dicotómica de agrupación y una variable cuantitativa
+La variable X será normal con media de 100 y desviación estándar de 15, emulando la distribución del cociente de desarrollo.
+Y la variable dicotómica será simulada con base en la función expit (logit inversa) <code class="docutils literal notranslate"><span class="pre">grupo</span> <span class="pre">~</span> <span class="pre">X</span> <span class="pre">+</span> <span class="pre">error</span></code>.</p>
+<p>El dataset simula una cohorte infantil con medición del cociente de desarrollo. El supuesto de la simulación es que el grupo de intervención tendrá un cociente de desarrollo mayor que el grupo control.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span> <span class="o">+</span> <span class="n">X</span> <span class="o">+</span> <span class="n">err</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">grupo</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Grupo&#39;</span><span class="p">:</span> <span class="n">grupo</span><span class="p">,</span>
+    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">X</span> 
+<span class="p">})</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Grupo</th>
+      <th>X</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>96</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="visualizacion-de-los-datos">
+<h2><span class="section-number">5.4.3. </span>Visualización de los datos<a class="headerlink" href="#visualizacion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Visualicemos nuestros datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Grupo&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x266113b6660&gt;
+</pre></div>
+</div>
+<img alt="../_images/e744cacec68b1c0929bbd3ab9d27e0145d287fd60e87ede19e663853a9502713.png" src="../_images/e744cacec68b1c0929bbd3ab9d27e0145d287fd60e87ede19e663853a9502713.png" />
+</div>
+</div>
+</section>
+<section id="diferencia-de-grupos">
+<h2><span class="section-number">5.4.4. </span>Diferencia de grupos<a class="headerlink" href="#diferencia-de-grupos" title="Link to this heading">#</a></h2>
+<p>Podemos ver que hay una diferencia a favor del grupo de estudio, ahora veamos si la diferencia es estadísticamente significativa, como el objetivo de la libreta es el tamaño del efecto, utilizaremos tanto la prueba T para grupos independientes como la prueba U de mann whitney y guardaremos los resultados.</p>
+<p>Para mayor facilidad, separemos la puntuación de desarrollo para cada grupo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">control</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Grupo&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+<span class="n">intervencion</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Grupo&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+
+<span class="n">res_t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">intervencion</span><span class="p">)</span>
+<span class="n">res_u</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">intervencion</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Resutado prueba T: p=</span><span class="si">{</span><span class="n">res_t</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Resutado prueba U de Mann-Whitney: p=</span><span class="si">{</span><span class="n">res_u</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resutado prueba T: p=0.000
+Resutado prueba U de Mann-Whitney: p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con esto podemos ver que efectivamente la diferencia es estadísticamente significativa. Esto no debe sorprendernos puesto que así diseñamos el dataset, pero puedes modificar el código de la simulación para ver qué otros resultados podríamos tener.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Puedes modificar la desviación estándar del error para disminuir la diferencia entre los sujetos en la variable X, ya que disminuimos el poder explicativo de la variable. O puedes utilizar un valor multiplicativo (coeficiente) menor a 1 en la ecuación.</p>
+</div>
+</section>
+<section id="d-de-cohen">
+<h2><span class="section-number">5.4.5. </span>d de Cohen<a class="headerlink" href="#d-de-cohen" title="Link to this heading">#</a></h2>
+<p>La d de Cohen se calcula, para muestras independientes como:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{pooled} = \sqrt{
+    \frac{(n_1-1)*\sigma_1^2 + (n_2-1)*\sigma_2^2}{(n_1 + n_2 - 2)}
+}
+\]</div>
+<div class="math notranslate nohighlight">
+\[d = \frac{\bar{x}_1 - \bar{x}_2}{\sigma_{pooled}}\]</div>
+<p>Codifiquémoslo en una función que tome los datos de las dos variables. Aunque, no tengamos los valores de sigma, por lo que utilizaremos los estimadores de la muestra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pooled_s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">var1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># n-1</span>
+    <span class="n">var2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># n-1</span>
+
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">((</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">var1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">var2</span><span class="p">)</span> 
+        <span class="o">/</span>
+        <span class="p">(</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">d_cohen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño del efecto d de Cohen para dos muestras independientes.</span>
+
+<span class="sd">    El d de Cohen es una medida estandarizada de la diferencia entre dos medias,</span>
+<span class="sd">    calculada como la diferencia de medias dividida entre la desviación estándar</span>
+<span class="sd">    combinada (pooled). Asume que ambas muestras son independientes, provienen de</span>
+<span class="sd">    poblaciones aproximadamente normales y con varianzas similares.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : array-like</span>
+<span class="sd">        Primera muestra de observaciones.</span>
+<span class="sd">    b : array-like</span>
+<span class="sd">        Segunda muestra de observaciones.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Tamaño del efecto d de Cohen. Valores positivos indican que la media de `a`</span>
+<span class="sd">        es mayor que la media de `b`.</span>
+
+<span class="sd">    Notas</span>
+<span class="sd">    -----</span>
+<span class="sd">    La desviación estándar combinada se calcula utilizando la corrección de Bessel</span>
+<span class="sd">    (grados de libertad = 1) para obtener una estimación insesgada de la desviación</span>
+<span class="sd">    estándar poblacional.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">pooled_s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="n">sp</span>
+
+    <span class="k">return</span> <span class="n">d</span>
+
+
+<span class="n">d_cohen</span><span class="p">(</span><span class="n">intervencion</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.4298288189098987)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver un tamaño del efecto muy significativo, esperado por los datos generados, positivo, es decir a favor del grupo de intervención.</p>
+</section>
+<section id="g-de-hedges">
+<h2><span class="section-number">5.4.6. </span>g de Hedges<a class="headerlink" href="#g-de-hedges" title="Link to this heading">#</a></h2>
+<p>El estadístico <em>g</em> de Hedges es una versión corregida del tamaño del efecto <em>d</em> de Cohen. Esta corrección compensa el sesgo que ocurre en muestras pequeñas cuando se utiliza el estimador de la desviación estándar muestral en lugar del parámetro poblacional <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<p>Existen dos formas comunes de calcular esta corrección:</p>
+<section id="version-ajustada-correccion-aproximada">
+<h3><span class="section-number">5.4.6.1. </span>Versión ajustada (corrección aproximada)<a class="headerlink" href="#version-ajustada-correccion-aproximada" title="Link to this heading">#</a></h3>
+<p>Se calcula como <span class="math notranslate nohighlight">\(g = d \cdot J\)</span>, donde:</p>
+<div class="math notranslate nohighlight">
+\[
+J = 1 - \frac{3}{4(n_1 + n_2) - 9}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d = \frac{\bar{X}_1 - \bar{X}_2}{s_p}
+\]</div>
+<p>Esta corrección es una aproximación que funciona bien en la mayoría de los casos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g_hedge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño del efecto g de Hedges con corrección aproximada por sesgo.</span>
+
+<span class="sd">    Esta versión utiliza un factor de corrección J que ajusta el valor de d de Cohen</span>
+<span class="sd">    para muestras pequeñas, basándose en una fórmula empírica.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : array-like</span>
+<span class="sd">        Muestra del grupo 1.</span>
+<span class="sd">    b : array-like</span>
+<span class="sd">        Muestra del grupo 2.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Tamaño del efecto g de Hedges corregido.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">media1</span><span class="p">,</span> <span class="n">media2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">pooled_s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span>
+
+    <span class="n">g</span> <span class="o">=</span> <span class="p">((</span><span class="n">media1</span> <span class="o">-</span> <span class="n">media2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">g_hedge</span><span class="p">(</span><span class="n">intervencion</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.411185631041025)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="version-exacta-correccion-con-funcion-gamma">
+<h3><span class="section-number">5.4.6.2. </span>Versión exacta (corrección con función Gamma)<a class="headerlink" href="#version-exacta-correccion-con-funcion-gamma" title="Link to this heading">#</a></h3>
+<p>Una forma más precisa de estimar el factor de corrección usa la función Gamma:</p>
+<div class="math notranslate nohighlight">
+\[
+J = \frac{\Gamma\left(\frac{df}{2}\right)}{\sqrt{\frac{df}{2}} \cdot \Gamma\left(\frac{df - 1}{2}\right)}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\( df = n_1 + n_2 - 2\)</span> son los grados de libertad.</p>
+<p>Esta versión es especialmente útil para muestras pequeñas, ya que reduce el sesgo de estimación con mayor precisión.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g_hedge_exacta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el tamaño del efecto g de Hedges con corrección exacta por sesgo</span>
+<span class="sd">    utilizando la función Gamma.</span>
+
+<span class="sd">    Esta versión proporciona una estimación más precisa del factor de corrección J,</span>
+<span class="sd">    especialmente útil en muestras pequeñas.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : array-like</span>
+<span class="sd">        Muestra del grupo 1.</span>
+<span class="sd">    b : array-like</span>
+<span class="sd">        Muestra del grupo 2.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Tamaño del efecto g de Hedges corregido (versión exacta).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">media1</span><span class="p">,</span> <span class="n">media2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">pooled_s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>
+
+    <span class="n">j</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">((</span><span class="n">df</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">g</span> <span class="o">=</span> <span class="p">((</span><span class="n">media1</span> <span class="o">-</span> <span class="n">media2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">g_hedge_exacta</span><span class="p">(</span><span class="n">intervencion</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.411177665313029)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="r-de-rosenthal">
+<h2><span class="section-number">5.4.7. </span>r de Rosenthal<a class="headerlink" href="#r-de-rosenthal" title="Link to this heading">#</a></h2>
+<p>El coeficiente <span class="math notranslate nohighlight">\(r\)</span> de Rosenthal, también llamado <em>efecto tamaño r</em>, se calcula a partir de una estadística z como:</p>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{z}{\sqrt{N}}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(z\)</span> es el estadístico estándar (por ejemplo, de Mann–Whitney) y <span class="math notranslate nohighlight">\(N\)</span> el tamaño total de la muestra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mann_whitney_z</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">U</span> <span class="o">-</span> <span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="o">*</span><span class="p">(</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+
+<span class="c1"># Aproximación z bajo normalidad (para muestras grandes)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">r_rosenthal</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el coeficiente r de Rosenthal como medida de tamaño del efecto</span>
+<span class="sd">    a partir de una estadística z y el tamaño muestral total.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : float</span>
+<span class="sd">        Estadístico z de la prueba (e.g., de Mann–Whitney o Wilcoxon).</span>
+<span class="sd">    N : int</span>
+<span class="sd">        Tamaño total de la muestra (e.g., n1 + n2).</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Coeficiente r de Rosenthal, análogo a una correlación de Pearson.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">z</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+
+<span class="n">res_u</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">intervencion</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">res_u</span><span class="o">.</span><span class="n">statistic</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervencion</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">mann_whitney_z</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">r_rosenthal</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MWU: pvalue=</span><span class="si">{</span><span class="n">res_u</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, r=</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MWU: pvalue=0.000, r=-0.836
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un valor negativo de <span class="math notranslate nohighlight">\(r\)</span> indica que el grupo control tiene mayores valores que el grupo intervención. Si queremos que un efecto a favor de la intervención tenga signo positivo, basta con invertir el orden de los grupos en el análisis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_u</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">intervencion</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">res_u</span><span class="o">.</span><span class="n">statistic</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervencion</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">mann_whitney_z</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">r_rosenthal</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MWU: pvalue=</span><span class="si">{</span><span class="n">res_u</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, r=</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MWU: pvalue=0.000, r=0.836
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlacion-rango-biserial">
+<h2><span class="section-number">5.4.8. </span>Correlación Rango-Biserial.<a class="headerlink" href="#correlacion-rango-biserial" title="Link to this heading">#</a></h2>
+<p>Este coeficiente se asocia a la prueba U de Mann–Whitney y estima la probabilidad de superioridad de un grupo sobre otro. Se interpreta como la diferencia entre la probabilidad de que un valor del grupo 1 sea mayor que uno del grupo 2, y la probabilidad contraria:</p>
+<div class="math notranslate nohighlight">
+\[
+r_{rb} = \frac{2U}{n_1 n_2} - 1
+\]</div>
+<p>Valores positivos indican que el grupo 1 tiende a tener puntuaciones más altas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rango_biserial</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula la correlación rango-biserial como tamaño del efecto para pruebas como Mann–Whitney U.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    U : float</span>
+<span class="sd">        Estadístico U de la prueba de Mann–Whitney.</span>
+<span class="sd">    n1 : int</span>
+<span class="sd">        Tamaño del primer grupo.</span>
+<span class="sd">    n2 : int</span>
+<span class="sd">        Tamaño del segundo grupo.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Coeficiente de correlación rango-biserial.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">U</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="n">res_u</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">intervencion</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">res_u</span><span class="o">.</span><span class="n">statistic</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervencion</span><span class="p">)</span>
+<span class="n">crb</span> <span class="o">=</span> <span class="n">rango_biserial</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MWU: pvalue=</span><span class="si">{</span><span class="n">res_u</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, r=</span><span class="si">{</span><span class="n">crb</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MWU: pvalue=0.000, r=-0.973
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adecuacion-del-codigo-para-datos-reportados">
+<h2><span class="section-number">5.4.9. </span>Adecuación del código para datos reportados<a class="headerlink" href="#adecuacion-del-codigo-para-datos-reportados" title="Link to this heading">#</a></h2>
+<p>Puede ser el caso de que no contemos con los datos crudos del estudio para obtener toda la información, pero modificando ligeramente el código, es posible crear funciones que acepten los estimadores reportados por los estudios.</p>
+<p>Por ejemplo, retomemos la corrección exacta de Hedge para el tamaño del efecto, si buscamos en detalle los datos que necesitamos en realidad solo es necesario conocer las desviaciones estándar, las medias y los tamaños de los grupos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g_hedge_exacta_v2</span><span class="p">(</span><span class="n">media1</span><span class="p">,</span> <span class="n">media2</span><span class="p">,</span> <span class="n">sd1</span><span class="p">,</span> <span class="n">sd2</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="c1"># calculamos los grados de libertad</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="c1"># la desviación estándar unificada</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">((</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">sd1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">sd2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+        <span class="o">/</span>
+        <span class="n">df</span>
+    <span class="p">)</span>
+    <span class="c1"># el factor de corrección de acuerdo a la fórmula</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">((</span><span class="n">df</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="c1"># finalmente calculamos el tamaño del efecto y lo multiplicamos </span>
+    <span class="c1"># por el factor de corrección.</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="p">((</span><span class="n">media1</span> <span class="o">-</span> <span class="n">media2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">g_hedge_exacta_v2</span><span class="p">(</span>
+    <span class="n">media1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intervencion</span><span class="p">),</span>
+    <span class="n">media2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">control</span><span class="p">),</span>
+    <span class="n">sd1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">intervencion</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">sd2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">n1</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">intervencion</span><span class="p">),</span>
+    <span class="n">n2</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.411177665313029)
+</pre></div>
+</div>
+</div>
+</div>
+<p>De esta manera podemos simplificar las fórmulas y aplicarlas a diferentes escenarios.</p>
+</section>
+<section id="ejercicios">
+<h2><span class="section-number">5.4.10. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Calcula ahora tú los tamaños del efecto para otros datos. Puedes utilizar datos reales o el dataset de pingüinos que practicamos en la unidad 4.</p></li>
+<li><p>Genera el <code class="docutils literal notranslate"><span class="pre">docstring</span></code> de la función g_hedge_exacta_v2.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="medidas-de-asociacion.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>Medidas de asociación y correlación</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tama%C3%B1o-muestral.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Tamaños de muestra</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.4.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">5.4.2. Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-los-datos">5.4.3. Visualización de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencia-de-grupos">5.4.4. Diferencia de grupos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-de-cohen">5.4.5. d de Cohen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-de-hedges">5.4.6. g de Hedges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-ajustada-correccion-aproximada">5.4.6.1. Versión ajustada (corrección aproximada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-exacta-correccion-con-funcion-gamma">5.4.6.2. Versión exacta (corrección con función Gamma)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-de-rosenthal">5.4.7. r de Rosenthal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacion-rango-biserial">5.4.8. Correlación Rango-Biserial.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adecuacion-del-codigo-para-datos-reportados">5.4.9. Adecuación del código para datos reportados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">5.4.10. Ejercicios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

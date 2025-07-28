@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2. Funciones &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-3/funciones';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="3.3. Librerías" href="librerias.html" />
+    <link rel="prev" title="3.1. Control de flujo" href="control-de-flujo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Unidad 3: Fundamentos de programación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-3/funciones.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-3/funciones.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-3/funciones.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-3/funciones.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funciones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">3.2.1. Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros">3.2.1.1. Parámetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-posicionales">3.2.1.1.1. Parámetros posicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">3.2.1.1.1.1. Ejercicio personal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kws">3.2.1.2. Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kwargs-o-kws">3.2.1.3. Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>, o <code class="docutils literal notranslate"><span class="pre">kws</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-por-defecto">3.2.1.4. Valores por defecto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinado-todo">3.2.2. Combinado todo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">3.2.2.1. Ejercicios</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-con-parametros-indefinidos">3.2.3. Funciones con parámetros indefinidos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.2.4. Ejercicio personal</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funciones">
+<h1><span class="section-number">3.2. </span>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h1>
+<p>El concepto de función es heredado de las matemáticas, representan una operación y en su sentido más puro es un bloque de código que toma una serie de entradas <code class="docutils literal notranslate"><span class="pre">inputs</span></code> y genera una <code class="docutils literal notranslate"><span class="pre">salida</span></code>.</p>
+<p>En programación las funciones nos ayudan a escribir menos código, hacer que el código sea más legible y esté mejor organizado y simplifican nuestras operaciones pero su principal función es clave, son <strong>BLOQUES DE CÓDIGO REUTILIZABLES</strong>.</p>
+<p>Retomemos el ejemplo de la lección anterior con el índice de masa corporal, en el tema de <a class="reference internal" href="control-de-flujo.html"><span class="std std-doc">control de flujo</span></a> calculamos el índice de masa corporal, pero como lo vimos en los bucles, había que escribir la operación una y otra vez cuando queríamos obtener el valor.</p>
+<p>Esta es la fórmula:</p>
+<p><span class="math notranslate nohighlight">\(IMC = \frac{peso}{talla^2}\)</span></p>
+<p>Una función matemática se vería así:</p>
+<p><span class="math notranslate nohighlight">\(IMC(peso; talla) = \frac{peso}{talla^2}\)</span></p>
+<p>Es decir, la función <code class="docutils literal notranslate"><span class="pre">IMC</span></code> toma dos parámetros, <code class="docutils literal notranslate"><span class="pre">peso</span></code> y <code class="docutils literal notranslate"><span class="pre">talla</span></code> y regresa el resultado de dividir el peso por el cuadrado de la talla.</p>
+<p>En python, podemos crear una función a partir de ello y se vería así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_imc</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">talla</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">peso</span> <span class="o">/</span> <span class="n">talla</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Esta función puede ser utilizada múltiples veces de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">paciente</span> <span class="ow">in</span> <span class="n">lista_de_pacientes</span><span class="p">:</span>
+    <span class="n">imc</span> <span class="o">=</span> <span class="n">calcular_imc</span><span class="p">(</span><span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;peso&#39;</span><span class="p">],</span> <span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;talla&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Paciente&#39;</span><span class="p">,</span> <span class="n">paciente</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">],</span> <span class="s1">&#39;Tiene imc de&#39;</span><span class="p">,</span> <span class="n">imc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Desglosemos qué está pasando.</p>
+<section id="sintaxis">
+<h2><span class="section-number">3.2.1. </span>Sintaxis<a class="headerlink" href="#sintaxis" title="Link to this heading">#</a></h2>
+<p>En python definimos una función de la siguiente forma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función suma los argumentos a y b y devuelve el resultado&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>El encabezado comienza siempre con la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p></li>
+<li><p>Inmediatamente después del encabezado de la función, se puede poner un string (<code class="docutils literal notranslate"><span class="pre">str</span></code>) cuya función es explicar qué hace y cómo se usa la función, se le llama <strong>Docstring</strong>.</p></li>
+<li><p>La siguiente palabra es el nombre que recibirá la función.</p></li>
+<li><p>Luego se abren paréntesis.</p></li>
+<li><p>Dentro de los paréntesis puede ir lo sigueinte:</p>
+<ul class="simple">
+<li><p>Nada: <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
+<li><p>Parámetros posicionales (positional arguments o más comumente <code class="docutils literal notranslate"><span class="pre">args</span></code>).</p></li>
+<li><p>Parámetros de palabra clave (Key word arguments, o más comunmente <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> o <code class="docutils literal notranslate"><span class="pre">kws</span></code>).</p></li>
+<li><p>Cualquier combinación de estos, pero siempre van primero los posicionales y luego los <code class="docutils literal notranslate"><span class="pre">kws</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Dos puntos <code class="docutils literal notranslate"><span class="pre">:</span></code> para marcar el comienzo del cuerpo de la función.</p></li>
+<li><p>Cuerpo de la función en el siguiente nivel de sangría.</p></li>
+</ol>
+<section id="parametros">
+<h3><span class="section-number">3.2.1.1. </span>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Diferencia entre «parámetro» y «argumento».</p>
+<p>Los <strong>parámetros</strong> se definen en el encabezado de la función. <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">foo(x):</span></code> define un parámetro <code class="docutils literal notranslate"><span class="pre">x</span></code> para la función <code class="docutils literal notranslate"><span class="pre">foo</span></code>.</p>
+<p>Los <strong>argumentos</strong> son los valores que se pasan a la función para cubrir sus parámetros, por ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imc</span><span class="p">(</span><span class="n">peso</span><span class="p">,</span> <span class="n">talla</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">peso</span> <span class="o">/</span> <span class="n">talla</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="mi">77</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">1.72</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imc</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>En esta función, los parámetros son peso y talla en la función de <code class="docutils literal notranslate"><span class="pre">imc</span></code>. Los argumentos al llamar la función son 77 y 1.72, contenidos en las variables llamadas <code class="docutils literal notranslate"><span class="pre">p</span></code> y <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
+</div>
+<p>Uno de los principales poderes de las funciones es aceptar argumentos para realizar su trabajo.
+Veamos el ejemplo más sencillo, una función matemática:</p>
+<p><span class="math notranslate nohighlight">\(f(x) = x^2\)</span></p>
+<p>En python esta función se ve así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Esta función toma un solo argumento, <code class="docutils literal notranslate"><span class="pre">x</span></code> y devuelve su valor elevado al cuadrado con la palabra clave <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si una función no tiene explícitamente la palabra <code class="docutils literal notranslate"><span class="pre">return</span></code> en realidad regresa un tipo nulo <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>.
+Es decir, que las siguientes dos funciones son equivalentes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+
+<span class="c1"># y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">saludar2</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+</pre></div>
+</div>
+</div>
+<p>Como se comentó previamente, existen básicamente dos tipos de argumentos, los posicionales y los de palabra clave, veamos cómo funcionan. Para las siguientes dos secciones usaremos el ejemplo de la siguiente función.</p>
+<section id="parametros-posicionales">
+<h4><span class="section-number">3.2.1.1.1. </span>Parámetros posicionales<a class="headerlink" href="#parametros-posicionales" title="Link to this heading">#</a></h4>
+<p>Los parámetros posicionales se pasan a la función en el orden definido en la función.
+Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Podríamos utlizar la función de cualquiera de las siguientes formas:</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>    
+<span class="n">mas_grande</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>    
+<span class="n">mas_grande</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="c1"># intercambiados</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+x=6, y=7
+x=7, y=6
+x=6, y=7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">str</span></code> está formateado con <code class="docutils literal notranslate"><span class="pre">f-string</span></code>, revisa el <a class="reference internal" href="../otras-lecciones/f-strings.html#tema-f-string-target"><span class="std std-ref">tema correspondiente</span></a> para ver cómo funciona.</p>
+</div>
+<div class="docutils">
+<p>En los primeros dos usos de la función, pasamos los argumentos en forma posicional, en el tercero lo hicimos en forma de palabras clave <code class="docutils literal notranslate"><span class="pre">kws</span></code>, esto último lo veremos en la siguiente sección.</p>
+<p>Esto es porque la función no nos ha limitado en cómo utilizarla, es decir, podemos ejecutarla como queramos, pero nota que cuando usamos la función con argumentos posicionales, el orden en que pasamos los argumentos cambia como responde la función.</p>
+<p>Aunque la variable, fuera de la función, se llame como alguno de los parámetros, dentro de la función los valores asociados a las variables se asignan al nombre del parámetro de la función. Observa el segundo ejemplo, <code class="docutils literal notranslate"><span class="pre">mas_grande(y,</span> <span class="pre">x)</span></code> aunque las variables se llamen <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code>, dentro de la función se transforman, porque el valor de la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, se asigna al parámetro <code class="docutils literal notranslate"><span class="pre">y</span></code> y viceversa.</p>
+<p>Es posible hacer que los argumentos de una función sean obligatoriamente posicionales.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande_pos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">mas_grande_pos</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+
+<span class="ne">TypeError</span>: mas_grande_pos() got some positional-only arguments passed as keyword arguments: &#39;y&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como ves en este ejemplo, el error ocurre porque ambos parámetros, <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">y</span></code> son obligatoriamente posicionales, es la diagonal <code class="docutils literal notranslate"><span class="pre">/</span></code> en el encabezado de la función lo que señaliza a los argumentos posicionales obligatorios.
+Es posible tener casos mixtos, por ejemplo, en la siguiente función:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="c1"># la / está ahora a la mitad</span>
+    <span class="s2">&quot;Esta función muestra los valores de X y Y&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># También funciona</span>
+<span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=7, y=6
+x=7, y=6
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># Sí funciona</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># También funciona</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">mas_grande_pos_2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># No funciona</span>
+
+<span class="ne">TypeError</span>: mas_grande_pos_2() got some positional-only arguments passed as keyword arguments: &#39;x&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio-personal">
+<h5><span class="section-number">3.2.1.1.1.1. </span>Ejercicio personal<a class="headerlink" href="#ejercicio-personal" title="Link to this heading">#</a></h5>
+<p>¿Por qué falló la última ejecución?</p>
+</section>
+</section>
+</section>
+<section id="parametros-de-palabra-clave-kws">
+<h3><span class="section-number">3.2.1.2. </span>Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code><a class="headerlink" href="#parametros-de-palabra-clave-kws" title="Link to this heading">#</a></h3>
+<p>Los parámetros de «palabra clave», en adelante <code class="docutils literal notranslate"><span class="pre">ksw</span></code>, se utilizan en la función de forma explícita con el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code> y el nombre del parámetro.</p>
+<p>Tomemos el siguiente ejemplo</p>
+</section>
+<section id="parametros-de-palabra-clave-kwargs-o-kws">
+<h3><span class="section-number">3.2.1.3. </span>Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>, o <code class="docutils literal notranslate"><span class="pre">kws</span></code>)<a class="headerlink" href="#parametros-de-palabra-clave-kwargs-o-kws" title="Link to this heading">#</a></h3>
+<p>Los argumentos de palabra clave permiten especificar a qué parámetro corresponde cada valor usando <code class="docutils literal notranslate"><span class="pre">nombre=valor</span></code>. Son útiles cuando hay muchos parámetros o cuando queremos cambiar solo uno sin importar el orden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">saludo</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">saludo</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span> <span class="n">saludo</span><span class="o">=</span><span class="s2">&quot;Buenos días&quot;</span><span class="p">)</span> <span class="c1"># imprime Buenos días Chris</span>
+<span class="n">saludar</span><span class="p">(</span><span class="n">saludo</span><span class="o">=</span><span class="s2">&quot;Buenos días&quot;</span><span class="p">,</span> <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Chris&quot;</span><span class="p">)</span> <span class="c1"># imprime Buenos días Chris también</span>
+</pre></div>
+</div>
+<p>Observa que ambos argumentos se están pasando por palabra clave, pero podrían de igualforma pasarse como argumentos posicionales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">saludar</span><span class="p">(</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span> <span class="s2">&quot;Buenos días&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para hacer obligatorios los <code class="docutils literal notranslate"><span class="pre">kws</span></code> se utiliza un asterizco antes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">saludar</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">saludo</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">saludo</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="valores-por-defecto">
+<h3><span class="section-number">3.2.1.4. </span>Valores por defecto<a class="headerlink" href="#valores-por-defecto" title="Link to this heading">#</a></h3>
+<p>Al definir una función, podemos asignar valores por defecto a los parámetros. Estos se usan si no se pasan argumentos para el parámetro en cuestión cuando se llama la función</p>
+<p>Por ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">potencia</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponente</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponente</span>
+
+<span class="n">potencia</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># 9</span>
+<span class="n">potencia</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 27</span>
+</pre></div>
+</div>
+<p>Nota que aunque la sintaxis de los parámetros con valor por defecto es parecida a como se pasan argumentos tipo <code class="docutils literal notranslate"><span class="pre">kws</span></code>, pero no te confundas, los parámetros con valores por defecto pueden ser <code class="docutils literal notranslate"><span class="pre">args</span></code> o <code class="docutils literal notranslate"><span class="pre">kws</span></code>.</p>
+</section>
+</section>
+<section id="combinado-todo">
+<h2><span class="section-number">3.2.2. </span>Combinado todo<a class="headerlink" href="#combinado-todo" title="Link to this heading">#</a></h2>
+<p>Definamos una función con todos los tipos de parámetros comentados y lo aprendido hasta el momento. Analiza la siguiente celda de código y luego resuelve los ejercicios de la siguiente sección.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grado_imc</span><span class="p">(</span><span class="n">imc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clasifica el grado del Índice de Masa Corporal (IMC) según rangos definidos.</span>
+
+<span class="sd">    Utiliza el valor del IMC para determinar la categoría correspondiente:</span>
+<span class="sd">    - IMC &lt; 20: &#39;Peso bajo&#39;</span>
+<span class="sd">    - 20 &lt;= IMC &lt; 27: &#39;Peso normal&#39;</span>
+<span class="sd">    - 27 &lt;= IMC &lt; 30: &#39;Sobrepeso&#39;</span>
+<span class="sd">    - IMC &gt;= 30: &#39;Obeso&#39; (valor por defecto)</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    imc : float</span>
+<span class="sd">        Valor del Índice de Masa Corporal a clasificar.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Cadena con la categoría correspondiente al IMC:</span>
+<span class="sd">        &#39;Peso bajo&#39;, &#39;Peso normal&#39;, &#39;Sobrepeso&#39; u &#39;Obeso&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grado</span> <span class="o">=</span> <span class="s1">&#39;Obeso&#39;</span>
+    
+    <span class="k">if</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">grado</span> <span class="o">=</span> <span class="s1">&#39;Peso bajo&#39;</span>
+    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mi">27</span><span class="p">:</span>
+        <span class="n">grado</span> <span class="o">=</span> <span class="s1">&#39;Peso normal&#39;</span>
+    <span class="k">elif</span> <span class="mi">27</span> <span class="o">&lt;=</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">grado</span> <span class="o">=</span> <span class="s1">&#39;Sobrepeso&#39;</span>
+
+    <span class="k">return</span> <span class="n">grado</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calcular_imc</span><span class="p">(</span> <span class="c1"># observa que el encabezado non tiene que estar en una sola línea</span>
+                  <span class="c1"># esto ayuda a que sea más legible</span>
+    <span class="n">peso</span><span class="p">,</span>         <span class="c1"># posicional obligado</span>
+    <span class="n">talla</span><span class="p">,</span>        <span class="c1"># posicional obligado </span>
+    <span class="o">/</span><span class="p">,</span>            <span class="c1"># terminando los posicionales obligados</span>
+    <span class="n">calcular_grado</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># puede ser posicional o por palabra clave</span>
+    <span class="o">*</span><span class="p">,</span> <span class="c1"># a partir de aquí los demás parámetros deben ser de palabra clave</span>
+    <span class="n">generar_reporte</span><span class="o">=</span><span class="kc">False</span> 
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el Índice de Masa Corporal (IMC) a partir del peso y la talla.</span>
+
+<span class="sd">    El cálculo se realiza como `peso / talla**2`. Opcionalmente, puede determinar </span>
+<span class="sd">    el grado del IMC (por ejemplo, normopeso, sobrepeso, obesidad) utilizando una </span>
+<span class="sd">    función externa llamada `grado_imc`, y generar un reporte impreso.</span>
+
+<span class="sd">    Parámetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    peso : float</span>
+<span class="sd">        Peso del individuo en kilogramos. Obligatorio y posicional.</span>
+<span class="sd">    talla : float</span>
+<span class="sd">        Talla del individuo en metros. Obligatorio y posicional.</span>
+<span class="sd">    calcular_grado : bool, opcional</span>
+<span class="sd">        Si es `True`, también se evalúa y retorna el grado del IMC usando `grado_imc()`.</span>
+<span class="sd">        Por defecto es `False`.</span>
+<span class="sd">    generar_reporte : bool, palabra clave</span>
+<span class="sd">        Si es `True`, imprime un reporte con el IMC y, si se solicita, el grado.</span>
+<span class="sd">        Por defecto es `True`.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    float o tuple</span>
+<span class="sd">        - Si `calcular_grado` es `False`, retorna solo el valor del IMC (`float`).</span>
+<span class="sd">        - Si `calcular_grado` es `True`, retorna una tupla (`imc`, `grado`).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">imc</span> <span class="o">=</span> <span class="n">peso</span> <span class="o">/</span> <span class="n">talla</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">grado</span> <span class="o">=</span> <span class="n">grado_imc</span><span class="p">(</span><span class="n">imc</span><span class="p">)</span> <span class="k">if</span> <span class="n">calcular_grado</span> <span class="ow">is</span> <span class="kc">True</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">generar_reporte</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">reporte</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Para </span><span class="si">{</span><span class="n">peso</span><span class="si">=}</span><span class="s1"> y </span><span class="si">{</span><span class="n">talla</span><span class="si">=}</span><span class="s1">, el imc es </span><span class="si">{</span><span class="n">imc</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="n">grado</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reporte</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; y el grado es: </span><span class="si">{</span><span class="n">grado</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">reporte</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">imc</span><span class="p">,</span> <span class="n">grado</span><span class="p">)</span> <span class="k">if</span> <span class="n">calcular_grado</span> <span class="k">else</span> <span class="p">(</span><span class="n">imc</span><span class="p">)</span>
+
+
+
+<span class="n">imc</span> <span class="o">=</span> <span class="n">calcular_imc</span><span class="p">(</span><span class="mi">92</span><span class="p">,</span> <span class="mf">1.77</span><span class="p">)</span> <span class="c1"># Guarda el IMC en una variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.365763350250564
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicios">
+<h3><span class="section-number">3.2.2.1. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Analiza el código con detenimiento</p></li>
+<li><p>Lee con detenimiento los <code class="docutils literal notranslate"><span class="pre">docstrings</span></code></p></li>
+<li><p>Contesta: ¿por qué en la primera función iniciamos con <code class="docutils literal notranslate"><span class="pre">grado</span> <span class="pre">=</span> <span class="pre">'Obeso'</span></code>?</p></li>
+<li><p>Utiliza el <code class="docutils literal notranslate"><span class="pre">docstring</span></code> de la función <code class="docutils literal notranslate"><span class="pre">calcular_imc</span></code> para cambiar su forma de actuar.</p></li>
+<li><p>Genera un diagrama de flujo que explique cómo funciona, utiliza <a class="reference external" href="https://draw.io">draw.io</a> o la herramienta que prefieraas.</p></li>
+</ol>
+</section>
+</section>
+<section id="funciones-con-parametros-indefinidos">
+<span id="parametros-variables-target"></span><h2><span class="section-number">3.2.3. </span>Funciones con parámetros indefinidos.<a class="headerlink" href="#funciones-con-parametros-indefinidos" title="Link to this heading">#</a></h2>
+<p>Existen algunos casos particulares en donde las funciones pueden aceptar cualquier cantidad de argumentos, la siguiente función es un ejemplo mínimo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">nombre</span><span class="o">=</span><span class="s1">&#39;Pedro&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4, 5)
+{&#39;a&#39;: 123, &#39;nombre&#39;: &#39;Pedro&#39;}
+None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si analizamos al función nos damos cuenta que cuando ponemos un asterisco al inicio parámetro <code class="docutils literal notranslate"><span class="pre">args</span></code> acepta cualquier cantidad de argumentos posicionales, cuyos valores, se concentran en una lista. Por otro lado, al poner dos asteriscos <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> acepta cualquier cantidad de argumentos de palabra clave y los guarda en un diccionario, donde las llaves son las palabras clave y los valores son los valores que se pasaron.</p>
+<p>Es posible de hecho, pasar <code class="docutils literal notranslate"><span class="pre">args</span></code> y <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> listas (o tuplas) y diccionarios como argumentos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mis_args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="n">mis_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;Chris&#39;</span><span class="p">,</span> <span class="s1">&#39;apellido&#39;</span><span class="p">:</span> <span class="s1">&#39;Delaflor&#39;</span><span class="p">}</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="o">*</span><span class="n">mis_args</span><span class="p">,</span> <span class="o">**</span><span class="n">mis_kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 7, 42)
+{&#39;nombre&#39;: &#39;Chris&#39;, &#39;apellido&#39;: &#39;Delaflor&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si bien en este curso no construiremos funciones con <code class="docutils literal notranslate"><span class="pre">args</span></code> o <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> de este tipo, sí utilizaremos muchas que los implementan, por lo que es importante que los conozcas y sepas cómo funcionan.</p>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">3.2.4. </span>Ejercicio personal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Realiza este ejercicio si te sientes valiente, verás la solución al principio de la siguiente lección.</p>
+<p>Elabora una función que calcule la <code class="docutils literal notranslate"><span class="pre">media</span></code> de un conjunto de datos.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="control-de-flujo.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Control de flujo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="librerias.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Librerías</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">3.2.1. Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros">3.2.1.1. Parámetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-posicionales">3.2.1.1.1. Parámetros posicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-personal">3.2.1.1.1.1. Ejercicio personal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kws">3.2.1.2. Parámetros de palabra clave <code class="docutils literal notranslate"><span class="pre">kws</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-palabra-clave-kwargs-o-kws">3.2.1.3. Parámetros de palabra clave (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>, o <code class="docutils literal notranslate"><span class="pre">kws</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-por-defecto">3.2.1.4. Valores por defecto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinado-todo">3.2.2. Combinado todo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">3.2.2.1. Ejercicios</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-con-parametros-indefinidos">3.2.3. Funciones con parámetros indefinidos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.2.4. Ejercicio personal</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
