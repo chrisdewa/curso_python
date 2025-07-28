@@ -52,9 +52,9 @@ chapters:
   - file: unidad-6/index
     sections:
       - file: unidad-6/actualizacion-proporcion
-      - file: unidad-6/actualizacion-media
       - file: unidad-6/pruebas-t
       - file: unidad-6/pruebas-t-2
+      - file: unidad-6/actualizacion-media
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
