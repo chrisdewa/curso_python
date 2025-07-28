@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.3. Pruebas T, parte 1 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>6.2. Pruebas T, parte 1 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="6.4. Pruebas T, parte 2" href="pruebas-t-2.html" />
-    <link rel="prev" title="6.2. Actualización de una media" href="actualizacion-media.html" />
+    <link rel="next" title="6.3. Pruebas T, parte 2" href="pruebas-t-2.html" />
+    <link rel="prev" title="6.1. Actualización de una Proporción" href="actualizacion-proporcion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -233,11 +233,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.2. Actualización de una media</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Pruebas T, parte 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.4. Actualización de una media</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -490,10 +490,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-grupos">6.3.2. Visualización de grupos.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-bf-10">6.3.3. Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.3.4. Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.2.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-grupos">6.2.2. Visualización de grupos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-bf-10">6.2.3. Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.2.4. Ejercicios</a></li>
 </ul>
             </nav>
         </div>
@@ -506,10 +506,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pruebas-t-parte-1">
-<h1><span class="section-number">6.3. </span>Pruebas T, parte 1<a class="headerlink" href="#pruebas-t-parte-1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6.2. </span>Pruebas T, parte 1<a class="headerlink" href="#pruebas-t-parte-1" title="Link to this heading">#</a></h1>
 <p>Para realizar las pruebas t con inferencia Bayesiana el método más sencillo es utilizar <code class="docutils literal notranslate"><span class="pre">pingouin</span></code> que produce por defecto factores de Bayes (BF) además del valor p frecuentista.</p>
 <section id="librerias-y-datos">
-<h2><span class="section-number">6.3.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <p>Utilizaremos los <code class="docutils literal notranslate"><span class="pre">palmer</span> <span class="pre">penguins</span></code> que ya hemos revisado en el curso.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +607,7 @@ document.write(`
 </div>
 </section>
 <section id="visualizacion-de-grupos">
-<h2><span class="section-number">6.3.2. </span>Visualización de grupos.<a class="headerlink" href="#visualizacion-de-grupos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2.2. </span>Visualización de grupos.<a class="headerlink" href="#visualizacion-de-grupos" title="Link to this heading">#</a></h2>
 <p>Probemos la forma más sencilla del análisis comparando <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code> de acuerdo a la variable <code class="docutils literal notranslate"><span class="pre">sex</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,7 +1040,7 @@ ttest(
 <p>Observamos que el valor p no alcanza significación estadística, y que el <span class="math notranslate nohighlight">\(BF_{10}\)</span> proporciona evidencia moderada a fuerte a favor de la hipótesis nula <span class="math notranslate nohighlight">\(H_0: \text{Peso}{\text{Adelie}} = \text{Peso}{\text{Chinstrap}}\)</span>, incluso al usar un valor ingenuo de <span class="math notranslate nohighlight">\(r = 0.5\)</span>.</p>
 </section>
 <section id="interpretacion-de-bf-10">
-<h2><span class="section-number">6.3.3. </span>Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span><a class="headerlink" href="#interpretacion-de-bf-10" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2.3. </span>Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span><a class="headerlink" href="#interpretacion-de-bf-10" title="Link to this heading">#</a></h2>
 <figure class="align-default" id="interpretacion-de-factor-bayes">
 <img alt="../_images/Interpretation-of-Bayes-factors_W640.jpg" src="../_images/Interpretation-of-Bayes-factors_W640.jpg" />
 <figcaption>
@@ -1053,7 +1053,7 @@ ttest(
 </figure>
 </section>
 <section id="ejercicios">
-<h2><span class="section-number">6.3.4. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2.4. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Aplica lo aprendido con tus propios datos.</p></li>
 <li><p>Analiza la diferencia en el ancho del pico de acuerdo al sexo.</p></li>
@@ -1092,12 +1092,12 @@ ttest(
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="actualizacion-media.html"
+       href="actualizacion-proporcion.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>Actualización de una media</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Actualización de una Proporción</p>
       </div>
     </a>
     <a class="right-next"
@@ -1105,7 +1105,7 @@ ttest(
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">6.4. </span>Pruebas T, parte 2</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Pruebas T, parte 2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1125,10 +1125,10 @@ ttest(
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-grupos">6.3.2. Visualización de grupos.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-bf-10">6.3.3. Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.3.4. Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.2.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-grupos">6.2.2. Visualización de grupos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-bf-10">6.2.3. Interpretación de <span class="math notranslate nohighlight">\(BF_{10}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.2.4. Ejercicios</a></li>
 </ul>
   </nav></div>
 

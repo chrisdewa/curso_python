@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.4. Pruebas T, parte 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>6.3. Pruebas T, parte 2 &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="7. Otras lecciones" href="../otras-lecciones/index.html" />
-    <link rel="prev" title="6.3. Pruebas T, parte 1" href="pruebas-t.html" />
+    <link rel="next" title="6.4. Actualización de una media" href="actualizacion-media.html" />
+    <link rel="prev" title="6.2. Pruebas T, parte 1" href="pruebas-t.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -233,11 +233,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Análisis Bayesianos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.2. Actualización de una media</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Pruebas T, parte 2</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.4. Actualización de una media</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -490,9 +490,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.4.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.4.2. Definición del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.4.3. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.3.2. Definición del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.3.3. Ejercicio</a></li>
 </ul>
             </nav>
         </div>
@@ -505,7 +505,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pruebas-t-parte-2">
-<h1><span class="section-number">6.4. </span>Pruebas T, parte 2<a class="headerlink" href="#pruebas-t-parte-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6.3. </span>Pruebas T, parte 2<a class="headerlink" href="#pruebas-t-parte-2" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Esta libreta es la parte 2 del análisis bayesiano de comparación de medias, pero también es la introducción para los modelos lineales</p>
@@ -528,7 +528,7 @@ document.write(`
 \[\beta_1 = 0\]</div>
 <p>Repasando, en el modelo que contruiremos, la categoría de referencia es «Adelie», <span class="math notranslate nohighlight">\(\beta_0\)</span> es la media de  peso de los Adelie y <span class="math notranslate nohighlight">\(\beta_1\)</span> es la diferencia de peso entre los Adelie y los Chinstrap.</p>
 <section id="librerias-y-datos">
-<h2><span class="section-number">6.4.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3.1. </span>Librerías y datos<a class="headerlink" href="#librerias-y-datos" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
@@ -625,7 +625,7 @@ document.write(`
 </div>
 </section>
 <section id="definicion-del-modelo">
-<h2><span class="section-number">6.4.2. </span>Definición del modelo<a class="headerlink" href="#definicion-del-modelo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3.2. </span>Definición del modelo<a class="headerlink" href="#definicion-del-modelo" title="Link to this heading">#</a></h2>
 <p>Necesitaremos la fórmula, los datos y especificaremos la familia de la distrubicón, en este caso utilizaremos la distribución T, ya que es más robusta para el análisis por sus colas pesadas, también especificamos que queremos eliminar los valores faltantes, <code class="docutils literal notranslate"><span class="pre">bambi</span></code> no los tira por default como <code class="docutils literal notranslate"><span class="pre">statsmodels.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,7 +685,7 @@ NUTS: [sigma, nu, Intercept, species]
 </div>
 </div>
 </div>
-<p>Es importante ver que las cadenas parecen no haber encontrado divergencias, lo cual es excelente.
+<p>Cuando ejecutes el código, observa en el output la columna de «Divergences», deberías observar que las no  encontraron divergencias, lo cual es excelente y nos indica que podemos continuar.
 Hagamos diagnóstico de las cadenas, debemos analizar si convergieron adecuadamente. El análisis puede realizarse con <code class="docutils literal notranslate"><span class="pre">arviz</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,7 +838,7 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
 <p>Podemos ver que tenemos evidencia muy fuerte a favor de la hipótesis nula.</p>
 </section>
 <section id="ejercicio">
-<h2><span class="section-number">6.4.3. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3.3. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Ejecuta este método para comparación de medias con tus propios datos.</p></li>
 <li><p>Compara varias cadenas. Ajusta el modelo con diferente número de chains (por ejemplo, 2 o 8) y analiza si afecta el resultado o la convergencia.</p></li>
@@ -883,15 +883,15 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">6.3. </span>Pruebas T, parte 1</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Pruebas T, parte 1</p>
       </div>
     </a>
     <a class="right-next"
-       href="../otras-lecciones/index.html"
+       href="actualizacion-media.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Otras lecciones</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Actualización de una media</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -911,9 +911,9 @@ arviz - WARNING - Posterior distribution has {posterior.ndim} dimensions
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.4.1. Librerías y datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.4.2. Definición del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.4.3. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-datos">6.3.1. Librerías y datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-modelo">6.3.2. Definición del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">6.3.3. Ejercicio</a></li>
 </ul>
   </nav></div>
 
