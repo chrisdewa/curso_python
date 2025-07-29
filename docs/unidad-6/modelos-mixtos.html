@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.5. Modelos Mixtos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unidad-6/modelos-mixtos';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7. Otras lecciones" href="../otras-lecciones/index.html" />
+    <link rel="prev" title="6.4. Actualización de una media" href="actualizacion-media.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-5/index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.4. Actualización de una media</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.5. Modelos Mixtos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/comprensiones.html">7.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otras-lecciones/f-strings.html">7.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/unidad-6/modelos-mixtos.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/unidad-6/modelos-mixtos.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Funidad-6/modelos-mixtos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unidad-6/modelos-mixtos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelos Mixtos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.5.2. Análisis Exploratorio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.3. Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4. Diagnóstico de convergencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.5. Análisis de coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.5.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.5.6.1. Interacciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.6.2. Conclusión</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-mixtos">
+<h1><span class="section-number">6.5. </span>Modelos Mixtos<a class="headerlink" href="#modelos-mixtos" title="Link to this heading">#</a></h1>
+<p>Hemos ya utilizando algunos modelos lineales para realizar análisis como pruebas t y actualización de parámetros, y para analizar datos lineales y binarios. Ahora veamos cómo analizar datos con medidas repetidas.</p>
+<p>Para este ejercicio analizaremos el dataset <code class="docutils literal notranslate"><span class="pre">exercise</span></code>, disponible en seaborn.</p>
+<section id="librerias">
+<h2><span class="section-number">6.5.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">arviz</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">az</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;exercise&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>id</th>
+      <th>diet</th>
+      <th>pulse</th>
+      <th>time</th>
+      <th>kind</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>low fat</td>
+      <td>85</td>
+      <td>1 min</td>
+      <td>rest</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>low fat</td>
+      <td>85</td>
+      <td>15 min</td>
+      <td>rest</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>low fat</td>
+      <td>88</td>
+      <td>30 min</td>
+      <td>rest</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2</td>
+      <td>low fat</td>
+      <td>90</td>
+      <td>1 min</td>
+      <td>rest</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2</td>
+      <td>low fat</td>
+      <td>92</td>
+      <td>15 min</td>
+      <td>rest</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="analisis-exploratorio">
+<h2><span class="section-number">6.5.2. </span>Análisis Exploratorio<a class="headerlink" href="#analisis-exploratorio" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 90 entries, 0 to 89
+Data columns (total 6 columns):
+ #   Column      Non-Null Count  Dtype   
+---  ------      --------------  -----   
+ 0   Unnamed: 0  90 non-null     int64   
+ 1   id          90 non-null     int64   
+ 2   diet        90 non-null     category
+ 3   pulse       90 non-null     int64   
+ 4   time        90 non-null     category
+ 5   kind        90 non-null     category
+dtypes: category(3), int64(3)
+memory usage: 2.9 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;diet&#39;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2c85db84c20&gt;
+</pre></div>
+</div>
+<img alt="../_images/91cbd610a4050a10c89d79dd0d1b7433c21fe2bad0dd685e6e08cf40e34fdf98.png" src="../_images/91cbd610a4050a10c89d79dd0d1b7433c21fe2bad0dd685e6e08cf40e34fdf98.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1 min&#39;, &#39;15 min&#39;, &#39;30 min&#39;]
+Categories (3, object): [&#39;1 min&#39;, &#39;15 min&#39;, &#39;30 min&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;kind&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2c85daaaad0&gt;
+</pre></div>
+</div>
+<img alt="../_images/c0a1c37c3a69075a8797804224a18e2aa7c4bcba760c9ef8f14d1b70f99012e4.png" src="../_images/c0a1c37c3a69075a8797804224a18e2aa7c4bcba760c9ef8f14d1b70f99012e4.png" />
+</div>
+</div>
+<p>Parece que el dataset consta de datos de 30 pacientes, seguidos en tres tiempos, al minuto 1, 15 y 30. Cada sujeto de estudio recibía un tipo de dieta y se sometió a un tipo distinto de ejercicio (o reposo).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2c85fd58690&gt;
+</pre></div>
+</div>
+<img alt="../_images/630883270b5e78704ccf946a299c57221539df1fdb3eb70a7092ddf7aaaf4a62.png" src="../_images/630883270b5e78704ccf946a299c57221539df1fdb3eb70a7092ddf7aaaf4a62.png" />
+</div>
+</div>
+<p>Podemos ver que la frecuencia cardiaca parece ser dependiente del tipo de ejercicio y del tiempo.</p>
+<p>Podemos asumir la ecuación lineal:</p>
+<div class="math notranslate nohighlight">
+\[
+pulso ~ tiempo * tipo + dieta
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># no podemos meter en el modelo lineal el tiempo como tal, porque actualmente es categórica</span>
+<span class="c1"># crearemos una nueva columna con los valores numéricos</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;1 min&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;15 min&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;30 min&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;diet&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2c85ffba0d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/8a96c8984587475583ab9ad4cb05e2d3edefcd20a87db005a3571e85555b206c.png" src="../_images/8a96c8984587475583ab9ad4cb05e2d3edefcd20a87db005a3571e85555b206c.png" />
+</div>
+</div>
+<p>Visualicemos el modelo mixto que implementaremos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>   <span class="c1"># define la variable que se pone en las columnas</span>
+    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># cada 5 pasa a la siguiente fila</span>
+    <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>    <span class="c1"># quitamos el ci que no tiene sentido aquí</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="c1"># separamos por tipo para identificarlos grupos</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1"># hacemos que el gráficos sea más compacto y amigable</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="c1"># hacemos que el gráfico sea más ancho que largo</span>
+<span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pulse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pulse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2c860263890&gt;
+</pre></div>
+</div>
+<img alt="../_images/e76fef596a80e6fac93ec0e36cd78cad2140abb34278761b8fde57f3387c88e0.png" src="../_images/e76fef596a80e6fac93ec0e36cd78cad2140abb34278761b8fde57f3387c88e0.png" />
+</div>
+</div>
+<p>Podemos ver que en el grupo de carrera, todos los participantes, excepto el 23 incrementaron su frecuencia cardiaca, mientras que en los otros dos grupos hay más variabilidad. Efectivamente hay interacción entre el efecto del tiempo y el tipo de ejercicio y cada paciente responde de forma distinta.</p>
+</section>
+<section id="modelo">
+<h2><span class="section-number">6.5.3. </span>Modelo<a class="headerlink" href="#modelo" title="Link to this heading">#</a></h2>
+<p>La especificación de fórmulas en <code class="docutils literal notranslate"><span class="pre">bambi</span></code> es distinta a la de <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, y se asemeja más a la sintaxis de R.</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, los efectos aleatorios se indican a través del argumento <code class="docutils literal notranslate"><span class="pre">groups</span></code>, por ejemplo <code class="docutils literal notranslate"><span class="pre">groups=id</span></code>. En cambio, en <code class="docutils literal notranslate"><span class="pre">bambi</span></code>, los efectos aleatorios se incorporan directamente en la fórmula, utilizando la notación <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">|</span> <span class="pre">id)</span></code>, lo cual indica explícitamente que cada sujeto (<code class="docutils literal notranslate"><span class="pre">id</span></code>) tendrá un intercepto aleatorio en el modelo.</p>
+<p>Si se desea incluir pendientes aleatorias además del intercepto, se puede utilizar la notación <code class="docutils literal notranslate"><span class="pre">(variable</span> <span class="pre">|</span> <span class="pre">id)</span></code>. Por ejemplo, si se plantea que el efecto del tipo de ejercicio (<code class="docutils literal notranslate"><span class="pre">kind</span></code>) varía entre sujetos, se especifica <code class="docutils literal notranslate"><span class="pre">(kind</span> <span class="pre">|</span> <span class="pre">id)</span></code>. Para un modelo más complejo que permita que tanto el efecto del tipo de ejercicio como el del tiempo varíen por sujeto, se puede usar <code class="docutils literal notranslate"><span class="pre">(kind</span> <span class="pre">+</span> <span class="pre">time</span> <span class="pre">|</span> <span class="pre">id)</span></code>.</p>
+<p>Este tipo de especificación permite modelar adecuadamente la estructura jerárquica de los datos cuando se tienen observaciones repetidas por individuo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">bmb</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+    <span class="s1">&#39;pulse ~ t * kind + diet + (1|id)&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Formula: pulse ~ t * kind + diet + (1|id)
+        Family: gaussian
+          Link: mu = identity
+  Observations: 90
+        Priors: 
+    target = mu
+        Common-level effects
+            Intercept ~ Normal(mu: 99.7, sigma: 84.271)
+            t ~ Normal(mu: 0.0, sigma: 3.1195)
+            kind ~ Normal(mu: [0. 0.], sigma: [78.3599 78.3599])
+            t:kind ~ Normal(mu: [0. 0.], sigma: [3.7128 3.7128])
+            diet ~ Normal(mu: 0.0, sigma: 73.8785)
+        
+        Group-level effects
+            1|id ~ Normal(mu: 0.0, sigma: HalfNormal(sigma: 84.271))
+        
+        Auxiliary parameters
+            sigma ~ HalfStudentT(nu: 4.0, sigma: 14.7757)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># ajustamos el modelo</span>
+<span class="c1"># observa que en este caso especificamos una semilla para que los resultados</span>
+<span class="c1"># sean replicables.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+C:\Users\User\Documents\coding\curso_python\.venv\Lib\site-packages\pytensor\link\c\cmodule.py:2968: UserWarning: PyTensor could not link to a BLAS installation. Operations that might benefit from BLAS will be severely degraded.
+This usually happens when PyTensor is installed via pip. We recommend it be installed via conda/mamba/pixi instead.
+Alternatively, you can use an experimental backend such as Numba or JAX that perform their own BLAS optimizations, by setting `pytensor.config.mode == &#39;NUMBA&#39;` or passing `mode=&#39;NUMBA&#39;` when compiling a PyTensor function.
+For more options and details see https://pytensor.readthedocs.io/en/latest/troubleshooting.html#how-do-i-configure-test-my-blas-library
+  warnings.warn(
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7ce4572ae4fb48bca7a00915f8fbd27d", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 27 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="diagnostico-de-convergencia">
+<h2><span class="section-number">6.5.4. </span>Diagnóstico de convergencia<a class="headerlink" href="#diagnostico-de-convergencia" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span>
+    <span class="n">result</span><span class="p">,</span> 
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;rank_bars&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ce8fc8d4e174c8e0a59675269b956f3744c962f2e5a58548867b3745533303c0.png" src="../_images/ce8fc8d4e174c8e0a59675269b956f3744c962f2e5a58548867b3745533303c0.png" />
+</div>
+</div>
+<p>Parece que las cadenas convergieron exitósamente, ahora veamos los resultados.</p>
+</section>
+<section id="analisis-de-coeficientes">
+<h2><span class="section-number">6.5.5. </span>Análisis de coeficientes<a class="headerlink" href="#analisis-de-coeficientes" title="Link to this heading">#</a></h2>
+<p>Necesitamos especificar ahora las variables de interés, puesto que summary y las demás funciones nos darían la información de cada sujeto de forma individual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="c1"># media al tiempo 1</span>
+    <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="c1"># variabilidad general</span>
+    <span class="s1">&#39;1|id_sigma&#39;</span><span class="p">,</span> <span class="c1"># variabilidad entre sujetos</span>
+    <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="c1"># efecto del tiempo</span>
+    <span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="c1"># efecto del ejercicio</span>
+    <span class="s1">&#39;diet&#39;</span><span class="p">,</span> <span class="c1"># efecto de la dieta</span>
+    <span class="s1">&#39;t:kind&#39;</span><span class="p">,</span> <span class="c1"># interacción entre el tiempo y el ejercicio</span>
+<span class="p">]</span>
+<span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="n">variables</span><span class="p">)</span> <span class="c1"># nota que los resultados salen ordenados como los especificamos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>86.486</td>
+      <td>2.908</td>
+      <td>81.255</td>
+      <td>92.113</td>
+      <td>0.056</td>
+      <td>0.048</td>
+      <td>2676.0</td>
+      <td>2635.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>7.060</td>
+      <td>0.708</td>
+      <td>5.841</td>
+      <td>8.387</td>
+      <td>0.017</td>
+      <td>0.012</td>
+      <td>1796.0</td>
+      <td>2265.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1|id_sigma</th>
+      <td>4.722</td>
+      <td>1.376</td>
+      <td>2.110</td>
+      <td>7.474</td>
+      <td>0.046</td>
+      <td>0.031</td>
+      <td>915.0</td>
+      <td>1075.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>t</th>
+      <td>0.040</td>
+      <td>0.108</td>
+      <td>-0.149</td>
+      <td>0.249</td>
+      <td>0.002</td>
+      <td>0.002</td>
+      <td>3078.0</td>
+      <td>2839.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>kind[running]</th>
+      <td>7.088</td>
+      <td>3.760</td>
+      <td>0.456</td>
+      <td>14.549</td>
+      <td>0.072</td>
+      <td>0.064</td>
+      <td>2737.0</td>
+      <td>2780.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>kind[walking]</th>
+      <td>3.509</td>
+      <td>3.744</td>
+      <td>-3.621</td>
+      <td>10.449</td>
+      <td>0.071</td>
+      <td>0.064</td>
+      <td>2762.0</td>
+      <td>2530.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>diet[no fat]</th>
+      <td>7.459</td>
+      <td>2.396</td>
+      <td>3.030</td>
+      <td>11.993</td>
+      <td>0.046</td>
+      <td>0.054</td>
+      <td>2808.0</td>
+      <td>1675.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>t:kind[running]</th>
+      <td>0.983</td>
+      <td>0.153</td>
+      <td>0.705</td>
+      <td>1.274</td>
+      <td>0.003</td>
+      <td>0.002</td>
+      <td>3408.0</td>
+      <td>3059.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>t:kind[walking]</th>
+      <td>0.056</td>
+      <td>0.155</td>
+      <td>-0.219</td>
+      <td>0.365</td>
+      <td>0.003</td>
+      <td>0.002</td>
+      <td>3495.0</td>
+      <td>3114.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Analicemos los coeficientes de los factores con base en su distribución posterior y el margen de credibilidad de su diferencia de cero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span>
+    <span class="n">result</span><span class="p">,</span> 
+    <span class="n">var_names</span><span class="o">=</span><span class="n">variables</span><span class="p">[</span><span class="mi">3</span><span class="p">:],</span> <span class="c1"># solo desde t</span>
+    <span class="n">ref_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/38f60ba302891c45a484b58fd4e9c8fa74ee90528203625ec54f3aa14291ca90.png" src="../_images/38f60ba302891c45a484b58fd4e9c8fa74ee90528203625ec54f3aa14291ca90.png" />
+</div>
+</div>
+</section>
+<section id="interpretacion-de-resultados">
+<h2><span class="section-number">6.5.6. </span>Interpretación de resultados<a class="headerlink" href="#interpretacion-de-resultados" title="Link to this heading">#</a></h2>
+<p>Conceptualmente, tiene sentido que el tiempo por sí solo no tenga un efecto relevante sobre la frecuencia cardiaca. En condiciones de reposo, es esperable que la frecuencia se mantenga relativamente estable a lo largo del tiempo. Esto se refleja en el coeficiente de <code class="docutils literal notranslate"><span class="pre">t</span></code>, cuyo valor medio es cercano a cero (0.040 lpm/min) y cuya distribución posterior es amplia, con una probabilidad moderada de ser positiva, pero sin excluir valores negativos (HDI 94% = [-0.15, 0.25]). En otras palabras, <strong>el efecto del tiempo solo se manifiesta cuando se combina con otros factores</strong>, particularmente el tipo de ejercicio.</p>
+<p>En contraste, el tipo de ejercicio sí tiene un efecto claro:</p>
+<ul class="simple">
+<li><p><strong>Correr</strong> eleva la frecuencia cardiaca en <strong>7.1 lpm</strong> en promedio respecto al reposo, con una probabilidad alta de que este efecto sea positivo (HDI 94% = [0.46, 14.55]).</p></li>
+<li><p><strong>Caminar</strong> también tiende a elevarla (<strong>3.5 lpm</strong>), pero el intervalo de credibilidad es más amplio (HDI 94% = [-3.62, 10.45]), por lo que <strong>no se puede afirmar con certeza que el efecto sea distinto de cero</strong>.</p></li>
+</ul>
+<p>En cuanto a la dieta, se observa que quienes siguen una dieta <strong>sin grasa</strong> tienen una frecuencia cardiaca <strong>7.5 lpm más alta</strong> que quienes siguen una dieta baja en grasa, con una probabilidad muy alta de que esta diferencia sea positiva (HDI 94% = [3.03, 11.99]). Este hallazgo podría tener implicaciones metabólicas o cardiovasculares, y amerita mayor exploración.</p>
+<section id="interacciones">
+<h3><span class="section-number">6.5.6.1. </span>Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h3>
+<p>El aspecto más informativo del modelo está en las interacciones:</p>
+<ul class="simple">
+<li><p>Para quienes <strong>corren</strong>, la frecuencia cardiaca <strong>aumenta en promedio 0.98 lpm por minuto adicional de ejercicio</strong>, con un HDI estrecho (94% = [0.71, 1.27]) y una probabilidad cercana al 100% de que el efecto sea positivo. Este es un resultado <strong>robusto y fisiológicamente esperado</strong>.</p></li>
+<li><p>En cambio, para quienes <strong>caminan</strong>, el incremento es mínimo (<strong>0.06 lpm/min</strong>), con un intervalo de credibilidad que incluye claramente cero (HDI 94% = [-0.22, 0.37]), por lo que <strong>no hay evidencia concluyente de que la frecuencia aumente con el tiempo al caminar</strong>.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h3><span class="section-number">6.5.6.2. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p>El modelo revela que:</p>
+<ul class="simple">
+<li><p>El <strong>tipo de ejercicio y su duración</strong> son los principales determinantes del cambio en frecuencia cardiaca.</p></li>
+<li><p>El <strong>reposo</strong>, como categoría de referencia, permite identificar con claridad los efectos relativos de caminar y correr.</p></li>
+<li><p>La <strong>dieta</strong> también parece tener un efecto basal importante sobre la frecuencia cardiaca.</p></li>
+<li><p>El tiempo, considerado de forma aislada, no debe interpretarse fuera de su interacción con el ejercicio.</p></li>
+</ul>
+<p>Este enfoque bayesiano no solo permite estimar los efectos esperados, sino también <strong>cuantificar directamente la incertidumbre</strong>, proporcionando una visión más completa y realista del fenómeno observado.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unidad-6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="actualizacion-media.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Actualización de una media</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../otras-lecciones/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Otras lecciones</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.5.2. Análisis Exploratorio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.3. Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4. Diagnóstico de convergencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.5. Análisis de coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.5.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.5.6.1. Interacciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.6.2. Conclusión</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
