@@ -30,7 +30,7 @@ Consulta la [documentación oficial de Jupyter](https://jupyter.org) para más i
 En jupyter escribimos código en "libretas" cada libreta permite escribir código, texto, fórmulas matemáticas, etcétera. Se guardan en archivos con extensión `ipynb`.
 
 :::{admonition} Para saber más
-:class: warning
+:class: important
 - [JupyterLab](https://jupyterlab.readthedocs.io/)
 - [Project Jupyter](https://jupyter.org/)
 - [Guía básica de Jupyter en español (Ciencia de Datos)](https://cienciadedatos.net/documentos/py08_jupyter.html)
@@ -43,7 +43,7 @@ En jupyter escribimos código en "libretas" cada libreta permite escribir códig
 - **Jupyter Notebook** es la interfaz clásica.
 - **JupyterLab** es una interfaz moderna, flexible y más potente.
 
-Ambas permiten usar notebooks, pero **JupyterLab** agrega soporte para pestañas, explorador de archivos, consolas, y más.
+Ambas permiten usar notebooks, pero **Jupyter Lab** agrega soporte para pestañas, explorador de archivos, consolas, y más.
 
 :::{important}
 A partir de este punto, en todo el libro, cuando se hable de "libretas", nos referiremos libretas jupyter. 
@@ -72,14 +72,15 @@ Para correr una celda:
 
 Cada vez que ejecutas una celda, su número de ejecución se actualiza (`In [1]`, `In [2]`, etc.). El kernel (núcleo de ejecución) mantiene el estado entre celdas, lo que permite ejecutar el código en cualquier orden, aunque se recomienda hacerlo de forma secuencial.
 
-:::{admonition} Nota
-:class: note
+:::{note}
 Piensa en el "kernel" como el intérprete específico de la libreta que estás usando. 
 Si abres una nueva libreta, las variables de una no se pasan a otra porque cada una tiene su propio intérprete.
 
 Conocer qué es el kernel es necesario porque hay muchas veces que interactuar con él es la vía para solucionar muchos problemas, tan sencillo como reiniciarlo o apagarlo.
 
 Existen diferentes tipos de kernel, nosotros solo usaremos el kernel de python en este curso, pero existen kernels de los principales lenguajes de programación estadística como `julia` y `R`, así como muchos otros tipos de lenguajes de programación.
+
+Puedes leer más al respecto [aquí](https://docs.jupyter.org/en/latest/projects/kernels.html)
 :::
  
 ## Cómo abrir JupyterLab

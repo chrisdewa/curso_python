@@ -9,7 +9,7 @@ En este curso usaremos Python en forma local, asistidos por la herramienta `uv`,
 No es necesario que ejecutes o realices cada uno, solo es para tu conocimiento.
 :::
 
----
+
 
 ## Opciones para ejecutar Python
 
@@ -57,7 +57,6 @@ En las libretas del curso verás este símbolo: <i class="fas fa-rocket"></i> en
 Aunque se **sugiere que uses el botón de descarga y corras la libreta en forma local** con el botón <i class="fas fa-download"></i> en la barra de navegación.
 
 :::
----
 
 
 ### Instalador oficial de Python
@@ -95,13 +94,11 @@ Puedes descargarlo desde: [https://www.python.org/downloads/](https://www.python
 
 Es una forma muy flexible y profesional, aunque puede requerir mayor familiaridad con la línea de comandos.
 
----
 
 ### Astral UV
 
 Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el tema de [preparación](preparacion.md). Es la opción recomendada para este curso.
 
----
 
 ### Anaconda
 
@@ -123,7 +120,6 @@ Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el 
 - Personas en ciencia de datos, biología computacional, investigación, etc.
 - Usuarios que prefieren evitar instalaciones manuales.
 
----
 
 ### WinPython (solo en Windows)
 
@@ -145,7 +141,6 @@ Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el 
 - Estudiantes y profesionales que usan siempre las mismas herramientas.
 - Usuarios en sistemas restringidos.
 
----
 
 ## ¿Cómo escribir y ejecutar código Python?
 
@@ -170,7 +165,6 @@ Pasos:
 
 Esto enviará tu código al **intérprete de Python**, que es el que realmente lo ejecuta.
 
----
 
 ### JupyterLab
 
@@ -196,7 +190,7 @@ jupyter lab
 
 También puede usarse dentro de entornos `uv` o `conda`.
 
----
+
 
 ## Editores de texto recomendados
 
@@ -208,7 +202,6 @@ Aunque puedes escribir código en cualquier editor, algunos ofrecen ayudas espec
 | **JupyterLab** | Permite mezclar código y texto, ideal para aprendizaje y ciencia de datos |
 | **PyCharm** | Excelente para proyectos grandes, con herramientas avanzadas |
 
----
 
 ## ¿Qué es un script de Python?
 
@@ -233,7 +226,6 @@ Si estás usando `uv`:
 uv run hola.py
 ```
 
----
 
 ## Próximos pasos
 
