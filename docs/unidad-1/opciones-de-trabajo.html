@@ -231,11 +231,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.4. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/modelos-lineales.html">6.5. Modelos lineales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/modelos-mixtos.html">6.6. Modelos Mixtos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -512,7 +514,6 @@ document.write(`
 <p>En este curso usaremos Python en forma local, asistidos por la herramienta <code class="docutils literal notranslate"><span class="pre">uv</span></code>, como se explicó en el tema de <a class="reference internal" href="preparacion.html"><span class="std std-doc">preparación</span></a>. El objetivo de esta lección es que conozcas otras formas de correr Python.</p>
 <p>No es necesario que ejecutes o realices cada uno, solo es para tu conocimiento.</p>
 </div>
-<hr class="docutils" />
 <section id="opciones-para-ejecutar-python">
 <h2><span class="section-number">1.3.1. </span>Opciones para ejecutar Python<a class="headerlink" href="#opciones-para-ejecutar-python" title="Link to this heading">#</a></h2>
 <section id="en-la-nube">
@@ -564,7 +565,6 @@ document.write(`
 </div>
 </section>
 </section>
-<hr class="docutils" />
 <section id="instalador-oficial-de-python">
 <h3><span class="section-number">1.3.1.2. </span>Instalador oficial de Python<a class="headerlink" href="#instalador-oficial-de-python" title="Link to this heading">#</a></h3>
 <p>Puedes descargarlo desde: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
@@ -601,12 +601,10 @@ jupyter<span class="w"> </span>lab
 <p>Es una forma muy flexible y profesional, aunque puede requerir mayor familiaridad con la línea de comandos.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="astral-uv">
 <h3><span class="section-number">1.3.1.3. </span>Astral UV<a class="headerlink" href="#astral-uv" title="Link to this heading">#</a></h3>
 <p>Herramienta moderna y rápida para gestionar proyectos Python. Se cubrió en el tema de <a class="reference internal" href="preparacion.html"><span class="std std-doc">preparación</span></a>. Es la opción recomendada para este curso.</p>
 </section>
-<hr class="docutils" />
 <section id="anaconda">
 <h3><span class="section-number">1.3.1.4. </span>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.anaconda.com/">Anaconda</a> es una distribución muy completa para ciencia de datos, análisis numérico y machine learning.</p>
@@ -633,7 +631,6 @@ jupyter<span class="w"> </span>lab
 </ul>
 </section>
 </section>
-<hr class="docutils" />
 <section id="winpython-solo-en-windows">
 <h3><span class="section-number">1.3.1.5. </span>WinPython (solo en Windows)<a class="headerlink" href="#winpython-solo-en-windows" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://winpython.github.io/">WinPython</a> es una distribución ligera y portátil para Windows.</p>
@@ -661,7 +658,6 @@ jupyter<span class="w"> </span>lab
 </section>
 </section>
 </section>
-<hr class="docutils" />
 <section id="como-escribir-y-ejecutar-codigo-python">
 <h2><span class="section-number">1.3.2. </span>¿Cómo escribir y ejecutar código Python?<a class="headerlink" href="#como-escribir-y-ejecutar-codigo-python" title="Link to this heading">#</a></h2>
 <section id="archivos-py">
@@ -683,7 +679,6 @@ jupyter<span class="w"> </span>lab
 </ol>
 <p>Esto enviará tu código al <strong>intérprete de Python</strong>, que es el que realmente lo ejecuta.</p>
 </section>
-<hr class="docutils" />
 <section id="jupyterlab">
 <h3><span class="section-number">1.3.2.2. </span>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://jupyter.org/">JupyterLab</a> es una interfaz web para escribir y ejecutar código en bloques llamados <strong>celdas</strong>. Permite agregar gráficos, notas y resultados en un mismo documento.</p>
@@ -704,7 +699,6 @@ jupyter<span class="w"> </span>lab
 <p>También puede usarse dentro de entornos <code class="docutils literal notranslate"><span class="pre">uv</span></code> o <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="editores-de-texto-recomendados">
 <h2><span class="section-number">1.3.3. </span>Editores de texto recomendados<a class="headerlink" href="#editores-de-texto-recomendados" title="Link to this heading">#</a></h2>
 <p>Aunque puedes escribir código en cualquier editor, algunos ofrecen ayudas especiales:</p>
@@ -728,7 +722,6 @@ jupyter<span class="w"> </span>lab
 </table>
 </div>
 </section>
-<hr class="docutils" />
 <section id="que-es-un-script-de-python">
 <h2><span class="section-number">1.3.4. </span>¿Qué es un script de Python?<a class="headerlink" href="#que-es-un-script-de-python" title="Link to this heading">#</a></h2>
 <p>Un <strong>script</strong> es un archivo <code class="docutils literal notranslate"><span class="pre">.py</span></code> que contiene una serie de instrucciones que Python ejecuta de arriba hacia abajo.</p>
@@ -746,7 +739,6 @@ jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
 </section>
-<hr class="docutils" />
 <section id="proximos-pasos">
 <h2><span class="section-number">1.3.5. </span>Próximos pasos<a class="headerlink" href="#proximos-pasos" title="Link to this heading">#</a></h2>
 <p>Las opciones recomendadas para seguir este curso, ya que utilizaremos libretas, es <code class="docutils literal notranslate"><span class="pre">uv</span></code> para manejar python y librerías y <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> escribir y ejecutar el código. En el siguiente tema veremos cómo instalar jupyter, abrirlo y comenzar a trabajar.</p>

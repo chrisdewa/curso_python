@@ -1,4 +1,4 @@
-# Unidad 6: Análisis Bayesianos
+# Unidad 6: Actualización e Inferencia Bayesiana
 
 En esta unidad se revisará de forma concisa cómo realizar análisis bayesianos desde una perspectiva programática de alto nivel.
 

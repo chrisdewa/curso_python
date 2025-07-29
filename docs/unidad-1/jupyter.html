@@ -231,11 +231,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Análisis Bayesianos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización Bayesiana de una Proporción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.2. Actualización de una media</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.3. Pruebas T, parte 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.4. Pruebas T, parte 2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-6/index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/actualizacion-media.html">6.4. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/modelos-lineales.html">6.5. Modelos lineales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unidad-6/modelos-mixtos.html">6.6. Modelos Mixtos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -500,7 +502,7 @@ document.write(`
 <p>¿Sabías que en 2021 la revista nature nombró el proyecto <a class="reference external" href="https://www.nature.com/articles/d41586-021-00075-2">jupyter</a> como uno de los 10 herramientas informáticas más influyentes en la transformación de la ciencia?</p>
 </div>
 <p>En jupyter escribimos código en «libretas» cada libreta permite escribir código, texto, fórmulas matemáticas, etcétera. Se guardan en archivos con extensión <code class="docutils literal notranslate"><span class="pre">ipynb</span></code>.</p>
-<div class="warning admonition">
+<div class="important admonition">
 <p class="admonition-title">Para saber más</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/">JupyterLab</a></p></li>
@@ -515,7 +517,7 @@ document.write(`
 <li><p><strong>Jupyter Notebook</strong> es la interfaz clásica.</p></li>
 <li><p><strong>JupyterLab</strong> es una interfaz moderna, flexible y más potente.</p></li>
 </ul>
-<p>Ambas permiten usar notebooks, pero <strong>JupyterLab</strong> agrega soporte para pestañas, explorador de archivos, consolas, y más.</p>
+<p>Ambas permiten usar notebooks, pero <strong>Jupyter Lab</strong> agrega soporte para pestañas, explorador de archivos, consolas, y más.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
 <p>A partir de este punto, en todo el libro, cuando se hable de «libretas», nos referiremos libretas jupyter.</p>
@@ -543,12 +545,13 @@ document.write(`
 <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code> solo ejecuta la celda sin moverte de lugar ni crear nuevas celdas.</p>
 </div>
 <p>Cada vez que ejecutas una celda, su número de ejecución se actualiza (<code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, etc.). El kernel (núcleo de ejecución) mantiene el estado entre celdas, lo que permite ejecutar el código en cualquier orden, aunque se recomienda hacerlo de forma secuencial.</p>
-<div class="note admonition">
+<div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Piensa en el «kernel» como el intérprete específico de la libreta que estás usando.
 Si abres una nueva libreta, las variables de una no se pasan a otra porque cada una tiene su propio intérprete.</p>
 <p>Conocer qué es el kernel es necesario porque hay muchas veces que interactuar con él es la vía para solucionar muchos problemas, tan sencillo como reiniciarlo o apagarlo.</p>
 <p>Existen diferentes tipos de kernel, nosotros solo usaremos el kernel de python en este curso, pero existen kernels de los principales lenguajes de programación estadística como <code class="docutils literal notranslate"><span class="pre">julia</span></code> y <code class="docutils literal notranslate"><span class="pre">R</span></code>, así como muchos otros tipos de lenguajes de programación.</p>
+<p>Puedes leer más al respecto <a class="reference external" href="https://docs.jupyter.org/en/latest/projects/kernels.html">aquí</a></p>
 </div>
 </section>
 <section id="como-abrir-jupyterlab">

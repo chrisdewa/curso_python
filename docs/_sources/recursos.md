@@ -1,10 +1,34 @@
 # Recursos
 
-En este documento podrás encontrar muchos documentos útiles para ayudarte en el análisis de datos con python.
+En este documento se recopilan los enlaces que aparecen a lo largo del repositorio y otros recursos útiles para profundizar en el curso.
 
 :::{tip}
-Si piensas que has encontrado un acordeón u otro recurso que necesita estar en esta página por favor crea un `issue` en github para que lo agregue a esta página.
+Si encuentras más material que consideres valioso puedes abrir un `issue` para que sea incorporado.
 :::
+
+## Documentación oficial
+
+- **Sitio del curso:** <https://chrisdewa.github.io/curso_python/>
+- **Python:** <https://docs.python.org/3/>
+- **Jupyter Book:** <https://jupyterbook.org/en/stable/>
+- **JupyterLab:** <https://jupyterlab.readthedocs.io/en/stable/>
+
+### Bibliotecas de análisis
+
+|Librería|Documentación|
+|---|---|
+|`pandas`|<https://pandas.pydata.org/docs/>|
+|`numpy`|<https://numpy.org/doc/>|
+|`matplotlib`|<https://matplotlib.org/stable/>|
+|`seaborn`|<https://seaborn.pydata.org/>|
+|`scipy`|<https://scipy.org/>|
+|`statsmodels`|<https://www.statsmodels.org/stable/>|
+|`scikit-learn`|<https://scikit-learn.org/stable/>|
+|`pingouin`|<https://pingouin-stats.org/>|
+|`bambi`|<https://bambinos.github.io/bambi/>|
+|`lifelines`|<https://lifelines.readthedocs.io/>|
+|`numpyro`|<https://num.pyro.ai/en/stable/>|
+|`openpyxl`|<https://openpyxl.readthedocs.io/>|
 
 (acordeones-target)=
 ## Acordeones
@@ -34,4 +58,31 @@ Si piensas que has encontrado un acordeón u otro recurso que necesita estar en 
 |Think Bayes|Allen Downey|[liga](https://allendowney.github.io/ThinkBayes2/)|Libro gratis para comenzar a aprender inferencia bayesiana en python.|
 |Python for Data Analysis, 3E|Wes McKinney|[liga](https://wesmckinney.com/book/python-basics)|Libro gratis de texto para comenzar con análisis de datos en python.|
 
+## Datasets
 
+### Incluidos en este repositorio
+
+- `bases/Heart_Attack_Data.csv`
+- `bases/base_met.xlsx`
+- `bases/datos_dx.csv`
+
+### En librerías
+|Librería|Método|Liga|
+|---|---|---|
+|`seaborn`|`load_dataset`|[liga](https://github.com/mwaskom/seaborn-data)|
+|`statsmodels`|`datasets.get_rdataset`|[liga](https://www.statsmodels.org/stable/datasets/index.html)|
+|`pingouin`|`read_dataset`|[liga](https://pingouin-stats.org/build/html/_modules/pingouin/datasets.html)|
+|`bambi`|`load_data`|[liga](https://bambinos.github.io/bambi/api/load_data.html)|
+
+### En la web
+|Sitio|Descripción|Liga|
+|---|---|---|
+|Kaggle|Plataforma con multitud de conjuntos de datos y competiciones de análisis.|[liga](https://kaggle.com)|
+|UCI Machine Learning Repository|Colección clásica y muy utilizada de datasets.|[liga](https://archive.ics.uci.edu)|
+|GitHub|Muchos proyectos públicos incluyen datos que se pueden descargar libremente.|[liga](https://github.com/topics/datasets)|
+
+## Herramientas y entornos
+
+- **Jupyter Notebook/JupyterLab:** entornos de trabajo interactivo para ejecutar y documentar código.
+- **Google Colab:** alternativa en la nube para ejecutar notebooks sin instalación local.
+- **uv:** gestor de entornos utilizado en el repositorio para instalar dependencias.
