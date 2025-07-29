@@ -34,4 +34,17 @@ Si piensas que has encontrado un acordeón u otro recurso que necesita estar en 
 |Think Bayes|Allen Downey|[liga](https://allendowney.github.io/ThinkBayes2/)|Libro gratis para comenzar a aprender inferencia bayesiana en python.|
 |Python for Data Analysis, 3E|Wes McKinney|[liga](https://wesmckinney.com/book/python-basics)|Libro gratis de texto para comenzar con análisis de datos en python.|
 
+## Datasets
 
+### En librerías
+|Librería|Método|Liga|
+|---|---|---|
+|`seaborn`|`load_dataset`|[liga](https://github.com/mwaskom/seaborn-data)|
+|`statsmodels`|`datasets.get_rdataset`| [liga](https://www.statsmodels.org/stable/datasets/index.html)|
+|`pingouin`|`read_dataset`|[liga](https://pingouin-stats.org/build/html/_modules/pingouin/datasets.html)|
+|`bambi`|`load_data`|[liga](https://bambinos.github.io/bambi/api/load_data.html)|
+
+### En la web
+|Sitio|Descripción|Liga|
+|---|---|---|
+|Kaggle|Sitio perteneciente a Google similar a una red social para análisis de datos. Es posible encontrar muchos tipos diferentes de datasets y es posible ver como otros los analizan (con código y todo).|[liga](https://kaggle.com)|
