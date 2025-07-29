@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.5. Modelos Mixtos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>6.6. Modelos Mixtos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -65,7 +65,7 @@
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="7. Otras lecciones" href="../otras-lecciones/index.html" />
-    <link rel="prev" title="6.4. Actualización de una media" href="actualizacion-media.html" />
+    <link rel="prev" title="6.5. Modelos lineales" href="modelos-lineales.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -238,7 +238,8 @@
 <li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.4. Actualización de una media</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.5. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelos-lineales.html">6.5. Modelos lineales</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.6. Modelos Mixtos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -491,14 +492,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.5.2. Análisis Exploratorio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.3. Modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4. Diagnóstico de convergencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.5. Análisis de coeficientes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.5.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.5.6.1. Interacciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.6.2. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.6.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.6.2. Análisis Exploratorio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.6.3. Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.6.4. Diagnóstico de convergencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.6.5. Análisis de coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.6.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.6.6.1. Interacciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.6.6.2. Conclusión</a></li>
 </ul>
 </li>
 </ul>
@@ -513,11 +514,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-mixtos">
-<h1><span class="section-number">6.5. </span>Modelos Mixtos<a class="headerlink" href="#modelos-mixtos" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6.6. </span>Modelos Mixtos<a class="headerlink" href="#modelos-mixtos" title="Link to this heading">#</a></h1>
 <p>Hemos ya utilizando algunos modelos lineales para realizar análisis como pruebas t y actualización de parámetros, y para analizar datos lineales y binarios. Ahora veamos cómo analizar datos con medidas repetidas.</p>
 <p>Para este ejercicio analizaremos el dataset <code class="docutils literal notranslate"><span class="pre">exercise</span></code>, disponible en seaborn.</p>
 <section id="librerias">
-<h2><span class="section-number">6.5.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
@@ -609,7 +610,7 @@ document.write(`
 </div>
 </section>
 <section id="analisis-exploratorio">
-<h2><span class="section-number">6.5.2. </span>Análisis Exploratorio<a class="headerlink" href="#analisis-exploratorio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.2. </span>Análisis Exploratorio<a class="headerlink" href="#analisis-exploratorio" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -774,7 +775,7 @@ pulso ~ tiempo * tipo + dieta
 <p>Podemos ver que en el grupo de carrera, todos los participantes, excepto el 23 incrementaron su frecuencia cardiaca, mientras que en los otros dos grupos hay más variabilidad. Efectivamente hay interacción entre el efecto del tiempo y el tipo de ejercicio y cada paciente responde de forma distinta.</p>
 </section>
 <section id="modelo">
-<h2><span class="section-number">6.5.3. </span>Modelo<a class="headerlink" href="#modelo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.3. </span>Modelo<a class="headerlink" href="#modelo" title="Link to this heading">#</a></h2>
 <p>La especificación de fórmulas en <code class="docutils literal notranslate"><span class="pre">bambi</span></code> es distinta a la de <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, y se asemeja más a la sintaxis de R.</p>
 <p>En <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, los efectos aleatorios se indican a través del argumento <code class="docutils literal notranslate"><span class="pre">groups</span></code>, por ejemplo <code class="docutils literal notranslate"><span class="pre">groups=id</span></code>. En cambio, en <code class="docutils literal notranslate"><span class="pre">bambi</span></code>, los efectos aleatorios se incorporan directamente en la fórmula, utilizando la notación <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">|</span> <span class="pre">id)</span></code>, lo cual indica explícitamente que cada sujeto (<code class="docutils literal notranslate"><span class="pre">id</span></code>) tendrá un intercepto aleatorio en el modelo.</p>
 <p>Si se desea incluir pendientes aleatorias además del intercepto, se puede utilizar la notación <code class="docutils literal notranslate"><span class="pre">(variable</span> <span class="pre">|</span> <span class="pre">id)</span></code>. Por ejemplo, si se plantea que el efecto del tipo de ejercicio (<code class="docutils literal notranslate"><span class="pre">kind</span></code>) varía entre sujetos, se especifica <code class="docutils literal notranslate"><span class="pre">(kind</span> <span class="pre">|</span> <span class="pre">id)</span></code>. Para un modelo más complejo que permita que tanto el efecto del tipo de ejercicio como el del tiempo varíen por sujeto, se puede usar <code class="docutils literal notranslate"><span class="pre">(kind</span> <span class="pre">+</span> <span class="pre">time</span> <span class="pre">|</span> <span class="pre">id)</span></code>.</p>
@@ -840,7 +841,7 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
 </div>
 </section>
 <section id="diagnostico-de-convergencia">
-<h2><span class="section-number">6.5.4. </span>Diagnóstico de convergencia<a class="headerlink" href="#diagnostico-de-convergencia" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.4. </span>Diagnóstico de convergencia<a class="headerlink" href="#diagnostico-de-convergencia" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span>
@@ -857,7 +858,7 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
 <p>Parece que las cadenas convergieron exitósamente, ahora veamos los resultados.</p>
 </section>
 <section id="analisis-de-coeficientes">
-<h2><span class="section-number">6.5.5. </span>Análisis de coeficientes<a class="headerlink" href="#analisis-de-coeficientes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.5. </span>Análisis de coeficientes<a class="headerlink" href="#analisis-de-coeficientes" title="Link to this heading">#</a></h2>
 <p>Necesitamos especificar ahora las variables de interés, puesto que summary y las demás funciones nos darían la información de cada sujeto de forma individual.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1034,7 +1035,7 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
 </div>
 </section>
 <section id="interpretacion-de-resultados">
-<h2><span class="section-number">6.5.6. </span>Interpretación de resultados<a class="headerlink" href="#interpretacion-de-resultados" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6.6. </span>Interpretación de resultados<a class="headerlink" href="#interpretacion-de-resultados" title="Link to this heading">#</a></h2>
 <p>Conceptualmente, tiene sentido que el tiempo por sí solo no tenga un efecto relevante sobre la frecuencia cardiaca. En condiciones de reposo, es esperable que la frecuencia se mantenga relativamente estable a lo largo del tiempo. Esto se refleja en el coeficiente de <code class="docutils literal notranslate"><span class="pre">t</span></code>, cuyo valor medio es cercano a cero (0.040 lpm/min) y cuya distribución posterior es amplia, con una probabilidad moderada de ser positiva, pero sin excluir valores negativos (HDI 94% = [-0.15, 0.25]). En otras palabras, <strong>el efecto del tiempo solo se manifiesta cuando se combina con otros factores</strong>, particularmente el tipo de ejercicio.</p>
 <p>En contraste, el tipo de ejercicio sí tiene un efecto claro:</p>
 <ul class="simple">
@@ -1043,7 +1044,7 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
 </ul>
 <p>En cuanto a la dieta, se observa que quienes siguen una dieta <strong>sin grasa</strong> tienen una frecuencia cardiaca <strong>7.5 lpm más alta</strong> que quienes siguen una dieta baja en grasa, con una probabilidad muy alta de que esta diferencia sea positiva (HDI 94% = [3.03, 11.99]). Este hallazgo podría tener implicaciones metabólicas o cardiovasculares, y amerita mayor exploración.</p>
 <section id="interacciones">
-<h3><span class="section-number">6.5.6.1. </span>Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.6.6.1. </span>Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h3>
 <p>El aspecto más informativo del modelo está en las interacciones:</p>
 <ul class="simple">
 <li><p>Para quienes <strong>corren</strong>, la frecuencia cardiaca <strong>aumenta en promedio 0.98 lpm por minuto adicional de ejercicio</strong>, con un HDI estrecho (94% = [0.71, 1.27]) y una probabilidad cercana al 100% de que el efecto sea positivo. Este es un resultado <strong>robusto y fisiológicamente esperado</strong>.</p></li>
@@ -1051,7 +1052,7 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
 </ul>
 </section>
 <section id="conclusion">
-<h3><span class="section-number">6.5.6.2. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.6.6.2. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
 <p>El modelo revela que:</p>
 <ul class="simple">
 <li><p>El <strong>tipo de ejercicio y su duración</strong> son los principales determinantes del cambio en frecuencia cardiaca.</p></li>
@@ -1095,12 +1096,12 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="actualizacion-media.html"
+       href="modelos-lineales.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">6.4. </span>Actualización de una media</p>
+        <p class="prev-next-title"><span class="section-number">6.5. </span>Modelos lineales</p>
       </div>
     </a>
     <a class="right-next"
@@ -1128,14 +1129,14 @@ NUTS: [sigma, Intercept, t, kind, t:kind, diet, 1|id_sigma, 1|id_offset]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.5.2. Análisis Exploratorio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.3. Modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4. Diagnóstico de convergencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.5. Análisis de coeficientes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.5.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.5.6.1. Interacciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.6.2. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.6.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">6.6.2. Análisis Exploratorio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.6.3. Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.6.4. Diagnóstico de convergencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.6.5. Análisis de coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-resultados">6.6.6. Interpretación de resultados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">6.6.6.1. Interacciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.6.6.2. Conclusión</a></li>
 </ul>
 </li>
 </ul>

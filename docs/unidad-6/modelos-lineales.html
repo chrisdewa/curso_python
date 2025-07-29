@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Modelos lineales &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>6.5. Modelos lineales &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -62,6 +62,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="6.6. Modelos Mixtos" href="modelos-mixtos.html" />
+    <link rel="prev" title="6.4. Actualización de una media" href="actualizacion-media.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -231,12 +231,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actualizacion-media.html">6.4. Actualización de una media</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">6.5. Modelos Mixtos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.5. Modelos lineales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelos-mixtos.html">6.6. Modelos Mixtos</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">7. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -466,7 +467,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -482,6 +485,27 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">6.5.2. Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconocimiento-y-exploracion-de-los-datos">6.5.3. Reconocimiento y exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">6.5.3.1. Visualizaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.4. Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-datos">6.5.4.1. Preparación de los datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4.2. Diagnóstico de convergencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.4.3. Análisis de coeficientes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.5. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.5.6. Ejercicios</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -492,7 +516,468 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-lineales">
-<h1>Modelos lineales<a class="headerlink" href="#modelos-lineales" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6.5. </span>Modelos lineales<a class="headerlink" href="#modelos-lineales" title="Link to this heading">#</a></h1>
+<section id="librerias">
+<h2><span class="section-number">6.5.1. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bambi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bmb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">arviz</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">az</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Librerías importadas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Librerías importadas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datos">
+<h2><span class="section-number">6.5.2. </span>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<p>En esta libreta utilizaremos un modelo lineal múltiple. Utilizaremos un dataset incluido en <code class="docutils literal notranslate"><span class="pre">bambi</span></code>. Este ejemplo está basado en esta <a class="reference external" href="https://bambinos.github.io/bambi/notebooks/ESCS_multiple_regression.html">libreta</a>.</p>
+<p>Los datos que utilizaremos son de un estudio poblacional en el que se midieron docenas de índices de personalidad en adultos. Este subset contiene cinco predictores numéricos que son sumas de puntuaciones de cinco dimensiones de la personalidad. Las dimenciones son:</p>
+<ul class="simple">
+<li><p>O = Apertura a la experiencia</p></li>
+<li><p>C = Responsabilidad/conciencia</p></li>
+<li><p>E = Extraversión</p></li>
+<li><p>A = Amabilidad/Afabilidad</p></li>
+<li><p>N = Neuroticismo</p></li>
+</ul>
+<p>Puedes leer más de este dataset aquí:</p>
+<blockquote>
+<div><p>Goldberg, L. R. (2008). The Eugene–Springfield community sample: Information available from the research participants (ORI Technical Report No. 48). <a class="reference external" href="http://ipip.ori.org/ORI_TechnicalReport_ESCS_Mar08.pdf">http://ipip.ori.org/ORI_TechnicalReport_ESCS_Mar08.pdf</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">bmb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s2">&quot;ESCS&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>drugs</th>
+      <th>n</th>
+      <th>e</th>
+      <th>o</th>
+      <th>a</th>
+      <th>c</th>
+      <th>hones</th>
+      <th>emoti</th>
+      <th>extra</th>
+      <th>agree</th>
+      <th>consc</th>
+      <th>openn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.857143</td>
+      <td>117</td>
+      <td>102</td>
+      <td>122</td>
+      <td>115</td>
+      <td>89</td>
+      <td>3.43750</td>
+      <td>3.46875</td>
+      <td>3.68750</td>
+      <td>3.28125</td>
+      <td>3.18750</td>
+      <td>3.96875</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.071429</td>
+      <td>69</td>
+      <td>92</td>
+      <td>142</td>
+      <td>140</td>
+      <td>132</td>
+      <td>4.21875</td>
+      <td>2.59375</td>
+      <td>3.56250</td>
+      <td>3.34375</td>
+      <td>3.84375</td>
+      <td>3.87500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.571429</td>
+      <td>69</td>
+      <td>101</td>
+      <td>117</td>
+      <td>148</td>
+      <td>173</td>
+      <td>3.87500</td>
+      <td>3.46875</td>
+      <td>2.81250</td>
+      <td>2.75000</td>
+      <td>3.84375</td>
+      <td>3.25000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.214286</td>
+      <td>87</td>
+      <td>99</td>
+      <td>130</td>
+      <td>135</td>
+      <td>134</td>
+      <td>3.68750</td>
+      <td>3.09375</td>
+      <td>2.93750</td>
+      <td>3.09375</td>
+      <td>3.62500</td>
+      <td>3.96875</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.071429</td>
+      <td>50</td>
+      <td>116</td>
+      <td>100</td>
+      <td>117</td>
+      <td>130</td>
+      <td>4.12500</td>
+      <td>2.59375</td>
+      <td>3.40625</td>
+      <td>3.71875</td>
+      <td>3.84375</td>
+      <td>3.56250</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nos enfocaremos solo en las primeras 6 variables, las cinco dimensiones y <code class="docutils literal notranslate"><span class="pre">drugs</span></code>, nuestra variable de salida, un índice autoreportado del consumo de estupefacientes.</p>
+</section>
+<section id="reconocimiento-y-exploracion-de-los-datos">
+<h2><span class="section-number">6.5.3. </span>Reconocimiento y exploración de los datos<a class="headerlink" href="#reconocimiento-y-exploracion-de-los-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 604 entries, 0 to 603
+Data columns (total 12 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   drugs   604 non-null    float64
+ 1   n       604 non-null    int64  
+ 2   e       604 non-null    int64  
+ 3   o       604 non-null    int64  
+ 4   a       604 non-null    int64  
+ 5   c       604 non-null    int64  
+ 6   hones   604 non-null    float64
+ 7   emoti   604 non-null    float64
+ 8   extra   604 non-null    float64
+ 9   agree   604 non-null    float64
+ 10  consc   604 non-null    float64
+ 11  openn   604 non-null    float64
+dtypes: float64(7), int64(5)
+memory usage: 56.8 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;drugs&#39;, &#39;n&#39;, &#39;e&#39;, &#39;o&#39;, &#39;a&#39;, &#39;c&#39;, &#39;hones&#39;, &#39;emoti&#39;, &#39;extra&#39;, &#39;agree&#39;,
+       &#39;consc&#39;, &#39;openn&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualizaciones">
+<h3><span class="section-number">6.5.3.1. </span>Visualizaciones<a class="headerlink" href="#visualizaciones" title="Link to this heading">#</a></h3>
+<p>Seaborn tiene una función <code class="docutils literal notranslate"><span class="pre">sns.pairplot</span></code> que genera una matriz de dispersión con todos los pares, pero dado que estamos utilizando <code class="docutils literal notranslate"><span class="pre">bambi</span></code>, mostraré cómo utilizar <code class="docutils literal notranslate"><span class="pre">arviz</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_pair</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">),</span> <span class="c1"># list hace que los valores de cada columna se junten en una lista</span>
+    <span class="n">marginals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ca72af7f86e142d8c18bd01093af9db39b02b9fbbcab9039c7ccb7a157b63728.png" src="../_images/ca72af7f86e142d8c18bd01093af9db39b02b9fbbcab9039c7ccb7a157b63728.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="modelo">
+<h2><span class="section-number">6.5.4. </span>Modelo<a class="headerlink" href="#modelo" title="Link to this heading">#</a></h2>
+<p>Como nuestra variable de salida es <code class="docutils literal notranslate"><span class="pre">drugs</span></code> las dimensiones de la personalidad serán nuestros predictores.
+No asumiremos interacción entre ellas ni otros factores externos.</p>
+<p>En este ejemplo, dejaremos que <code class="docutils literal notranslate"><span class="pre">bambi</span></code> seleccione los priors, que serán por defecto, levemente informativos, lo que permite que la inferencia sea dominada por los datos, no por la probabilidad previa.</p>
+<section id="preparacion-de-los-datos">
+<h3><span class="section-number">6.5.4.1. </span>Preparación de los datos<a class="headerlink" href="#preparacion-de-los-datos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">bmb</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+    <span class="s1">&#39;drugs ~ o + c + e + a + n&#39;</span><span class="p">,</span> <span class="c1"># la fórmula</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="c1"># los datos</span>
+    <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># especificamos que queremos quitar los NaN</span>
+    <span class="n">family</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="c1"># la familia de la variable dependiente</span>
+<span class="p">)</span>
+<span class="n">model</span> <span class="c1"># lo ponemos para ver la especificación.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Formula: drugs ~ o + c + e + a + n
+        Family: gaussian
+          Link: mu = identity
+  Observations: 604
+        Priors: 
+    target = mu
+        Common-level effects
+            Intercept ~ Normal(mu: 2.2101, sigma: 21.1938)
+            o ~ Normal(mu: 0.0, sigma: 0.0768)
+            c ~ Normal(mu: 0.0, sigma: 0.0868)
+            e ~ Normal(mu: 0.0, sigma: 0.0816)
+            a ~ Normal(mu: 0.0, sigma: 0.0973)
+            n ~ Normal(mu: 0.0, sigma: 0.0699)
+        
+        Auxiliary parameters
+            sigma ~ HalfStudentT(nu: 4.0, sigma: 0.6482)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">chains</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, Intercept, o, c, e, a, n]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c069f7655e84ab4b4d6949c9295b137", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 20 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="diagnostico-de-convergencia">
+<h3><span class="section-number">6.5.4.2. </span>Diagnóstico de convergencia<a class="headerlink" href="#diagnostico-de-convergencia" title="Link to this heading">#</a></h3>
+<p>Cuando corras el código en tu libreta deberías ver que no tuvimos divergencias, pero analicemos la traza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;rank_bars&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/60d2f277220e24e25b047a840921f148f64b55ee924074055569bbdfa9acf0ba.png" src="../_images/60d2f277220e24e25b047a840921f148f64b55ee924074055569bbdfa9acf0ba.png" />
+</div>
+</div>
+<p>Podemos ver que las cadenas convirgieron exitosamente, lo que indica que las cadenas Markov muestrearon uniformemente todo el espacio de probabilidad posterior.</p>
+</section>
+<section id="analisis-de-coeficientes">
+<h3><span class="section-number">6.5.4.3. </span>Análisis de coeficientes<a class="headerlink" href="#analisis-de-coeficientes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sigma</th>
+      <td>0.593</td>
+      <td>0.017</td>
+      <td>0.561</td>
+      <td>0.623</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4537.0</td>
+      <td>3350.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Intercept</th>
+      <td>3.292</td>
+      <td>0.361</td>
+      <td>2.646</td>
+      <td>3.990</td>
+      <td>0.005</td>
+      <td>0.006</td>
+      <td>4452.0</td>
+      <td>3126.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>o</th>
+      <td>0.006</td>
+      <td>0.001</td>
+      <td>0.004</td>
+      <td>0.008</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>3985.0</td>
+      <td>2885.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>-0.004</td>
+      <td>0.001</td>
+      <td>-0.007</td>
+      <td>-0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4235.0</td>
+      <td>3138.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>0.003</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4147.0</td>
+      <td>3016.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>-0.012</td>
+      <td>0.001</td>
+      <td>-0.015</td>
+      <td>-0.010</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4848.0</td>
+      <td>2964.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>-0.001</td>
+      <td>0.001</td>
+      <td>-0.004</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4738.0</td>
+      <td>3467.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ref_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/710edad5524e258f4a47219fb528c19b97e6e7aaaff1aba2cf7bd9b52aedce0c.png" src="../_images/710edad5524e258f4a47219fb528c19b97e6e7aaaff1aba2cf7bd9b52aedce0c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_forest</span><span class="p">(</span>
+    <span class="n">result</span><span class="p">,</span>
+    <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> 
+    <span class="n">combined</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># combina todas las cadenas</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># mejora el aspecto</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/665b9a755d13b34ef2f5861d2b288062e22794cf493abb0fe76d5fea38226a8a.png" src="../_images/665b9a755d13b34ef2f5861d2b288062e22794cf493abb0fe76d5fea38226a8a.png" />
+</div>
+</div>
+<p>Podemos ver que la dimensión de afabilidad (agreeableness) se correlaciona de forma inversa al consumo de drogas, es un fuerte predictor, de forma similar, la apertura a experiencias (openess) es un predictor positivo.</p>
+</section>
+</section>
+<section id="conclusion">
+<h2><span class="section-number">6.5.5. </span>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Modelar con un marco de trabajo bayesiano es sencillo e intuitivo en <code class="docutils literal notranslate"><span class="pre">python</span></code> al utilizar librerías de alto nivel como <code class="docutils literal notranslate"><span class="pre">bambi</span></code> y <code class="docutils literal notranslate"><span class="pre">arviz</span></code>.</p>
+</section>
+<section id="ejercicios">
+<h2><span class="section-number">6.5.6. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Realiza un análisis similar con tus propios datos.</p></li>
+<li><p>Explora qué otros datasets se incluyen en <code class="docutils literal notranslate"><span class="pre">bambi</span></code>.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,12 +1010,58 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="actualizacion-media.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Actualización de una media</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modelos-mixtos.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">6.6. </span>Modelos Mixtos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">6.5.1. Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">6.5.2. Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconocimiento-y-exploracion-de-los-datos">6.5.3. Reconocimiento y exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">6.5.3.1. Visualizaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">6.5.4. Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-datos">6.5.4.1. Preparación de los datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-convergencia">6.5.4.2. Diagnóstico de convergencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-coeficientes">6.5.4.3. Análisis de coeficientes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6.5.5. Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">6.5.6. Ejercicios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
