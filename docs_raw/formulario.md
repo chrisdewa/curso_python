@@ -6,20 +6,20 @@ Este documento contiene una recopilación exhaustiva de funciones estadísticas 
 
 ## Estadísticos Descriptivos
 
-| Función                     | Fórmula                                                              | Python |
-|----------------------------|----------------------------------------------------------------------|--------|
-| Media                      | $\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$                              | `np.mean(x)` |
-| Mediana                    | valor que divide el conjunto en dos partes                          | `np.median(x)` |
-| Moda                       | valor más frecuente                                                 | `scipy.stats.mode(x, keepdims=False)` |
-| Varianza muestral          | $s^2 = \frac{1}{n-1} \sum (x_i - \bar{x})^2$                         | `np.var(x, ddof=1)` |
-| Varianza poblacional       | $\sigma^2 = \frac{1}{n} \sum (x_i - \bar{x})^2$                      | `np.var(x)` |
-| Desviación estándar        | $s = \sqrt{s^2}$                                                    | `np.std(x, ddof=1)` |
-| Coef. de variación         | $CV = \frac{s}{\bar{x}}$                                            | `scipy.stats.variation(x)` |
-| Rango intercuartílico      | $IQR = Q_3 - Q_1$                                                   | `scipy.stats.iqr(x)` |
-| Asimetría (skew)           | $g_1 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^3$      | `scipy.stats.skew(x)` |
-| Curtosis                   | $g_2 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^4 - 3$  | `scipy.stats.kurtosis(x)` |
-| Suma de cuadrados total    | $\sum (x_i - \bar{x})^2$                                            | `np.sum((x - np.mean(x))**2)` |
-| Covarianza                 | $Cov(X, Y) = \frac{1}{n-1} \sum (x_i - \bar{x})(y_i - \bar{y})$      | `np.cov(x, y)[0,1]` |
+| Función                     | Fórmula                                         | Python |
+|----------------------------|--------------------------------------------------|--------|
+| Media   | $\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$                            | `np.mean(x)` |
+| Mediana | valor que divide el conjunto en dos partes                          | `np.median(x)` |
+| Moda    | valor más frecuente                                                 | `scipy.stats.mode(x, keepdims=False)` |
+| Varianza muestral       | $s^2 = \frac{1}{n-1} \sum (x_i - \bar{x})^2$        | `np.var(x, ddof=1)` |
+| Varianza poblacional    | $\sigma^2 = \frac{1}{n} \sum (x_i - \bar{x})^2$     | `np.var(x)` |
+| Desviación estándar     | $s = \sqrt{s^2}$                                    | `np.std(x, ddof=1)` |
+| Coef. de variación      | $CV = \frac{s}{\bar{x}}$                            | `scipy.stats.variation(x)` |
+| Rango intercuartílico   | $IQR = Q_3 - Q_1$                                   | `scipy.stats.iqr(x)` |
+| Asimetría (skew)        | $g_1 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^3$      | `scipy.stats.skew(x)` |
+| Curtosis                | $g_2 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^4 - 3$  | `scipy.stats.kurtosis(x)` |
+| Suma de cuadrados total | $\sum (x_i - \bar{x})^2$                                             | `np.sum((x - np.mean(x))**2)` |
+| Covarianza              | $Cov(X, Y) = \frac{1}{n-1} \sum (x_i - \bar{x})(y_i - \bar{y})$      | `np.cov(x, y)[0,1]` |
 
 
 
@@ -94,18 +94,42 @@ Este documento contiene una recopilación exhaustiva de funciones estadísticas 
 ### Conceptos clave
 
 - **Teorema de Bayes:**  
-  $P(H | D) = \frac{P(D | H) P(H)}{P(D)}$
-- **Posterior predictiva:**  
-  $p(	ilde{y} | D) = \int p(	ilde{y} | 	heta) p(	heta | D) d	heta$
-- **Intervalos de credibilidad:**  
-  `az.hdi(idata, hdi_prob=0.95)`
-- **Factor de Bayes (BF10):**  
-  `pingouin.bayesfactor_ttest(...)`
-- **Estimación de parámetros con MCMC:**  
-  `bambi.Model(...).fit()`
-- **Visualización y diagnóstico:**  
-  `arviz.plot_trace(idata)`, `az.summary(idata)`
+  $P(H \mid D) = \frac{P(D \mid H) \cdot P(H)}{P(D)}$
 
+- **Distribución posterior:**  
+  Resultado de combinar la verosimilitud con la distribución a priori.  
+  En modelos simples puede calcularse de forma analítica, en modelos complejos se estima con métodos numéricos como MCMC.
+
+- **Posterior predictiva:**  
+  $p(\tilde{y} \mid D) = \int p(\tilde{y} \mid \theta) \cdot p(\theta \mid D) \, d\theta$
+
+- **Intervalos de credibilidad:**  
+  Rango de valores del parámetro que contiene una probabilidad dada (por ejemplo 95%) según la distribución posterior.  
+  `arviz.hdi(idata, hdi_prob=0.95)`
+
+- **Factor de Bayes (BF10):**  
+  Relación de verosimilitudes entre el modelo alternativo y el nulo.  
+  $BF_{10} = \frac{P(D \mid H_1)}{P(D \mid H_0)}$  
+  `pingouin.bayesfactor_ttest(...)`
+
+- **Estimación de parámetros con MCMC:**  
+  `import bambi as bmb`  
+  `model = bmb.Model("y ~ x", data)`  
+  `idata = model.fit()`
+
+- **Diagnóstico de convergencia:**  
+  `arviz.plot_trace(idata)`  
+  `arviz.summary(idata)`  
+  `arviz.rhat(idata)`  
+  `arviz.ess(idata)`
+
+- **Visualización de resultados:**  
+  `arviz.plot_posterior(idata)`  
+  `arviz.plot_forest(idata)`  
+  `arviz.plot_ppc(idata)`
+
+- **Comparación de modelos bayesianos:**  
+  `arviz.compare({ "modelo1": idata1, "modelo2": idata2 })`
 
 
 Este formulario puede expandirse con medidas específicas según tus necesidades (series de tiempo, clustering, modelos mixtos, etc.).
