@@ -122,8 +122,8 @@ Abre una sesión en el intérprete de python o corre este código en alguna libr
 Completa las siguientes expresiones para que devuelvan el valor booleano indicado:
 
 ```python
-7 ___ 3     # True
-4 ___ 4     # False
+7 ___ 3              # True
+4 ___ 4              # False
 "gato" ___ "perro"   # True
 10 ___ 2 * 5         # False
 edad = 18  

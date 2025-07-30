@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Glosario &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>9. Formulario Estadístico Extendido &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -58,12 +58,14 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'glosario';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'formulario';</script>
     <link rel="icon" href="_static/logo.ico"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="11. Referencias de las librerías utilizadas" href="referencias.html" />
-    <link rel="prev" title="9. Formulario Estadístico Extendido" href="formulario.html" />
+    <link rel="next" title="10. Glosario" href="glosario.html" />
+    <link rel="prev" title="8. Recursos" href="recursos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -246,8 +248,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="recursos.html">8. Recursos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="formulario.html">9. Formulario Estadístico Extendido</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Glosario</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Formulario Estadístico Extendido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glosario.html">10. Glosario</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">11. Referencias de las librerías utilizadas</a></li>
 </ul>
 
@@ -320,7 +322,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/glosario.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/formulario.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +339,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Fglosario.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Fformulario.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +369,7 @@
       
       
       
-      <li><a href="_sources/glosario.md" target="_blank"
+      <li><a href="_sources/formulario.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,7 +453,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Glosario</h1>
+    <h1>Formulario Estadístico Extendido</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -461,8 +463,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">10.1. Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica">10.2. Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-descriptivos">9.1. Estadísticos Descriptivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-clasica">9.2. Inferencia Clásica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-t-y-anova">9.2.1. Pruebas t y ANOVA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">9.2.2. Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-no-parametricas">9.3. Pruebas No Paramétricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlaciones">9.4. Correlaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos">9.5. Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-de-muestra">9.6. Tamaño de Muestra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-bayesiana">9.7. Inferencia Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-clave">9.7.1. Conceptos clave</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -474,49 +488,296 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="glosario">
-<h1><span class="section-number">10. </span>Glosario<a class="headerlink" href="#glosario" title="Link to this heading">#</a></h1>
-<p>Este glosario reúne definiciones breves de conceptos clave utilizados a lo largo del curso. Está pensado como una referencia rápida.</p>
-<section id="python">
-<h2><span class="section-number">10.1. </span>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Script</strong>: Archivo de texto que contiene instrucciones en Python para realizar una tarea específica.</p></li>
-<li><p><strong>Jupyter Notebook</strong>: Entorno interactivo para escribir y ejecutar código Python en celdas, útil para análisis de datos y visualización.</p></li>
-<li><p><strong>Variable</strong>: Espacio de memoria con nombre que almacena un valor.</p></li>
-<li><p><strong>Tipo de dato</strong>: Clasificación del contenido de una variable (por ejemplo, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
-<li><p><strong>Condicional (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</strong>: Instrucción que permite ejecutar código dependiendo de una condición lógica.</p></li>
-<li><p><strong>Bucle (<code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>)</strong>: Repite un bloque de código mientras se cumpla una condición o sobre elementos de una secuencia.</p></li>
-<li><p><strong>Función</strong>: Bloque de código reutilizable que realiza una tarea y puede devolver un resultado.</p></li>
-<li><p><strong>Librería</strong>: Colección de funciones y clases predefinidas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>).</p></li>
-<li><p><strong>Algoritmo</strong>: Secuencia ordenada de pasos que resuelven un problema.</p></li>
-<li><p><strong>Pseudocódigo</strong>: Descripción informal de un algoritmo usando lenguaje natural estructurado.</p></li>
-<li><p><strong>Flujograma</strong>: Representación gráfica de los pasos de un proceso o algoritmo.</p></li>
-<li><p><strong>Intérprete</strong>: Programa que ejecuta el código Python línea por línea.</p></li>
-<li><p><strong>JupyterLab</strong>: Versión moderna de Jupyter con pestañas, explorador y consolas.</p></li>
-<li><p><strong>Kernel</strong>: Proceso que ejecuta el código dentro de una libreta Jupyter.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">uv</span></code></strong>: Herramienta para instalar Python y gestionar dependencias en entornos virtuales.</p></li>
-<li><p><strong>Comprensión</strong>: Expresión concisa para crear colecciones a partir de un iterable.</p></li>
-<li><p><strong>Generador</strong>: Objeto que produce valores de forma perezosa a demanda.</p></li>
-<li><p><strong>f-string</strong>: Cadena con formato que permite incrustar expresiones con <code class="docutils literal notranslate"><span class="pre">f&quot;texto</span> <span class="pre">{expr}&quot;</span></code>.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="formulario-estadistico-extendido">
+<h1><span class="section-number">9. </span>Formulario Estadístico Extendido<a class="headerlink" href="#formulario-estadistico-extendido" title="Link to this heading">#</a></h1>
+<p>Este documento contiene una recopilación exhaustiva de funciones estadísticas implementadas en Python, organizadas por categorías. Cada sección incluye la función, su fórmula (cuando aplica) y la implementación en Python usando bibliotecas como <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, <code class="docutils literal notranslate"><span class="pre">pingouin</span></code> y <code class="docutils literal notranslate"><span class="pre">bambi</span></code>.</p>
+<section id="estadisticos-descriptivos">
+<h2><span class="section-number">9.1. </span>Estadísticos Descriptivos<a class="headerlink" href="#estadisticos-descriptivos" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Fórmula</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Media</p></td>
+<td><p><span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.mean(x)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mediana</p></td>
+<td><p>valor que divide el conjunto en dos partes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.median(x)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Moda</p></td>
+<td><p>valor más frecuente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.mode(x,</span> <span class="pre">keepdims=False)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Varianza muestral</p></td>
+<td><p><span class="math notranslate nohighlight">\(s^2 = \frac{1}{n-1} \sum (x_i - \bar{x})^2\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.var(x,</span> <span class="pre">ddof=1)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Varianza poblacional</p></td>
+<td><p><span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n} \sum (x_i - \bar{x})^2\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.var(x)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Desviación estándar</p></td>
+<td><p><span class="math notranslate nohighlight">\(s = \sqrt{s^2}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.std(x,</span> <span class="pre">ddof=1)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Coef. de variación</p></td>
+<td><p><span class="math notranslate nohighlight">\(CV = \frac{s}{\bar{x}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.variation(x)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rango intercuartílico</p></td>
+<td><p><span class="math notranslate nohighlight">\(IQR = Q_3 - Q_1\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.iqr(x)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Asimetría (skew)</p></td>
+<td><p><span class="math notranslate nohighlight">\(g_1 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^3\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.skew(x)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Curtosis</p></td>
+<td><p><span class="math notranslate nohighlight">\(g_2 = \frac{1}{n} \sum \left(\frac{x_i - \bar{x}}{s}\right)^4 - 3\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.kurtosis(x)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Suma de cuadrados total</p></td>
+<td><p><span class="math notranslate nohighlight">\(\sum (x_i - \bar{x})^2\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.sum((x</span> <span class="pre">-</span> <span class="pre">np.mean(x))**2)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Covarianza</p></td>
+<td><p><span class="math notranslate nohighlight">\(Cov(X, Y) = \frac{1}{n-1} \sum (x_i - \bar{x})(y_i - \bar{y})\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.cov(x,</span> <span class="pre">y)[0,1]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
-<section id="estadistica">
-<h2><span class="section-number">10.2. </span>Estadística<a class="headerlink" href="#estadistica" title="Link to this heading">#</a></h2>
+<section id="inferencia-clasica">
+<h2><span class="section-number">9.2. </span>Inferencia Clásica<a class="headerlink" href="#inferencia-clasica" title="Link to this heading">#</a></h2>
+<section id="pruebas-t-y-anova">
+<h3><span class="section-number">9.2.1. </span>Pruebas t y ANOVA<a class="headerlink" href="#pruebas-t-y-anova" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Fórmula</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>t una muestra</p></td>
+<td><p><span class="math notranslate nohighlight">\(t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_1samp(x,</span> <span class="pre">mu0)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>t muestras independientes</p></td>
+<td><p><span class="math notranslate nohighlight">\(t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind(x1,</span> <span class="pre">x2)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>t pareada</p></td>
+<td><p><span class="math notranslate nohighlight">\(t = \frac{\bar{d}}{s_d / \sqrt{n}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_rel(x1,</span> <span class="pre">x2)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ANOVA una vía</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pingouin.anova(dv='y',</span> <span class="pre">between='grupo',</span> <span class="pre">data=df)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ANOVA dos vías</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pingouin.anova(dv='y',</span> <span class="pre">between=['A','B'],</span> <span class="pre">data=df)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="otros">
+<h3><span class="section-number">9.2.2. </span>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Fórmula</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Chi² de independencia</p></td>
+<td><p><span class="math notranslate nohighlight">\(\chi^2 = \sum \frac{(O - E)^2}{E}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.chi2_contingency(tabla)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Intervalo confianza (media)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\bar{x} \pm t^* \frac{s}{\sqrt{n}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.t.interval(...)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Intervalo confianza (proporción)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\hat{p} \pm z^* \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">statsmodels.stats.proportion_confint(...)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Test de normalidad de Shapiro</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.shapiro(x)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pruebas-no-parametricas">
+<h2><span class="section-number">9.3. </span>Pruebas No Paramétricas<a class="headerlink" href="#pruebas-no-parametricas" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mann-Whitney U</p></td>
+<td><p>Alternativa a t para muestras independientes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.mannwhitneyu(x1,</span> <span class="pre">x2)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Wilcoxon pareado</p></td>
+<td><p>Alternativa a t pareada</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.wilcoxon(x1,</span> <span class="pre">x2)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Kruskal-Wallis</p></td>
+<td><p>ANOVA no paramétrico</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.kruskal(x1,</span> <span class="pre">x2,</span> <span class="pre">...)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Friedman</p></td>
+<td><p>ANOVA de medidas repetidas no paramétrico</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.friedmanchisquare(...)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="correlaciones">
+<h2><span class="section-number">9.4. </span>Correlaciones<a class="headerlink" href="#correlaciones" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Fórmula o descripción</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pearson</p></td>
+<td><p><span class="math notranslate nohighlight">\(r = \frac{Cov(X,Y)}{s_X s_Y}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.pearsonr(x,</span> <span class="pre">y)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Spearman</p></td>
+<td><p>basado en rangos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.spearmanr(x,</span> <span class="pre">y)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Kendall tau</p></td>
+<td><p>pares concordantes y discordantes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.kendalltau(x,</span> <span class="pre">y)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Punto-biserial</p></td>
+<td><p>correlación continua vs binaria</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.pointbiserialr(x,</span> <span class="pre">y)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Rango-biserial</p></td>
+<td><p>tamaño de efecto de Mann-Whitney</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pingouin.compute_effsize(...,</span> <span class="pre">eftype='r')</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="modelos">
+<h2><span class="section-number">9.5. </span>Modelos<a class="headerlink" href="#modelos" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Fórmula o tipo</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Regresión lineal simple</p></td>
+<td><p><span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 x\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.statsmodels.formula.api.ols('y</span> <span class="pre">~</span> <span class="pre">x',</span> <span class="pre">data).fit()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Regresión lineal múltiple</p></td>
+<td><p><span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api.ols('y</span> <span class="pre">~</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2',</span> <span class="pre">data).fit()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Regresión logística</p></td>
+<td><p><span class="math notranslate nohighlight">\(log\left(\frac{p}{1 - p}\right) = \beta_0 + \beta_1 x\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Logit(y,</span> <span class="pre">X).fit()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Función expit</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{1 + e^{-x}}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.special.expit</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tamano-de-muestra">
+<h2><span class="section-number">9.6. </span>Tamaño de Muestra<a class="headerlink" href="#tamano-de-muestra" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Objetivo</p></th>
+<th class="head"><p>Fórmula aproximada</p></th>
+<th class="head"><p>Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Proporción (conocida)</p></td>
+<td><p><span class="math notranslate nohighlight">\(n = \frac{Z^2 p(1-p)}{E^2}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">statsmodels.stats.proportion.proportion_effectsize()</span></code> + <code class="docutils literal notranslate"><span class="pre">TTestIndPower()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Media (desv. conocida)</p></td>
+<td><p><span class="math notranslate nohighlight">\(n = \left(\frac{Z \sigma}{E}\right)^2\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">statsmodels.stats.power.TTestPower().solve_power(...)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="inferencia-bayesiana">
+<h2><span class="section-number">9.7. </span>Inferencia Bayesiana<a class="headerlink" href="#inferencia-bayesiana" title="Link to this heading">#</a></h2>
+<section id="conceptos-clave">
+<h3><span class="section-number">9.7.1. </span>Conceptos clave<a class="headerlink" href="#conceptos-clave" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>P-valor</strong>: Probabilidad de obtener un resultado tan extremo como el observado si la hipótesis nula fuera cierta.</p></li>
-<li><p><strong>Intervalo de confianza</strong>: Rango en el que se espera que se encuentre un parámetro poblacional con cierta probabilidad.</p></li>
-<li><p><strong>Correlación</strong>: Medida de la asociación lineal entre dos variables cuantitativas.</p></li>
-<li><p><strong>Regresión</strong>: Modelo estadístico que describe la relación entre una variable dependiente y una o más independientes.</p></li>
-<li><p><strong>Chi-cuadrado (<code class="docutils literal notranslate"><span class="pre">χ²</span></code>)</strong>: Prueba estadística utilizada para comparar frecuencias observadas con esperadas.</p></li>
-<li><p><strong>Tamaño del efecto</strong>: Medida de la magnitud de una diferencia o asociación.</p></li>
-<li><p><strong>Modelo lineal general (GLM)</strong>: Marco estadístico que generaliza la regresión lineal para diferentes tipos de variables dependientes.</p></li>
-<li><p><strong>Regresión logística</strong>: Modelo GLM especializado para variables binarias.</p></li>
-<li><p><strong>Regresión de Poisson</strong>: Modelo GLM utilizado para datos de conteo.</p></li>
-<li><p><strong>Función de enlace</strong>: Transformación que conecta la media del modelo con la predicción lineal.</p></li>
-<li><p><strong>Razón de momios (odds ratio)</strong>: Medida de asociación basada en la relación de probabilidades.</p></li>
-<li><p><strong>ANOVA</strong>: Análisis de varianza para comparar medias entre varios grupos.</p></li>
-<li><p><strong>ANCOVA</strong>: ANOVA que incorpora covariables continuas para ajustar el modelo.</p></li>
+<li><p><strong>Teorema de Bayes:</strong><br />
+<span class="math notranslate nohighlight">\(P(H \mid D) = \frac{P(D \mid H) \cdot P(H)}{P(D)}\)</span></p></li>
+<li><p><strong>Distribución posterior:</strong><br />
+Resultado de combinar la verosimilitud con la distribución a priori.<br />
+En modelos simples puede calcularse de forma analítica, en modelos complejos se estima con métodos numéricos como MCMC.</p></li>
+<li><p><strong>Posterior predictiva:</strong><br />
+<span class="math notranslate nohighlight">\(p(\tilde{y} \mid D) = \int p(\tilde{y} \mid \theta) \cdot p(\theta \mid D) \, d\theta\)</span></p></li>
+<li><p><strong>Intervalos de credibilidad:</strong><br />
+Rango de valores del parámetro que contiene una probabilidad dada (por ejemplo 95%) según la distribución posterior.<br />
+<code class="docutils literal notranslate"><span class="pre">arviz.hdi(idata,</span> <span class="pre">hdi_prob=0.95)</span></code></p></li>
+<li><p><strong>Factor de Bayes (BF10):</strong><br />
+Relación de verosimilitudes entre el modelo alternativo y el nulo.<br />
+<span class="math notranslate nohighlight">\(BF_{10} = \frac{P(D \mid H_1)}{P(D \mid H_0)}\)</span><br />
+<code class="docutils literal notranslate"><span class="pre">pingouin.bayesfactor_ttest(...)</span></code></p></li>
+<li><p><strong>Estimación de parámetros con MCMC:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">bambi</span> <span class="pre">as</span> <span class="pre">bmb</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">bmb.Model(&quot;y</span> <span class="pre">~</span> <span class="pre">x&quot;,</span> <span class="pre">data)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">idata</span> <span class="pre">=</span> <span class="pre">model.fit()</span></code></p></li>
+<li><p><strong>Diagnóstico de convergencia:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.plot_trace(idata)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.summary(idata)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.rhat(idata)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.ess(idata)</span></code></p></li>
+<li><p><strong>Visualización de resultados:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.plot_posterior(idata)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.plot_forest(idata)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.plot_ppc(idata)</span></code></p></li>
+<li><p><strong>Comparación de modelos bayesianos:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">arviz.compare({</span> <span class="pre">&quot;modelo1&quot;:</span> <span class="pre">idata1,</span> <span class="pre">&quot;modelo2&quot;:</span> <span class="pre">idata2</span> <span class="pre">})</span></code></p></li>
 </ul>
+<p>Este formulario puede expandirse con medidas específicas según tus necesidades (series de tiempo, clustering, modelos mixtos, etc.).</p>
+</section>
 </section>
 </section>
 
@@ -551,20 +812,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="formulario.html"
+       href="recursos.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Formulario Estadístico Extendido</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Recursos</p>
       </div>
     </a>
     <a class="right-next"
-       href="referencias.html"
+       href="glosario.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Referencias de las librerías utilizadas</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Glosario</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,8 +845,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">10.1. Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica">10.2. Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-descriptivos">9.1. Estadísticos Descriptivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-clasica">9.2. Inferencia Clásica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-t-y-anova">9.2.1. Pruebas t y ANOVA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">9.2.2. Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-no-parametricas">9.3. Pruebas No Paramétricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlaciones">9.4. Correlaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos">9.5. Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-de-muestra">9.6. Tamaño de Muestra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-bayesiana">9.7. Inferencia Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-clave">9.7.1. Conceptos clave</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

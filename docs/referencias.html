@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Glosario &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>11. Referencias de las librerías utilizadas &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -58,12 +58,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'glosario';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'referencias';</script>
     <link rel="icon" href="_static/logo.ico"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="11. Referencias de las librerías utilizadas" href="referencias.html" />
-    <link rel="prev" title="9. Formulario Estadístico Extendido" href="formulario.html" />
+    <link rel="prev" title="10. Glosario" href="glosario.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -247,8 +246,8 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="recursos.html">8. Recursos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formulario.html">9. Formulario Estadístico Extendido</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Glosario</a></li>
-<li class="toctree-l1"><a class="reference internal" href="referencias.html">11. Referencias de las librerías utilizadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glosario.html">10. Glosario</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Referencias de las librerías utilizadas</a></li>
 </ul>
 
     </div>
@@ -320,7 +319,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/glosario.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/referencias.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +336,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Fglosario.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Freferencias.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +366,7 @@
       
       
       
-      <li><a href="_sources/glosario.md" target="_blank"
+      <li><a href="_sources/referencias.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,7 +450,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Glosario</h1>
+    <h1>Referencias de las librerías utilizadas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -461,8 +460,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">10.1. Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica">10.2. Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arviz">11.1. ArviZ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bambi">11.2. Bambi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifelines">11.3. Lifelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">11.4. Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">11.5. NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">11.6. pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pingouin">11.7. Pingouin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">11.8. SciPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikitlearn">11.9. scikit‑learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">11.10. seaborn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statsmodels">11.11. statsmodels</a></li>
 </ul>
             </nav>
         </div>
@@ -474,49 +482,53 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="glosario">
-<h1><span class="section-number">10. </span>Glosario<a class="headerlink" href="#glosario" title="Link to this heading">#</a></h1>
-<p>Este glosario reúne definiciones breves de conceptos clave utilizados a lo largo del curso. Está pensado como una referencia rápida.</p>
-<section id="python">
-<h2><span class="section-number">10.1. </span>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Script</strong>: Archivo de texto que contiene instrucciones en Python para realizar una tarea específica.</p></li>
-<li><p><strong>Jupyter Notebook</strong>: Entorno interactivo para escribir y ejecutar código Python en celdas, útil para análisis de datos y visualización.</p></li>
-<li><p><strong>Variable</strong>: Espacio de memoria con nombre que almacena un valor.</p></li>
-<li><p><strong>Tipo de dato</strong>: Clasificación del contenido de una variable (por ejemplo, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
-<li><p><strong>Condicional (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</strong>: Instrucción que permite ejecutar código dependiendo de una condición lógica.</p></li>
-<li><p><strong>Bucle (<code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>)</strong>: Repite un bloque de código mientras se cumpla una condición o sobre elementos de una secuencia.</p></li>
-<li><p><strong>Función</strong>: Bloque de código reutilizable que realiza una tarea y puede devolver un resultado.</p></li>
-<li><p><strong>Librería</strong>: Colección de funciones y clases predefinidas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>).</p></li>
-<li><p><strong>Algoritmo</strong>: Secuencia ordenada de pasos que resuelven un problema.</p></li>
-<li><p><strong>Pseudocódigo</strong>: Descripción informal de un algoritmo usando lenguaje natural estructurado.</p></li>
-<li><p><strong>Flujograma</strong>: Representación gráfica de los pasos de un proceso o algoritmo.</p></li>
-<li><p><strong>Intérprete</strong>: Programa que ejecuta el código Python línea por línea.</p></li>
-<li><p><strong>JupyterLab</strong>: Versión moderna de Jupyter con pestañas, explorador y consolas.</p></li>
-<li><p><strong>Kernel</strong>: Proceso que ejecuta el código dentro de una libreta Jupyter.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">uv</span></code></strong>: Herramienta para instalar Python y gestionar dependencias en entornos virtuales.</p></li>
-<li><p><strong>Comprensión</strong>: Expresión concisa para crear colecciones a partir de un iterable.</p></li>
-<li><p><strong>Generador</strong>: Objeto que produce valores de forma perezosa a demanda.</p></li>
-<li><p><strong>f-string</strong>: Cadena con formato que permite incrustar expresiones con <code class="docutils literal notranslate"><span class="pre">f&quot;texto</span> <span class="pre">{expr}&quot;</span></code>.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="referencias-de-las-librerias-utilizadas">
+<h1><span class="section-number">11. </span>Referencias de las librerías utilizadas<a class="headerlink" href="#referencias-de-las-librerias-utilizadas" title="Link to this heading">#</a></h1>
+<p>El siguiente listado resume las referencias bibliográficas sugeridas por los autores de cada paquete utilizado en el curso de Python. Estas citas corresponden a artículos publicados u otros registros académicos recomendados por los desarrolladores.</p>
+<section id="arviz">
+<h2><span class="section-number">11.1. </span>ArviZ<a class="headerlink" href="#arviz" title="Link to this heading">#</a></h2>
+<p>Kumar, R., Carroll, C., Hartikainen, A., &amp; Martin, O. (2019). <em>ArviZ: A unified library for exploratory analysis of Bayesian models in Python</em>. Journal of Open Source Software, 4(33), 1143:contentReference[oaicite:0]{index=0}.</p>
 </section>
-<section id="estadistica">
-<h2><span class="section-number">10.2. </span>Estadística<a class="headerlink" href="#estadistica" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>P-valor</strong>: Probabilidad de obtener un resultado tan extremo como el observado si la hipótesis nula fuera cierta.</p></li>
-<li><p><strong>Intervalo de confianza</strong>: Rango en el que se espera que se encuentre un parámetro poblacional con cierta probabilidad.</p></li>
-<li><p><strong>Correlación</strong>: Medida de la asociación lineal entre dos variables cuantitativas.</p></li>
-<li><p><strong>Regresión</strong>: Modelo estadístico que describe la relación entre una variable dependiente y una o más independientes.</p></li>
-<li><p><strong>Chi-cuadrado (<code class="docutils literal notranslate"><span class="pre">χ²</span></code>)</strong>: Prueba estadística utilizada para comparar frecuencias observadas con esperadas.</p></li>
-<li><p><strong>Tamaño del efecto</strong>: Medida de la magnitud de una diferencia o asociación.</p></li>
-<li><p><strong>Modelo lineal general (GLM)</strong>: Marco estadístico que generaliza la regresión lineal para diferentes tipos de variables dependientes.</p></li>
-<li><p><strong>Regresión logística</strong>: Modelo GLM especializado para variables binarias.</p></li>
-<li><p><strong>Regresión de Poisson</strong>: Modelo GLM utilizado para datos de conteo.</p></li>
-<li><p><strong>Función de enlace</strong>: Transformación que conecta la media del modelo con la predicción lineal.</p></li>
-<li><p><strong>Razón de momios (odds ratio)</strong>: Medida de asociación basada en la relación de probabilidades.</p></li>
-<li><p><strong>ANOVA</strong>: Análisis de varianza para comparar medias entre varios grupos.</p></li>
-<li><p><strong>ANCOVA</strong>: ANOVA que incorpora covariables continuas para ajustar el modelo.</p></li>
-</ul>
+<section id="bambi">
+<h2><span class="section-number">11.2. </span>Bambi<a class="headerlink" href="#bambi" title="Link to this heading">#</a></h2>
+<p>Capretto, T., Piho, C., Kumar, R., Westfall, J., Yarkoni, T., &amp; Martin, O. A. (2022). <em>Bambi: A simple interface for fitting Bayesian linear models in Python</em>. Journal of Statistical Software, 103(15), 1–29:contentReference[oaicite:1]{index=1}.</p>
+</section>
+<section id="lifelines">
+<h2><span class="section-number">11.3. </span>Lifelines<a class="headerlink" href="#lifelines" title="Link to this heading">#</a></h2>
+<p>Davidson‑Pilon, C. (2019). <em>lifelines: survival analysis in Python</em>. Journal of Open Source Software, 4(40), 1317:contentReference[oaicite:2]{index=2}.</p>
+</section>
+<section id="matplotlib">
+<h2><span class="section-number">11.4. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<p>Hunter, J. D. (2007). <em>Matplotlib: A 2D graphics environment</em>. Computing in Science &amp; Engineering, 9(3), 90–95:contentReference[oaicite:3]{index=3}.</p>
+</section>
+<section id="numpy">
+<h2><span class="section-number">11.5. </span>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., … &amp; Oliphant, T. E. (2020). <em>Array programming with NumPy</em>. Nature, 585(7825), 357–362:contentReference[oaicite:4]{index=4}.</p>
+</section>
+<section id="pandas">
+<h2><span class="section-number">11.6. </span>pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<p>The pandas development team. (2020). <em>pandas‑dev/pandas: Pandas</em> (Version latest) [software]. Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a> :contentReference[oaicite:5]{index=5}.<br />
+McKinney, W. (2010). <em>Data structures for statistical computing in Python</em>. In S. van der Walt &amp; J. Millman (Eds.), <em>Proceedings of the 9th Python in Science Conference</em> (pp. 56–61):contentReference[oaicite:6]{index=6}.</p>
+</section>
+<section id="pingouin">
+<h2><span class="section-number">11.7. </span>Pingouin<a class="headerlink" href="#pingouin" title="Link to this heading">#</a></h2>
+<p>Vallat, R. (2018). <em>Pingouin: statistics in Python</em>. Journal of Open Source Software, 3(31), 1026:contentReference[oaicite:7]{index=7}.</p>
+</section>
+<section id="scipy">
+<h2><span class="section-number">11.8. </span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h2>
+<p>Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., … &amp; SciPy 1.0 Contributors. (2020). <em>SciPy 1.0: fundamental algorithms for scientific computing in Python</em>. Nature Methods, 17(3), 261–272:contentReference[oaicite:8]{index=8}.</p>
+</section>
+<section id="scikitlearn">
+<h2><span class="section-number">11.9. </span>scikit‑learn<a class="headerlink" href="#scikitlearn" title="Link to this heading">#</a></h2>
+<p>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … &amp; Duchesnay, E. (2011). <em>Scikit‑learn: Machine learning in Python</em>. Journal of Machine Learning Research, 12, 2825–2830:contentReference[oaicite:9]{index=9}.</p>
+</section>
+<section id="seaborn">
+<h2><span class="section-number">11.10. </span>seaborn<a class="headerlink" href="#seaborn" title="Link to this heading">#</a></h2>
+<p>Waskom, M. L. (2021). <em>seaborn: statistical data visualization</em>. Journal of Open Source Software, 6(60), 3021:contentReference[oaicite:10]{index=10}.</p>
+</section>
+<section id="statsmodels">
+<h2><span class="section-number">11.11. </span>statsmodels<a class="headerlink" href="#statsmodels" title="Link to this heading">#</a></h2>
+<p>Seabold, S., &amp; Perktold, J. (2010). <em>statsmodels: econometric and statistical modeling with Python</em>. En <em>Proceedings of the 9th Python in Science Conference</em>:contentReference[oaicite:11]{index=11}.</p>
 </section>
 </section>
 
@@ -551,22 +563,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="formulario.html"
+       href="glosario.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Formulario Estadístico Extendido</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Glosario</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="referencias.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Referencias de las librerías utilizadas</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -584,8 +587,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">10.1. Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica">10.2. Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arviz">11.1. ArviZ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bambi">11.2. Bambi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifelines">11.3. Lifelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">11.4. Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">11.5. NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">11.6. pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pingouin">11.7. Pingouin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">11.8. SciPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikitlearn">11.9. scikit‑learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">11.10. seaborn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statsmodels">11.11. statsmodels</a></li>
 </ul>
   </nav></div>
 

@@ -1,4 +1,4 @@
-# Glosario de términos
+# Glosario
 
 Este glosario reúne definiciones breves de conceptos clave utilizados a lo largo del curso. Está pensado como una referencia rápida.
 
@@ -8,8 +8,6 @@ Este glosario reúne definiciones breves de conceptos clave utilizados a lo larg
 - **Jupyter Notebook**: Entorno interactivo para escribir y ejecutar código Python en celdas, útil para análisis de datos y visualización.
 - **Variable**: Espacio de memoria con nombre que almacena un valor.
 - **Tipo de dato**: Clasificación del contenido de una variable (por ejemplo, `int`, `float`, `str`, `bool`).
-- **Lista (`list`)**: Colección ordenada y mutable de elementos.
-- **Diccionario (`dict`)**: Estructura de datos que almacena pares clave-valor.
 - **Condicional (`if`, `else`, `elif`)**: Instrucción que permite ejecutar código dependiendo de una condición lógica.
 - **Bucle (`for`, `while`)**: Repite un bloque de código mientras se cumpla una condición o sobre elementos de una secuencia.
 - **Función**: Bloque de código reutilizable que realiza una tarea y puede devolver un resultado.
@@ -24,6 +22,7 @@ Este glosario reúne definiciones breves de conceptos clave utilizados a lo larg
 - **Comprensión**: Expresión concisa para crear colecciones a partir de un iterable.
 - **Generador**: Objeto que produce valores de forma perezosa a demanda.
 - **f-string**: Cadena con formato que permite incrustar expresiones con `f"texto {expr}"`.
+
 ## Estadística
 
 - **P-valor**: Probabilidad de obtener un resultado tan extremo como el observado si la hipótesis nula fuera cierta.
