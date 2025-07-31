@@ -47,6 +47,6 @@ html:
 sphinx:
   config:
     language: es
-    bibtex_reference_style: label
+    bibtex_reference_style: author_year
   extra_extensions:
     - sphinxcontrib.mermaid
