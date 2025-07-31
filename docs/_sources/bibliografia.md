@@ -1,6 +1,8 @@
 
 
-# Referencias
+# Bibliografía
+
+## Librerías
 
 - **ArviZ** {cite}`Kumar2019`  
 - **Bambi** {cite}`Capretto2022`  
@@ -16,7 +18,9 @@
 
 
 
-## Bibliografía
+## Referencias Bibliográficas
+
+Aquí se enlistan todas las referencias del libro.
 
 ```{bibliography}
 :style: unsrt
