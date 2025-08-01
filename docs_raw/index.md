@@ -9,6 +9,14 @@ Este Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud,
 
 https://chrisdewa.github.io/curso_python/
 
+## ¿Por aprender programación estadística?
+
+- **Reproducibilidad:** Python permite documentar cada paso del análisis, facilitando la replicación científica, a diferencia de SPSS o Excel.
+- **Escalabilidad:** Soporta grandes volúmenes de datos y análisis complejos sin las limitaciones técnicas de herramientas gráficas. Puedes analizar datasets de millones de filas sin una supercomputadora o realizar análisis computacionalmente exigentes con más seguridad.
+- **Autonomía:** Al aprender a programar, adquieres independencia técnica para adaptar análisis a tus necesidades, sin depender de menús preestablecidos. Además, la herramienta se adapta a tus necesidades en todo momento.
+- **Agiliza flujos de trabajo:** Python agiliza tus flujos de trabajo mediante la automatización de análisis o de problemas informáticos frecuentes.
+- **Integración moderna:** Python es estándar en ciencia de datos, con bibliotecas para estadística, visualización, machine learning y manejo de datos clínicos.
+
 ## Descripción
 
 A través de clases teóricas y práctica intensiva, los participantes desarrollarán habilidades para:
@@ -29,9 +37,28 @@ Al finalizar el curso, la persona participante será capaz de realizar análisis
 - Uso de JupyterLab y bibliotecas científicas.
 ```
 
+## Perfil de ingreso
+
+- Profesionales de la salud en medicina, enfermería, ciencias paraclínicas, biología, química o disciplinas relacionadas con la investigación biomédica.
+- Que cuenten con conocimientos básicos en estadística y metodología de la investigación.
+- Se sugiere contar con estudios de posgrado (especialidad o maestría en ciencias de la salud o áreas afines), aunque no es un requisito indispensable.
+- Interés en aplicar programación para análisis de datos clínicos, epidemiológicos o de investigación en salud.
+- Habilidad para el autoaprendizaje y disposición para realizar actividades prácticas de forma autónoma.
+
+## Perfil de egreso
+
+La persona egresada del curso será capaz de:
+
+- Configurar entornos de trabajo locales y en la nube utilizando JupyterLab y otras herramientas de código abierto.
+- Programar análisis estadísticos básicos y avanzados empleando bibliotecas científicas validadas como `pandas`, `statsmodels` y `scikit-learn`.
+- Automatizar flujos de trabajo de análisis y generación de reportes en salud.
+- Aplicar buenas prácticas de documentación, versionado y reproducibilidad científica en sus proyectos.
+- Integrar conocimientos estadísticos con programación en Python para resolver problemas reales en el ámbito clínico, epidemiológico o académico.
+
+
 ## Duración y distribución horaria
 
-La duración aproximada total del curso es de **300 horas**, que incluyen la lectura y comprensión de los temas, ejecución del código y ejercicios y clases guiadas por el autor.  
+La duración aproximada total del curso es de **300 horas**, que incluyen la lectura y comprensión de los temas, ejecución del código y ejercicios y clases guiadas por el autor.
 
 ## Requisitos para tomar el curso
 
