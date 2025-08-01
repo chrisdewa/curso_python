@@ -254,7 +254,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos.html">8. Recursos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glosario.html">9. Glosario de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formulario.html">9. Formulario Estadístico Extendido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glosario.html">10. Glosario</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliografia.html">11. Bibliografía</a></li>
 </ul>
 
     </div>
@@ -480,6 +482,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-propuesta">2.3.6. Actividad propuesta</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">2.3.7. Comparaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-comparaciones">2.3.8. Ejercicio de comparaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-logicos-intrinsecos">2.3.9. Valores lógicos intrínsecos</a></li>
 </ul>
             </nav>
         </div>
@@ -665,13 +668,84 @@ document.write(`
 <h2><span class="section-number">2.3.8. </span>Ejercicio de comparaciones<a class="headerlink" href="#ejercicio-de-comparaciones" title="Link to this heading">#</a></h2>
 <p>Abre una sesión en el intérprete de python o corre este código en alguna libreta de jupyter.
 Completa las siguientes expresiones para que devuelvan el valor booleano indicado:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="n">___</span> <span class="mi">3</span>     <span class="c1"># True</span>
-<span class="mi">4</span> <span class="n">___</span> <span class="mi">4</span>     <span class="c1"># False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="n">___</span> <span class="mi">3</span>              <span class="c1"># True</span>
+<span class="mi">4</span> <span class="n">___</span> <span class="mi">4</span>              <span class="c1"># False</span>
 <span class="s2">&quot;gato&quot;</span> <span class="n">___</span> <span class="s2">&quot;perro&quot;</span>   <span class="c1"># True</span>
 <span class="mi">10</span> <span class="n">___</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span>         <span class="c1"># False</span>
 <span class="n">edad</span> <span class="o">=</span> <span class="mi">18</span>  
 <span class="n">edad</span> <span class="n">___</span> <span class="mi">18</span>          <span class="c1"># True</span>
 <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="n">___</span> <span class="mi">7</span>          <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="valores-logicos-intrinsecos">
+<h2><span class="section-number">2.3.9. </span>Valores lógicos intrínsecos<a class="headerlink" href="#valores-logicos-intrinsecos" title="Link to this heading">#</a></h2>
+<p>Todos los objetos en Python tienen un valor lógico (booleano) intrínseco. Es decir, aunque el valor no sea <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>, tienen una equivalencia con estos valores.</p>
+<p>Por ejemplo, el número <code class="docutils literal notranslate"><span class="pre">int</span></code> <strong>0</strong>, tiene una equivalencia con <code class="docutils literal notranslate"><span class="pre">False</span></code>, al igual que cualquier colección vacía, es decir <code class="docutils literal notranslate"><span class="pre">[]</span></code>, que es una lista vacía equivalente a <code class="docutils literal notranslate"><span class="pre">False</span></code>. La siguiente tabla compila los ejemplos más típicos, pruébalos en tu consola de Python o en alguna libreta.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Valor</p></th>
+<th class="head"><p>Explicación</p></th>
+<th class="head"><p>Valor lógico intrínseco</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>Número entero o flotante igual a cero</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2.7</span></code>, <code class="docutils literal notranslate"><span class="pre">-3</span></code></p></td>
+<td><p>Cualquier número diferente de cero</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>Cadena de texto vacía</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'hola'</span></code></p></td>
+<td><p>Cadena de texto no vacía</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p>Lista vacía</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p></td>
+<td><p>Lista con elementos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+<td><p>Diccionario vacío</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{'a':</span> <span class="pre">1}</span></code></p></td>
+<td><p>Diccionario con contenido</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set()</span></code></p></td>
+<td><p>Conjunto vacío</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">2}</span></code></p></td>
+<td><p>Conjunto con elementos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Valor nulo o ausencia de valor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">object()</span></code></p></td>
+<td><p>Instancia de objeto genérico</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recuerda: puedes usar la función <code class="docutils literal notranslate"><span class="pre">bool()</span></code> para verificar el valor lógico de cualquier objeto:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># False</span>
+<span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>       <span class="c1"># False</span>
+<span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>   <span class="c1"># True</span>
+<span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>     <span class="c1"># False</span>
 </pre></div>
 </div>
 </section>
@@ -754,6 +828,7 @@ Completa las siguientes expresiones para que devuelvan el valor booleano indicad
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-propuesta">2.3.6. Actividad propuesta</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">2.3.7. Comparaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-comparaciones">2.3.8. Ejercicio de comparaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-logicos-intrinsecos">2.3.9. Valores lógicos intrínsecos</a></li>
 </ul>
   </nav></div>
 

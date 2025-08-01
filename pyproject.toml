@@ -1,6 +1,6 @@
 [project]
 name = "curso-python"
-version = "0.4.0"
+version = "0.6.0"
 description = "Curso-Taller de Análisis Estadístico con Python para ciencias de la salud y afines."
 authors = [
     {name = "Christian Alejandro Delaflor Wagner"}

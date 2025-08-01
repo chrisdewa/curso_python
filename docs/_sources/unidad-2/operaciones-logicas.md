@@ -122,11 +122,42 @@ Abre una sesión en el intérprete de python o corre este código en alguna libr
 Completa las siguientes expresiones para que devuelvan el valor booleano indicado:
 
 ```python
-7 ___ 3     # True
-4 ___ 4     # False
+7 ___ 3              # True
+4 ___ 4              # False
 "gato" ___ "perro"   # True
 10 ___ 2 * 5         # False
 edad = 18  
 edad ___ 18          # True
 3 < 5 ___ 7          # True
+```
+
+## Valores lógicos intrínsecos
+
+Todos los objetos en Python tienen un valor lógico (booleano) intrínseco. Es decir, aunque el valor no sea `True` o `False`, tienen una equivalencia con estos valores.
+
+ Por ejemplo, el número `int` **0**, tiene una equivalencia con `False`, al igual que cualquier colección vacía, es decir `[]`, que es una lista vacía equivalente a `False`. La siguiente tabla compila los ejemplos más típicos, pruébalos en tu consola de Python o en alguna libreta.
+
+
+| Valor           | Explicación                           | Valor lógico intrínseco |
+|-----------------|---------------------------------------|-------------------------|
+| `0`             | Número entero o flotante igual a cero | `False`                 |
+| `1`, `2.7`, `-3`| Cualquier número diferente de cero    | `True`                  |
+| `''`            | Cadena de texto vacía                 | `False`                 |
+| `'hola'`        | Cadena de texto no vacía              | `True`                  |
+| `[]`            | Lista vacía                           | `False`                 |
+| `[1, 2, 3]`     | Lista con elementos                   | `True`                  |
+| `{}`            | Diccionario vacío                     | `False`                 |
+| `{'a': 1}`      | Diccionario con contenido             | `True`                  |
+| `set()`         | Conjunto vacío                        | `False`                 |
+| `{1, 2}`        | Conjunto con elementos                | `True`                  |
+| `None`          | Valor nulo o ausencia de valor        | `False`                 |
+| `object()`      | Instancia de objeto genérico          | `True`                  |
+
+Recuerda: puedes usar la función `bool()` para verificar el valor lógico de cualquier objeto:
+
+```python
+bool(0)        # False
+bool('')       # False
+bool([1, 2])   # True
+bool(None)     # False
 ```

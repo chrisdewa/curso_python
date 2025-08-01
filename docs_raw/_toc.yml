@@ -61,4 +61,6 @@ chapters:
     sections:
       - glob: otras-lecciones/* 
   - file: recursos
+  - file: formulario
   - file: glosario
+  - file: bibliografia
