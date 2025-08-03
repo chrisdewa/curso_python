@@ -48,5 +48,12 @@ sphinx:
   config:
     language: es
     bibtex_reference_style: author_year
+    ogp_site_url: "https://chrisdewa.github.io/curso_python/"
+    ogp_site_name: "Curso-Taller de Análisis Estadístico con Python"
+    ogp_description_length: 300
+    ogp_image: "https://chrisdewa.github.io/curso_python/_static/logo.png"
+    ogp_type: "website"
+
   extra_extensions:
     - sphinxcontrib.mermaid
+    - sphinxext.opengraph

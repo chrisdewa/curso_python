@@ -23,5 +23,6 @@ dependencies = [
     "scipy>=1.15.3",
     "seaborn>=0.13.2",
     "sphinxcontrib-mermaid>=1.0.0",
+    "sphinxext-opengraph>=0.11.0",
     "statsmodels>=0.14.4",
 ]

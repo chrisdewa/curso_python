@@ -382,6 +382,7 @@ dependencies = [
     { name = "scipy" },
     { name = "seaborn" },
     { name = "sphinxcontrib-mermaid" },
+    { name = "sphinxext-opengraph" },
     { name = "statsmodels" },
 ]
 
@@ -401,6 +402,7 @@ requires-dist = [
     { name = "scipy", specifier = ">=1.15.3" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "sphinxcontrib-mermaid", specifier = ">=1.0.0" },
+    { name = "sphinxext-opengraph", specifier = ">=0.11.0" },
     { name = "statsmodels", specifier = ">=0.14.4" },
 ]
 
@@ -2419,6 +2421,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3b/44/6716b257b0aa6bfd51a1b31665d1c205fb12cb5ad56de752dfa15657de2f/sphinxcontrib_serializinghtml-2.0.0.tar.gz", hash = "sha256:e9d912827f872c029017a53f0ef2180b327c3f7fd23c87229f7a8e8b70031d4d", size = 16080, upload-time = "2024-07-29T01:10:09.332Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/52/a7/d2782e4e3f77c8450f727ba74a8f12756d5ba823d81b941f1b04da9d033a/sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl", hash = "sha256:6e2cb0eef194e10c27ec0023bfeb25badbbb5868244cf5bc5bdc04e4464bf331", size = 92072, upload-time = "2024-07-29T01:10:08.203Z" },
+]
+
+[[package]]
+name = "sphinxext-opengraph"
+version = "0.11.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sphinx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5b/af/b274fedfac3ba8e0738a91c2141fae65e96a286a22799e47682b2c64d21b/sphinxext_opengraph-0.11.0.tar.gz", hash = "sha256:8f145274ae7add372277f69d57fca768d2349ea9a202637f506a6fdde5808cf4", size = 1026771, upload-time = "2025-08-03T17:32:23.636Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f3/8e/1d88233a41a9bc04d2f383d1471a93f1b17f3d51e0366c2ae1f772390e23/sphinxext_opengraph-0.11.0-py3-none-any.whl", hash = "sha256:200d7492aaf25813062ed68b34ba65201a6adba83089cc11324c92e25066e83f", size = 1004039, upload-time = "2025-08-03T17:32:21.47Z" },
 ]
 
 [[package]]
