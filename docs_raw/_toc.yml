@@ -57,9 +57,9 @@ chapters:
       - file: unidad-6/actualizacion-media
       - file: unidad-6/modelos-lineales
       - file: unidad-6/modelos-mixtos
-  - file: unidad-7/index
+  - file: ejercicios/index
     sections:
-      - glob: unidad-7/*
+      - glob: ejercicios/*
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
