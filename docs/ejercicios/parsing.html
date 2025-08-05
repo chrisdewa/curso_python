@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="7.4. Parsing" />
+<meta property="og:title" content="7.6. Parsing" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chrisdewa.github.io/curso_python/ejercicios/parsing.html" />
 <meta property="og:site_name" content="Curso-Taller de Análisis Estadístico con Python" />
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="Curso-Taller de Análisis Estadístico con Python" />
 <meta name="description" content="Parsing es el proceso de tomar una entrada estructurada o semiestructurada (como texto, comandos, o datos en bruto), analizar su contenido de acuerdo con reglas sintácticas o semánticas definidas, y transformarlo en una estructura de datos interna que pueda ser utilizada para generar un resultado..." />
 
-    <title>7.4. Parsing &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>7.6. Parsing &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -70,8 +70,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="7.5. Proporción simple" href="proporcion-simple.html" />
-    <link rel="prev" title="7.3. Pares" href="pares.html" />
+    <link rel="next" title="7.7. Proporción simple" href="proporcion-simple.html" />
+    <link rel="prev" title="7.5. Pares" href="pares.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -251,9 +251,11 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">7. Ejercicios lógicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="edad-en-rango.html">7.1. Edad en rango</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imc.html">7.2. IMC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pares.html">7.3. Pares</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.4. Parsing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proporcion-simple.html">7.5. Proporción simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="muestreo-aleatorio.html">7.3. Muestreo aleatorio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="n-a-palabra.html">7.4. Número a palabra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pares.html">7.5. Pares</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.6. Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proporcion-simple.html">7.7. Proporción simple</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -508,7 +510,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.4.1. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.6.1. Ejercicio</a></li>
 </ul>
             </nav>
         </div>
@@ -521,11 +523,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parsing">
-<h1><span class="section-number">7.4. </span>Parsing<a class="headerlink" href="#parsing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.6. </span>Parsing<a class="headerlink" href="#parsing" title="Link to this heading">#</a></h1>
 <p><em>Parsing</em> es el proceso de tomar una entrada estructurada o semiestructurada (como texto, comandos, o datos en bruto), analizar su contenido de acuerdo con reglas sintácticas o semánticas definidas, y transformarlo en una estructura de datos interna que pueda ser utilizada para generar un resultado o ejecutar una acción.</p>
 <p>Tu objetivo es tomar una serie de cadenas de texto y procesarlas.</p>
 <section id="ejercicio">
-<h2><span class="section-number">7.4.1. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.6.1. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <p>En un laboratorio tienen una lista de sujetos, cada sujeto está representado por una cadena de texto identificadora.
 La cadena de texto está generada tomando, el sexo del sujeto <code class="docutils literal notranslate"><span class="pre">M</span></code> para mujeres y <code class="docutils literal notranslate"><span class="pre">H</span></code> para hombres, cuatro números aleatorios, luego el año de nacimiento del sujeto y finalmente el número de registro en la serie (dos dígitos).</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;{sexo}{aleatorio}{año}{registro}&quot;</span></code></p>
@@ -625,7 +627,7 @@ Tu objetivo es reportar el número de sujetos del sexo femenino, que nacieron a 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">7.3. </span>Pares</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Pares</p>
       </div>
     </a>
     <a class="right-next"
@@ -633,7 +635,7 @@ Tu objetivo es reportar el número de sujetos del sexo femenino, que nacieron a 
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">7.5. </span>Proporción simple</p>
+        <p class="prev-next-title"><span class="section-number">7.7. </span>Proporción simple</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -653,7 +655,7 @@ Tu objetivo es reportar el número de sujetos del sexo femenino, que nacieron a 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.4.1. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.6.1. Ejercicio</a></li>
 </ul>
   </nav></div>
 

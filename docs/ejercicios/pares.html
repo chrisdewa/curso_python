@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="7.3. Pares" />
+<meta property="og:title" content="7.5. Pares" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chrisdewa.github.io/curso_python/ejercicios/pares.html" />
 <meta property="og:site_name" content="Curso-Taller de Análisis Estadístico con Python" />
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="Curso-Taller de Análisis Estadístico con Python" />
 <meta name="description" content="El objetivo de este ejercicio es programar de forma eficiente cómo identificar si un número es par o es non. Conocimiento previo: La forma más sencilla en para resolver si un número dado es o no par, es utilizando la operación módulo. En python funciona así: El resultado es «1». Solo los números ..." />
 
-    <title>7.3. Pares &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>7.5. Pares &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -70,8 +70,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="7.4. Parsing" href="parsing.html" />
-    <link rel="prev" title="7.2. IMC" href="imc.html" />
+    <link rel="next" title="7.6. Parsing" href="parsing.html" />
+    <link rel="prev" title="7.4. Número a palabra" href="n-a-palabra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -251,9 +251,11 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">7. Ejercicios lógicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="edad-en-rango.html">7.1. Edad en rango</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imc.html">7.2. IMC</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3. Pares</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsing.html">7.4. Parsing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proporcion-simple.html">7.5. Proporción simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="muestreo-aleatorio.html">7.3. Muestreo aleatorio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="n-a-palabra.html">7.4. Número a palabra</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.5. Pares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parsing.html">7.6. Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proporcion-simple.html">7.7. Proporción simple</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -508,8 +510,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento-previo">7.3.1. Conocimiento previo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.3.2. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento-previo">7.5.1. Conocimiento previo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.5.2. Ejercicio</a></li>
 </ul>
             </nav>
         </div>
@@ -522,10 +524,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pares">
-<h1><span class="section-number">7.3. </span>Pares<a class="headerlink" href="#pares" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.5. </span>Pares<a class="headerlink" href="#pares" title="Link to this heading">#</a></h1>
 <p>El objetivo de este ejercicio es programar de forma eficiente cómo identificar si un número es par o es non.</p>
 <section id="conocimiento-previo">
-<h2><span class="section-number">7.3.1. </span>Conocimiento previo<a class="headerlink" href="#conocimiento-previo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.5.1. </span>Conocimiento previo<a class="headerlink" href="#conocimiento-previo" title="Link to this heading">#</a></h2>
 <p>La forma más sencilla en para resolver si un número dado es o no par, es utilizando la operación <a class="reference external" href="https://es.wikipedia.org/wiki/Operaci%C3%B3n_m%C3%B3dulo">módulo</a>.
 En python funciona así:</p>
 <div class="cell docutils container">
@@ -557,7 +559,7 @@ En python funciona así:</p>
 </div>
 </section>
 <section id="ejercicio">
-<h2><span class="section-number">7.3.2. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.5.2. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No muevas este código</span>
@@ -634,12 +636,12 @@ En python funciona así:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="imc.html"
+       href="n-a-palabra.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">7.2. </span>IMC</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>Número a palabra</p>
       </div>
     </a>
     <a class="right-next"
@@ -647,7 +649,7 @@ En python funciona así:</p>
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">7.4. </span>Parsing</p>
+        <p class="prev-next-title"><span class="section-number">7.6. </span>Parsing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -667,8 +669,8 @@ En python funciona así:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento-previo">7.3.1. Conocimiento previo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.3.2. Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento-previo">7.5.1. Conocimiento previo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">7.5.2. Ejercicio</a></li>
 </ul>
   </nav></div>
 

@@ -7,16 +7,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="7. Ejercicios lógicos" />
+<meta property="og:title" content="7.4. Número a palabra" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://chrisdewa.github.io/curso_python/ejercicios/index.html" />
+<meta property="og:url" content="https://chrisdewa.github.io/curso_python/ejercicios/n-a-palabra.html" />
 <meta property="og:site_name" content="Curso-Taller de Análisis Estadístico con Python" />
-<meta property="og:description" content="En esta sección encontrarás ejercicios lógicos para ejercitar el pensamiento programático y tus habilidades en python. Cada libreta es un ejercicio, la mayoría de ellos son muy sencillos. Se sugiere trabajar directamente en Colab, no es necesario descargar las libretas." />
+<meta property="og:description" content="En este ejercicio la función de trabajo recibirá un número del 0 al 9 (inclusivo) y deberas imprimir en la consola el número con letras. Por ejemplo, 0 -&gt; &quot;Cero&quot;. Completa la función nombre." />
 <meta property="og:image" content="https://chrisdewa.github.io/curso_python/_static/logo.png" />
 <meta property="og:image:alt" content="Curso-Taller de Análisis Estadístico con Python" />
-<meta name="description" content="En esta sección encontrarás ejercicios lógicos para ejercitar el pensamiento programático y tus habilidades en python. Cada libreta es un ejercicio, la mayoría de ellos son muy sencillos. Se sugiere trabajar directamente en Colab, no es necesario descargar las libretas." />
+<meta name="description" content="En este ejercicio la función de trabajo recibirá un número del 0 al 9 (inclusivo) y deberas imprimir en la consola el número con letras. Por ejemplo, 0 -&gt; &quot;Cero&quot;. Completa la función nombre." />
 
-    <title>7. Ejercicios lógicos &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+    <title>7.4. Número a palabra &#8212; Curso-Taller de Análisis Estadístico con Python</title>
   
   
   
@@ -66,14 +66,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ejercicios/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ejercicios/n-a-palabra';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="7.1. Edad en rango" href="edad-en-rango.html" />
-    <link rel="prev" title="6.6. Modelos Mixtos" href="../unidad-6/modelos-mixtos.html" />
+    <link rel="next" title="7.5. Pares" href="pares.html" />
+    <link rel="prev" title="7.3. Muestreo aleatorio" href="muestreo-aleatorio.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -250,11 +248,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../unidad-6/modelos-mixtos.html">6.6. Modelos Mixtos</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Ejercicios lógicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">7. Ejercicios lógicos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="edad-en-rango.html">7.1. Edad en rango</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imc.html">7.2. IMC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="muestreo-aleatorio.html">7.3. Muestreo aleatorio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="n-a-palabra.html">7.4. Número a palabra</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.4. Número a palabra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pares.html">7.5. Pares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsing.html">7.6. Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="proporcion-simple.html">7.7. Proporción simple</a></li>
@@ -315,6 +313,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chrisdewa/curso_python/blob/main/docs_raw/ejercicios/n-a-palabra.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -340,7 +369,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/ejercicios/index.md" target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/ejercicios/n-a-palabra.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +386,7 @@
       
       
       
-      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Fejercicios/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Fejercicios/n-a-palabra.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +416,7 @@
       
       
       
-      <li><a href="../_sources/ejercicios/index.md" target="_blank"
+      <li><a href="../_sources/ejercicios/n-a-palabra.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +426,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -469,7 +498,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ejercicios lógicos</h1>
+    <h1>Número a palabra</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -483,16 +512,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ejercicios-logicos">
-<h1><span class="section-number">7. </span>Ejercicios lógicos<a class="headerlink" href="#ejercicios-logicos" title="Link to this heading">#</a></h1>
-<p>En esta sección encontrarás ejercicios lógicos para ejercitar el pensamiento programático y tus habilidades en python.</p>
-<p>Cada libreta es un ejercicio, la mayoría de ellos son muy sencillos.</p>
-<p>Se sugiere trabajar directamente en Colab <i class="fas fa-rocket"></i>, no es necesario descargar las libretas.</p>
-<div class="admonition important">
-<p class="admonition-title">Importante</p>
-<p>Todas estos ejercicios deben realizarse sin utilizar librerías externas (como <code class="docutils literal notranslate"><span class="pre">pandas</span></code> o <code class="docutils literal notranslate"><span class="pre">numpy</span></code>), solo utiliza librerías internas de python.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="numero-a-palabra">
+<h1><span class="section-number">7.4. </span>Número a palabra<a class="headerlink" href="#numero-a-palabra" title="Link to this heading">#</a></h1>
+<p>En este ejercicio la función de trabajo recibirá un número del 0 al 9 (inclusivo) y deberas imprimir en la consola el número con letras.
+Por ejemplo, <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">-&gt;</span> <span class="pre">&quot;Cero&quot;</span></code>.</p>
+<p>Completa la función <code class="docutils literal notranslate"><span class="pre">nombre</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Puedes modificar esto:</span>
+<span class="c1">#######################################</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">nombre</span><span class="p">(</span><span class="n">número</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Implementa la función&#39;</span><span class="p">)</span>
+<span class="c1">#######################################</span>
+
+
+<span class="c1"># No toques esto</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">nombre</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+Implementa la función
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -527,20 +580,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../unidad-6/modelos-mixtos.html"
+       href="muestreo-aleatorio.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">6.6. </span>Modelos Mixtos</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Muestreo aleatorio</p>
       </div>
     </a>
     <a class="right-next"
-       href="edad-en-rango.html"
+       href="pares.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>Edad en rango</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Pares</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
