@@ -1,1 +1,762 @@
-<meta http-equiv="Refresh" content="0; url=intro.html" />
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Curso-Taller Análisis Estadístico con Python" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://chrisdewa.github.io/curso_python/index.html" />
+<meta property="og:site_name" content="Curso-Taller de Análisis Estadístico con Python" />
+<meta property="og:description" content="Este Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, está diseñado para profesionales y estudiantes en áreas biomédicas que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos. Sitio oficial del c..." />
+<meta property="og:image" content="https://chrisdewa.github.io/curso_python/_static/logo.png" />
+<meta property="og:image:alt" content="Curso-Taller de Análisis Estadístico con Python" />
+<meta name="description" content="Este Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, está diseñado para profesionales y estudiantes en áreas biomédicas que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos. Sitio oficial del c..." />
+
+    <title>Curso-Taller Análisis Estadístico con Python &#8212; Curso-Taller de Análisis Estadístico con Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="1. Unidad 1: Aspectos Básicos" href="unidad-1/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso-Taller de Análisis Estadístico con Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Curso-Taller Análisis Estadístico con Python
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-1/index.html">1. Unidad 1: Aspectos Básicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-1/preparacion.html">1.1. Preparación inicial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="unidad-1/generalidades/index.html">1.2. Generalidades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="unidad-1/generalidades/algoritmica.html">1.2.2. Algorítmica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unidad-1/generalidades/programacion.html">1.2.3. Programación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unidad-1/generalidades/python.html">1.2.4. Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-1/opciones-de-trabajo.html">1.3. Dónde y cómo ejecutar Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-1/jupyter.html">1.4. Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-1/primera-libreta.html">1.5. Tu primera libreta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-1/conclusion.html">1.6. Conclusiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-2/index.html">2. Unidad 2: Python como calculadora</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-2/variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-2/tipos-de-datos.html">2.2. Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-2/operaciones-logicas.html">2.3. Operaciones lógicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-3/index.html">3. Unidad 3: Fundamentos de programación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-3/control-de-flujo.html">3.1. Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-3/funciones.html">3.2. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-3/librerias.html">3.3. Librerías</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-3/demo.html">3.4. Demostración con datos simulados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-4/index.html">4. Unidad 4: Aspectos básicos del análisis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/manejo-de-datos-tabulados.html">4.1. Manejo de datos tabulados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/palmer-penguins.html">4.2. Palmer Penguins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/descriptivos-basicos.html">4.3. Descriptivos básicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/visualizaciones.html">4.4. Visualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/inferencia-basica.html">4.5. Inferencia básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/modelado-fundamentos.html">4.6. Fundamentos de modelado estadístico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-4/rearreglos-de-datos.html">4.7. Rearreglo de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-5/index.html">5. Unidad 5: Procedimientos estadísticos frecuentes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/rendimiento-diagnostico.html">5.1. Medidas de rendimiento diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/curvas-roc.html">5.2. Curvas ROC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/medidas-de-asociacion.html">5.3. Medidas de asociación y correlación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/tama%C3%B1os-efecto.html">5.4. Tamaños del efecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/tama%C3%B1o-muestral.html">5.5. Tamaños de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/anova.html">5.6. Análisis de Varianza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/modelos-mixtos.html">5.7. Modelos Mixtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/glm.html">5.8. Regresión logística y GLM en <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-5/sobrevida.html">5.9. Análisis de sobrevida</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad-6/index.html">6. Unidad 6: Actualización e Inferencia Bayesiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/actualizacion-proporcion.html">6.1. Actualización de una Proporción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/pruebas-t.html">6.2. Pruebas T, parte 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/pruebas-t-2.html">6.3. Pruebas T, parte 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/actualizacion-media.html">6.4. Actualización de una media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/modelos-lineales.html">6.5. Modelos lineales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidad-6/modelos-mixtos.html">6.6. Modelos Mixtos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ejercicios/index.html">7. Ejercicios lógicos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/edad-en-rango.html">7.1. Edad en rango</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/imc.html">7.2. IMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/muestreo-aleatorio.html">7.3. Muestreo aleatorio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/n-a-palabra.html">7.4. Número a palabra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/pares.html">7.5. Pares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/parsing.html">7.6. Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejercicios/proporcion-simple.html">7.7. Proporción simple</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="otras-lecciones/index.html">8. Otras lecciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="otras-lecciones/comprensiones.html">8.1. Comprensiones en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otras-lecciones/f-strings.html">8.2. f-string: Dar formato al texto</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="recursos.html">9. Recursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulario.html">10. Formulario Estadístico Extendido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glosario.html">11. Glosario</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliografia.html">12. Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/edit/main/docs_raw/index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chrisdewa/curso_python/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Curso-Taller Análisis Estadístico con Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sitio-oficial-del-curso">Sitio oficial del curso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-aprender-programacion-estadistica">¿Por aprender programación estadística?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion">Descripción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-aprendizaje">Objetivo de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfil-de-ingreso">Perfil de ingreso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfil-de-egreso">Perfil de egreso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duracion-y-distribucion-horaria">Duración y distribución horaria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-para-tomar-el-curso">Requisitos para tomar el curso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licencia-y-uso-del-contenido">Licencia y uso del contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-contribuir">Cómo contribuir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-citar">Cómo citar</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="curso-taller-analisis-estadistico-con-python">
+<h1>Curso-Taller Análisis Estadístico con Python<a class="headerlink" href="#curso-taller-analisis-estadistico-con-python" title="Link to this heading">#</a></h1>
+<p><a href="https://doi.org/10.5281/zenodo.16290872"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.16290872.svg" alt="DOI"></a></p>
+<p>Este Curso-Taller de Python para Análisis Estadístico en Ciencias de la Salud, está diseñado para profesionales y estudiantes en áreas biomédicas que deseen adquirir competencias en programación con Python orientadas al análisis estadístico de datos clínicos y epidemiológicos.</p>
+<section id="sitio-oficial-del-curso">
+<h2>Sitio oficial del curso<a class="headerlink" href="#sitio-oficial-del-curso" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://chrisdewa.github.io/curso_python/">https://chrisdewa.github.io/curso_python/</a></p>
+</section>
+<section id="por-aprender-programacion-estadistica">
+<h2>¿Por aprender programación estadística?<a class="headerlink" href="#por-aprender-programacion-estadistica" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Reproducibilidad:</strong> Python permite documentar cada paso del análisis, facilitando la replicación científica, a diferencia de SPSS o Excel.</p></li>
+<li><p><strong>Escalabilidad:</strong> Soporta grandes volúmenes de datos y análisis complejos sin las limitaciones técnicas de herramientas gráficas. Puedes analizar datasets de millones de filas sin una supercomputadora o realizar análisis computacionalmente exigentes con más seguridad.</p></li>
+<li><p><strong>Autonomía:</strong> Al aprender a programar, adquieres independencia técnica para adaptar análisis a tus necesidades, sin depender de menús preestablecidos. Además, la herramienta se adapta a tus necesidades en todo momento.</p></li>
+<li><p><strong>Agiliza flujos de trabajo:</strong> Python agiliza tus flujos de trabajo mediante la automatización de análisis o de problemas informáticos frecuentes.</p></li>
+<li><p><strong>Integración moderna:</strong> Python es estándar en ciencia de datos, con bibliotecas para estadística, visualización, machine learning y manejo de datos clínicos.</p></li>
+</ul>
+</section>
+<section id="descripcion">
+<h2>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">#</a></h2>
+<p>A través de clases teóricas y práctica intensiva, los participantes desarrollarán habilidades para:</p>
+<ul class="simple">
+<li><p>Manipular datos con Python.</p></li>
+<li><p>Generar visualizaciones efectivas.</p></li>
+<li><p>Aplicar métodos estadísticos básicos y avanzados.</p></li>
+<li><p>Comunicar resultados de forma reproducible en Jupyter Notebooks.</p></li>
+</ul>
+</section>
+<section id="objetivo-de-aprendizaje">
+<h2>Objetivo de aprendizaje<a class="headerlink" href="#objetivo-de-aprendizaje" title="Link to this heading">#</a></h2>
+<p>Al finalizar el curso, la persona participante será capaz de realizar análisis estadísticos reproducibles en Python aplicados a datos de salud, incluyendo la exploración, limpieza, visualización, aplicación de pruebas estadísticas, modelos de regresión y generación de reportes científicos en Jupyter Notebooks.</p>
+<div class="tip admonition">
+<p class="admonition-title">¿Qué aprenderás?</p>
+<ul class="simple">
+<li><p>Conceptos fundamentales de programación.</p></li>
+<li><p>Aplicaciones estadísticas con Python.</p></li>
+<li><p>Uso de JupyterLab y bibliotecas científicas.</p></li>
+</ul>
+</div>
+</section>
+<section id="perfil-de-ingreso">
+<h2>Perfil de ingreso<a class="headerlink" href="#perfil-de-ingreso" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Profesionales de la salud en medicina, enfermería, ciencias paraclínicas, biología, química o disciplinas relacionadas con la investigación biomédica.</p></li>
+<li><p>Que cuenten con conocimientos básicos en estadística y metodología de la investigación.</p></li>
+<li><p>Se sugiere contar con estudios de posgrado (especialidad o maestría en ciencias de la salud o áreas afines), aunque no es un requisito indispensable.</p></li>
+<li><p>Interés en aplicar programación para análisis de datos clínicos, epidemiológicos o de investigación en salud.</p></li>
+<li><p>Habilidad para el autoaprendizaje y disposición para realizar actividades prácticas de forma autónoma.</p></li>
+</ul>
+</section>
+<section id="perfil-de-egreso">
+<h2>Perfil de egreso<a class="headerlink" href="#perfil-de-egreso" title="Link to this heading">#</a></h2>
+<p>La persona egresada del curso será capaz de:</p>
+<ul class="simple">
+<li><p>Configurar entornos de trabajo locales y en la nube utilizando JupyterLab y otras herramientas de código abierto.</p></li>
+<li><p>Programar análisis estadísticos básicos y avanzados empleando bibliotecas científicas validadas como <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> y <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
+<li><p>Automatizar flujos de trabajo de análisis y generación de reportes en salud.</p></li>
+<li><p>Aplicar buenas prácticas de documentación, versionado y reproducibilidad científica en sus proyectos.</p></li>
+<li><p>Integrar conocimientos estadísticos con programación en Python para resolver problemas reales en el ámbito clínico, epidemiológico o académico.</p></li>
+</ul>
+</section>
+<section id="duracion-y-distribucion-horaria">
+<h2>Duración y distribución horaria<a class="headerlink" href="#duracion-y-distribucion-horaria" title="Link to this heading">#</a></h2>
+<p>La duración aproximada total del curso es de <strong>300 horas</strong>, que incluyen la lectura y comprensión de los temas, ejecución del código y ejercicios y clases guiadas por el autor.</p>
+</section>
+<section id="requisitos-para-tomar-el-curso">
+<h2>Requisitos para tomar el curso<a class="headerlink" href="#requisitos-para-tomar-el-curso" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Requisito</p></th>
+<th class="head"><p>Explicación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dominio intermedio del inglés</p></td>
+<td><p>Aunque el contenido del curso está en español, Python y la mayoría de su documentación están en inglés. Se recomienda un nivel mínimo B1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Conocimientos básicos de estadística y metodología de investigación</p></td>
+<td><p>Son necesarios para adquirir adecuadamente las competencias del curso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Computadora personal (Mac, Windows o Linux)</p></td>
+<td><p>Es indispensable para instalar el software y realizar las actividades prácticas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Práctica diaria</p></td>
+<td><p>Python requiere práctica constante para un aprendizaje efectivo.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="licencia-y-uso-del-contenido">
+<h2>Licencia y uso del contenido<a class="headerlink" href="#licencia-y-uso-del-contenido" title="Link to this heading">#</a></h2>
+<p>CC BY-NC-ND 4.0 © Copyright 2025. Christian Alejandro Delaflor Wagner.</p>
+<p><em>Usted puede compartir el material siempre que siga los términos de la licencia</em>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Términos</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Atribución</p></td>
+<td><p>Usted debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que usted o su uso tienen el apoyo de la licenciante.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NoComercial</p></td>
+<td><p>Usted no puede hacer uso del material con propósitos comerciales.</p></td>
+</tr>
+<tr class="row-even"><td><p>SinDerivadas</p></td>
+<td><p>Si remezcla, transforma o crea a partir del material, no podrá distribuir el material modificado</p></td>
+</tr>
+<tr class="row-odd"><td><p>No hay restricciones adicionales</p></td>
+<td><p>No puede aplicar términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Licencia completa: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode">https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode</a>.</p>
+</section>
+<section id="como-contribuir">
+<h2>Cómo contribuir<a class="headerlink" href="#como-contribuir" title="Link to this heading">#</a></h2>
+<p>Este repositorio está abierto a contribuciones externas.<br />
+Si deseas mejorar el contenido, corregir errores o proponer nuevas ideas, puedes abrir un <em>issue</em> o enviar un <em>pull request</em>.</p>
+<p>Las contribuciones serán agradecidas y, si se incorporan, serán desplegadas públicamente en el curso con el debido reconocimiento.</p>
+<p>Sin embargo, no generarán derechos de autoría ni retribuciones económicas.</p>
+</section>
+<section id="como-citar">
+<h2>Cómo citar<a class="headerlink" href="#como-citar" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Delaflor Wagner, C. A. (2025). Curso-Taller de Análisis Estadístico con Python. Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.16290872">https://doi.org/10.5281/zenodo.16290872</a></p>
+</div></blockquote>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="unidad-1/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Unidad 1: Aspectos Básicos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sitio-oficial-del-curso">Sitio oficial del curso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-aprender-programacion-estadistica">¿Por aprender programación estadística?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion">Descripción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-aprendizaje">Objetivo de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfil-de-ingreso">Perfil de ingreso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfil-de-egreso">Perfil de egreso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duracion-y-distribucion-horaria">Duración y distribución horaria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-para-tomar-el-curso">Requisitos para tomar el curso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licencia-y-uso-del-contenido">Licencia y uso del contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-contribuir">Cómo contribuir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-citar">Cómo citar</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Christian Alejandro Delaflor Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC BY-NC-ND 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

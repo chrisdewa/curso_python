@@ -1,6 +1,6 @@
 [project]
 name = "curso-python"
-version = "0.6.0"
+version = "0.7.0"
 description = "Curso-Taller de Análisis Estadístico con Python para ciencias de la salud y afines."
 authors = [
     {name = "Christian Alejandro Delaflor Wagner"}
@@ -23,5 +23,6 @@ dependencies = [
     "scipy>=1.15.3",
     "seaborn>=0.13.2",
     "sphinxcontrib-mermaid>=1.0.0",
+    "sphinxext-opengraph>=0.11.0",
     "statsmodels>=0.14.4",
 ]

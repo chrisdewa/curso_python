@@ -86,3 +86,19 @@ Si encuentras más material que consideres valioso puedes abrir un `issue` para 
 - **Jupyter Notebook/JupyterLab:** entornos de trabajo interactivo para ejecutar y documentar código.
 - **Google Colab:** alternativa en la nube para ejecutar notebooks sin instalación local.
 - **uv:** gestor de entornos utilizado en el repositorio para instalar dependencias.
+
+(ejercicios-logicos-target)=
+## Ejercicios Lógicos
+
+En los siguientes enlaces encontrarás múltiples problemas lógicos para practicar el pensamiento programático y tus habilidades con el código.
+
+| Recurso         | Descripción                                                                            | Liga                                           |
+|-----------------|----------------------------------------------------------------------------------------|------------------------------------------------|
+| LeetCode        | Problemas estructurados, útil para entrevistas técnicas y mejorar algoritmos.          | [LeetCode](https://leetcode.com/)              |
+| Codewars        | Desafíos (“katas”) que puedes resolver en múltiples lenguajes, con sistema de niveles. | [Codewars](https://www.codewars.com/)          |
+| CodinGame       | Juegos y desafíos interactivos con visualización en tiempo real.                       | [CodinGame](https://www.codingame.com/)        |
+| HackerRank      | Plataforma para practicar estructuras de datos, algoritmos y SQL, entre otros.         | [HackerRank](https://www.hackerrank.com/)      |
+| Project Euler   | Problemas matemáticos para resolver programando, ideal para lógica y análisis numérico.| [Project Euler](https://projecteuler.net/)     |
+| CheckIO         | Enfocado en Python, con misiones visuales tipo juego, ideal para nivel intermedio.     | [CheckIO](https://checkio.org/)                |
+| Advent of Code  | Retos diarios de programación publicados en diciembre, muchos con soluciones creativas.| [Advent of Code](https://adventofcode.com/)    |
+| Edabit          | Plataforma amigable con ejercicios cortos y variados en dificultad.                    | [Edabit](https://edabit.com/challenges/python3)|

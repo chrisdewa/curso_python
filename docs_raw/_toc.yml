@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: index
 options:
   numbered: true
 chapters:
@@ -57,6 +57,9 @@ chapters:
       - file: unidad-6/actualizacion-media
       - file: unidad-6/modelos-lineales
       - file: unidad-6/modelos-mixtos
+  - file: ejercicios/index
+    sections:
+      - glob: ejercicios/*
   - file: otras-lecciones/index
     sections:
       - glob: otras-lecciones/* 
