@@ -55,7 +55,7 @@ flowchart TD
   D2 --> D3[Cortar por la mitad]
   D3 --> D4[Separar mitades]
   D4 --> D41[mitad 1] & D42[mitad 2] --> D5[Agregar mitad al exprimidor]
-  D5 --> D6[Presionar y girar sobre jarra]
+  D5 --> D6[Exprimir sobre jarra]
   D6 --> D8{¿Quedan más limones?}
 
   D8 -- Sí --> D1
