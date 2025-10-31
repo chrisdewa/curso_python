@@ -20,6 +20,10 @@ Este algoritmo puede representarse de diversas formas, por ejemplo, a través de
 
 Este flujograma permite al programador estructurar cómo resolver el problema en cuestión.
 
+:::{warning}
+En modo oscuro el diagrama puede ser difícil de leer, si esto te pasa, busca el ícono <i class="fas fa-moon"></i> en la parte superior de la pantalla para pasar el modo luminoso, puedes volver a activar el modo oscuro con el botón <i class="fas fa-sun"></i>
+:::
+
 ```{mermaid}
 flowchart TD
   A[Problema o necesidad] --> B[Idea de solución]
@@ -68,6 +72,9 @@ flowchart TD
   J -- Sí --> K[Servir en vaso con hielo]
 
 ```
+:::{note}
+Quizá prefieres primero azucarar el agua antes de agregar el jugo de limón, si es así, intenta repetir el algoritmo con tu preferencia.
+:::
 
 :::{tip}
 Te recomiendo que veas este video por Josh Darnit, muy relacionado con el ejercicio que tienes frente a tí.
