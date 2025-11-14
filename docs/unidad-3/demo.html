@@ -590,7 +590,7 @@ talla: mediana= 1.67 (1.62 - 1.69)
 </div>
 </div>
 </div>
-<p>Utilizando ahora un librería externa podemos calcular datos más poderosos, por ejemplo, podemos utilizar la prueba de <a class="reference external" href="https://es.wikipedia.org/wiki/Prueba_de_Shapiro-Wilk">Shapiro-Wilk</a> para ver si los datos son o no normales.</p>
+<p>Utilizando ahora un librería externa podemos calcular datos más poderosos, por ejemplo, podemos utilizar la prueba de <a class="reference external" href="https://es.wikipedia.org/wiki/Prueba_de_Shapiro-Wilk">Shapiro-Wilk</a> con la finalidad de identificar desviaciones significativas de una distribución normal.</p>
 <p>La prueba está integrada dentro de la librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> y su documentación se puede consultar <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html#shapiro">aquí</a>.</p>
 <p>Respecto a la expresión ternaria, recuerda revisar el tema <a class="reference internal" href="control-de-flujo.html#expresion-ternaria-target"><span class="std std-ref">aquí</span></a></p>
 <div class="cell docutils container">
@@ -617,7 +617,11 @@ Resultado de shapiro wilk: Normal con p=0.608918875551153
 </div>
 </div>
 </div>
-<p>Ambas variables son normales, segun la prueba.</p>
+<p>De acuerdo a los resultados, no encontramos desviaciones significativas de una distribución normal, o dicho de otra forma, no se rechaza la hipótesis nula de que las variables vienen de una distribución normal.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Sugiero revisar <a class="reference external" href="https://stats.stackexchange.com/questions/2492/is-normality-testing-essentially-useless">esta</a> discusión sobre el uso de este tipo de pruebas.</p>
+</div>
 <p>Esta libreta es un breve ejemplo de cómo podemos utilizar python, en forma lineal para resolver problemas estadísticos con una muestra de pacientes. En la siguiente unidad veremos aspectos específicos y dirigidos del análisis estadístico.</p>
 </section>
 

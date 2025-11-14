@@ -72,6 +72,9 @@ flowchart TD
   J -- Sí --> K[Servir en vaso con hielo]
 
 ```
+:::{note}
+Quizá prefieres primero azucarar el agua antes de agregar el jugo de limón, si es así, intenta repetir el algoritmo con tu preferencia.
+:::
 
 :::{tip}
 Te recomiendo que veas este video por Josh Darnit, muy relacionado con el ejercicio que tienes frente a tí.
